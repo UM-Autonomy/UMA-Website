@@ -1,6 +1,12 @@
-- name: Blog
-  link: /blog/
 - name: About
   link: /about/
 - name: Contact
   link: /contact/
+- name: MARG
+  link:
+- name:
+  link:
+- name: The Team
+  link:
+- name:
+  link:
