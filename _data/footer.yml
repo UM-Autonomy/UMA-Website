@@ -1,10 +1,3 @@
-left_links:
-  - name: Blog
-    link: /blog/
-  - name: About
-    link: /about/
-  - name: Contact
-    link: /contact/
 right_links:
   - name:
     link: https://facebook.com/cloudcannon
@@ -13,10 +6,6 @@ right_links:
   - name:
     link: https://twitter.com/cloudcannon
     social_icon: Twitter
-    new_window: true
-  - name:
-    link: https://youtube.com/c/cloudcannon
-    social_icon: YouTube
     new_window: true
   - name:
     link: https://instagram.com/
