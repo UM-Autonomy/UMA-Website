@@ -25,16 +25,16 @@
 	.inner-hero {
 		display: flex;
 		align-items: center;
-		height: 60%;
+		height: 70%;
 	}
 
 	.hero-text-container {
-		width: 600px;
-		text-align:left;
-
-		h1, h2, p, .button {
-			text-shadow: 1px 1px 1px rgba(0,0,0,.8);
-		}
+		width: 500px;
+		text-align:center;
+		background-color: rgba(0, 0, 0, 0.8);
+		// h1, h2, p, .button {
+		// 	text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+		// }
 	}
 
 	.hero-text-right {
@@ -64,11 +64,16 @@
 		.text, .image {
 			-webkit-flex: 1;
 			flex: 1;
-			padding: 0 20px;
+			font-size: 12pt;
+			padding: 0px 100px;
 		}
 	}
 
 	.content section:nth-child(even) .flex {
 		flex-direction: row-reverse;
 	}
+}
+
+p {
+	font-size: 14pt;
 }
