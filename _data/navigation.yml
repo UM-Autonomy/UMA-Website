@@ -1,10 +1,6 @@
 - name: The Team
   link: /about/
-- name: MARG
-  link:
-  name: History
+- name: History
   link: /history/
-- name: The Team
-  link: /team/
 - name: Sponsors
   link: /sponsors/
