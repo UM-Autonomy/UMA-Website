@@ -1,3 +1,5 @@
+- name: Home
+  link: /index/
 - name: The Team
   link: /about/
 - name: History
