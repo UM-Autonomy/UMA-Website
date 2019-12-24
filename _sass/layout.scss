@@ -226,3 +226,8 @@ blockquote:before {
 .cms-editor-active .editor-link {
   display: block;
 }
+
+.image {
+  max-height: 400px;
+  overflow: hidden;
+}
