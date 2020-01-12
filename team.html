@@ -24,14 +24,16 @@ image: /images/teampic.jpg
 	<div class="container">
 		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="leadership">
-			{% for person in site.staff_members %}
+			{% for person in site.team_members %}
 				{% if person.category == "leadership" %}
 				<li>
+					<a href="{{ person.contact }}" target="_blank">
 					<div 
 					{% if person.rotate %}
 					class="rotate-image square-image"
 					{% endif %}
 					class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
+					</a>
 					<div class="name">{{ person.name }}</div>
 					<div class="position">{{ person.position }}</div>
 				</li>
@@ -48,14 +50,16 @@ image: /images/teampic.jpg
 	<div class="container">
 		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="ai">
-			{% for person in site.staff_members %}
+			{% for person in site.team_members %}
 				{% if person.category == "ai" %}
 				<li>
+					<a href="{{ person.contact }}" target="_blank">
 					<div 
 					{% if person.rotate %}
 					class="rotate-image square-image"
 					{% endif %}
 					class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
+					</a>
 					<div class="name">{{ person.name }}</div>
 					<div class="position">{{ person.position }}</div>
 				</li>
@@ -72,14 +76,16 @@ image: /images/teampic.jpg
 	<div class="container">
 		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="business">
-			{% for person in site.staff_members %}
+			{% for person in site.team_members %}
 				{% if person.category == "business" %}
 				<li>
+					<a href="{{ person.contact }}" target="_blank">
 					<div 
 					{% if person.rotate %}
 					class="rotate-image square-image"
 					{% endif %}
 					class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
+					</a>
 					<div class="name">{{ person.name }}</div>
 					<div class="position">{{ person.position }}</div>
 				</li>
@@ -96,14 +102,16 @@ image: /images/teampic.jpg
 	<div class="container">
 		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="electrical">
-			{% for person in site.staff_members %}
+			{% for person in site.team_members %}
 				{% if person.category == "electrical" %}
 				<li>
+					<a href="{{ person.contact }}" target="_blank">
 					<div 
 					{% if person.rotate %}
 					class="rotate-image square-image"
 					{% endif %}
 					class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
+					</a>
 					<div class="name">{{ person.name }}</div>
 					<div class="position">{{ person.position }}</div>
 				</li>
@@ -120,11 +128,13 @@ image: /images/teampic.jpg
 	<div class="container">
 		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="hulls-and-systems">
-			{% for person in site.staff_members %}
+			{% for person in site.team_members %}
 				{% if person.category == "hulls-and-systems" %}
 				<li>
+					<a href="{{ person.contact }}" target="_blank">
 					<div
 					class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
+					</a>
 					<div class="name">{{ person.name }}</div>
 					<div class="position">{{ person.position }}</div>
 				</li>
