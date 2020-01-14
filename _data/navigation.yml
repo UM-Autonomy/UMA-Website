@@ -1,6 +1,10 @@
+- name: Home
+  link: /index/
 - name: The Team
-  link: /about/
+  link: /team/
 - name: History
   link: /history/
 - name: Sponsors
   link: /sponsors/
+- name: Contact Us
+  link: /contact/

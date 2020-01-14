@@ -1,16 +1,16 @@
 right_links:
   - name:
-    link: https://facebook.com/cloudcannon
+    link: https://www.facebook.com/umautonomy/
     new_window: true
     social_icon: Facebook
   - name:
-    link: https://twitter.com/cloudcannon
+    link: https://twitter.com/UMAutonomy
     social_icon: Twitter
     new_window: true
-  - name:
-    link: https://instagram.com/
-    social_icon: Instagram
-    new_window: true
-  - name:
-    link: /feed.xml
-    social_icon: RSS
+  # - name:
+  #   link: https://instagram.com/
+  #   social_icon: Instagram
+  #   new_window: true
+  # - name:
+  #   link: /feed.xml
+  #   social_icon: RSS
