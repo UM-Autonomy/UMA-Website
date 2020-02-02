@@ -1,5 +1,5 @@
 ---
-name: Impeach Rourke
+name: Rourke Pattullo
 position: President
 category: leadership
 image_path: /images/headshots/Leadership/Rourke.jpg
