@@ -25,6 +25,7 @@
 	.inner-hero {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		height: 100%;
 	}
 
@@ -74,10 +75,10 @@
 }
 
 h1 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', 'Lato', sans-serif;
 }
 
 p {
 	font-size: 14pt;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', 'Lato', sans-serif;
 }
