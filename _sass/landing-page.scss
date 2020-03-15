@@ -82,3 +82,26 @@ p {
 	font-size: 14pt;
 	font-family: 'Open Sans', 'Lato', sans-serif;
 }
+
+@media (max-width: 550px) {
+	.big-container {
+		display: none;
+	}
+ }
+ @media (min-width: 550px) {
+	.small-container {
+		display: none;
+	}
+ }
+ 
+
+.calendar {
+	text-align: center; 
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+	.calendar {
+		display: none !important;
+	}
+}
