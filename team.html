@@ -23,7 +23,7 @@ image: /images/teampic.jpg
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
 			<h1 class="editable">The Team</h1>
-			<p class="subtext editable">Get to know our extremely talented members.</p>
+			<p class="subtext editable">Get to know our talented members.</p>
 		</div>
 	</div>
 </section>
@@ -32,8 +32,8 @@ image: /images/teampic.jpg
 	<div class="container">
 		<h2 class="editable">Leadership</h1>
 	</div>
+
 	<div class="container">
-		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="leadership">
 			{% for person in site.team_members %}
 				{% if person.category == "leadership" %}
@@ -59,7 +59,6 @@ image: /images/teampic.jpg
 		<h2 class="editable">Artificial Intelligence</h1>
 	</div>
 	<div class="container">
-		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="ai">
 			{% for person in site.team_members %}
 				{% if person.category == "ai" %}
@@ -85,7 +84,6 @@ image: /images/teampic.jpg
 		<h2 class="editable">Business</h1>
 	</div>
 	<div class="container">
-		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="business">
 			{% for person in site.team_members %}
 				{% if person.category == "business" %}
@@ -111,7 +109,6 @@ image: /images/teampic.jpg
 		<h2 class="editable">Electrical</h1>
 	</div>
 	<div class="container">
-		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="electrical">
 			{% for person in site.team_members %}
 				{% if person.category == "electrical" %}
@@ -137,7 +134,6 @@ image: /images/teampic.jpg
 		<h2 class="editable">Hulls and Systems</h1>
 	</div>
 	<div class="container">
-		<p class="editor-link"><a href="/images/headshots/" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
 		<ul class="staff" id="hulls-and-systems">
 			{% for person in site.team_members %}
 				{% if person.category == "hulls-and-systems" %}
