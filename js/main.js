@@ -11,6 +11,13 @@ $(document).ready(function () {
 		changeHeader();
 	});
 
+	// Allow links and navbar transition to work in sandwich mode 
+	document.getElementById("open-nav").addEventListener("click", function (event) {
+		event.preventDefault();
+		document.body.classList.toggle("nav-open");
+		changeHeader();
+	});
+
 	changeHeader();
 
 })();
