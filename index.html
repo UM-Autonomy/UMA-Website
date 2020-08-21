@@ -18,6 +18,7 @@ bottom-image: "/images/rourke1.jpg"
     href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
   <!-- Good times:"https://www.youtube.com/watch?v=6vHIPtUw9bo" -->
@@ -127,3 +128,34 @@ bottom-image: "/images/rourke1.jpg"
        height="600" frameborder="0" scrolling="no"></iframe>
   </div> 
 </div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="announcementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">We are getting ready for Fall 2020!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Festifall session: 
+          <br/>August 30, 2020 | 10:00a.m - 2:00p.m EDT</p>
+        <a href="https://campusinvolvement.umich.edu/attending-festifall" role="button" class="btn btn-primary" target="_blank">Festifall participant webpage</a>
+        <p>&nbsp;</p>
+        <p>Fill in the interest form and we'll keep you updated. Hope to see you during Festifall!</p>
+        <a href="https://docs.google.com/forms/d/1Spxvq1PUflWMnOK-H0eFihx6PcC4YHnQ51lgbwsogcw/edit" role="button" class="btn btn-primary" target="_blank">Interest Form</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    $("#announcementModal").modal()
+  });
+</script>
