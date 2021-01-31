@@ -1,6 +1,6 @@
 ---
-name: Calvin Huang
+name: Luke Lesh
 category: ai
-image_path: /images/headshots/AI/CalvinHuang.png
-contact: https://www.linkedin.com/in/calvin-huang-9385ba165/
+image_path: /images/headshots/AI/LukeLesh.jpeg
+contact: mailto:leshlu@umich.edu
 ---

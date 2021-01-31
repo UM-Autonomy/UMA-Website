@@ -1,7 +1,6 @@
 ---
 name: Ryan Do
-position: Vice President
-category: leadership
+category: ai
 image_path: /images/headshots/Leadership/RyanDo.jpg
 contact: https://www.linkedin.com/in/ryan-do-umich/
 ---

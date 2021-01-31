@@ -1,6 +1,6 @@
 ---
-name: Calvin Huang
+name: Nathan Rossol
 category: ai
-image_path: /images/headshots/AI/CalvinHuang.png
-contact: https://www.linkedin.com/in/calvin-huang-9385ba165/
+image_path: /images/headshots/AI/NathanRossol.PNG
+contact: https://www.linkedin.com/in/nathan-rossol-131092143/
 ---
