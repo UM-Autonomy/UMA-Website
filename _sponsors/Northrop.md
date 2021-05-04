@@ -1,5 +1,5 @@
 ---
 name: Northrop Grumman
-image_path: ..images/sponsors/Northrop_Grumman.svg
+image_path: ../images/sponsors/northrop.png
 level: Gold
 ---

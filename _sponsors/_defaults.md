@@ -1,5 +1,5 @@
 ---
-name: 
+name:
 image_path:
 level:
 ---

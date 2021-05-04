@@ -39,14 +39,14 @@ image: /images/offshorebackground.jpg
 	{% if sponsor.level == "Platinum" %}
 	<section class="info">
 		<div class="container flex">
-			<div class="text">
+			<!-- <div class="text">
 				<h3 class="editable">
 					{{ sponsor.title }}
 				</h3>
-				<!-- <p class="editable" style="font-family: 'Open Sans', sans-serif;">
+				<p class="editable" style="font-family: 'Open Sans', sans-serif;">
 					{{ sponsor.description }}
-				</p> -->
-			</div>
+				</p>
+			</div> -->
 			<div class="image">
 				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
 			</div>
@@ -69,14 +69,14 @@ image: /images/offshorebackground.jpg
 	{% if sponsor.level == "Gold" %}
 	<section class="info">
 		<div class="container flex">
-			<div class="text">
+			<!-- <div class="text">
 				<h3 class="editable">
 					{{ sponsor.title }}
 				</h3>
-				<!-- <p class="editable">
+				<p class="editable">
 					{{ sponsor.description }}
-				</p> -->
-			</div>
+				</p>
+			</div> -->
 			<div class="image">
 				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
 			</div>
@@ -98,14 +98,14 @@ image: /images/offshorebackground.jpg
 	{% if sponsor.level == "Silver" %}
 	<section class="info">
 		<div class="container flex">
-			<div class="text">
+			<!-- <div class="text">
 				<h3 class="editable">
 					{{ sponsor.title }}
 				</h3>
-				<!-- <p class="editable">
+				<p class="editable">
 					{{ sponsor.description }}
-				</p> -->
-			</div>
+				</p>
+			</div> -->
 			<div class="image">
 				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
 			</div>
@@ -114,27 +114,28 @@ image: /images/offshorebackground.jpg
 	{% endif %}
 	{% endfor %}
 
-	<section class="info" id="learn-more">
+	<!-- <section class="info" id="learn-more">
 		<div class="container flex">
 			<div class="text">
 				<h1 class="editable" style="text-align: center;">
 					Bronze
 				</h1>
 			</div>
-	</section>
+	</section> -->
 
 	{% for sponsor in site.sponsors %}
 	{% if sponsor.level == "Bronze" %}
 	<section class="info">
 		<div class="container flex">
-			<div class="text">
+			<!-- <div class="text">
 				<h3 class="editable">
 					{{ sponsor.title }}
 				</h3>
-				<!-- <p class="editable">
+				<p class="editable">
 					{{ sponsor.description }}
-				</p> -->
-			</div>
+				</p>
+			</div> -->
+			
 			<div class="image">
 				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
 			</div>
@@ -143,4 +144,26 @@ image: /images/offshorebackground.jpg
 	{% endif %}
 	{% endfor %}
 
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<p>
+					Lastly, thank you to our alumni and friends for your donations during Giving Blue Day!
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<p>If you are interested in sponsoring UM::Autonomy, please email our next year's business leads for more information:
+				</p>
+				<p>
+					Michael Kieffer |  | <SCRIPT LANGUAGE="JavaScript">user = 'mikieffe';site = 'umich.edu';document.write('<a href=\"mailto:' + user + '@' + site + '\">');document.write(user + '@' + site + '</a>');</SCRIPT> <br />
+					Dora Guo  | <SCRIPT LANGUAGE="JavaScript">user = 'doraguo';site = 'umich.edu';document.write('<a href=\"mailto:' + user + '@' + site + '\">');document.write(user + '@' + site + '</a>');</SCRIPT> <br />
+				</p>
+			</div>
+		</div>
+	</section>
 </div>
