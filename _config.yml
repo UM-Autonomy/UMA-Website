@@ -41,6 +41,7 @@ collections:
     _hide_content: true
     _icon: account_circle
   sponsors:
+  boats:
 
 paginate: 10
 paginate_path: "/blog/:num/"
