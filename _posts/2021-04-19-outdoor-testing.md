@@ -4,19 +4,32 @@ date: 2021-04-19
 description: Outdoor testing event
 categories:
   - technical
-  - team
-image: https://source.unsplash.com/collection/375719/2000x1322?a=.png
+image: /images/blog/outdoor-testing/main.jpg
 author_staff_member:
 ---
 
-Friendship is a relationship of mutual affection between people. Friendship is a stronger form of interpersonal bond than an association. Friendship has been studied in academic fields such as sociology, social psychology, anthropology, and philosophy. Various academic theories of friendship have been proposed, including social exchange theory, equity theory, relational dialectics, and attachment styles. A World Happiness Database study found that people with close friendships are happier.
+After an entire year of mostly remote work, UM::Autonomy organized our first in-person event to test out the boat and drone we built. As this year's competition is virtual, the testing event was a great opportunity for us to celebrate the effort and time we have put in as a team the past year.
 
-![Checkmate](https://source.unsplash.com/random/1500x1000)
+While we had some successes (the boat floated!), we found areas for improvement. We needed to work more on drone calibration before take-off and had some challenges with connecting the boat to our autonomous software component.
 
-## Forms of friendship
+Nevertheless, it was extremely satisfying to see the results of our hard work and for the team to be able to have a socially-distanced gathering before the end of the academic year.
 
-Although there are many forms of friendship, some of which may vary from place to place, certain characteristics are present in many types of bond. Such characteristics include affection, sympathy, empathy, honesty, altruism, mutual understanding, and compassion, enjoyment of each other's company, trust, and the ability to be oneself, express one's feelings, and make mistakes without fear of judgment from the friend.
+## Drone Testing
 
-While there is no practical limit on what types of people can form a friendship, friends tend to share common backgrounds, occupations, or interests and have similar demographics.
+Date: 17th April 2021
 
-![Raspberries](https://source.unsplash.com/random/1500x1001)
+Location: M-Air
+
+![Drone Testing Group Picture](/images/blog/outdoor-testing/drone-group.jpg)
+
+![Drone](/images/blog/outdoor-testing/drone.jpg)
+
+## Boat Testing
+
+Date: 18th April 2021
+
+Location: Music Pond
+
+![Boat Testing Group Picture](/images/blog/outdoor-testing/boat-group.jpg)
+
+![Boat](/images/blog/outdoor-testing/boat.jpg)
