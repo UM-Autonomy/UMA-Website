@@ -10,15 +10,11 @@ disqus_shortname:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: App marketing template for Jekyll.
+description: Official website for UM Autonomy
 author:
-  name:
-  email:
-  twitter: # twitter username without the @ symbol
-social:
-  name: Frisco Template
-  links:
-    - https://github.com/CloudCannon/frisco-jekyll-template
+  name: UM Autonomy
+  email: umautonomy@umich.edu
+  twitter: https://twitter.com/UMAutonomy
 
 # -----
 # Build
@@ -41,34 +37,33 @@ exclude:
   - LICENCE
 
 collections:
-  staff_members:
+  team_members:
     _hide_content: true
     _icon: account_circle
+  sponsors:
+  boats:
 
 paginate: 10
 paginate_path: "/blog/:num/"
 
 jekyll-archives:
-  enabled: ['categories']
+  enabled: ["categories"]
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
-      type: "staff_members"
+      type: "team_members"
     values:
       _options:
         image_path:
           width: 440
           height: 440
-          uploads_dir: "/images/staff_members"
-  -
-    scope:
+          uploads_dir: "/images/team_members"
+  - scope:
       path: ""
     values:
       layout: "default"
-  -
-    scope:
+  - scope:
       type: "posts"
     values:
       layout: "post"
@@ -82,13 +77,11 @@ defaults:
           width: 1500
           height: 2000
           uploads_dir: "/images/post_uploads"
-  -
-    scope:
+  - scope:
       path: "contact-success.html"
     values:
       layout: "page"
-  -
-    scope:
+  - scope:
       path: ""
       type: "pages"
     values:
@@ -117,5 +110,5 @@ social_icons:
   - RSS
 
 _comments:
-  description: Text shown when sharing on social media
-  blurb: Short bio or description of this person
+  description: The official UM Autonomy website
+  blurb: Learn more about UMA here!

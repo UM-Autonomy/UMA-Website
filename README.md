@@ -1,27 +1,22 @@
 # The *NEW* and *IMPROVED* UMA Website
 
+This is the new UMA website originally developed by Rimaz Khan and Sim Yi Lin in 2019 and launched in 2020. It uses Jekyll as the templating engine, Sass for styling, and is based off of the Frisco Jekyll template. 
+
 ## Features
 
-* Contact form
-* Pre-built pages
-* Pre-styled components
-* Blog with pagination
-* Post category pages
-* Disqus comments for posts
+* Team page with Linkedin profile links
+* Sponsors page
+* Team history page
+* Contact Info page
+* Static templating with Jekyll
 * Staff and author system
 * Configurable footer
 * Optimised for editing in [CloudCannon](http://cloudcannon.com/)
-* RSS/Atom feed
 * SEO tags
 * Google Analytics
 
-## Setup
 
-1. Add your site and author details in `_config.yml`.
-2. Add your Google Analytics and Disqus keys to `_config.yml`.
-3. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or Jekyll locally).
-
-## Develop
+## Develop and testing
 
 ~~~bash
 $ bundle install

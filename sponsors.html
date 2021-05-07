@@ -1,15 +1,19 @@
 ---
-title: Team Hisory
+title: Sponsors
+description: The great companies that sponsor UMA.
 image: /images/offshorebackground.jpg
 ---
+
 <head>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 </head>
 
 <section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
-			<h1 class="editable" style="font-family: 'Open Sans', sans-serif;">
+			<h1 class="editable">
 				Sponsors
 			</h1>
 			<p class="subtext editable">
@@ -25,91 +29,118 @@ image: /images/offshorebackground.jpg
 	<section class="info" id="learn-more">
 		<div class="container flex">
 			<div class="text">
-				<h2 class="editable">
+				<h1 class="editable" style="text-align: center;">
 					Platinum
-				</h2>
-		</div>
+				</h1>
+			</div>
 	</section>
 
+	{% for sponsor in site.sponsors %}
+	{% if sponsor.level == "Platinum" %}
 	<section class="info">
 		<div class="container flex">
 			<div class="text">
 				<h3 class="editable">
-					U-M Engineering
+					{{ sponsor.title }}
 				</h3>
-				<p class="editable">
-					Strengthened by 70,000 Engineering alumni and countless friends, a public mission and U-M’s across-the-board academic excellence —
-					 95 graduate programs in the US News top ten — 
-					they’ve stretched well beyond renowned technical leadership and superb career preparation. They’re focused on growing a creative community.
+				<p class="editable" style="font-family: 'Open Sans', sans-serif;">
+					{{ sponsor.description }}
 				</p>
 			</div>
 			<div class="image">
-				<img class="editable" src="../images/sponsors/coe_block_m.png" alt="Screenshot" />
+				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
 			</div>
 		</div>
 	</section>
+	{% endif %}
+	{% endfor %}
 
-	<section class="info">
+
+	<section class="info" id="learn-more">
 		<div class="container flex">
 			<div class="text">
-				<h3 class="editable">
-					Ford Motor Company
-				</h3>
-				<p class="editable">
-					Ford Motor Company is an American multinational automaker headquartered in Dearborn, Michigan. 
-					The company sells automobiles and commercial vehicles under the Ford brand and luxury cars under the Lincoln brand.
-					 It is controlled by the Ford family; although they have minority ownership. It is described by Forbes as “the most important 
-					 industrial company in the history of the United States.”
-				</p>
-			</div>
-			<div class="image">
-				<img class="editable" src="../images/sponsors/ford_logo.png" alt="Screenshot" />
-			</div>
-		</div>
-	</section>
-
-	<section class="info">
-		<div class="container flex">
-			<div class="text">
-				<h3 class="editable">
-					VectorNav
-				</h3>
-				<p class="editable">
-					VectorNav Technologies is the leading innovator and manufacturer of embedded navigation solutions.
-				</p>
-			</div>
-			<div class="image">
-				<img class="editable" src="../images/sponsors/1.jpeg" alt="Screenshot" />
-			</div>
-		</div>
-	</section>
-
-	<section class="info">
-		<div class="container flex">
-			<div class="text">
-				<h2 class="editable">
+				<h1 class="editable" style="text-align: center;	">
 					Gold
-				</h2>
-		</div>
+				</h1>
+			</div>
 	</section>
 
+	{% for sponsor in site.sponsors %}
+	{% if sponsor.level == "Gold" %}
 	<section class="info">
 		<div class="container flex">
 			<div class="text">
 				<h3 class="editable">
-					General Motors
+					{{ sponsor.title }}
 				</h3>
 				<p class="editable">
-					We envision a future of zero crashes, zero emissions and zero congestion, and we have committed ourselves to 
-					leading the way toward this future. General Motors has been pushing the limits of transportation and technology 
-					for over 100 years. Today, we are in the midst of a transportation revolution. And we have the ambition, 
-					the talent and the technology to realize the safer, better and more sustainable world we want.
+					{{ sponsor.description }}
 				</p>
 			</div>
 			<div class="image">
-				<img class="editable" src="../images/sponsors/General_Motors_logo.png" alt="Screenshot" />
+				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
 			</div>
 		</div>
 	</section>
+	{% endif %}
+	{% endfor %}
+
+	<section class="info" id="learn-more">
+		<div class="container flex">
+			<div class="text">
+				<h1 class="editable" style="text-align: center;">
+					Silver
+				</h1>
+			</div>
+	</section>
+
+	{% for sponsor in site.sponsors %}
+	{% if sponsor.level == "Silver" %}
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<h3 class="editable">
+					{{ sponsor.title }}
+				</h3>
+				<p class="editable">
+					{{ sponsor.description }}
+				</p>
+			</div>
+			<div class="image">
+				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% endfor %}
+
+	<section class="info" id="learn-more">
+		<div class="container flex">
+			<div class="text">
+				<h1 class="editable" style="text-align: center;">
+					Bronze
+				</h1>
+			</div>
+	</section>
+
+	{% for sponsor in site.sponsors %}
+	{% if sponsor.level == "Bronze" %}
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<h3 class="editable">
+					{{ sponsor.title }}
+				</h3>
+				<p class="editable">
+					{{ sponsor.description }}
+				</p>
+			</div>
+			<div class="image">
+				<img class="editable" src={{sponsor.image_path}} alt="Screenshot" />
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% endfor %}
 
 </div>
