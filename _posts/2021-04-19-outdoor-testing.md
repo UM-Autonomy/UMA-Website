@@ -8,8 +8,6 @@ image: /images/blog/outdoor-testing/main.jpg
 author_staff_member:
 ---
 
-![Testing event](/images/blog/outdoor-testing/testing-event.jpg)
-
 After an entire year of mostly remote work, UM::Autonomy organized our first in-person event to test out the boat and drone we built. As this year's competition is virtual, the testing event was a great opportunity for us to celebrate the effort and time we have put in as a team the past year.
 
 While we had some successes (the boat floated!), we found areas for improvement. We needed to work more on drone calibration before take-off and had some challenges with connecting the boat to our autonomous software component.

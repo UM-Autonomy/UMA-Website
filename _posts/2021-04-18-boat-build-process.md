@@ -14,7 +14,7 @@ It all started with a 3D design of the hulls by the Hulls and Systems team. This
 
 ![Hull preparation](/images/blog/boat-build-process/hull-prep.jpg)
 
-Offshore Spars helped us with the autoclave fabrication of the carbon fiber hulls (Shout&#8209;out to Offshore Spars for their generous support!). We then prepared the hulls by carbon fiber infusion.
+We then prepared the hulls by using a carbon fiber vacuum resin infusion process. Each demi-hull was fabricated using a machine-milled high-density foam mold produced for the team by the Ford Motor Company.
 
 ![Breaking mold](/images/blog/boat-build-process/break-mold.jpg)
 
