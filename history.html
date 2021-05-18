@@ -41,11 +41,18 @@ image: /images/old.jpg
           <p>{{boat.description2}}</p>
           <p>{{boat.description3}}</p>
         </div>
-        {% if boat.video_path %}
-        <div class="button">
-          <a href={{boat.video_path}} target="_blank">Video</a>
+        <div>
+          {% if boat.tdr_path %}
+          <div class="button" style="margin-bottom: 1rem">
+            <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
+          </div>
+          {% endif %}
+          {% if boat.video_path %}
+          <div class="button">
+            <a href={{boat.video_path}} target="_blank">Video</a>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
     </div>
     <hr />
