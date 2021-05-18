@@ -230,14 +230,12 @@ blockquote:before {
 .image {
   max-height: 400px;
   overflow: hidden;
-  width: 100%;
 }
 
 
 
 @media #{$desktop} {
-  .image img {
+  .sponsor-img {
     max-width: 75%;
-    
   }
 }
