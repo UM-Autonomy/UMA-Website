@@ -1,5 +1,5 @@
 ---
-name:
+name: 
+description: 
 image_path:
-level:
 ---
