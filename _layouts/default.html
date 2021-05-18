@@ -1,112 +1,177 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% seo %} {% feed_meta %}
 
-  {% seo %} {% feed_meta %}
+    <!-- Bootstrap CSS CDN, placed at top to prevent overriding custom css -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap CSS CDN, placed at top to prevent overriding custom css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link
+      rel="apple-touch-icon"
+      href="{{ site.baseurl }}/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ site.baseurl }}/images/touch-icon.png"
+      sizes="192x192"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ site.baseurl }}/images/favicon.png"
+    />
 
-  <!-- Animate on Scroll Library: https://michalsnik.github.io/aos/ -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:300|Rubik:300"
+    />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css" />
 
-  <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/touch-icon.png" sizes="192x192" />
-  <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/js/main.js"></script>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300|Rubik:300" />
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css" />
+    {% if jekyll.environment == 'production' and site.google_analytics_key != ''
+    %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-157666813-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="{{ site.baseurl }}/js/main.js"></script>
+      gtag("config", "UA-157666813-1");
+    </script>
 
-  {% if jekyll.environment == 'production' and site.google_analytics_key != ''
-  %}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157666813-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+    {% endif %}
+  </head>
 
-    gtag("config", "UA-157666813-1");
-  </script>
+  <body>
+    <header id="mainHeader">
+      <div class="container">
+        <div class="company-name">
+          <a href="{{ site.baseurl }}/">
+            <span class="dark-logo"
+              ><img
+                width="104"
+                height="38"
+                src="{{ site.baseurl }}/images/logo/LogoBlue.png"
+                alt="dark frisco logo"
+            /></span>
 
-  {% endif %}
-</head>
-
-<body>
-  <header id="mainHeader">
-    <div class="container">
-      <div class="company-name">
-        <a href="{{ site.baseurl }}/">
-          <span class="dark-logo"><img width="104" height="38" src="{{ site.baseurl }}/images/logo/LogoBlue.png"
-              alt="dark frisco logo" /></span>
-
-          <span class="light-logo"><img width="104" height="38" src="{{ site.baseurl }}/images/logo/LogoMaize.png"
-              alt="light frisco logo" /></span>
-        </a>
+            <span class="light-logo"
+              ><img
+                width="104"
+                height="38"
+                src="{{ site.baseurl }}/images/logo/LogoMaize.png"
+                alt="light frisco logo"
+            /></span>
+          </a>
+        </div>
+        {% include navigation.html %}
+        <p class="editor-link">
+          <a
+            style="display: inline"
+            href="cloudcannon:collections/_data/navigation.yml"
+            class="btn"
+            ><strong>&#9998;</strong> Edit navigation</a
+          >
+        </p>
       </div>
-      {% include navigation.html %}
-      <p class="editor-link">
-        <a style="display: inline" href="cloudcannon:collections/_data/navigation.yml"
-          class="btn"><strong>&#9998;</strong> Edit navigation</a>
-      </p>
-    </div>
-  </header>
+    </header>
 
-  {{ content }}
+    {{ content }}
 
-  <footer>
-    <div class="container">
-      <p class="editor-link">
-        <a href="cloudcannon:collections/_data/footer.yml" class="btn"><strong>&#9998;</strong> Edit footer</a>
-      </p>
-      <ul class="footer-left-links">
-        {% for link in site.data.footer.left_links %}
-        <li>
-          <a {% if link.new_window %}target="_blank" {% endif %} href="{% include relative-src.html src=link.link %}" {%
-            if link.social_icon %}class="{{ link.social_icon | slugify }}-icon" {% endif %}>
-            {% if link.social_icon %}{% include social-icon.html
-            icon=link.social_icon %}{% endif %} {{ link.name }}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-      <ul class="footer-right-links">
-        {% for link in site.data.footer.right_links %}
-        <li>
-          <a {% if link.new_window %}target="_blank" {% endif %} href="{% include relative-src.html src=link.link %}" {%
-            if link.social_icon %}class="{{ link.social_icon | slugify }}-icon" {% endif %}>
-            {% if link.social_icon %}{% include social-icon.html
-            icon=link.social_icon %}{% endif %} {{ link.name }}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </footer>
+    <footer>
+      <div class="container">
+        <p class="editor-link">
+          <a href="cloudcannon:collections/_data/footer.yml" class="btn"
+            ><strong>&#9998;</strong> Edit footer</a
+          >
+        </p>
+        <ul class="footer-left-links">
+          {% for link in site.data.footer.left_links %}
+          <li>
+            <a
+              {%
+              if
+              link.new_window
+              %}target="_blank"
+              {%
+              endif
+              %}
+              href="{% include relative-src.html src=link.link %}"
+              {%
+              if
+              link.social_icon
+              %}class="{{ link.social_icon | slugify }}-icon"
+              {%
+              endif
+              %}
+            >
+              {% if link.social_icon %}{% include social-icon.html
+              icon=link.social_icon %}{% endif %} {{ link.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <ul class="footer-right-links">
+          {% for link in site.data.footer.right_links %}
+          <li>
+            <a
+              {%
+              if
+              link.new_window
+              %}target="_blank"
+              {%
+              endif
+              %}
+              href="{% include relative-src.html src=link.link %}"
+              {%
+              if
+              link.social_icon
+              %}class="{{ link.social_icon | slugify }}-icon"
+              {%
+              endif
+              %}
+            >
+              {% if link.social_icon %}{% include social-icon.html
+              icon=link.social_icon %}{% endif %} {{ link.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </footer>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
