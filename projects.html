@@ -38,36 +38,35 @@ image: /images/computer.JPG
   </div>
 </section>
   <br />
-  <section class="info">
-    <div class="container flex">
-      <div class="text">
-        <h2 class="editable">
-            Electrical Box
-        </h2>
-        <p class="editable">
-          We employ a vast and diverse set of skills here at UMA. We have 
-          members of all levels of experience and from a wide variety of majors. 
-          Our subteams include AI, Electrical, Hulls and Systems, Drone and Business. 
-          The AI team develops all things software for our team, which entails
-          developing path planning algorithms, computer vision, and simulation. 
-          Our Electrical team does all things electrical such as working with 
-          our computer hardware onboard and sensors. Hulls and Systems designs and develops
-          our carbon fiber hull. Meanwhile, the Drone team takes a multidisciplinary 
-          approach to building a drone from the ground up. Lastly, the Business team 
-          manages our team sponsorships and budget. 
-      </div>
-      <div class="image">
-        <img class="editable" src="/images/rourke1.jpg" alt="Screenshot" />
-      </div>
-    </div>
-  </section>
 
-  <section class="info">
+<div>
+  {% for project in site.projects %}
+      <div class="container flex">
+        <div class="text">
+          <h3 class="editable">
+              {{project.title}}
+          </h3>
+          <p class="editable project-text">
+            {{project.description}}
+          </p>
+          <p>
+            {{project.members}}
+          </p>
+        </div>
+        <div class="image">
+          <img class="editable" src={{project.image}} alt="Screenshot" />
+        </div>
+      </div>
+  {% endfor %}
+</div>
+
+
+  <!-- <section class="info">
     <div class="container flex">
       <div class="text">
-        <h2 class="editable">
+        <h3 class="editable">
           Path Planning
-        </h2>
+        </h3>
         <p class="editable">
           In 2018, we made a huge step toward returning to success. We finished
           7th overall and 3rd among American Universities. For 2019, 
@@ -82,6 +81,6 @@ image: /images/computer.JPG
         <img class="editable" src="/images/water.jpg" alt="Screenshot" />
       </div>
     </div>
-  </section>
+  </section> -->
 
 </div>
