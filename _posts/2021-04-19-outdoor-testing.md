@@ -33,3 +33,5 @@ Location: Music Pond
 ![Boat Testing Group Picture](/images/blog/outdoor-testing/boat-group.jpg)
 
 ![Boat](/images/blog/outdoor-testing/boat.jpg)
+
+Questions, comments or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).

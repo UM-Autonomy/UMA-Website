@@ -235,3 +235,11 @@ blockquote:before {
   max-height: 400px;
   overflow: hidden;
 }
+
+
+
+@media #{$desktop} {
+  .sponsor-img {
+    max-width: 50%;
+  }
+}
