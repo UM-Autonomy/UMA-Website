@@ -1,28 +1,16 @@
 ---
 title: Home
 description: Michigan's Autonomous Boat Team
-image: /images/computer.JPG 
+image: /images/computer.JPG
 ---
 
 <head>
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 </head>
 
-  <section
-  class="hero"
-  style="background-image: url({% include relative-src.html src=page.image %})"
->
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
   <div class="inner-hero text-container">
     <div class="hero-text-container">
       <h1 class="editable">
@@ -37,181 +25,187 @@ image: /images/computer.JPG
     <a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
   </div>
 </section>
-  <br />
+<br />
 
-  <div class="projects-container">
-<div class="container">
-  <h2 class="project-heading">Artificial Intelligence</h2>
-  <p class="project-subteam">
-    Building off of a Robot Operating System architecture, 
-    AI tasks range from integrating COTS peripherals, to object detection, 
-    navigation, top-level task reasoning, and simulating the boat’s 
-    performance in a virtual competition course. <br/>
-    Tech stack: Docker-based environment, Git for version-control, ROS Kinetic for the architecture, and C++/Python for the majority of the source code.
-  </p>
-  {% for project in site.projects %}
+<div class="projects-container">
+  <div class="container">
+    <h2 class="project-heading">Artificial Intelligence</h2>
+    <p class="project-subteam">
+      Building off of a Robot Operating System architecture,
+      AI tasks range from integrating COTS peripherals, to object detection,
+      navigation, top-level task reasoning, and simulating the boat’s
+      performance in a virtual competition course. <br />
+      Tech stack: Docker-based environment, Git for version-control, ROS Kinetic for the architecture, and C++/Python
+      for the majority of the source code.
+    </p>
+    {% for project in site.projects %}
     {% if project.category == 'ai' %}
     <div class="container flex">
-        <div class="text">
-          <h3 class="editable">
-              {{project.title}}
-          </h3>
-          <p class="editable project-text">
-            {{project.description}}
-          </p>
-          {% if project.members %}
-            <p class="project-text">
-              Members: {{project.members}}
-            </p>
-          {% endif %}
-        </div>
-        {% if project.image %}
-          <div class="image">
-            <img class="editable" src={{project.image}} alt={{project.title}} />
-          </div>
+      <div class="text">
+        <h3 class="editable">
+          {{project.title}}
+        </h3>
+        <p class="editable project-text">
+          {{project.description}}
+        </p>
+        {% if project.members %}
+        <p class="project-text">
+          Members: {{project.members}}
+        </p>
         {% endif %}
       </div>
+      {% if project.image %}
+      <div class="image" data-aos="zoom-out-left">
+        <img class="editable" src={{project.image}} alt={{project.title}} />
+      </div>
+      {% endif %}
+    </div>
     {% endif %}
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
 
-<div class="container">
-  <h2 class="project-heading">Electrical</h2>
-  <p class="project-subteam">
-    The Electrical Team is responsible for the allocation of power to the 
-    boat and management of cables and wires from the battery to the computer, sensors, and motors. 
-  </p>
-  {% for project in site.projects %}
+  <div class="container">
+    <h2 class="project-heading">Electrical</h2>
+    <p class="project-subteam">
+      The Electrical Team is responsible for the allocation of power to the
+      boat and management of cables and wires from the battery to the computer, sensors, and motors.
+    </p>
+    {% for project in site.projects %}
     {% if project.category == 'electrical' %}
     <div class="container flex">
-        <div class="text">
-          <h3 class="editable">
-              {{project.title}}
-          </h3>
-          <p class="editable project-text">
-            {{project.description}}
-          </p>
-          {% if project.members %}
-            <p class="project-text">
-              Members: {{project.members}}
-            </p>
-          {% endif %}
-        </div>
-        {% if project.image %}
-          <div class="image">
-            <img class="editable" src={{project.image}} alt={{project.title}} />
-          </div>
+      <div class="text">
+        <h3 class="editable">
+          {{project.title}}
+        </h3>
+        <p class="editable project-text">
+          {{project.description}}
+        </p>
+        {% if project.members %}
+        <p class="project-text">
+          Members: {{project.members}}
+        </p>
         {% endif %}
       </div>
+      {% if project.image %}
+      <div class="image" data-aos="zoom-out-left">
+        <img class="editable" src={{project.image}} alt={{project.title}} />
+      </div>
+      {% endif %}
+    </div>
     {% endif %}
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
 
 
-<div class="container project-margin">
-  <h2 class="project-heading">Hulls & Systems</h2>
-  <p class="project-subteam">
-    H&S Team works on the design and construction of the team’s boat. This includes 
-    designing around the boat’s electrical system, accompanying drone, and sensor specifications required by the boat’s autonomous systems.
-  </p>
-  {% for project in site.projects %}
+  <div class="container project-margin">
+    <h2 class="project-heading">Hulls & Systems</h2>
+    <p class="project-subteam">
+      H&S Team works on the design and construction of the team’s boat. This includes
+      designing around the boat’s electrical system, accompanying drone, and sensor specifications required by the
+      boat’s autonomous systems.
+    </p>
+    {% for project in site.projects %}
     {% if project.category == 'hulls' %}
     <div class="container flex">
-        <div class="text">
-          <h3 class="editable">
-              {{project.title}}
-          </h3>
-          <p class="editable project-text">
-            {{project.description}}
-          </p>
-          {% if project.members %}
-            <p class="project-text">
-              Members: {{project.members}}
-            </p>
-          {% endif %}
-        </div>
-        {% if project.image %}
-        <div class="image">
-          <img class="editable" src={{project.image}} alt={{project.title}} />
-        </div>
+      <div class="text">
+        <h3 class="editable">
+          {{project.title}}
+        </h3>
+        <p class="editable project-text">
+          {{project.description}}
+        </p>
+        {% if project.members %}
+        <p class="project-text">
+          Members: {{project.members}}
+        </p>
         {% endif %}
       </div>
+      {% if project.image %}
+      <div class="image" data-aos="zoom-out-left">
+        <img class="editable" src={{project.image}} alt={{project.title}} />
+      </div>
+      {% endif %}
+    </div>
     {% endif %}
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
 
 
-<div class="container project-margin">
-  <h2 class="project-heading">Auxiliary Vehicle Team</h2>
-  <p class="project-subteam">
-    The Auxiliary Vehicle Team is responsible for the development of an Unmanned Aerial Vehicle (UAV). Our UAV has typically been a drone. Tasks include the Computer-Aided Design (CAD) for the physical structure for the drone, designing the electrical and sensor system that the drone uses, and developing the communication interface with the boat. <br/>
-    Tech stack: ArduPilot framework, Python MAVLink API for controls. 
-  </p>
-  {% for project in site.projects %}
+  <div class="container project-margin">
+    <h2 class="project-heading">Auxiliary Vehicle Team</h2>
+    <p class="project-subteam">
+      The Auxiliary Vehicle Team is responsible for the development of an Unmanned Aerial Vehicle (UAV). Our UAV has
+      typically been a drone. Tasks include the Computer-Aided Design (CAD) for the physical structure for the drone,
+      designing the electrical and sensor system that the drone uses, and developing the communication interface with
+      the boat. <br />
+      Tech stack: ArduPilot framework, Python MAVLink API for controls.
+    </p>
+    {% for project in site.projects %}
     {% if project.category == 'drone' %}
     <div class="container flex">
-        <div class="text">
-          <h3 class="editable">
-              {{project.title}}
-          </h3>
-          <p class="editable project-text">
-            {{project.description}}
-          </p>
-          {% if project.members %}
-            <p class="project-text">
-              Members: {{project.members}}
-            </p>
-          {% endif %}
-        </div>
-        {% if project.image %}
-          <div class="image">
-            <img class="editable" src={{project.image}} alt={{project.title}} />
-          </div>
+      <div class="text">
+        <h3 class="editable">
+          {{project.title}}
+        </h3>
+        <p class="editable project-text">
+          {{project.description}}
+        </p>
+        {% if project.members %}
+        <p class="project-text">
+          Members: {{project.members}}
+        </p>
         {% endif %}
       </div>
+      {% if project.image %}
+      <div class="image" data-aos="zoom-out-left">
+        <img class="editable" src={{project.image}} alt={{project.title}} />
+      </div>
+      {% endif %}
+    </div>
     {% endif %}
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
 
-<div class="container project-margin">
-  <h2 class="project-heading">Business</h2>
-  <p class="project-subteam">
-    The Business Team secures funding for the team, processes reimbursement requests, maintains sponsor relationships and is responsible for social media engagement. 
-    The subteam also creates and maintains the team website.
-  </p>
-  {% for project in site.projects %}
+  <div class="container project-margin">
+    <h2 class="project-heading">Business</h2>
+    <p class="project-subteam">
+      The Business Team secures funding for the team, processes reimbursement requests, maintains sponsor relationships
+      and is responsible for social media engagement.
+      The subteam also creates and maintains the team website.
+    </p>
+    {% for project in site.projects %}
     {% if project.category == 'business' %}
     <div class="container flex">
-        <div class="text">
-          <h3 class="editable">
-              {{project.title}}
-          </h3>
-          <p class="editable project-text">
-            {{project.description}}
-          </p>
-          {% if project.members %}
-            <p class="project-text">
-              Members: {{project.members}}
-            </p>
-          {% endif %}
-        </div>
-        {% if project.image %}
-          <div class="image">
-            <img class="editable" src={{project.image}} alt={{project.title}} />
-          </div>
+      <div class="text">
+        <h3 class="editable">
+          {{project.title}}
+        </h3>
+        <p class="editable project-text">
+          {{project.description}}
+        </p>
+        {% if project.members %}
+        <p class="project-text">
+          Members: {{project.members}}
+        </p>
         {% endif %}
       </div>
+      {% if project.image %}
+      <div class="image" data-aos="zoom-out-left">
+        <img class="editable" src={{project.image}} alt={{project.title}} />
+      </div>
+      {% endif %}
+    </div>
     {% endif %}
-  {% endfor %}
-</div>
-<br />
-<br />
-<br />
+    {% endfor %}
+  </div>
+  <br />
+  <br />
+  <br />
 
 </div>
 
 
-  <!-- <section class="info">
+<!-- <section class="info">
     <div class="container flex">
       <div class="text">
         <h3 class="editable">
