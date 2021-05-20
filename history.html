@@ -5,24 +5,12 @@ image: /images/old.jpg
 ---
 
 <head>
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 </head>
 
-<section
-  class="hero"
-  style="background-image: url({% include relative-src.html src=page.image %})"
->
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
   <div class="inner-hero text-container">
     <div class="hero-text-container">
       <h1 class="editable">Our History</h1>
@@ -36,273 +24,38 @@ image: /images/old.jpg
   </div>
 </section>
 
-<div class="content" style="font-size: 12pt">
+<div class="content container" style="font-size: 12pt; padding: 0 8%;">
+  {% for boat in site.boats %}
   <section class="info" id="learn-more">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/daedelus.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2019: Daedalus</h3>
-        <p class="editable">
-          We came out of 2018 with the right balance of optimism and frustration
-          with the result of competition. We wanted to make a change and
-          Daedalus is the culmination of every sub team going above and beyond
-          anything we have ever attempted on this team. Daedalus is the first
-          Carbon Fiber boat in the team’s history, it’s the first time we have
-          used a custom implementation of Robot Operation System (ROS), and the
-          first time overhauling almost every piece of hardware we have both on,
-          and inside the boat. Joined by the team’s first entirely custom drone,
-          Icarus, our entry into RoboBoat 2019 is perhaps our most daring
-          attempt yet. Detroit as whole, and our biggest supporters in Michigan
-          are making a comeback, we’ve stepped up to do our part too.
-        </p>
+    <div class="row">
+      <div class="image col-12 col-lg-5" data-aos="fade-right">
+        <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
+      </div>
+      <div class="container col-12 col-lg-7">
+        <div class="text">
+          <h3 class="editable">{{boat.year}}: {{boat.name}}</h3>
+          <h5>{{boat.subtitle}}</h5>
+          <p class="editable">
+            {{boat.description1}}
+          </p>
+          <p>{{boat.description2}}</p>
+          <p>{{boat.description3}}</p>
+        </div>
+        <div>
+          {% if boat.tdr_path %}
+          <div class="button" style="margin-bottom: 1rem">
+            <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
+          </div>
+          {% endif %}
+          {% if boat.video_path %}
+          <div class="button">
+            <a href={{boat.video_path}} target="_blank">Video</a>
+          </div>
+          {% endif %}
+        </div>
       </div>
     </div>
+    <hr />
   </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/johnseana.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2018: John Sea Na</h3>
-        <p class="editable">
-          2018 gave our team a glimpse of our potential for the future. As a
-          predominantly Sophomore and Junior team we recognized the need to
-          target specific areas in order to return the team to success. We
-          focused on team organization, system engineering and collaboration
-          across groups. By making targeted improvements as a team, we were able
-          to make significant progress at competition. After previously not
-          making it into finals the year prior, we were headed into finals in
-          4th and finished 3rd among American Universities. We see this year as
-          an incredible opportunity to build on the experience of a majority
-          upperclassmen team and strive to win the 2019 RoboBoat competition.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/flyingsloth.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2017: Flying Sloth</h3>
-        <p class="editable">
-          The 2017 competition was a year of firsts for UM::Autonomy: first
-          trimaran, first entirely SLAM dependent system and first total
-          overhaul of our code base. Our team, almost entirely composed of
-          underclassmen, was awarded 2nd place in the static competition. We
-          achieved this result despite constant hardware breakdowns, which
-          prevented the AI team from doing adequate testing before the
-          preliminary competition. As a result, we could not effectively tune
-          our boat’s thrusters for the strong competition winds and were forced
-          to manually tune during competition runs. Moving forward we look to
-          simplify the electrical box in order to make processing signal data
-          more efficient, and avoid time-intensive repairs.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/thurman.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2016: Thurman</h3>
-        <p class="editable">
-          Thurman took home 6th place in the 9th annual AUVSI RobobBoat
-          competition. In a departure from previous designs, Thurman has a
-          monohull instead of a catamaran design. This change provided a large
-          internal volume, which was able to house all of the electronics. The
-          thrusters were mounted to outriggers which were added for increased
-          stability with the change in hull design. One addition to the docking
-          challenge this year was attaching a velcro strip to the dock, the
-          ramming mechanism on the front of the hull was designed to deposit
-          this velcro strip. This year the hull was done especially early which
-          allowed for greater testing time before mock competition.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/sharkbyte.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2015: Sharkbyte</h3>
-        <p class="editable">
-          After a strong qualifying run, SharkByte qualified for the finals of
-          the 8th annual RoboBoat competition in first place. SharkByte took
-          home 3rd place in the finals. A major design change between SharkByte
-          and previous boats was waterproofing. By using fully waterproof
-          electrical connectors and a water cooling system, SharkByte was more
-          than just splash-proof. The electrical system was new this year to
-          accommodate this. After moving Hugh Jackman’s deck higher off the
-          water with its taller hulls, it was decided that the waterproofing of
-          the electrical systems would allow the deck to sit much lower to the
-          water. This lowered center of gravity provided increased stability.
-          The main goals of UM::Autonomy this year were the waterproofing and
-          improved hull design.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/hugh-jackman.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2014: Hugh Jackman</h3>
-        <p class="editable">
-          Hugh Jackman, named after the equally impressive actor, acquired 8th
-          place in the 2014 RoboBoat competition. Even though Hugh Jackman’s
-          performance did not reach our high standards, this boat had several
-          improvements. Hugh has completely new, taller hulls which allows our
-          electronics to be more protected from water splash. Additionally, with
-          a brand new electric box, Hugh is more organized and more efficient
-          than ever. With all of these revisions, Hugh has successfully paved
-          the way for future iterations to perform exceedingly well.
-          UM::Autonomy’s 2014 goal was to practice multiple, full-scale tests
-          including our own mock competition and general testing in the Lurie
-          Fountain.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img class="editable" src="../images/history/eve.jpeg" alt="Screenshot" />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2013: Eve</h3>
-        <p class="editable">
-          Eve took 4th place in the 6th annual RoboBoat competition. The main
-          differences between Eve and her predecessors include a major camera
-          upgrade, as well as a new hull shape and propulsion configuration that
-          allowed for much greater maneuverability, though she used the same
-          electrical system as her predecessor Serenity. Eve was also
-          accompanied by a small land vehicle named WALL-E who was designed to
-          handle the amphibious landing challenge. Eve also featured a NERF gun
-          that was to be used for a shooting challenge. The main focus of
-          UM::Autonomy during this year was quality manufacturing and thorough
-          testing.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/serenity.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2012: Serenity</h3>
-        <p class="editable">
-          Serenity claimed 1st place at the 5th annual RoboBoat competition.
-          Consistently completing the entire buoy course due to some major
-          software upgrades and attempting the “Hot Sign” and “Poker Chip”
-          challenges. At 106 Lbs Serenity weighed in as UM::Autonomy’s heaviest
-          boat to date. Serenity’s most notable differences from her predecessor
-          Wolvemarine include an entirely new electrical system and vision
-          system. Serenity did however use the same hulls as her predecessor
-          Wolvemarine. Serenity was equipped with an Infrared Camera as well as
-          a Water Cannon. The main focus of the team this year was the
-          completion of the buoy course.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/wolvemarine.png"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2011: Wolvemarine</h3>
-        <p class="editable">
-          Wolvemarine was built to compete in the 4th annual RoboBoat
-          competition. Distinctive for its innovative panning Panning Lidar,
-          Wolvemarine was the first boat in competition history to create 3D
-          Point Clouds of its environment. Wolvemarine also featured a new Hull
-          shape that allowed for greater speed through the water. Although
-          UM::Autonomy took 1st place in the static judging portion of the
-          competition we experienced several technical issues, causing us to do
-          very poorly during the rest of the competition. Although the team did
-          receive the “Edge of the Envelope” award for the major technological
-          advances that were developed.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="image">
-      <img
-        class="editable"
-        src="../images/history/mjolnir.jpg"
-        alt="Screenshot"
-      />
-    </div>
-    <div class="container flex">
-      <div class="text">
-        <h3 class="editable">2010: Mjolnir</h3>
-        <p class="editable">
-          Mjolnir was created to compete in the 3rd annual RoboBoat competition
-          and succeeded in claiming 1st place in the Static Judging as well as
-          competition as a whole. Named after the hammer of the Norse god Thor;
-          Mjolnir was a major achievement for UM::Autonomy. Mjolnir was the
-          first boat made by UM::Autonomy to feature custom made fiberglass
-          hulls and the electrical system was created entirely from scratch.
-          Mjolnir was the first boat in RoboBoat history to feature a laser
-          range finder, AKA Lidar.
-        </p>
-      </div>
-    </div>
-  </section>
+  {% endfor %}
 </div>

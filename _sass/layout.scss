@@ -5,6 +5,10 @@
   padding: 0 20px;
 }
 
+.margin {
+  margin: 40px 0;
+}
+
 .text-container {
   max-width: 750px;
 }
@@ -230,4 +234,12 @@ blockquote:before {
 .image {
   max-height: 400px;
   overflow: hidden;
+}
+
+
+
+@media #{$desktop} {
+  .sponsor-img {
+    max-width: 50%;
+  }
 }
