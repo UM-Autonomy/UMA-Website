@@ -53,7 +53,8 @@ image: /images/team_photo.jpg
 			{% if person.category == "ai" %}
 			<li>
 				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %} class="square-image"
+					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+						class="square-image team-image"
 						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
 				</a>
 				<div class="name">{{ person.name }}</div>
@@ -75,7 +76,8 @@ image: /images/team_photo.jpg
 			{% if person.category == "business" %}
 			<li>
 				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %} class="square-image"
+					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+						class="square-image team-image"
 						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
 				</a>
 				<div class="name">{{ person.name }}</div>
@@ -97,7 +99,8 @@ image: /images/team_photo.jpg
 			{% if person.category == "drone" %}
 			<li>
 				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %} class="square-image"
+					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+						class="square-image team-image"
 						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
 				</a>
 				<div class="name">{{ person.name }}</div>
@@ -119,7 +122,8 @@ image: /images/team_photo.jpg
 			{% if person.category == "electrical" %}
 			<li>
 				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %} class="square-image"
+					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+						class="square-image team-image"
 						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
 				</a>
 				<div class="name">{{ person.name }}</div>
@@ -141,7 +145,7 @@ image: /images/team_photo.jpg
 			{% if person.category == "hulls-and-systems" %}
 			<li>
 				<a href="{{ person.contact }}" target="_blank">
-					<div class="square-image"
+					<div class="square-image team-image"
 						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
 				</a>
 				<div class="name">{{ person.name }}</div>
