@@ -2,8 +2,8 @@
 title: Minecraft Social Nights
 date: 2021-04-03
 description: Shout-out to CSG for making this possible
-categories:
-  - social
+# categories:
+#   - social
 image: /images/blog/minecraft/main.png
 author_staff_member:
 cover_img: /images/blog/minecraft/cover.png

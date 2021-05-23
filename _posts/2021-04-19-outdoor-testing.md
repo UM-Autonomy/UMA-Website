@@ -2,8 +2,8 @@
 title: Boat and Drone Testing
 date: 2021-04-19
 description: Outdoor testing event
-categories:
-  - technical
+# categories:
+#   - technical
 image: /images/blog/outdoor-testing/main.jpg
 author_staff_member:
 cover_img: /images/blog/outdoor-testing/cover.jpg
