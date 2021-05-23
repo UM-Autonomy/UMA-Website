@@ -2,6 +2,7 @@
 year: 2011
 name: Wolvemarine
 image_path: ../images/history/wolvemarine.png
+tdr_path: ../technical_design_report/wolvemarine.pdf
 subtitle: First boat to create 3D Point Clouds of its environment
 description1: Wolvemarine was built to compete in the 4th annual RoboBoat competition.
 description2: Distinctive for its innovative panning Panning Lidar, Wolvemarine was the first boat in competition history to create 3D Point Clouds of its environment. Wolvemarine also featured a new Hull shape that allowed for greater speed through the water.

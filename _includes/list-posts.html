@@ -3,7 +3,12 @@
     <h2><a href="{% include relative-src.html src=post.url %}">{{ post.title }}</a></h2>
     {% include post-title.html post=post %}
     <div class="post-content">
-        {{ post.excerpt }}
+        <!-- {{ post.excerpt }} -->
+        {% if post.cover_img %}
+        <div data-aos="flip-left">
+            <img src={{post.cover_img}} alt="{{post.cover_img_alt}}" />
+        </div>
+        {% endif %}
         <div class="button"><a href="{% include relative-src.html src=post.url %}">Read More</a></div>
     </div>
 </li>

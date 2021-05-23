@@ -6,6 +6,8 @@ categories:
   - social
 image: /images/blog/burger-night/main.png
 author_staff_member:
+cover_img: /images/blog/burger-night/cover.png
+cover_img_alt: Cooking burger patties
 ---
 
 In a typical non-covid semester, our team has burger nights where members would hang out together after team meetings/build sessions. With it being remote, we continued our tradition of having burger nights on Wednesdays 8-9pm. The Central Student Government (CSG) generously granted us the opportunity to refund members for one of our burger nights.
@@ -16,4 +18,4 @@ In a typical non-covid semester, our team has burger nights where members would 
 
 ![Too Much Cheese](/images/blog/burger-night/cheese.jpeg)
 
-Questions, comments or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).
+Questions, comments, or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).

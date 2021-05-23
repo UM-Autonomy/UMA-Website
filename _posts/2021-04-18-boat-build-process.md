@@ -6,11 +6,13 @@ categories:
   - technical
 image: /images/blog/boat-build-process/main.jpg
 author_staff_member:
+cover_img: /images/blog/boat-build-process/cover.jpg
+cover_img_alt: Boat frame construction
 ---
 
 ![CAD design of hulls](/images/blog/boat-build-process/cad.png)
 
-It all started with a 3D design of the hulls by the Hulls and Systems team. This was the first time our team tried a trimaran (3 hulls) hull design.
+It all started with a 3D design of the hulls by the Hulls and Systems team. This year, our team decided to use a trimaran (3 hulls) hull design to improve boat stability.
 
 ![Hull preparation](/images/blog/boat-build-process/hull-prep.jpg)
 
@@ -54,4 +56,4 @@ Finally, we attached our electrical box and thrusters to our boat.
 
 After cleaning our workspace, we were good to go test our boat!
 
-Questions, comments or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).
+Questions, comments, or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).
