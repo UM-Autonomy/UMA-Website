@@ -6,6 +6,8 @@ categories:
   - social
 image: /images/blog/minecraft/main.png
 author_staff_member:
+cover_img: /images/blog/minecraft/cover.png
+cover_img_alt: UMA logo on Minecraft map
 ---
 
 ![UMA Logo on map](/images/blog/minecraft/map.png)
@@ -24,4 +26,4 @@ Some landmarks in UMA's Minecraft Realm you won't want to miss:
 
 ![Abdeali's Ark](/images/blog/minecraft/abdeali-ark.png)
 
-Questions, comments or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).
+Questions, comments, or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).

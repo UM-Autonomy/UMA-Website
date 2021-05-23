@@ -2,6 +2,7 @@
 year: 2020
 name: Pass
 image_path: ../images/history/pass.jpg
+video_path: https://www.youtube.com/watch?v=bAvaKZVCYfk
 tdr_path: ../technical_design_report/pass.pdf
 subtitle: Joined by our drone, “No Record COVID”
 description1: Due to the COVID-19 pandemic, we experienced a shutdown and saw a shift in the 2020 RoboBoat competition format to a virtual one.

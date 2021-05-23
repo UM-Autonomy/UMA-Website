@@ -6,6 +6,8 @@ categories:
   - technical
 image: /images/blog/outdoor-testing/main.jpg
 author_staff_member:
+cover_img: /images/blog/outdoor-testing/cover.jpg
+cover_img_alt: Boat testing event
 ---
 
 After an entire year of mostly remote work, UM::Autonomy organized our first in-person event to test out the boat and drone we built. As this year's competition is virtual, the testing event was a great opportunity for us to celebrate the effort and time we have put in as a team the past year.
@@ -34,4 +36,4 @@ Location: Music Pond
 
 ![Boat](/images/blog/outdoor-testing/boat.jpg)
 
-Questions, comments or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).
+Questions, comments, or concerns? Email us at [umautonomy@umich.edu](mailto:umautonomy@umich.edu).
