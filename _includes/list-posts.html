@@ -5,9 +5,7 @@
     <div class="post-content">
         <!-- {{ post.excerpt }} -->
         {% if post.cover_img %}
-        <div data-aos="fade-down">
-            <img src={{post.cover_img}} alt="{{post.cover_img_alt}}" />
-        </div>
+        <img src={{post.cover_img}} alt="{{post.cover_img_alt}}" />
         {% endif %}
         <div class="button"><a href="{% include relative-src.html src=post.url %}">Read More</a></div>
     </div>
