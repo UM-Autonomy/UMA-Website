@@ -2,8 +2,8 @@
 title: Boat Build Process
 date: 2021-04-18
 description: Find out how we made our boat
-categories:
-  - technical
+# categories:
+#   - technical
 image: /images/blog/boat-build-process/main.jpg
 author_staff_member:
 cover_img: /images/blog/boat-build-process/cover.jpg

@@ -2,8 +2,8 @@
 title: Burger Night
 date: 2020-11-25
 description: Event funded by CSG
-categories:
-  - social
+# categories:
+#   - social
 image: /images/blog/burger-night/main.png
 author_staff_member:
 cover_img: /images/blog/burger-night/cover.png
