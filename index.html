@@ -151,18 +151,19 @@ bottom-image: "/images/rourke1.jpg"
             <img src="/images/boat-transparent.png" alt="Boat" />
           </div>
           <div class="col-12 col-md-6">
-            <div id="accordion">
+            <div id="boat-accordion">
               <div class="card">
-                <div class="card-header" id="headingOne">
+                <div class="card-header" id="boat-headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                      aria-controls="collapseOne">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#boat-collapseOne"
+                      aria-expanded="true" aria-controls="boat-collapseOne">
                       <b>General</b>
                     </button>
                   </h5>
                 </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="boat-collapseOne" class="collapse show" aria-labelledby="boat-headingOne"
+                  data-parent="#boat-accordion">
                   <div class="card-body">
                     <p>
                       Name: C-3PO<br />
@@ -178,15 +179,16 @@ bottom-image: "/images/rourke1.jpg"
                 </div>
               </div>
               <div class="card">
-                <div class="card-header" id="headingTwo">
+                <div class="card-header" id="boat-headingTwo">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#boat-collapseTwo"
+                      aria-expanded="false" aria-controls="boat-collapseTwo">
                       <b>Electrical Components</b>
                     </button>
                   </h5>
                 </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="boat-collapseTwo" class="collapse" aria-labelledby="boat-headingTwo"
+                  data-parent="#boat-accordion">
                   <div class="card-body">
                     <p>
                       - Intel Core i7-8700K<br />
@@ -202,15 +204,16 @@ bottom-image: "/images/rourke1.jpg"
                 </div>
               </div>
               <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="boat-headingThree">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#boat-collapseThree"
+                      aria-expanded="false" aria-controls="boat-collapseThree">
                       <b>Software</b>
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="boat-collapseThree" class="collapse" aria-labelledby="boat-headingThree"
+                  data-parent="#boat-accordion">
                   <div class="card-body">
                     <p>
                       - Teams: Controls | Navigation | Perception | Reasoning<br />
@@ -238,21 +241,73 @@ bottom-image: "/images/rourke1.jpg"
             <img src="/images/drone-transparent.png" alt="Drone" />
           </div>
           <div class="col-12 col-md-6">
-            <p>
-              <b>Name:</b> R2-D2<br />
-              <b>Components:</b><br />
-              - Navio2 Flight Controller<br />
-              - Raspberry Pi<br />
-              - Intel Neural Compute Stick<br />
-              - Adafruit Cameras<br />
-              - SunnySky Propeller Motors<br />
-              - 4000mAh 14.8v LiPo Batteries<br />
-              <b>Software:</b> <br />
-              - ArduPilot MAVLink Interface<br />
-              - Python Source Code<br />
-              - <a href="https://drive.google.com/file/d/1EPUry8_V_mCJBL9DeLPDOoQs3fHC9Rvq/view?usp=sharing"
-                target="_blank">Architecture Diagram</a>
-            </p>
+            <div id="drone-accordion">
+              <div class="card">
+                <div class="card-header" id="drone-headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#drone-collapseOne"
+                      aria-expanded="true" aria-controls="drone-collapseOne">
+                      <b>General</b>
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="drone-collapseOne" class="collapse show" aria-labelledby="drone-headingOne"
+                  data-parent="#drone-accordion">
+                  <div class="card-body">
+                    <p>
+                      Name: R2-D2<br />
+                      Dimensions: 15 x 15 inches<br />
+                      Weight: 4.5 lbs
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="drone-headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#drone-collapseTwo"
+                      aria-expanded="false" aria-controls="drone-collapseTwo">
+                      <b>Electrical Components</b>
+                    </button>
+                  </h5>
+                </div>
+                <div id="drone-collapseTwo" class="collapse" aria-labelledby="drone-headingTwo"
+                  data-parent="#drone-accordion">
+                  <div class="card-body">
+                    <p>
+                      - Navio2 Flight Controller<br />
+                      - Raspberry Pi<br />
+                      - Intel Neural Compute Stick<br />
+                      - Adafruit Cameras<br />
+                      - SunnySky Propeller Motors<br />
+                      - 4000mAh 14.8v LiPo Batteries<br />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="drone-headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#drone-collapseThree"
+                      aria-expanded="false" aria-controls="drone-collapseThree">
+                      <b>Software</b>
+                    </button>
+                  </h5>
+                </div>
+                <div id="drone-collapseThree" class="collapse" aria-labelledby="drone-headingThree"
+                  data-parent="#drone-accordion">
+                  <div class="card-body">
+                    <p>
+                      - ArduPilot MAVLink Interface<br />
+                      - Python Source Code<br />
+                      - <a href="https://drive.google.com/file/d/1EPUry8_V_mCJBL9DeLPDOoQs3fHC9Rvq/view?usp=sharing"
+                        target="_blank">Architecture Diagram</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
