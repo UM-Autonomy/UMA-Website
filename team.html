@@ -40,7 +40,7 @@ image: /images/team_photo.jpg
 						{{ person.contact_type }}
 					</a>
 				</div>
-				<div class="g_year">{{ person.g_year }}</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
 			{% endif %}
 			{% endfor %}
@@ -56,14 +56,20 @@ image: /images/team_photo.jpg
 		<ul class="staff" id="ai">
 			{% for person in site.team_members %}
 			{% if person.category == "ai" %}
+			
 			<li>
-				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
 						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
-				</a>
+						style="background-image: url({% include relative-src.html src=person.image_path %})">
+				</div>
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.position }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
 			{% endif %}
 			{% endfor %}
@@ -91,6 +97,7 @@ image: /images/team_photo.jpg
 						{{ person.contact_type }}
 					</a>
 				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
 			{% endif %}
 			{% endfor %}
@@ -107,13 +114,18 @@ image: /images/team_photo.jpg
 			{% for person in site.team_members %}
 			{% if person.category == "drone" %}
 			<li>
-				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
 						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
-				</a>
+						style="background-image: url({% include relative-src.html src=person.image_path %})">
+				</div>
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.position }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
 			{% endif %}
 			{% endfor %}
@@ -130,13 +142,18 @@ image: /images/team_photo.jpg
 			{% for person in site.team_members %}
 			{% if person.category == "electrical" %}
 			<li>
-				<a href="{{ person.contact }}" target="_blank">
-					<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
 						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
-				</a>
+						style="background-image: url({% include relative-src.html src=person.image_path %})">
+				</div>
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.position }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
 			{% endif %}
 			{% endfor %}
