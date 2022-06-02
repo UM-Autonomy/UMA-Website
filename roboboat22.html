@@ -10,7 +10,7 @@ image: /images/roboboat22/main.jpg
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 </head>
 
-<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %}); max-width: 100vw">
   <div class="inner-hero text-container">
     <div class="hero-text-container">
       <h1 class="editable">
@@ -50,38 +50,32 @@ image: /images/roboboat22/main.jpg
         <div>
           <h3>Prioritization of Challenges</h3>
           <div>
-            <h4>High Priority Challenges</h4>
-            <div>
-              <h5>Navigation Channel</h5>
-              <p>
-                Description: This challenge is mandatory before attempting other tasks. The 
-                ASV needs to pass through two sets of gates (a pair of red and green buoys) and starts
-                autonomous navigation at a minimum of 6 ft before the set of gates.
-              </p>
-              <p>
-                Analysis: As it is mandatory, this challenge is of high importance. In 2019, the 
-                boat could only successfully pass the navigation channel once out of four 
-                qualification runs as a result of a major electrical failure onboard.
-              </p>
-              <p>
-                Goal: 14 out of 15 successful runs
-              </p>
-            </div>
-            <div>
-              <h5>Snack Run</h5>
-              <p>
-                Description: The ASV enters the gate buoys, maneuvers around the mark buoy, and exits
-                thought the same gate buoys, as quickly as possible. The timer starts when the bow (front) 
-                crosses the gate buoys and stops when the stern (back) crosses the gate buoys
-              </p>
-              <p>
-                Analysis: Based on the 2019 score-sheet, a time between 25-45s is needed to remain 
-                competitive in the Snack Run challenge, with the fastest 2019 run coming in at 27 seconds                
-              </p>
-              <p>
-                Goal: 9 out of 10 successful runs + baseline of 35 seconds, goal of 26 seconds
-              </p>
-            </div>
+              {% for boat in site.roboboat22 %}
+              <h5>{{boat.title}}</h5>
+              {% endfor %}
+              {% for data in site.roboboat22 %}
+                <h5>{{data.title}}</h5>
+                {% if data.category == 'challenges' %}
+                  <h4>High Priority Challenges</h4>
+                  {% if data.priority == 'high' %}
+                    <div>
+                      <div class="image" data-aos="zoom-out-right">
+                        <img src={{data.image}} alt={{data.title}} />
+                      </div>
+                      <h5>{{data.title}}</h5>
+                      <p>
+                        Description: {{data.description}}
+                      </p>
+                      <p>
+                        Analysis: {{data.analysis}}
+                      </p>
+                      <p>
+                        Goal: {{data.goal}}
+                      </p>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
           </div>
         </div>
       </div>

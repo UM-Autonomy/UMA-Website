@@ -43,6 +43,7 @@ collections:
   sponsors:
   boats:
   projects:
+  roboboat22:
 
 paginate: 10
 paginate_path: "/blog/:num/"
