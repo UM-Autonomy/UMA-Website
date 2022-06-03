@@ -25,43 +25,37 @@ image: /images/roboboat22/main.jpg
     <a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
   </div>
 </section>
-<br />
 
-<div class="content">
+<div class="content container" style="font-size: 12pt; padding: 0 8%;">
   <section class="info" id="learn-more">
-    <div>
-      <div class="container">
-        <h2>Competition Strategy</h2>
+    <div class="competition-strategy">
+      <h2>Competition Strategy</h2>
+      <div class="my-4">
+        <h3>Team Focus</h3>
+        <p>
+          For this competition season, our team decided to reuse the Flying Sloth hull from our 2017 competition.
+          This allowed for greater focus on testing and on learning skills that the team lost due to the graduation
+          of more experienced members and the lack of in-person opportunities the last 2 years due to covid.
+        </p>
+      </div>
+      <div class="my-4">
+        <h3>Thrust-to-Weight Ratio</h3>
+        <p>
+          The usage of foam hulls instead of carbon fiber hulls means that the boat is heavier. 
+          To account for this, more thrusters are used, and we decided on using a six-thruster setup.
+        </p>
+      </div>
+      <div class="my-4">
+        <h3>Prioritization of Challenges</h3>
         <div>
-          <h3>Team Focus</h3>
-          <p>
-            For this competition season, our team decided to reuse the Flying Sloth hull from our 2017 competition.
-            This allowed for greater focus on testing and on learning skills that the team lost due to the graduation
-            of more experienced members and the lack of in-person opportunities the last 2 years due to covid.
-          </p>
-        </div>
-        <div>
-          <h3>Thrust-to-Weight Ratio</h3>
-          <p>
-            The usage of foam hulls instead of carbon fiber hulls means that the boat is heavier. 
-            To account for this, more thrusters are used, and we decided on using a six-thruster setup.
-          </p>
-        </div>
-        <div>
-          <h3>Prioritization of Challenges</h3>
-          <div>
-              {% for boat in site.roboboat22 %}
-              <h5>{{boat.title}}</h5>
-              {% endfor %}
-              {% for data in site.roboboat22 %}
-                <h5>{{data.title}}</h5>
-                {% if data.category == 'challenges' %}
-                  <h4>High Priority Challenges</h4>
-                  {% if data.priority == 'high' %}
-                    <div>
-                      <div class="image" data-aos="zoom-out-right">
-                        <img src={{data.image}} alt={{data.title}} />
-                      </div>
+          <h4>High Priority Challenges</h4>
+            {% for data in site.roboboat22 %}
+              {% if data.category == 'challenges' and data.priority == 'high'%}
+                  <div class="row">
+                    <div class="image col-xs-12 col-4" data-aos="zoom-out-right">
+                      <img style="width:80%" src={{data.image}} alt={{data.title}} />
+                    </div>
+                    <div class="xol-sx-12 col-8">
                       <h5>{{data.title}}</h5>
                       <p>
                         Description: {{data.description}}
@@ -73,10 +67,58 @@ image: /images/roboboat22/main.jpg
                         Goal: {{data.goal}}
                       </p>
                     </div>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-          </div>
+                  </div>
+                  <hr/>
+              {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+          <h4>Medium Priority Challenges</h4>
+            {% for data in site.roboboat22 %}
+              {% if data.category == 'challenges' and data.priority == 'medium'%}
+                  <div class="row">
+                    <div class="image col-xs-12 col-4" data-aos="zoom-out-right">
+                      <img style="width:80%" src={{data.image}} alt={{data.title}} />
+                    </div>
+                    <div class="xol-sx-12 col-8">
+                      <h5>{{data.title}}</h5>
+                      <p>
+                        Description: {{data.description}}
+                      </p>
+                      <p>
+                        Analysis: {{data.analysis}}
+                      </p>
+                      <p>
+                        Goal: {{data.goal}}
+                      </p>
+                    </div>
+                  </div>
+              {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+          <h4>Low Priority Challenges</h4>
+            {% for data in site.roboboat22 %}
+              {% if data.category == 'challenges' and data.priority == 'low'%}
+                  <div class="row">
+                    <div class="image col-xs-12 col-4" data-aos="zoom-out-right">
+                      <img style="width:80%" src={{data.image}} alt={{data.title}} />
+                    </div>
+                    <div class="xol-sx-12 col-8">
+                      <h5>{{data.title}}</h5>
+                      <p>
+                        Description: {{data.description}}
+                      </p>
+                      <p>
+                        Analysis: {{data.analysis}}
+                      </p>
+                      <p>
+                        Goal: {{data.goal}}
+                      </p>
+                    </div>
+                  </div>
+              {% endif %}
+            {% endfor %}
         </div>
       </div>
     </div>
