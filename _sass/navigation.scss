@@ -1,7 +1,7 @@
 .nav-open nav {
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
 	padding: 10px 0;
-	a {
+	a, #search-container {
 		display: block;
 		padding: 30px 0;
 	}
@@ -10,7 +10,7 @@
 		border: 0;
 		padding: 0 20px;
 
-		a {
+		a, #search-container {
 			display: inline;
 		}
 	}
@@ -30,7 +30,7 @@ nav {
 	}
 
 
-	a {
+	a, #search-container {
 		margin: 0 3px;
 		padding: 14px 10px;
 		border: 0;

@@ -11,6 +11,11 @@
 		{% endif %}
 		<a href="{% include relative-src.html src=link.link %}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
 	{% endfor %}
+	<!-- RESOURCES
+		https://blog.webjeda.com/instant-jekyll-search/
+	https://github.com/christian-fei/Simple-Jekyll-Search
+	-->
+	
 	<!-- Html Elements for Search -->
 	<div id="search-container">
 		<input type="text" id="search-input" placeholder="search...">
