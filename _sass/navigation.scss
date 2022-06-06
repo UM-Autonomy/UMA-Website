@@ -6,6 +6,11 @@
 		padding: 30px 0;
 	}
 
+	/* Overrides styling for search-container */
+	#search-container {
+		padding: 0;
+	}
+
 	@media #{$mid-point} {
 		border: 0;
 		padding: 0 20px;
@@ -61,6 +66,16 @@ nav {
 			}
 		}
 	}
+
+	/* Overrides styling for search-container */
+	#search-container {
+		@media #{$mid-point} {
+			display: inline-block; 
+			padding: 0; 
+			float: right;
+		}
+	}
+
 
 	a.active {
 		border-bottom: 5px solid #ffa74d;

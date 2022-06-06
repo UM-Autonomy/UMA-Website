@@ -31,3 +31,28 @@
     width: 80%;
   }
 }
+
+#search-container {
+  /* Don't show search box in mobile/tablet view */
+  display: none;
+  
+  @media #{$desktop} {
+    position: fixed;
+    display: block;
+    z-index: 10000;
+    right: 0;
+    padding: 10px;
+  }
+
+  #search-input {
+    height: 40px;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  #results-container {
+    padding-left: 0;
+  }
+}
