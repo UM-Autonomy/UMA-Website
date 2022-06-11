@@ -1,5 +1,7 @@
 - name: Home
   link: /
+- name: Roboboat 22
+  link: /roboboat22/
 - name: The Team
   link: /team/
 - name: History
@@ -12,3 +14,5 @@
   link: /projects/
 - name: Contact Us
   link: /contact/
+- name: FAQ
+  link: /faq/
