@@ -24,10 +24,11 @@ image: /images/old.jpg
   </div>
 </section>
 
-<div class="content container" style="font-size: 12pt; padding: 0 8%;">
-  <section class="info" id="learn-more">
+
+<div class="content container" id="learn-more" style="font-size: 12pt; padding: 0 8%;">
   {% for boat in site.boats %}
-    <div class="row">
+  <section class="info" id="{{boat.name}}">
+    <div class="row" >
       <div class="image col-12 col-lg-5" data-aos="fade-right">
         <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
       </div>
