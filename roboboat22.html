@@ -56,7 +56,7 @@ image: /images/roboboat22/main.jpg
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
                     <div class="xol-sx-12 col-8">
-                      <h5>{{data.title}}</h5>
+                      <h5>{{ data.title }}</h5>
                       <p>
                         Description: {{data.description}}
                       </p>
@@ -121,6 +121,25 @@ image: /images/roboboat22/main.jpg
             {% endfor %}
         </div>
       </div>
+    </div>
+  </section>
+</div>
+
+<div class="content container" style="font-size: 12pt; padding: 0 8%;">
+  <section class="info" id="learn-more">
+    <div class="process">
+      <h1>Process</h1>
+      <h3>Preparation of Hulls</h3>
+      {% for step in site.process %}
+        {% if step.category == 'Hulls' %}
+        <div class="xol-sx-12 col-8">
+          <h5>{{step.title}}</h5>
+          <p>
+            Description: {{step.steps}}
+          </p>
+        </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </section>
 </div>
