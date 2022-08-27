@@ -44,6 +44,7 @@ collections:
   boats:
   projects:
   roboboat22:
+  process:
 
 paginate: 10
 paginate_path: "/blog/:num/"
