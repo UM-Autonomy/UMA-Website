@@ -52,11 +52,11 @@ image: /images/roboboat22/main.jpg
             {% for data in site.roboboat22 %}
               {% if data.category == 'challenges' and data.priority == 'high'%}
                   <div class="row">
-                    <div class="image col-xs-12 col-4" data-aos="zoom-out-right">
+                    <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
-                    <div class="xol-sx-12 col-8">
-                      <h5>{{ data.title }}</h5>
+                    <div class="col-12 col-md-8">
+                      <h5>{{data.title}}</h5>
                       <p>
                         Description: {{data.description}}
                       </p>
@@ -77,10 +77,10 @@ image: /images/roboboat22/main.jpg
             {% for data in site.roboboat22 %}
               {% if data.category == 'challenges' and data.priority == 'medium'%}
                   <div class="row">
-                    <div class="image col-xs-12 col-4" data-aos="zoom-out-right">
+                    <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
-                    <div class="xol-sx-12 col-8">
+                    <div class="col-12 col-md-8">
                       <h5>{{data.title}}</h5>
                       <p>
                         Description: {{data.description}}
@@ -93,6 +93,7 @@ image: /images/roboboat22/main.jpg
                       </p>
                     </div>
                   </div>
+                  <hr/>
               {% endif %}
             {% endfor %}
         </div>
@@ -101,10 +102,10 @@ image: /images/roboboat22/main.jpg
             {% for data in site.roboboat22 %}
               {% if data.category == 'challenges' and data.priority == 'low'%}
                   <div class="row">
-                    <div class="image col-xs-12 col-4" data-aos="zoom-out-right">
+                    <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
-                    <div class="xol-sx-12 col-8">
+                    <div class="col-12 col-md-8">
                       <h5>{{data.title}}</h5>
                       <p>
                         Description: {{data.description}}
@@ -117,6 +118,7 @@ image: /images/roboboat22/main.jpg
                       </p>
                     </div>
                   </div>
+                  <hr/>
               {% endif %}
             {% endfor %}
         </div>
@@ -132,7 +134,7 @@ image: /images/roboboat22/main.jpg
       <h3>Preparation of Hulls</h3>
       {% for step in site.process %}
         {% if step.category == 'Hulls' %}
-        <div class="xol-sx-12 col-8">
+        <div class="col-12 col-md-8">
           <h5>{{step.title}}</h5>
           <p>
             Description: {{step.steps}}
