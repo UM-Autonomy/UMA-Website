@@ -145,14 +145,15 @@ image: /images/team_photo.jpg
 				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
 						class="square-image team-image"
 						style="background-image: url({% include relative-src.html src=person.image_path %})">
-					</div>
+				</div>
 				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.position }}</div>
 				<div class="link">
 					<a href="{{ person.contact }}" target="_blank">
 						{{ person.contact_type }}
 					</a>
 				</div>
-				<div class="g_year">{{ person.g_year }}</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
 			{% endif %}
 			{% endfor %}
