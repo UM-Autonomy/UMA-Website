@@ -3,5 +3,6 @@ $brand-color: #00274c;
 // Breakpoints
 $tablet: "(min-width: 450px)";
 $mid-point: "(min-width: 620px)";
+$nav-wrap: "(min-width: 1060px)"; //kinda inelegant tbh, might be better to structure the top nav differently
 // $desktop: "(min-width: 768px)";
 $desktop: "(min-width: 992px)";

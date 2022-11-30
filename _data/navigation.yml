@@ -4,15 +4,15 @@
   link: /roboboat22/
 - name: The Team
   link: /team/
-- name: History
+- name: Past Boats
   link: /history/
+- name: Projects 
+  link: /projects/
 - name: Sponsors
   link: /sponsors/
 - name: Blog
   link: /blog/
-- name: Projects 
-  link: /projects/
-- name: Contact Us
-  link: /contact/
 - name: FAQ
   link: /faq/
+- name: Contact Us
+  link: /contact/

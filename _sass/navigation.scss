@@ -1,6 +1,7 @@
 .nav-open nav {
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
 	padding: 10px 0;
+
 	a, #search-container {
 		display: block;
 		padding: 30px 0;
@@ -11,7 +12,7 @@
 		padding: 0;
 	}
 
-	@media #{$mid-point} {
+	@media #{$nav-wrap} {
 		border: 0;
 		padding: 0 20px;
 
@@ -29,7 +30,7 @@ nav {
 	top: -7px;
 	text-shadow: none;
 
-	@media #{$mid-point} {
+	@media #{$nav-wrap} {
 		padding: 0 20px;
 		display: inline;
 	}
@@ -41,7 +42,7 @@ nav {
 		border: 0;
 		display: none;
 
-		@media #{$mid-point} {
+		@media #{$nav-wrap} {
 			display: inline;
 			border-bottom: 1px solid rgba(255,255,255,0);
 			color: rgba(255,255,255,.8);
@@ -57,7 +58,7 @@ nav {
 			border: 0;
 			text-shadow: 0;
 			padding: 0 !important;
-			@media #{$mid-point} {
+			@media #{$nav-wrap} {
 				display: none;
 			}
 
@@ -69,10 +70,10 @@ nav {
 
 	/* Overrides styling for search-container */
 	#search-container {
-		@media #{$mid-point} {
-			display: inline-block; 
+		@media #{$nav-wrap} {
+			display: block; 
 			padding: 0; 
-			float: right;
+			/*float: right;*/
 		}
 	}
 

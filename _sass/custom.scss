@@ -36,7 +36,7 @@
   /* Don't show search box in mobile/tablet view */
   display: none;
   
-  @media #{$desktop} {
+  @media #{$nav-wrap} {
     position: fixed;
     display: block;
     z-index: 10000;
