@@ -35,10 +35,8 @@ image: /images/offshorebackground.jpg
 			</div>
 	</section>
 
-	{% for sponsor in site.sponsors %}
-	{% if sponsor.level == "Platinum" %}
 	<section class="info">
-		<div class="container flex">
+		<div class="container">
 			<!-- <div class="text">
 				<h3 class="editable">
 					{{ sponsor.title }}
@@ -47,15 +45,21 @@ image: /images/offshorebackground.jpg
 					{{ sponsor.description }}
 				</p>
 			</div> -->
-			<div class="image">
-				<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
-			</div>
+			<ul class="staff" id="leadership">
+				{% for sponsor in site.sponsors %}
+				{% if sponsor.level == "Platinum" %}
+				<li>
+					<div class="image">
+						<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
+					</div>
+				</li>
+			
+				{% endif %}
+				{% endfor %}
+			</ul>
 		</div>
 	</section>
-	{% endif %}
-	{% endfor %}
-
-
+	
 	<section class="info" id="learn-more">
 		<div class="container flex">
 			<div class="text">
@@ -65,10 +69,8 @@ image: /images/offshorebackground.jpg
 			</div>
 	</section>
 
-	{% for sponsor in site.sponsors %}
-	{% if sponsor.level == "Gold" %}
 	<section class="info">
-		<div class="container flex">
+		<div class="container">
 			<!-- <div class="text">
 				<h3 class="editable">
 					{{ sponsor.title }}
@@ -77,13 +79,22 @@ image: /images/offshorebackground.jpg
 					{{ sponsor.description }}
 				</p>
 			</div> -->
-			<div class="image">
-				<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
-			</div>
+
+			<ul class="staff" id="leadership">
+				{% for sponsor in site.sponsors %}
+				{% if sponsor.level == "Gold" %}
+				<li>
+					<div class="image">
+						<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
+					</div>
+				</li>
+			
+				{% endif %}
+				{% endfor %}
+			</ul>
+			
 		</div>
 	</section>
-	{% endif %}
-	{% endfor %}
 
 	<!-- <section class="info" id="learn-more">
 		<div class="container flex">
