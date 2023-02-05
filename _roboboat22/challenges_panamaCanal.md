@@ -1,7 +1,7 @@
 ---
 category: challenges
 priority: high
-title: Navigation Channel 
+title: Navigate the Panama Canal
 description: This challenge is mandatory before attempting other tasks. The 
             ASV needs to pass through two sets of gates (a pair of red and green buoys) and starts
             autonomous navigation at a minimum of 6 ft before the set of gates.
