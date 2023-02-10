@@ -9,5 +9,5 @@ analysis: The challenge requires minimal external hardware or software developme
         involves careful navigational operability and fine motor control. This challenge could be 
         tested and fine-tuned early in the development process. 
 goal: 9 out of 10 successful runs
-image: /images/roboboat22/challenges/avoidTheCrowds.png
+image: /images/roboboat22/challenges/magellans_route.png
 ---

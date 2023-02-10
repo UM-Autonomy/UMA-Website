@@ -9,5 +9,5 @@ analysis: As both the Water Blast and Feeding the Fish are new challenges, UM::A
         completing the Water Blast challenge this year, though work was done throughout the year to 
         complete the Skeeball task in the future.
 goal: N/A
-image: /images/roboboat22/challenges/skeeballGame.png
+image: /images/roboboat22/challenges/feed_the_fish.png
 ---
