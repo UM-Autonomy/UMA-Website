@@ -1,6 +1,6 @@
 ---
 category: challenges
-priority: low
+priority: medium
 title: Feed the Fish
 description: The ASV detects the "feeding table" (purple frame), then lines up and shoot three "pellets" 
              (racquetballs) through the frame into any of the three holes. Points are awarded if the ball 
