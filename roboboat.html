@@ -1,5 +1,5 @@
 ---
-title: Roboboat
+title: Roboboat 2022
 description: Competition strategy and team progress
 image: /images/roboboat/main.jpg
 ---
@@ -36,7 +36,7 @@ image: /images/roboboat/main.jpg
           </div>
           <div class="container col-12 col-lg-7">
             <div class="text">
-              <h3 class="editable">{{boat.name}}</h3>
+              <h3 class="editable">{{boat.year}}: {{boat.name}}</h3>
               <h5>{{boat.subtitle}}</h5>
               <p class="editable">
                 {{boat.description1}}
@@ -84,6 +84,8 @@ image: /images/roboboat/main.jpg
         </p>
       </div>
       <div class="my-4">
+
+      
         <h3>Prioritization of Challenges</h3>
         <div>
           <h4>High Priority Challenges</h4>
@@ -169,16 +171,16 @@ image: /images/roboboat/main.jpg
   <section class="info" id="learn-more">
     <div class="process">
       <h1>Process</h1>
-      <h3 id="Hulls">Preparation of Hulls</h3>
-      {% for step in site.process %}
-        <h5>{{ step.title }} hey </h5>
-        {% if step.category == "Hulls" %}
-        <div class="col-12 col-md-8">
-          <h5>{{ step.title }}</h5>
-          <p>
-            Description: {{step.steps}}
-          </p>
-        </div>
+      <h3>Preparation of Hulls</h3>
+      {% for data in site.roboboat %}
+        {% if data.category == 'process' and data.year == 2023 %}
+        <a href="{% include relative-src.html src=data.link %}" class="{{ class }}" target="_blank">
+          <div class="col-12 col-md-8">
+            <div>
+              {{data.title}}
+            </div>
+          </div>
+        </a>
         {% endif %}
       {% endfor %}
     </div>

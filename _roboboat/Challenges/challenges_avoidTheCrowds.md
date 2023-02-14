@@ -2,7 +2,7 @@
 category: challenges
 priority: high
 title: Avoid The Crowds
-description: The ASV passes through between multiple sets of gates (pairs of red and green buoys) 
+description: The ASV passes through between multiple sets of gates (pairs of red and green buoys)
         and avoids intermittent yellow buoys
 analysis: The challenge requires minimal external hardware or software development and mainly just 
         involves careful navigational operability and fine motor control. This challenge could be 
