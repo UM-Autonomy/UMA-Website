@@ -8,5 +8,5 @@ description: The ASV enters the gate buoys, maneuvers around the mark buoy, and 
 analysis: Based on the 2019 score-sheet, a time between 25-45s is needed to remain 
         competitive in the Snack Run challenge, with the fastest 2019 run coming in at 27 seconds.
 goal: 9 out of 10 successful runs + baseline of 35 seconds, goal of 26 seconds
-image: /images/roboboat22/challenges/snackRun.png
+image: /images/roboboat/challenges/snackRun.png
 ---

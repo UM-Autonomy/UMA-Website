@@ -1,7 +1,7 @@
 ---
-title: Roboboat 2022
+title: Roboboat
 description: Competition strategy and team progress
-image: /images/roboboat22/main.jpg
+image: /images/roboboat/main.jpg
 ---
 
 <head>
@@ -14,7 +14,7 @@ image: /images/roboboat22/main.jpg
   <div class="inner-hero text-container">
     <div class="hero-text-container">
       <h1 class="editable">
-        Roboboat 2022
+        Roboboat 2023
       </h1>
       <p class="subtext editable">
         Competition strategy and team progress
@@ -25,6 +25,44 @@ image: /images/roboboat22/main.jpg
     <a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
   </div>
 </section>
+
+<div class="content container" id="learn-more" style="font-size: 12pt; padding: 0 8%;">
+  {% for boat in site.boats %}
+    {% if boat.year == 2023 %}
+      <section class="info" id="{{boat.name}}">
+        <div class="row" >
+          <div class="image col-12 col-lg-5" data-aos="fade-right">
+            <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
+          </div>
+          <div class="container col-12 col-lg-7">
+            <div class="text">
+              <h3 class="editable">{{boat.name}}</h3>
+              <h5>{{boat.subtitle}}</h5>
+              <p class="editable">
+                {{boat.description1}}
+              </p>
+              <p>{{boat.description2}}</p>
+              <p>{{boat.description3}}</p>
+            </div>
+            <div>
+              {% if boat.tdr_path %}
+              <div class="button" style="margin-bottom: 1rem">
+                <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
+              </div>
+              {% endif %}
+              {% if boat.video_path %}
+              <div class="button">
+                <a href={{boat.video_path}} target="_blank">Video</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <hr />
+      </section>
+    {% endif %}
+ {% endfor %}
+</div>
 
 <div class="content container" style="font-size: 12pt; padding: 0 8%;">
   <section class="info" id="learn-more">
@@ -49,7 +87,7 @@ image: /images/roboboat22/main.jpg
         <h3>Prioritization of Challenges</h3>
         <div>
           <h4>High Priority Challenges</h4>
-            {% for data in site.roboboat22 %}
+            {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'high'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
@@ -74,7 +112,7 @@ image: /images/roboboat22/main.jpg
         </div>
         <div>
           <h4>Medium Priority Challenges</h4>
-            {% for data in site.roboboat22 %}
+            {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'medium'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
@@ -99,7 +137,7 @@ image: /images/roboboat22/main.jpg
         </div>
         <div>
           <h4>Low Priority Challenges</h4>
-            {% for data in site.roboboat22 %}
+            {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'low'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
@@ -131,11 +169,12 @@ image: /images/roboboat22/main.jpg
   <section class="info" id="learn-more">
     <div class="process">
       <h1>Process</h1>
-      <h3>Preparation of Hulls</h3>
+      <h3 id="Hulls">Preparation of Hulls</h3>
       {% for step in site.process %}
-        {% if step.category == 'Hulls' %}
+        <h5>{{ step.title }} hey </h5>
+        {% if step.category == "Hulls" %}
         <div class="col-12 col-md-8">
-          <h5>{{step.title}}</h5>
+          <h5>{{ step.title }}</h5>
           <p>
             Description: {{step.steps}}
           </p>
