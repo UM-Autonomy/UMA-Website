@@ -1,5 +1,5 @@
 ---
-category: Hulls
+category: Old Hulls
 title: Reuse the Flying Sloth Hull
 steps: 1. Sand off the existing paint to reveal the fiberglass work below
 2. Reinforce hull using a primary layer of Duraglass
