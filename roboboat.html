@@ -1,7 +1,7 @@
 ---
-title: Roboboat 2023
+title: Roboboat 2022
 description: Competition strategy and team progress
-image: /images/roboboat22/main.jpg
+image: /images/roboboat/main.jpg
 ---
 
 <head>
@@ -26,6 +26,44 @@ image: /images/roboboat22/main.jpg
   </div>
 </section>
 
+<div class="content container" id="learn-more" style="font-size: 12pt; padding: 0 8%;">
+  {% for boat in site.boats %}
+    {% if boat.year == 2023 %}
+      <section class="info" id="{{boat.name}}">
+        <div class="row" >
+          <div class="image col-12 col-lg-5" data-aos="fade-right">
+            <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
+          </div>
+          <div class="container col-12 col-lg-7">
+            <div class="text">
+              <h3 class="editable">{{boat.year}}: {{boat.name}}</h3>
+              <h5>{{boat.subtitle}}</h5>
+              <p class="editable">
+                {{boat.description1}}
+              </p>
+              <p>{{boat.description2}}</p>
+              <p>{{boat.description3}}</p>
+            </div>
+            <div>
+              {% if boat.tdr_path %}
+              <div class="button" style="margin-bottom: 1rem">
+                <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
+              </div>
+              {% endif %}
+              {% if boat.video_path %}
+              <div class="button">
+                <a href={{boat.video_path}} target="_blank">Video</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <hr />
+      </section>
+    {% endif %}
+ {% endfor %}
+</div>
+
 <div class="content container" style="font-size: 12pt; padding: 0 8%;">
   <section class="info" id="learn-more">
     <div class="competition-strategy">
@@ -33,25 +71,25 @@ image: /images/roboboat22/main.jpg
       <div class="my-4">
         <h3>Team Focus</h3>
         <p>
-          For this competition season, our team decided to design a new carbon fiber hull. This would give new team 
-          members the opportunities to help design the boat as well as work with new materials like carbon fiber. 
-          Experienced members would guide the newer members but would still incorporate new and fresh ideas allowing 
-          for greater in-person/team bonding opportunities that were absent from the last few years due to covid.
+          For this competition season, our team decided to reuse the Flying Sloth hull from our 2017 competition.
+          This allowed for greater focus on testing and on learning skills that the team lost due to the graduation
+          of more experienced members and the lack of in-person opportunities the last 2 years due to covid.
         </p>
       </div>
       <div class="my-4">
         <h3>Thrust-to-Weight Ratio</h3>
         <p>
-          The usage of carbon fiber hulls instead of foam hulls means that the boat is much lighter. 
-          To account for the reduced weight, less thrusters are needed, which is why we decided on using a 
-          four-thruster setup.
+          The usage of foam hulls instead of carbon fiber hulls means that the boat is heavier. 
+          To account for this, more thrusters are used, and we decided on using a six-thruster setup.
         </p>
       </div>
       <div class="my-4">
+
+      
         <h3>Prioritization of Challenges</h3>
         <div>
           <h4>High Priority Challenges</h4>
-            {% for data in site.roboboat22 %}
+            {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'high'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
@@ -76,7 +114,7 @@ image: /images/roboboat22/main.jpg
         </div>
         <div>
           <h4>Medium Priority Challenges</h4>
-            {% for data in site.roboboat22 %}
+            {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'medium'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
@@ -101,7 +139,7 @@ image: /images/roboboat22/main.jpg
         </div>
         <div>
           <h4>Low Priority Challenges</h4>
-            {% for data in site.roboboat22 %}
+            {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'low'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
@@ -134,14 +172,15 @@ image: /images/roboboat22/main.jpg
     <div class="process">
       <h1>Process</h1>
       <h3>Preparation of Hulls</h3>
-      {% for step in site.process %}
-        {% if step.category == 'Hulls' %}
-        <div class="col-12 col-md-8">
-          <h5>{{step.title}}</h5>
-          <p>
-            {{step.steps}}
-          </p>
-        </div>
+      {% for data in site.roboboat %}
+        {% if data.category == 'process' and data.year == 2023 %}
+        <a href="{% include relative-src.html src=data.link %}" class="{{ class }}" target="_blank">
+          <div class="col-12 col-md-8">
+            <div>
+              {{data.title}}
+            </div>
+          </div>
+        </a>
         {% endif %}
       {% endfor %}
     </div>
