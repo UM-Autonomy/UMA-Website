@@ -1,5 +1,5 @@
 ---
-category: process
+category: Thing
 title: The Phoenix Hull
 year: 2023
 steps: 1. Make CAD model of boat
