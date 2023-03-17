@@ -8,5 +8,5 @@ analysis: As this task is a new challenge, UM::Autonomy chose to focus on comple
           and Feeding the Fish challenge for this year, though work was done throughout the year to
           complete the Ocean Cleanup task in the future.
 goal: N/A
-image: /images/roboboat22/challenges/OceanCleanup.png
+image: /images/roboboat/challenges/OceanCleanup.png
 ---

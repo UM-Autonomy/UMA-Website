@@ -9,5 +9,5 @@ analysis: This is the first season with this challenge and hardware and software
         mechanisms pushed back actual testing. Therefore, we knew that immediate mastery of this task 
         would be difficult and time consuming, and should only be attempted after other challenges.
 goal: 3 out of 5 successful runs
-image: /images/roboboat22/challenges/ponce_de_fountain.png
+image: /images/roboboat/challenges/ponce_de_fountain.png
 ---
