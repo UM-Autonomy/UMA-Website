@@ -1,6 +1,7 @@
 ---
 category: challenges
-priority: medium
+priority: high
+year: '2023'
 title: Beaching & Inspecting Turtle Nests
 description: Before the time slot starts, teams are assigned a color and must dock at the bay with 
              the matching color. Once the ASV detects and enters the docking bay, it must report the number

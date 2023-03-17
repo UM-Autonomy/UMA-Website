@@ -1,6 +1,7 @@
 ---
 category: challenges
 priority: high
+year: '2023'
 title: Magellan's Route / Count the Manatees & Jellyfish
 description: The ASV passes through between multiple sets of gates (pairs of red and green buoys) 
         The ASV also avoids intermittent yellow buoys (jelly fish) and black buoys (manatees) of 

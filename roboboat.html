@@ -90,7 +90,7 @@ image: /images/roboboat/main.jpg
         <div>
           <h4>High Priority Challenges</h4>
             {% for data in site.roboboat %}
-              {% if data.category == 'challenges' and data.priority == 'high'%}
+              {% if data.category == 'challenges' and data.priority == 'high' and data.year == '2023'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
@@ -115,7 +115,7 @@ image: /images/roboboat/main.jpg
         <div>
           <h4>Medium Priority Challenges</h4>
             {% for data in site.roboboat %}
-              {% if data.category == 'challenges' and data.priority == 'medium'%}
+              {% if data.category == 'challenges' and data.priority == 'medium' and data.year == '2023'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
@@ -140,7 +140,7 @@ image: /images/roboboat/main.jpg
         <div>
           <h4>Low Priority Challenges</h4>
             {% for data in site.roboboat %}
-              {% if data.category == 'challenges' and data.priority == 'low'%}
+              {% if data.category == 'challenges' and data.priority == 'low' and data.year == '2023'%}
                   <div class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />

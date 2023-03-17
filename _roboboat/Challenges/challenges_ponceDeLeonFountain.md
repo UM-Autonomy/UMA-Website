@@ -1,6 +1,7 @@
 ---
 category: challenges
 priority: medium
+year: '2023'
 title: Ponce de Leon / Fountain of Youth
 description: The ASV detects the target face (blue/white striped) and shoots enough water through the 
         target to raise the ball above the green line in the pipe. The ASV may pump the water from the 

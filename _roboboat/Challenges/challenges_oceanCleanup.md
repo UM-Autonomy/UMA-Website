@@ -1,6 +1,7 @@
 ---
 category: challenges
 priority: low
+year: '2023'
 title: Ocean Cleanup
 description: The ASV detects an underwater pinger which designates the area to collect "debris" (raquetballs) 
              from. The ASV may then use the collected balls as extra balls in the Feed the Fish challenge.
