@@ -20,5 +20,35 @@ layout: none
       "url"      : "{{ site.baseurl }}/history/#{{ boat.name }}",
       "date"     : "{{ boat.year }}"
     } {% unless forloop.last %},{% endunless %}
+  {% endfor %},
+
+  {% for sponsor in site.sponsors %}
+    {
+      "title"    : "{{ sponsor.name | escape }}",
+      "category" : "{{ sponsor.level }}",
+      "url"      : "{{ site.baseurl }}/sponsors/#{{ sponsor.level }}",
+      "date"     : "2023"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %},
+
+  {% assign isFirst = true %}
+  {% for challenge in site.roboboat %}
+    {% if challenge.category == 'challenges' and challenge.year == 2023 %}  
+      {% unless isFirst %},{% endunless %}
+      {% assign isFirst = false %}
+      {
+        "title"    : "{{ challenge.title | escape}}",
+        "category" : "{{ challenge.priority }}",
+        "url"      : "{{ site.baseurl }}/roboboat/#{{ challenge.id_name }}",
+        "date"     : "2023"
+      },
+      {
+        "title"    : "{{ challenge.id_name | escape}}",
+        "category" : "{{ challenge.priority }}",
+        "url"      : "{{ site.baseurl }}/roboboat/#{{ challenge.id_name }}",
+        "date"     : "2023"
+      }
+    {% endif %}
   {% endfor %}
+
 ]

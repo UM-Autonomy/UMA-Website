@@ -1,6 +1,6 @@
 ---
 name: Dylan Marx
-category: ai
+#category: ai
 image_path: /images/headshots/Drone/DylanMarx.jpg
 contact: https://www.linkedin.com/in/dylan-marx
 contact_type: linkedIn

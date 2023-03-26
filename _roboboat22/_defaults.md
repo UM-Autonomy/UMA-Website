@@ -1,9 +1,0 @@
----
-category:
-priority:
-title:
-description:
-analysis:
-goal:
-image: 
----

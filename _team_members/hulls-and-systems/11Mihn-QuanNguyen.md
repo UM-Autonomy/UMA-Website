@@ -1,6 +1,6 @@
 ---
 name: Minh-Quan Nguyen
-category: hulls-and-systems
+# category: hulls-and-systems
 position: leader
 image_path: /images/headshots/Hulls-and-Systems/MQ.jpg
 contact: mailto:mqnguyen@umich.edu

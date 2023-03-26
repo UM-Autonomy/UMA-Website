@@ -35,10 +35,20 @@
 #search-container {
   /* Don't show search box in mobile/tablet view */
   display: none;
+
+  position: fixed;
+  display: block;
+  max-width: 20%;
+  min-width: 20%;
+  z-index: 10000;
+  right: 0;
+  padding: 10px;
   
   @media #{$desktop} {
     position: fixed;
     display: block;
+    max-width: 20%;
+    min-width: 20%;
     z-index: 10000;
     right: 0;
     padding: 10px;
@@ -54,6 +64,7 @@
 
   #results-container {
     padding-left: 5%;
+    max-width: 100%;
     background: white;
   }
 }

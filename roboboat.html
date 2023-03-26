@@ -1,0 +1,192 @@
+---
+title: Roboboat 2022
+description: Competition strategy and team progress
+image: /images/roboboat/main.jpg
+---
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+</head>
+
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %}); max-width: 100vw">
+  <div class="inner-hero text-container">
+    <div class="hero-text-container">
+      <h1 class="editable">
+        Roboboat 2023
+      </h1>
+      <p class="subtext editable">
+        Competition strategy and team progress
+      </p>
+    </div>
+  </div>
+  <div class="learn-more">
+    <a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
+  </div>
+</section>
+
+<div class="content container" id="learn-more" style="font-size: 12pt; padding: 0 8%;">
+  {% for boat in site.boats %}
+    {% if boat.year == 2023 %}
+      <section class="info" id="{{boat.name}}">
+        <div class="row" >
+          <div class="image col-12 col-lg-5" data-aos="fade-right">
+            <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
+          </div>
+          <div class="container col-12 col-lg-7">
+            <div class="text">
+              <h3 class="editable">{{boat.year}}: {{boat.name}}</h3>
+              <h5>{{boat.subtitle}}</h5>
+              <p class="editable">
+                {{boat.description1}}
+              </p>
+              <p>{{boat.description2}}</p>
+              <p>{{boat.description3}}</p>
+            </div>
+            <div>
+              {% if boat.tdr_path %}
+              <div class="button" style="margin-bottom: 1rem">
+                <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
+              </div>
+              {% endif %}
+              {% if boat.video_path %}
+              <div class="button">
+                <a href={{boat.video_path}} target="_blank">Video</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <hr />
+      </section>
+    {% endif %}
+ {% endfor %}
+</div>
+
+<div class="content container" style="font-size: 12pt; padding: 0 8%;">
+  <section class="info" id="learn-more">
+    <div class="competition-strategy">
+      <h2>Competition Strategy</h2>
+      <div class="my-4">
+        <h3>Team Focus</h3>
+        <p>
+          For this competition season, our team decided to reuse the Flying Sloth hull from our 2017 competition.
+          This allowed for greater focus on testing and on learning skills that the team lost due to the graduation
+          of more experienced members and the lack of in-person opportunities the last 2 years due to covid.
+        </p>
+      </div>
+      <div class="my-4">
+        <h3>Thrust-to-Weight Ratio</h3>
+        <p>
+          The usage of foam hulls instead of carbon fiber hulls means that the boat is heavier. 
+          To account for this, more thrusters are used, and we decided on using a six-thruster setup.
+        </p>
+      </div>
+      <div class="my-4">
+
+      
+        <h3>Prioritization of Challenges</h3>
+        <div>
+          <h4>High Priority Challenges</h4>
+            {% for data in site.roboboat %}
+              {% if data.category == 'challenges' and data.priority == 'high'%}
+                  <div id={{data.id_name}}>
+                    <section class="row">
+                    <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
+                      <img style="width:80%" src={{data.image}} alt={{data.title}} />
+                    </div>
+                    <div class="col-12 col-md-8">
+                      <h3>{{data.title}}
+                      </h3>
+                      <p>
+                        Description: {{data.description}}
+                      </p>
+                      <p>
+                        Analysis: {{data.analysis}}
+                      </p>
+                      <p>
+                        Goal: {{data.goal}}
+                      </p>
+                    </div>
+                  </section>
+                  </div>
+
+                  <hr/>
+              {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+          <h4>Medium Priority Challenges</h4>
+            {% for data in site.roboboat %}
+              {% if data.category == 'challenges' and data.priority == 'medium'%}
+                  <div id={{data.id_name}} class="row">
+                    <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
+                      <img style="width:80%" src={{data.image}} alt={{data.title}} />
+                    </div>
+                    <div class="col-12 col-md-8">
+                      <h3>{{data.title}}</h3>
+                      <p>
+                        Description: {{data.description}}
+                      </p>
+                      <p>
+                        Analysis: {{data.analysis}}
+                      </p>
+                      <p>
+                        Goal: {{data.goal}}
+                      </p>
+                    </div>
+                  </div>
+                  <hr/>
+              {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+          <h4>Low Priority Challenges</h4>
+            {% for data in site.roboboat %}
+              {% if data.category == 'challenges' and data.priority == 'low'%}
+                  <div id={{data.id_name}} class="row">
+                    <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
+                      <img style="width:80%" src={{data.image}} alt={{data.title}} />
+                    </div>
+                    <div class="col-12 col-md-8">
+                      <h3>{{data.title}}</h3>
+                      <p>
+                        Description: {{data.description}}
+                      </p>
+                      <p>
+                        Analysis: {{data.analysis}}
+                      </p>
+                      <p>
+                        Goal: {{data.goal}}
+                      </p>
+                    </div>
+                  </div>
+                  <hr/>
+              {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- <div class="content container" style="font-size: 12pt; padding: 0 8%;">
+  <section class="info" id="learn-more">
+    <div class="process">
+      <h1>Process</h1>
+      <h3>Preparation of Hulls</h3>
+      {% for data in site.roboboat %}
+        {% if data.category == 'process' and data.year == 2023 %}
+        <a href="{% include relative-src.html src=data.link %}" class="{{ class }}" target="_blank">
+          <div class="col-12 col-md-8">
+            <div>
+              {{data.title}}
+            </div>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+</div> -->

@@ -1,0 +1,87 @@
+---
+title: Hulls
+description: Preparing the hull for 2023 comp!
+process: /_roboboat/Process/phoenix_hull.md
+image: /images/RhinoSS.jpg
+---
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:200&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+</head>
+
+{% for data in site.roboboat %}
+	{% if data.year == 2023 %}
+	<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
+		<div class="inner-hero text-container">
+			<div class="hero-text-container">
+				<h1 class="editable">
+					{{data.title}}
+				</h1>
+				<p class="subtext editable">
+					Thank you to our wonderful sponsors for your contributions!
+				</p>
+			</div>
+		</div>
+		<div class="learn-more"><a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a></div>
+	</section>
+	
+	<div class="content" id="Platinum" style="font-size: 12pt;">
+	
+		<section class="info" id="learn-more">
+			<div class="container flex">
+				<div class="text">
+					<h1 class="editable" style="text-align: center;">
+						Platinum
+					</h1>
+				</div>
+		</section>
+	
+		<section class="info">
+			<div class="container">
+				<!-- <div class="text">
+					<h3 class="editable">
+						{{ sponsor.title }}
+					</h3>
+					<p class="editable" style="font-family: 'Open Sans', sans-serif;">
+						{{ sponsor.description }}
+					</p>
+				</div> -->
+				<ul class="staff" id="leadership">
+					{% for sponsor in site.sponsors %}
+					{% if sponsor.level == "Platinum" %}
+					<li>
+						<div class="image">
+							<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
+						</div>
+					</li>
+				
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+		
+		<section class="info" id="learn-more">
+			<div class="container flex">
+				<div class="text">
+					<h1 class="editable" id="Gold" style="text-align: center;	">
+						Gold
+					</h1>
+				</div>
+		</section>
+	
+	
+		<section class="info">
+			<div class="container flex">
+				<div class="text">
+					<p>
+						Lastly, thank you to our alumni and friends for your donations during Giving Blue Day!
+					</p>
+				</div>
+			</div>
+		</section>
+	</div>
+	{% endif %}
+{% endfor %}
