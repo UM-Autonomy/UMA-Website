@@ -91,12 +91,14 @@ image: /images/roboboat/main.jpg
           <h4>High Priority Challenges</h4>
             {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'high'%}
-                  <div class="row">
+                  <div id={{data.id_name}}>
+                    <section class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
                     <div class="col-12 col-md-8">
-                      <h5>{{data.title}}</h5>
+                      <h3>{{data.title}}
+                      </h3>
                       <p>
                         Description: {{data.description}}
                       </p>
@@ -107,7 +109,9 @@ image: /images/roboboat/main.jpg
                         Goal: {{data.goal}}
                       </p>
                     </div>
+                  </section>
                   </div>
+
                   <hr/>
               {% endif %}
             {% endfor %}
@@ -116,12 +120,12 @@ image: /images/roboboat/main.jpg
           <h4>Medium Priority Challenges</h4>
             {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'medium'%}
-                  <div class="row">
+                  <div id={{data.id_name}} class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
                     <div class="col-12 col-md-8">
-                      <h5>{{data.title}}</h5>
+                      <h3>{{data.title}}</h3>
                       <p>
                         Description: {{data.description}}
                       </p>
@@ -141,12 +145,12 @@ image: /images/roboboat/main.jpg
           <h4>Low Priority Challenges</h4>
             {% for data in site.roboboat %}
               {% if data.category == 'challenges' and data.priority == 'low'%}
-                  <div class="row">
+                  <div id={{data.id_name}} class="row">
                     <div class="image col-12 col-md-4 d-flex justify-content-center align-items-center" data-aos="zoom-out-right">
                       <img style="width:80%" src={{data.image}} alt={{data.title}} />
                     </div>
                     <div class="col-12 col-md-8">
-                      <h5>{{data.title}}</h5>
+                      <h3>{{data.title}}</h3>
                       <p>
                         Description: {{data.description}}
                       </p>

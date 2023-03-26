@@ -1,7 +1,8 @@
 ---
 category: challenges
-priority: high
-title: Northern Passage Challenge
+priority: old
+year: 2022
+title: Snack Run
 description: The ASV enters the gate buoys, maneuvers around the mark buoy, and exits
         thought the same gate buoys, as quickly as possible. The timer starts when the bow (front) 
         crosses the gate buoys and stops when the stern (back) crosses the gate buoys.

@@ -1,6 +1,8 @@
 ---
 category: challenges
 priority: medium
+year: 2023
+id_name: Skeeball
 title: Feed the Fish
 description: The ASV detects the "feeding table" (purple frame), then lines up and shoot three "pellets" 
              (racquetballs) through the frame into any of the three holes. Points are awarded if the ball 
@@ -9,5 +11,5 @@ analysis: As both the Water Blast and Feeding the Fish are new challenges, UM::A
         completing the Water Blast challenge this year, though work was done throughout the year to 
         complete the Skeeball task in the future.
 goal: N/A
-image: /images/roboboat22/challenges/feed_the_fish.png
+image: /images/roboboat/challenges/feed_the_fish.png
 ---
