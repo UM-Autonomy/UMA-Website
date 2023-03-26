@@ -1,8 +1,8 @@
 ---
-name: Raghav Varshney
+name: Aayush Shah
 category: electrical
-position: lead
-image_path: /images/headshots/Leadership/Raghav.jpg
+position: member
+image_path: /images/headshots/Electrical/Aayush.jpg
 contact: https://www.linkedin.com/in/raghav-varshney/
 contact_type: linkedIn
 g_year: Winter 2024

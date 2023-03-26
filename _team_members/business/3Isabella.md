@@ -1,8 +1,8 @@
 ---
-name: Zain Eazad
+name: Isabella
 category: business
-position: Website Team Lead
-image_path: /images/headshots/AI/Zain.jpg
+position: Member
+image_path: /images/headshots/Business/Isabella.jpg
 contact: https://www.linkedin.com/in/zeazad/
 contact_type: linkedIn
 g_year: Winter 2023

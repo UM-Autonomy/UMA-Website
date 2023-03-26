@@ -1,9 +1,8 @@
 ---
 year: 2023
 name: The Phoenix
-image_path: ../images/history/c3po.jpg
+image_path: ../images/history/phoenix.jpg
 tdr_path: ../technical_design_report/phoenix.pdf
-description1: C-3PO is named in reference to the trimaran (three hulls) design of our boat. In previous years, our boat has typically used a monohull design but this year, the trimaran design is used to improve boat stability.
-description2: With the continuation of the current roboboat competition virtual format and the uncertainty of the global pandemic, the team wanted to revise the previous iteration of the boat/drone which was unfortunately never completed due to Covid-19.
-description3: This meant keeping and making small improvements to areas of strength such as the sensor suite, electrical box system, carbon fiber fiber infusion process, and much of our software while also experimenting with more innovative approaches such as the new hull form, hydrophone system, and addition of a CV/Lidar Deep learning approach. These changes allowed the team to better tackle the RoboBoat competitions challenges and ultimately push the organization to greater heights.
+description1: "Rising from the ashes of defeat and disorder following the pandemic, the phoenix soars to competition this year with renewed pride, a greater sense of togetherness, and a singular focus: to compete hard while having fun."
+description2: "After a hard-fought competition the previous year, the team chose to focus on four principles for this year: decoupling, reliability, maintainability, and performance. Not only was the AI pipeline decoupled and tested separately, but nearly all major components of the boat could be separated, making it extremely modular and maintainable. It was the first year that the team tested in the Marine Hydrodynamics Laboratory, and did so for over 100 hours. In addition, it was the first year that the boat was made out of carbon fiber from scratch - from the painstaking mold making, preparation, and vacuum resin infusion - in order to produce a boat that weighed less than 60 pounds while still delivering impeccable results."
 ---

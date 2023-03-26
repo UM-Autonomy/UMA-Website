@@ -1,8 +1,8 @@
 ---
-name: Raghav Varshney
+name: Zamir North
 category: electrical
-position: lead
-image_path: /images/headshots/Leadership/Raghav.jpg
+position: member
+image_path: /images/headshots/Electrical/Zamir.jpg
 contact: https://www.linkedin.com/in/raghav-varshney/
 contact_type: linkedIn
 g_year: Winter 2024

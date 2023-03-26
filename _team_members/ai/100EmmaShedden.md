@@ -1,6 +1,6 @@
 ---
 name: Emma Shedden
-category: ai
+#category: ai
 position: Advanced Capabilities Lead
 image_path: /images/headshots/Drone/EmmaShedden.jpg
 contact: https://www.linkedin.com/in/emma-shedden-835563204/
