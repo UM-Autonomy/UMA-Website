@@ -1,4 +1,5 @@
-$(document).ready(function () {
+(function () {
+function init() {
 	var header = document.getElementById("mainHeader");
 
 	// Change the header of the page
@@ -7,7 +8,7 @@ $(document).ready(function () {
 		header.classList.toggle("header-background", scrollTop >= 50 || document.body.classList.contains("nav-open"));
 	}
 
-	$(window).scroll(function () {
+	window.addEventListener('scroll', function () {
 		changeHeader();
 	});
 
@@ -20,4 +21,20 @@ $(document).ready(function () {
 
 	changeHeader();
 
-});
+	SimpleJekyllSearch({
+		searchInput: document.getElementById('search-input'),
+		resultsContainer: document.getElementById('results-container'),
+		json: '/search.json'
+	});
+	AOS.init();
+}
+var loaded = false;
+function onLoad() {
+	if (!loaded && document.readyState !== 'loading') {
+		loaded = true;
+		init();
+	}
+}
+onLoad();
+if (!loaded) document.addEventListener('readystatechange', onLoad);
+})();
