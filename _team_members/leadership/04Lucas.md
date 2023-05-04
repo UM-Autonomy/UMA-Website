@@ -1,7 +1,7 @@
 ---
 name: Lucas Mitsch
 category: leadership
-position: Hulls and Sytems Lead
+position: Mechanical Lead
 image_path: /images/headshots/Leadership/Lucas.jpg
 contact: https://www.linkedin.com/in/Lucas-Mitsch-697304235/
 contact_type: linkedIn

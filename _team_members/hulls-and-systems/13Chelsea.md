@@ -1,9 +1,9 @@
 ---
 name: Chelsea Sun
 category: hulls-and-systems
-position: member
+position: Member
 image_path: /images/headshots/Business/Chelsea.jpg
-contact: mailto:frtruong@umich.edu
-contact_type: Email
-g_year: Winter 2026
+contact: https://www.linkedin.com/in/chelseasun
+contact_type: linkedIn
+g_year: Winter 2025
 ---

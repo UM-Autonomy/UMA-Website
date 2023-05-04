@@ -1,9 +1,8 @@
 ---
 name: Aayush Shah
 category: electrical
-position: member
+position: Member
 image_path: /images/headshots/Electrical/Aayush.jpg
-contact: https://www.linkedin.com/in/raghav-varshney/
-contact_type: linkedIn
+contact_type: 
 g_year: Winter 2024
 ---
