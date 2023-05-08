@@ -1,6 +1,6 @@
 ---
 name: Ben Schattinger
-position: AI Lead
+position: AI Co-Lead
 category: leadership
 image_path: /images/headshots/AI/Ben.jpg
 contact: https://www.linkedin.com/in/ben-schattinger/

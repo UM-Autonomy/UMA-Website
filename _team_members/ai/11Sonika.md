@@ -1,7 +1,7 @@
 ---
 name: Sonika Potnis
 category: ai
-position: Task Planning member
+position: Task Planning Member
 image_path: /images/headshots/AI/Sonika.jpg
 contact: mailto:potnissa@umich.edu
 contact_type: Email

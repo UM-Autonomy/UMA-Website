@@ -1,7 +1,7 @@
 ---
 name: Jackson Brown
 category: hulls-and-systems
-position: member
+position: Member
 image_path: /images/headshots/Hulls-and-Systems/Jackson.jpg
 contact: www.linkedin.com/in/jackson-e-brown
 contact_type: linkedIn

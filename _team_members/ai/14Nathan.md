@@ -1,7 +1,7 @@
 ---
 name: Nathan Buckwalter
 category: ai
-position: Task Planning member
+position: Task Planning Member
 image_path: /images/headshots/AI/Nathan.jpg
 contact: mailto:buckwaln@umich.edu
 contact_type: Email

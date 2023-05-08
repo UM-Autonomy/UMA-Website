@@ -1,6 +1,6 @@
 ---
 name: Asheya Ashok Naik
-position: lead
+position: Systems Engineering lead
 category: systems
 image_path: /images/headshots/Leadership/Asheya.jpg
 contact: https://www.linkedin.com/in/naikasheya27

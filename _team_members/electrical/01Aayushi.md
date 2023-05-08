@@ -1,7 +1,7 @@
 ---
 name: Aayushi Nakum
 category: electrical
-position: lead
+position: Electrical Co-Lead
 image_path: /images/headshots/Leadership/Aayushi.jpg
 contact: mailto:anakum@umich.edu
 contact_type: 
