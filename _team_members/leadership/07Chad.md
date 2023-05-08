@@ -1,6 +1,6 @@
 ---
 name: Chad Rakoczy
-position: AI Lead
+position: AI Co-Lead / CV Lead
 category: leadership
 image_path: /images/headshots/Leadership/Chad.jpg
 contact: https://www.linkedin.com/in/chadrakoczy/

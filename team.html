@@ -1,7 +1,7 @@
 ---
 title: The Team
 description: Get to know the UMA team members!
-image: /images/team_photo.jpg
+image: /images/team_photo2023.jpg
 ---
 
 <head>
@@ -56,6 +56,35 @@ image: /images/team_photo.jpg
 		<ul class="staff" id="ai">
 			{% for person in site.team_members %}
 			{% if person.category == "ai" %}
+			
+			<li>
+				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
+						class="square-image team-image"
+						style="background-image: url({% include relative-src.html src=person.image_path %})">
+				</div>
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.position }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Advanced Capabilities</h1>
+	</div>
+	<div class="container">
+		<ul class="staff" id="ai">
+			{% for person in site.team_members %}
+			{% if person.category == "act" %}
 			
 			<li>
 				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}

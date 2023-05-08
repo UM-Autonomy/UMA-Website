@@ -1,6 +1,6 @@
 ---
 name: Frances Truong
-category: leadership
+category: hulls-and-systems
 position: Mechanical Co-Lead
 image_path: /images/headshots/Leadership/Frances.jpg
 contact: mailto:frtruong@umich.edu
