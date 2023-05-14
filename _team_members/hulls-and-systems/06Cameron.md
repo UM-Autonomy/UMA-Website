@@ -1,5 +1,5 @@
 ---
-name: Cameron Tan
+name: Cameron Muzall
 category: hulls-and-systems
 position: Member
 image_path: /images/headshots/Hulls-and-Systems/Cameron.jpg
