@@ -1,5 +1,5 @@
 ---
-name: Isabella
+name: Isabella Minkin
 category: business
 position: Member
 image_path: /images/headshots/Business/Isabella.jpg
