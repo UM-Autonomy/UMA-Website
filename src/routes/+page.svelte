@@ -1,4 +1,5 @@
 <script lang="ts">
+	// gltfpack -i model.glb -o model2.glb -cc -tc -mi -vp 16 -vpf
 	import { SceneLoader } from '@babylonjs/core/Loading/sceneLoader';
 	import { Engine } from '@babylonjs/core/Engines/engine';
 	import { Scene, ScenePerformancePriority } from '@babylonjs/core/scene';
@@ -215,7 +216,7 @@
 	const createDefaultEngine = function () {
 		return new Engine(canvas, false, {
 			disableWebGL2Support: false,
-			adaptToDeviceRatio: true,
+			adaptToDeviceRatio: true
 		});
 	};
 	const delayCreateScene = function (engine: Engine) {
@@ -301,39 +302,34 @@
 
 			scene.environmentTexture = rp.cubeTexture;
 
-
-			// NodeMaterial.ParseFromSnippetAsync("#3FU5FG#1", scene).then((mat) => {
-			// 	const wat = scene.materials.find(mat=>mat.name==='Material.001') 
-			// 	const water=scene.meshes.find(m=>m.material===wat) 
-			// 	water!.visibility = 0;
-			// 	ground.material = mat;
-			// 	window.mat = mat;
-			// });
-			NodeMaterial.ParseFromSnippetAsync("#N8UNHX#19", scene).then((node) => {
-				const wat = scene.materials.find(mat=>mat.name==='Material.001') 
-				const water=scene.meshes.find(m=>m.material===wat)!;
+			NodeMaterial.ParseFromSnippetAsync('#N8UNHX#81', scene).then((node) => {
+				const waterMat = scene.materials.find((mat) => mat.name === 'Water');
+				const water = scene.meshes.find((m) => m.material === waterMat)!;
 				water.visibility = 0;
-				console.log(water);
 				const bbox = water.getBoundingInfo().boundingBox;
 				const scale = 1;
 
-			CreateTiledPlane("ground2", { width: bbox.extendSizeWorld.z * 2 / scale, height: bbox.extendSizeWorld.x * 2 / scale }, scene);
-			const ground = 
-			// MeshBuilder.CreateTiledPlane("ground", { width: bbox.extendSizeWorld.z * 2 / scale, height: bbox.extendSizeWorld.x * 2 / scale }, scene);
-			MeshBuilder.CreateGround("ground", { width: bbox.extendSizeWorld.z * 2 / scale, height: bbox.extendSizeWorld.x * 2 / scale }, scene);
+				const ground = MeshBuilder.CreateGround(
+					'ground',
+					{
+						width: (bbox.extendSizeWorld.z * 2) / scale,
+						height: (bbox.extendSizeWorld.x * 2) / scale
+					},
+					scene
+				);
+				ground.receiveShadows = true;
 				ground.position = bbox.centerWorld;
-				
+
 				ground.scaling = new Vector3(scale, 1, scale);
 				ground.material = node;
-				node.getInputBlockByPredicate((b) => b.name === "uvScale")!.value = 256
-				node.getInputBlockByPredicate((b) => b.name === "bumpIntensity")!.value = 1.6
-				const color = node.getInputBlockByPredicate((b) => b.name === "baseColor")!;
-				
-				color.value.r = 29/255
-				color.value.g = 51 /255
-				color.value.b = 100/255
-				// node.getInputBlockByPredicate((b) => b.name === "shadowItensity").value = 2
-				// node.getInputBlockByPredicate((b) => b.name === "rimIntensity").value = 0.08
+				node.getInputBlockByPredicate((b) => b.name === 'uvScale')!.value = 256;
+				node.getInputBlockByPredicate((b) => b.name === 'TimeScale')!.value = 0.1;
+				node.getInputBlockByPredicate((b) => b.name === 'bumpIntensity')!.value = 0.75;
+				const color = node.getInputBlockByPredicate((b) => b.name === 'baseColor')!;
+
+				color.value.r = 29 / 255;
+				color.value.g = 51 / 255;
+				color.value.b = 100 / 255;
 			});
 
 			scene.clearCachedVertexData();
@@ -412,7 +408,7 @@
 				<h4>High Priority Challenges</h4>
 
 				<section id="Navigation" class="row">
-					<div class="col-12 col-md-8">
+					<div>
 						<h3>Navigate the Panama Canal</h3>
 						<img
 							style="width:80%"
@@ -436,7 +432,7 @@
 				<hr />
 
 				<section id="Obstacle" class="row">
-					<div class="col-12 col-md-8">
+					<div>
 						<h3>Magellan's Route / Count the Manatees &amp; Jellyfish</h3>
 						<img
 							style="width:80%"
@@ -461,7 +457,7 @@
 
 				<div>
 					<section id="Speed" class="row">
-						<div class="col-12 col-md-8">
+						<div>
 							<h3>Northern Passage Challenge</h3>
 							<img
 								style="width:80%"
@@ -490,7 +486,7 @@
 				<h4>Medium Priority Challenges</h4>
 
 				<div id="Docking" class="row">
-					<div class="col-12 col-md-8">
+					<div>
 						<h3>Beaching &amp; Inspecting Turtle Nests</h3>
 						<img
 							style="width:80%"
@@ -512,7 +508,7 @@
 				<hr />
 
 				<div id="Skeeball" class="row">
-					<div class="col-12 col-md-8">
+					<div>
 						<h3>Feed the Fish</h3>
 						<img style="width:80%" src="/images/roboboat/challenges/feed_the_fish.png" alt="Feed" />
 						<p>
@@ -532,7 +528,7 @@
 				<hr />
 
 				<div id="Waterblast" class="row">
-					<div class="col-12 col-md-8">
+					<div>
 						<h3>Ponce de Leon / Fountain of Youth</h3>
 						<img
 							style="width:80%"
@@ -559,7 +555,7 @@
 				<h4>Low Priority Challenges</h4>
 
 				<div id="Cleanup" class="row">
-					<div class="col-12 col-md-8">
+					<div>
 						<h3>Ocean Cleanup</h3>
 						<img style="width:80%" src="/images/roboboat/challenges/OceanCleanup.png" alt="Ocean" />
 						<p>
