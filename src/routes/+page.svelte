@@ -67,10 +67,12 @@
 			observer.observe(ele);
 		}
 
+		const bigMode = window.matchMedia('(min-width: 928px)');
 		let active = container.querySelector('#Introduction')!;
 		function ev() {
 			if (!onScreen.length) return;
-			const middle = window.visualViewport!.height / 2;
+			let middle = window.visualViewport!.height / 2;
+			if (!bigMode.matches) middle = 0;
 			const heights = onScreen.map(({ target }) => target.getBoundingClientRect().top);
 			let selected = 0;
 			for (let i = 1; i < heights.length; i++) {
@@ -143,8 +145,8 @@
 			]);
 			return moveAnim;
 		}
-
 		function changeFocus(old: Element, active: Element) {
+			active.nextElementSibling?.appendChild(canvas.parentElement!);
 			console.log('switch to', active);
 			const camera = scene.activeCamera as ArcRotateCamera;
 			let animations: Animation[] = [];
@@ -200,7 +202,7 @@
 			}
 
 			scene.stopAnimation(camera);
-			scene.beginDirectAnimation(camera, animations, 0, 100, false, 1);
+			scene.beginDirectAnimation(camera, animations, 0, 100, false, bigMode.matches ? 1 : Infinity);
 		}
 
 		window.addEventListener('scroll', ev);
@@ -371,220 +373,190 @@
 
 <svelte:window on:resize={resize} />
 <div class="outer" bind:this={container}>
-	<div class="competition-strategy">
-		<div id="Introduction" class="row">
-			<div class="park-info">
-				<h2>RoboBoat 2023: Ocean Exploration</h2>
-				<h3>Nathan Benderson Park</h3>
-				<p>Sarasota, Florida</p>
-				<p>
-					RoboBoat is an international competition where students design, build, and compete with
-					self-driving robotic boats, in a series of tests aimed at challenging teams through a
-					variety autonomous (self-driving) tasks. In 2023, we were joined by 18 other teams from 4
-					continents. UM::Autonomy placed 6th place overall, and 3rd among American Universities.
-				</p>
-			</div>
-			<h2>Competition Strategy</h2>
-			<div class="my-4">
-				<h3>Team Focus</h3>
-				<p>
-					For this competition season, our team decided to reuse the Flying Sloth hull from our 2017
-					competition. This allowed for greater focus on testing and on learning skills that the
-					team lost due to the graduation of more experienced members and the lack of in-person
-					opportunities the last 2 years due to covid.
-				</p>
-			</div>
-			<div class="my-4">
-				<h3>Thrust-to-Weight Ratio</h3>
-				<p>
-					The usage of foam hulls instead of carbon fiber hulls means that the boat is heavier. To
-					account for this, more thrusters are used, and we decided on using a six-thruster setup.
-				</p>
-			</div>
+	<section id="Introduction" class="row">
+		<div class="park-info">
+			<h2>RoboBoat 2023: Ocean Exploration</h2>
+			<h3>Nathan Benderson Park</h3>
+			<p>Sarasota, Florida</p>
+			<p>
+				RoboBoat is an international competition where students design, build, and compete with
+				self-driving robotic boats, in a series of tests aimed at challenging teams through a
+				variety autonomous (self-driving) tasks. In 2023, we were joined by 18 other teams from 4
+				continents. UM::Autonomy placed 6th place overall, and 3rd among American Universities.
+			</p>
+		</div>
+		<h2>Competition Strategy</h2>
+		<div class="my-4">
+			<h3>Team Focus</h3>
+			<p>
+				For this competition season, our team decided to reuse the Flying Sloth hull from our 2017
+				competition. This allowed for greater focus on testing and on learning skills that the team
+				lost due to the graduation of more experienced members and the lack of in-person
+				opportunities the last 2 years due to covid.
+			</p>
 		</div>
 		<div class="my-4">
-			<h3>Prioritization of Challenges</h3>
-			<div>
-				<h4>High Priority Challenges</h4>
+			<h3>Thrust-to-Weight Ratio</h3>
+			<p>
+				The usage of foam hulls instead of carbon fiber hulls means that the boat is heavier. To
+				account for this, more thrusters are used, and we decided on using a six-thruster setup.
+			</p>
+		</div>
+	</section>
+	<div class="can" />
+	<h3>Prioritization of Challenges</h3>
+	<h4>High Priority Challenges</h4>
 
-				<section id="Navigation" class="row">
-					<div>
-						<h3>Navigate the Panama Canal</h3>
-						<img
-							style="width:80%"
-							src="/images/roboboat/challenges/navigationChannel.png"
-							alt="Navigate"
-						/>
-						<p>
-							Description: This challenge is mandatory before attempting other tasks. The ASV needs
-							to pass through two sets of gates (a pair of red and green buoys) and starts
-							autonomous navigation at a minimum of 6 ft before the set of gates.
-						</p>
-						<p>
-							Analysis: As it is mandatory, this challenge is of high importance. In 2019, the boat
-							could only successfully pass the navigation channel once out of four qualification
-							runs as a result of a major electrical failure onboard.
-						</p>
-						<p>Goal: 14 out of 15 successful runs</p>
-					</div>
-				</section>
-
-				<hr />
-
-				<section id="Obstacle" class="row">
-					<div>
-						<h3>Magellan's Route / Count the Manatees &amp; Jellyfish</h3>
-						<img
-							style="width:80%"
-							src="/images/roboboat/challenges/magellans_route.png"
-							alt="Magellan's"
-						/>
-						<p>
-							Description: The ASV passes through between multiple sets of gates (pairs of red and
-							green buoys) The ASV also avoids intermittent yellow buoys (jelly fish) and black
-							buoys (manatees) of various sizes and counts them
-						</p>
-						<p>
-							Analysis: The challenge requires minimal external hardware or software development and
-							mainly just involves careful navigational operability and fine motor control. This
-							challenge could be tested and fine-tuned early in the development process.
-						</p>
-						<p>Goal: 9 out of 10 successful runs</p>
-					</div>
-				</section>
-
-				<hr />
-
-				<div>
-					<section id="Speed" class="row">
-						<div>
-							<h3>Northern Passage Challenge</h3>
-							<img
-								style="width:80%"
-								src="/images/roboboat/challenges/snackRun.png"
-								alt="Northern"
-							/>
-							<p>
-								Description: The ASV enters the gate buoys, maneuvers around the mark buoy, and
-								exits thought the same gate buoys, as quickly as possible. The timer starts when the
-								bow (front) crosses the gate buoys and stops when the stern (back) crosses the gate
-								buoys.
-							</p>
-							<p>
-								Analysis: Based on the 2019 score-sheet, a time between 25-45s is needed to remain
-								competitive in the Snack Run challenge, with the fastest 2019 run coming in at 27
-								seconds.
-							</p>
-							<p>Goal: 9 out of 10 successful runs + baseline of 35 seconds, goal of 26 seconds</p>
-						</div>
-					</section>
-				</div>
-
-				<hr />
-			</div>
-			<div>
-				<h4>Medium Priority Challenges</h4>
-
-				<div id="Docking" class="row">
-					<div>
-						<h3>Beaching &amp; Inspecting Turtle Nests</h3>
-						<img
-							style="width:80%"
-							src="/images/roboboat/challenges/beaching_and_turtles.png"
-							alt="Beaching"
-						/>
-						<p>
-							Description: Before the time slot starts, teams are assigned a color and must dock at
-							the bay with the matching color. Once the ASV detects and enters the docking bay, it
-							must report the number of "eggs" (number of circles) in the nest.
-						</p>
-						<p>
-							Analysis: This challenge is a bit more involved in terms of CV and color/shape
-							recognition but does not require external hardware development
-						</p>
-						<p>Goal: 9 out of 10 successful runs</p>
-					</div>
-				</div>
-				<hr />
-
-				<div id="Skeeball" class="row">
-					<div>
-						<h3>Feed the Fish</h3>
-						<img style="width:80%" src="/images/roboboat/challenges/feed_the_fish.png" alt="Feed" />
-						<p>
-							Description: The ASV detects the "feeding table" (purple frame), then lines up and
-							shoot three "pellets" (racquetballs) through the frame into any of the three holes.
-							Points are awarded if the ball is fired into any of the holes but less points are
-							awarded for just landing the ball on the deck.
-						</p>
-						<p>
-							Analysis: As both the Water Blast and Feeding the Fish are new challenges,
-							UM::Autonomy chose to only focus on completing the Water Blast challenge this year,
-							though work was done throughout the year to complete the Skeeball task in the future.
-						</p>
-						<p>Goal: N/A</p>
-					</div>
-				</div>
-				<hr />
-
-				<div id="Waterblast" class="row">
-					<div>
-						<h3>Ponce de Leon / Fountain of Youth</h3>
-						<img
-							style="width:80%"
-							src="/images/roboboat/challenges/ponce_de_fountain.png"
-							alt="Ponce"
-						/>
-						<p>
-							Description: The ASV detects the target face (blue/white striped) and shoots enough
-							water through the target to raise the ball above the green line in the pipe. The ASV
-							may pump the water from the environment or store it on board.
-						</p>
-						<p>
-							Analysis: This is the first season with this challenge and hardware and software
-							development of external mechanisms pushed back actual testing. Therefore, we knew that
-							immediate mastery of this task would be difficult and time consuming, and should only
-							be attempted after other challenges.
-						</p>
-						<p>Goal: 3 out of 5 successful runs</p>
-					</div>
-				</div>
-				<hr />
-			</div>
-			<div>
-				<h4>Low Priority Challenges</h4>
-
-				<div id="Cleanup" class="row">
-					<div>
-						<h3>Ocean Cleanup</h3>
-						<img style="width:80%" src="/images/roboboat/challenges/OceanCleanup.png" alt="Ocean" />
-						<p>
-							Description: The ASV detects an underwater pinger which designates the area to collect
-							"debris" (raquetballs) from. The ASV may then use the collected balls as extra balls
-							in the Feed the Fish challenge.
-						</p>
-						<p>
-							Analysis: As this task is a new challenge, UM::Autonomy chose to focus on completing
-							the Ponce de Leon challenge and Feeding the Fish challenge for this year, though work
-							was done throughout the year to complete the Ocean Cleanup task in the future.
-						</p>
-						<p>Goal: N/A</p>
-					</div>
-				</div>
-				<hr />
-			</div>
+	<section id="Navigation" class="row">
+		<h3>Navigate the Panama Canal</h3>
+		<img style="width:80%" src="/images/roboboat/challenges/navigationChannel.png" alt="Navigate" />
+		<p>
+			Description: This challenge is mandatory before attempting other tasks. The ASV needs to pass
+			through two sets of gates (a pair of red and green buoys) and starts autonomous navigation at
+			a minimum of 6 ft before the set of gates.
+		</p>
+		<p>
+			Analysis: As it is mandatory, this challenge is of high importance. In 2019, the boat could
+			only successfully pass the navigation channel once out of four qualification runs as a result
+			of a major electrical failure onboard.
+		</p>
+		<p>Goal: 14 out of 15 successful runs</p>
+	</section>
+	<div class="can">
+		<div class="render">
+			<canvas id="renderCanvas" touch-action="none" bind:this={canvas} />
+			<div id="fps" bind:this={fps}>0</div>
 		</div>
 	</div>
-	<div class="render">
-		<canvas id="renderCanvas" touch-action="none" bind:this={canvas} />
-		<div id="fps" bind:this={fps}>0</div>
-	</div>
+
+	<hr />
+
+	<section id="Obstacle" class="row">
+		<h3>Magellan's Route / Count the Manatees &amp; Jellyfish</h3>
+		<img style="width:80%" src="/images/roboboat/challenges/magellans_route.png" alt="Magellan's" />
+		<p>
+			Description: The ASV passes through between multiple sets of gates (pairs of red and green
+			buoys) The ASV also avoids intermittent yellow buoys (jelly fish) and black buoys (manatees)
+			of various sizes and counts them
+		</p>
+		<p>
+			Analysis: The challenge requires minimal external hardware or software development and mainly
+			just involves careful navigational operability and fine motor control. This challenge could be
+			tested and fine-tuned early in the development process.
+		</p>
+		<p>Goal: 9 out of 10 successful runs</p>
+	</section>
+	<div class="can" />
+
+	<hr />
+
+	<section id="Speed" class="row">
+		<h3>Northern Passage Challenge</h3>
+		<img style="width:80%" src="/images/roboboat/challenges/snackRun.png" alt="Northern" />
+		<p>
+			Description: The ASV enters the gate buoys, maneuvers around the mark buoy, and exits thought
+			the same gate buoys, as quickly as possible. The timer starts when the bow (front) crosses the
+			gate buoys and stops when the stern (back) crosses the gate buoys.
+		</p>
+		<p>
+			Analysis: Based on the 2019 score-sheet, a time between 25-45s is needed to remain competitive
+			in the Snack Run challenge, with the fastest 2019 run coming in at 27 seconds.
+		</p>
+		<p>Goal: 9 out of 10 successful runs + baseline of 35 seconds, goal of 26 seconds</p>
+	</section>
+	<div class="can" />
+
+	<hr />
+
+	<h4>Medium Priority Challenges</h4>
+
+	<section id="Docking" class="row">
+		<h3>Beaching &amp; Inspecting Turtle Nests</h3>
+		<img
+			style="width:80%"
+			src="/images/roboboat/challenges/beaching_and_turtles.png"
+			alt="Beaching"
+		/>
+		<p>
+			Description: Before the time slot starts, teams are assigned a color and must dock at the bay
+			with the matching color. Once the ASV detects and enters the docking bay, it must report the
+			number of "eggs" (number of circles) in the nest.
+		</p>
+		<p>
+			Analysis: This challenge is a bit more involved in terms of CV and color/shape recognition but
+			does not require external hardware development
+		</p>
+		<p>Goal: 9 out of 10 successful runs</p>
+	</section>
+	<div class="can" />
+	<hr />
+
+	<section id="Skeeball" class="row">
+		<h3>Feed the Fish</h3>
+		<img style="width:80%" src="/images/roboboat/challenges/feed_the_fish.png" alt="Feed" />
+		<p>
+			Description: The ASV detects the "feeding table" (purple frame), then lines up and shoot three
+			"pellets" (racquetballs) through the frame into any of the three holes. Points are awarded if
+			the ball is fired into any of the holes but less points are awarded for just landing the ball
+			on the deck.
+		</p>
+		<p>
+			Analysis: As both the Water Blast and Feeding the Fish are new challenges, UM::Autonomy chose
+			to only focus on completing the Water Blast challenge this year, though work was done
+			throughout the year to complete the Skeeball task in the future.
+		</p>
+		<p>Goal: N/A</p>
+	</section>
+	<div class="can" />
+	<hr />
+
+	<section id="Waterblast" class="row">
+		<h3>Ponce de Leon / Fountain of Youth</h3>
+		<img style="width:80%" src="/images/roboboat/challenges/ponce_de_fountain.png" alt="Ponce" />
+		<p>
+			Description: The ASV detects the target face (blue/white striped) and shoots enough water
+			through the target to raise the ball above the green line in the pipe. The ASV may pump the
+			water from the environment or store it on board.
+		</p>
+		<p>
+			Analysis: This is the first season with this challenge and hardware and software development
+			of external mechanisms pushed back actual testing. Therefore, we knew that immediate mastery
+			of this task would be difficult and time consuming, and should only be attempted after other
+			challenges.
+		</p>
+		<p>Goal: 3 out of 5 successful runs</p>
+	</section>
+	<div class="can" />
+	<hr />
+
+	<h4>Low Priority Challenges</h4>
+
+	<section id="Cleanup" class="row">
+		<h3>Ocean Cleanup</h3>
+		<img style="width:80%" src="/images/roboboat/challenges/OceanCleanup.png" alt="Ocean" />
+		<p>
+			Description: The ASV detects an underwater pinger which designates the area to collect
+			"debris" (raquetballs) from. The ASV may then use the collected balls as extra balls in the
+			Feed the Fish challenge.
+		</p>
+		<p>
+			Analysis: As this task is a new challenge, UM::Autonomy chose to focus on completing the Ponce
+			de Leon challenge and Feeding the Fish challenge for this year, though work was done
+			throughout the year to complete the Ocean Cleanup task in the future.
+		</p>
+		<p>Goal: N/A</p>
+	</section>
+	<div class="can" />
 </div>
 
 <style lang="scss">
+	$padding-size: 2em;
+	$small-canvas-size: 50vh;
 	.outer {
-		display: flex;
-		flex-direction: row-reverse;
+		grid-template-columns: 1fr 1fr;
+		column-gap: $padding-size;
+		margin-left: $padding-size;
+		margin-right: $padding-size;
 		font-family: 'Open Sans', 'Lato', sans-serif;
 		font-weight: 300;
 		h2 {
@@ -608,20 +580,48 @@
 				font-size: 2em;
 			}
 		}
-	}
-	.competition-strategy {
-		margin-left: 2em;
-		margin-right: 2em;
+		hr {
+			width: 100%;
+		}
 	}
 	.row {
 		min-height: 100vh;
+		padding-bottom: $small-canvas-size;
+	}
+	.can {
+		position: relative;
+		margin-left: -$padding-size;
+		width: 100%;
 	}
 	.render {
-		position: sticky;
-		top: 0;
-		width: 50%;
-		flex-shrink: 0;
-		height: 100vh;
+		position: absolute;
+		bottom: 0;
+		width: calc(100% + #{$padding-size * 2});
+		height: $small-canvas-size;
+	}
+	@media (min-width: 928px) {
+		.row {
+			padding-bottom: 0vh;
+		}
+		.outer {
+			display: grid;
+			margin-left: 0;
+			width: calc(100% - #{$padding-size});
+			height: 100%;
+		}
+		.render {
+			position: initial;
+			height: 100%;
+			width: 100%;
+		}
+		.can {
+			position: sticky;
+			top: 0;
+			grid-column: 1 / 1;
+			grid-row: 1 / 19;
+			margin: 0;
+			height: 100vh;
+		}
 	}
 	.park-info {
 		text-align: center;
