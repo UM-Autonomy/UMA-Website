@@ -37,6 +37,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { CreateTiledPlane, MeshBuilder } from '@babylonjs/core/Meshes';
 	import { NodeMaterial } from '@babylonjs/core/Materials';
+	import Results from '../results.svelte';
 
 	let canvas: HTMLCanvasElement;
 	let fps: HTMLElement;
@@ -187,12 +188,12 @@
 		}
 
 		window.addEventListener('scroll', ev);
-		onDestroy(() => {
+		destroyFuncs.push(() => {
 			window.removeEventListener('scroll', ev);
 			observer.disconnect();
 		});
 	}
-
+	const destroyFuncs: (() => void)[] = [];
 	let engine: Engine | null = null;
 	let scene: Scene | null = null;
 	let sceneToRender: Scene | null = null;
@@ -217,7 +218,14 @@
 		// window.currentSkybox = currentSkybox;
 		// currentSkybox.material = skyMaterial
 		// Append glTF model to scene.
-		SceneLoader.Append('./', 'model2.glb', scene, function (scene) {
+		SceneLoader.Append('./', 'model2.glb', scene, (s) => {
+			try {
+				onSuccess(s);
+			} catch (e) {
+				console.error(e);
+			}
+		});
+		function onSuccess(scene: Scene) {
 			// Create a default arc rotate camera and light.
 			// scene.createDefaultCamera(true, true, true);
 			engine.setSize(200, 100);
@@ -320,7 +328,7 @@
 			scene.cleanCachedTextureBuffer();
 
 			setupView(scene);
-		});
+		}
 
 		return scene;
 	};
@@ -348,6 +356,11 @@
 			sceneToRender = scene;
 		});
 	});
+	onDestroy(() => {
+		for (const f of destroyFuncs) {
+			f();
+		}
+	});
 	function resize() {
 		engine?.resize();
 	}
@@ -364,9 +377,10 @@
 				RoboBoat is an international competition where students design, build, and compete with
 				self-driving robotic boats, in a series of tests aimed at challenging teams through a
 				variety autonomous (self-driving) tasks. In 2023, we were joined by 18 other teams from 4
-				continents. UM::Autonomy placed 6th overall, and 3rd among American Universities.
+				continents.
 			</p>
-			<a href="#results">Jump to Competition Results</a>
+			<b>UM::Autonomy placed 6th overall, and 3rd among American Universities.</b>
+			<a href="#results" class="btn">Jump to Competition Results</a>
 		</div>
 		<h2>Competition Strategy</h2>
 		<div class="my-4">
@@ -388,7 +402,7 @@
 	</section>
 	<div class="can">
 		<div class="render">
-			<canvas id="renderCanvas" touch-action="none" bind:this={canvas} />
+			<canvas id="renderCanvas" touch-action="none" aria-hidden="true" bind:this={canvas} />
 			<div id="fps" bind:this={fps}>0</div>
 		</div>
 	</div>
@@ -436,8 +450,9 @@
 		<h4>Boat Weight-to-Thrust Ratio</h4>
 		<p>
 			The competition rewards fast and light craft. Therefore, a sliding scale is used where points
-			are lost quickly the heavier it gets. The boat is weighed and its thrust is measured every day
-			it is entered in the water.
+			are lost faster the heavier it gets. The boat is weighed and its thrust is measured every day
+			it is entered in the water. In 2023, UM::Autonomy's boat weighed 55 pounds, the lightst weight
+			class.
 		</p>
 	</section>
 	<div class="can" />
@@ -588,7 +603,7 @@
 			<dd>
 				The ASV detects the "feeding table" (purple frame), then lines up and shoot three "pellets"
 				(racquetballs) through the frame into any of the three holes. Points are awarded if the ball
-				is fired into any of the holes but less points are awarded for just landing the ball on the
+				is fired into any of the holes but fewer points are awarded for just landing the ball on the
 				deck.
 
 				<p>
@@ -642,6 +657,11 @@
 				electronics, we wouldn't be able to compete anymore. As such, we re-focued our effort on
 				Feed the Fish. We finally had a working ball-shooting system while at the competition site,
 				but lack of testing time meant that it couldn't be integrated in time.
+
+				<p>
+					Both tasks only had three teams that could shoot anything. No teams landed balls in the
+					buckets.
+				</p>
 			</dd>
 		</dl>
 	</section>
@@ -680,18 +700,7 @@
 	<div class="can" />
 </div>
 
-<div class="content">
-	<section id="results" class="info">
-		<div class="container flex">
-			<div class="text">
-				<h1>Competition Results</h1>
-				<p class="editable">
-					UM::Autonomy placed 6th overall, and 3rd among American Universities.
-				</p>
-			</div>
-		</div>
-	</section>
-</div>
+<Results />
 
 <style lang="scss">
 	$padding-size: 2em;
