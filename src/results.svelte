@@ -118,7 +118,7 @@
 		.join-section ~ .join-section {
 			height: calc(#{$join-height} + #{$join-clip});
 			margin-top: calc(-1 * #{$join-clip});
-			clip-path: polygon(0 0, 100% $join-clip, 100% 100%, 0 100%);
+			clip-path: polygon(0 $join-clip, 100% 0, 100% 100%, 0 100%);
 			> div {
 				margin-bottom: 0;
 			}

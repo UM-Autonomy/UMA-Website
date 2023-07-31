@@ -35,7 +35,7 @@
 	import '@babylonjs/loaders/glTF/2.0';
 	import { SkyMaterial } from '@babylonjs/materials/sky';
 	import { onMount, onDestroy } from 'svelte';
-	import { CreateTiledPlane, MeshBuilder } from '@babylonjs/core/Meshes';
+	import { MeshBuilder } from '@babylonjs/core/Meshes';
 	import { NodeMaterial } from '@babylonjs/core/Materials';
 	import Results from '../results.svelte';
 
@@ -390,11 +390,11 @@
 		<div class="my-4">
 			<h3>Team Focus</h3>
 			<p>
-				For this competition season, we tested with the 2022 hull for most of the year, since it was
-				already built. <a>A new hull made of carbon fiber</a> was being built concurrently by the mechanical
-				team. At the last minute, days before departure for the competition, it was ready. The team spent
-				the weekend preparing the new boat for the competition, and thanks to simulator testing, this
-				process went smoothly and few code changes were needed.
+				For this competition season, we tested with the 2022 hull (itself a refurbished 2017 hull)
+				for most of the year, since it was already built. <a>A new hull made of carbon fiber</a> was
+				being built concurrently by the mechanical team. At the last minute, days before departure for
+				the competition, it was ready. The team spent the weekend preparing the new boat for the competition,
+				and thanks to simulator testing, this process went smoothly and few code changes were needed.
 			</p>
 		</div>
 		<div class="my-4">
@@ -466,7 +466,7 @@
 
 	<section id="Navigation" class="row">
 		<h3>Navigate the Panama Canal</h3>
-		<img src="/images/roboboat/challenges/navigationChannel.png" alt="Navigate" />
+		<img src="/images/roboboat/challenges/navigationChannel.png" alt="Panama Canal Diagram" />
 		<dl>
 			<dt>Description</dt>
 			<dd>
@@ -497,7 +497,7 @@
 
 	<section id="Obstacle" class="row">
 		<h3>Magellan's Route / Count the Manatees &amp; Jellyfish</h3>
-		<img src="/images/roboboat/challenges/magellans_route.png" alt="Magellan's" />
+		<img src="/images/roboboat/challenges/magellans_route.png" alt="Magellan's Route Diagram" />
 		<dl>
 			<dt>Description</dt>
 			<dd>
@@ -530,7 +530,7 @@
 
 	<section id="Speed" class="row">
 		<h3>Northern Passage Challenge</h3>
-		<img src="/images/roboboat/challenges/snackRun.png" alt="Northern" />
+		<img src="/images/roboboat/challenges/snackRun.png" alt="Northern Passage Diagram" />
 		<dl>
 			<dt>Description</dt>
 			<dd>
@@ -571,7 +571,7 @@
 		<img
 			style="width:80%"
 			src="/images/roboboat/challenges/beaching_and_turtles.png"
-			alt="Beaching"
+			alt="Beaching & Inspecting Turtle Nests Diagram"
 		/>
 		<dl>
 			<dt>Description</dt>
@@ -602,7 +602,7 @@
 
 	<section id="Skeeball" class="row">
 		<h3>Feed the Fish</h3>
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="Feed" />
+		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="Feed the Fish Diagram" />
 		<dl>
 			<dt>Description</dt>
 			<dd>
@@ -635,7 +635,7 @@
 
 	<section id="Waterblast" class="row">
 		<h3>Ponce de Leon / Fountain of Youth</h3>
-		<img src="/images/roboboat/challenges/ponce_de_fountain.png" alt="Ponce" />
+		<img src="/images/roboboat/challenges/ponce_de_fountain.png" alt="Ponce de Leon Diagram" />
 		<dl>
 			<dt>Description</dt>
 			<dd>
@@ -677,7 +677,7 @@
 
 	<section id="Cleanup" class="row">
 		<h3>Ocean Cleanup</h3>
-		<img src="/images/roboboat/challenges/OceanCleanup.png" alt="Ocean" />
+		<img src="/images/roboboat/challenges/OceanCleanup.png" alt="Ocean Cleanup Diagram" />
 		<dl>
 			<dt>Description</dt>
 			<dd>
@@ -703,6 +703,14 @@
 		</dl>
 	</section>
 	<div class="can" />
+
+	<section>
+		<em
+			>UM::Autonomy extends a special thanks to Cole Biesemeyer from the Open Source Robotics
+			Foundation for the 3D model of Nathan Benderson Park and Gdańsk University of Technology's
+			SeaSentinel team for creating 3D models of various competition elements.</em
+		>
+	</section>
 </div>
 
 <Results />
