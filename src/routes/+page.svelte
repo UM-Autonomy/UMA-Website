@@ -51,9 +51,15 @@
 		});
 	}
 	function setupView(scene: Scene) {
-		let onScreen: IntersectionObserverEntry[] = [];
+		let onScreen: Pick<IntersectionObserverEntry, 'target' | 'boundingClientRect'>[] = [];
 		const observer = new IntersectionObserver(
 			(obs) => {
+				for (let i = 0; i < onScreen.length; i++) {
+					onScreen[i] = {
+						target: onScreen[i].target,
+						boundingClientRect: onScreen[i].target.getBoundingClientRect()
+					};
+				}
 				onScreen.push(...obs.filter((o) => o.isIntersecting));
 				onScreen = onScreen.filter(
 					(e) => !obs.some((o) => o.target === e.target && !o.isIntersecting)
@@ -84,66 +90,31 @@
 			}
 		}
 
-		function createMoveAnim(camera: ArcRotateCamera, value: Vector3) {
-			const moveAnim = new Animation(
-				'pos',
-				'_target',
-				100,
-				Animation.ANIMATIONTYPE_VECTOR3,
-				Animation.ANIMATIONLOOPMODE_CONSTANT
-			);
+		function quickAnim<T>(prop: string, type: number, initial: T, final: T) {
+			const moveAnim = new Animation(prop, prop, 100, type);
 			moveAnim.setKeys([
-				{ frame: 0, value: camera._currentTarget },
-				{ frame: 100, value }
+				{ frame: 0, value: initial },
+				{ frame: 100, value: final }
 			]);
 			return moveAnim;
 		}
 
+		function createMoveAnim(camera: ArcRotateCamera, value: Vector3) {
+			return quickAnim('_target', Animation.ANIMATIONTYPE_VECTOR3, camera._currentTarget, value);
+		}
+
 		function createRadAnim(camera: ArcRotateCamera, value: number) {
-			const moveAnim = new Animation(
-				'rad',
-				'radius',
-				100,
-				Animation.ANIMATIONTYPE_FLOAT,
-				Animation.ANIMATIONLOOPMODE_CONSTANT
-			);
-			moveAnim.setKeys([
-				{ frame: 0, value: camera.radius },
-				{ frame: 100, value }
-			]);
-			return moveAnim;
+			return quickAnim('radius', Animation.ANIMATIONTYPE_FLOAT, camera.radius, value);
 		}
 
 		function createAlphaAnim(camera: ArcRotateCamera, value: number) {
 			let realAngle = ((camera.alpha % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
 			if (realAngle > Math.PI) realAngle -= Math.PI * 2;
-			const moveAnim = new Animation(
-				'alpha',
-				'alpha',
-				100,
-				Animation.ANIMATIONTYPE_FLOAT,
-				Animation.ANIMATIONLOOPMODE_CONSTANT
-			);
-			moveAnim.setKeys([
-				{ frame: 0, value: camera.alpha },
-				{ frame: 100, value: value - realAngle + camera.alpha }
-			]);
-			return moveAnim;
+			return quickAnim('alpha', Animation.ANIMATIONTYPE_FLOAT, camera.alpha, value - realAngle + camera.alpha);
 		}
 
 		function createBetaAnim(camera: ArcRotateCamera, value: number) {
-			const moveAnim = new Animation(
-				'beta',
-				'beta',
-				100,
-				Animation.ANIMATIONTYPE_FLOAT,
-				Animation.ANIMATIONLOOPMODE_CONSTANT
-			);
-			moveAnim.setKeys([
-				{ frame: 0, value: camera.beta },
-				{ frame: 100, value }
-			]);
-			return moveAnim;
+			return quickAnim('beta', Animation.ANIMATIONTYPE_FLOAT, camera.beta, value);
 		}
 		function changeFocus(old: Element, active: Element) {
 			active.nextElementSibling?.appendChild(canvas.parentElement!);
@@ -181,13 +152,13 @@
 				animations.push(createMoveAnim(camera, new Vector3(304.417, 0, -385.015)));
 				animations.push(createRadAnim(camera, 12));
 				animations.push(createBetaAnim(camera, 0.938));
-				animations.push(createAlphaAnim(camera, Math.PI * 1));
+				animations.push(createAlphaAnim(camera, Math.PI));
 				camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
 			} else if (active.id === 'Waterblast') {
 				animations.push(createMoveAnim(camera, new Vector3(303.513, 0, -390.266)));
 				animations.push(createRadAnim(camera, 12));
 				animations.push(createBetaAnim(camera, 0.938));
-				animations.push(createAlphaAnim(camera, Math.PI * 1));
+				animations.push(createAlphaAnim(camera, Math.PI));
 				camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
 			} else if (active.id === 'Cleanup') {
 				animations.push(createMoveAnim(camera, new Vector3(301.393, 0, -395.65)));
@@ -403,7 +374,12 @@
 			</p>
 		</div>
 	</section>
-	<div class="can" />
+	<div class="can">
+		<div class="render">
+			<canvas id="renderCanvas" touch-action="none" bind:this={canvas} />
+			<div id="fps" bind:this={fps}>0</div>
+		</div>
+	</div>
 	<h3>Prioritization of Challenges</h3>
 	<h4>High Priority Challenges</h4>
 
@@ -422,12 +398,7 @@
 		</p>
 		<p>Goal: 14 out of 15 successful runs</p>
 	</section>
-	<div class="can">
-		<div class="render">
-			<canvas id="renderCanvas" touch-action="none" bind:this={canvas} />
-			<div id="fps" bind:this={fps}>0</div>
-		</div>
-	</div>
+	<div class="can" />
 
 	<hr />
 

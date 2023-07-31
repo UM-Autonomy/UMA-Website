@@ -10,4 +10,3 @@ KhronosTextureContainer2.URLConfig.jsDecoderModule = jsDecoderModule;
 KhronosTextureContainer2.URLConfig.jsMSCTranscoder = msc_basis_transcoderJs;
 KhronosTextureContainer2.URLConfig.wasmMSCTranscoder = msc_basis_transcoderWasm;
 MeshoptCompression.Configuration.decoder.url = meshoptDe;
-console.log(KhronosTextureContainer2.URLConfig, KhronosTextureContainer2);
