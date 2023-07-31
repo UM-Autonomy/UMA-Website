@@ -133,7 +133,7 @@
 				animations.push(createBetaAnim(camera, 0.966));
 				camera.autoRotationBehavior!.idleRotationSpeed = 0.3;
 			} else if (active.id === 'Static') {
-				animations.push(createMoveAnim(camera, new Vector3(302, 0, -390)));
+				animations.push(createMoveAnim(camera, new Vector3(302, 0, -385)));
 				animations.push(createRadAnim(camera, 30));
 				animations.push(createBetaAnim(camera, 1.2));
 				camera.autoRotationBehavior!.idleRotationSpeed = 0.2;
@@ -145,7 +145,7 @@
 				camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
 			} else if (active.id === 'Obstacle') {
 				animations.push(createMoveAnim(camera, new Vector3(319.3, 0, -381.9)));
-				animations.push(createRadAnim(camera, 15));
+				animations.push(createRadAnim(camera, 25));
 				animations.push(createBetaAnim(camera, 0.938));
 				camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
 			} else if (active.id === 'Speed') {
@@ -240,6 +240,10 @@
 			camera.attachControl();
 			camera.useAutoRotationBehavior = true;
 			camera.autoRotationBehavior!.idleRotationSpeed = 0.3;
+			camera.upperBetaLimit = 1.5;
+			camera.lowerRadiusLimit = 5;
+			camera.upperRadiusLimit = 500;
+			camera.panningAxis = new Vector3(1, 0, 1);
 
 			// The default camera looks at the back of the asset.
 			// Rotate the camera by 180 degrees to the front of the asset.
@@ -386,10 +390,11 @@
 		<div class="my-4">
 			<h3>Team Focus</h3>
 			<p>
-				For this competition season, our team decided to reuse the Flying Sloth hull from our 2017
-				competition. This allowed for greater focus on testing and on learning skills that the team
-				lost due to the graduation of more experienced members and the lack of in-person
-				opportunities the last 2 years due to covid.
+				For this competition season, we tested with the 2022 hull for most of the year, since it was
+				already built. <a>A new hull made of carbon fiber</a> was being built concurrently by the mechanical
+				team. At the last minute, days before departure for the competition, it was ready. The team spent
+				the weekend preparing the new boat for the competition, and thanks to simulator testing, this
+				process went smoothly and few code changes were needed.
 			</p>
 		</div>
 		<div class="my-4">
@@ -415,9 +420,9 @@
 		</p>
 		<h4>Design Documentation</h4>
 		<p>
-			The team must prepare a website, a technical design report, and a video for judges to score.
-			These are evaluated based on how well they introduce the team and its structure as well as
-			design considerations of the boat.
+			The team must prepare a website, <a>a technical design report</a>, and <a>a video</a> for judges
+			to score. These are evaluated based on how well they introduce the team and its structure as well
+			as design considerations of the boat.
 		</p>
 		<h4>Presentation</h4>
 		<p>
@@ -447,7 +452,7 @@
 			UM::Autonomy is proud to have been one of the first three teams to pass the safety inspection
 			at the 2023 competition.
 		</p>
-		<h4>Boat Weight-to-Thrust Ratio</h4>
+		<h4>Boat Thrust-to-Weight Ratio</h4>
 		<p>
 			The competition rewards fast and light craft. Therefore, a sliding scale is used where points
 			are lost faster the heavier it gets. The boat is weighed and its thrust is measured every day
@@ -772,6 +777,10 @@
 		position: relative;
 		margin-left: -$padding-size;
 		width: 100%;
+		pointer-events: none;
+	}
+	.can:has(canvas) {
+		pointer-events: all;
 	}
 	.render {
 		position: absolute;

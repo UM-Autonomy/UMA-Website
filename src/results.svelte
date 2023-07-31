@@ -20,8 +20,9 @@
 		<div>
 			<h2>Static Judging</h2>
 			<p>
-				UM::Autonomy placed <b>1st</b> in the techincal report, <b>2nd</b> in the video, and
-				<b>3rd</b> in the presentation for an overall <b>3rd</b> place in design documentation.
+				UM::Autonomy placed <b>1st</b> in <a>the techincal report</a>, <b>2nd</b> in
+				<a>the video</a>, and <b>3rd</b> in the presentation for an overall <b>3rd</b> place in design
+				documentation.
 			</p>
 		</div>
 	</section>
