@@ -1,4 +1,4 @@
-.button a, input[type=submit] {
+.button a, a.button, input[type=submit] {
 	color: $brand-color;
 	text-decoration: none;
 	border: 2px solid $brand-color;
@@ -8,7 +8,7 @@
 	background: #fff;
 }
 
-.button a:hover, input[type=submit]:hover {
+.button a:hover, a.button:hover, input[type=submit]:hover {
 	background: $brand-color;
 	color: #fff;
 	cursor: pointer;

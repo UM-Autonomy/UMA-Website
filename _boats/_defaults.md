@@ -1,6 +1,7 @@
 ---
 year:
 name:
+page: false
 image_path:
 video_path:
 tdr_path:

@@ -1,7 +1,6 @@
 ---
 title: Home
 description: Michigan's Autonomous Boat Team
-image: /images/boat-2021.jpg
 ---
 
 <head>
@@ -10,35 +9,28 @@ image: /images/boat-2021.jpg
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
 </head>
 
-<!-- Good times:"https://www.youtube.com/watch?v=6vHIPtUw9bo" -->
-<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
-  <div class="inner-hero text-container">
-    <div class="hero-text-container">
-      <h1 class="editable">
-        UM::Autonomy
-      </h1>
-      <p class="subtext editable">
-        Michigan's award winning autonomous boat team
-      </p>
-    </div>
-  </div>
-  <div class=" learn-more">
-        <a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
-    </div>
-</section>
+<!-- hidden element, used in CSS to show join message with specific URL -->
+<div id="join"></div>
 
 <div class="content">
-  <section class="info" id="learn-more">
+  <section class="info">
+    <div class="join-only">
+      <section class="container flex join-cta">
+        <div class="text">
+          <h2>Looking to Join UM::Autonomy?</h2>
+          <p>Keep posted for our Fall mass meeting schedule! Until then, feel free to <a
+              href="{% include relative-src.html src='/contact/' %}">contact us or join the mailing list</a>.</p>
+        </div>
+      </section>
+    </div>
     <div class="container flex">
       <div class="text">
-        <h2 class="editable">
-          What is UM::Autonomy?
-        </h2>
+        <h1>What is UM::Autonomy?</h1>
         <p class="editable">
           UM::Autonomy is an award-winning student project team
           from the University of Michigan. Each year we build an autonomous boat
           to participate in the
-          <a href="https://robonation.org/programs/roboboat/" target="_blank">RoboNation Roboboat competition</a>.
+          <a href="https://robonation.org/programs/roboboat/" target="_blank">RoboNation RoboBoat competition</a>.
           The boat is
           completely designed and programmed by students and must complete a
           wide range of challenges that are designed to test its autonomous
@@ -51,193 +43,138 @@ image: /images/boat-2021.jpg
         </p>
       </div>
     </div>
-  </section>
-
-  <!-- <section class="info">
-    <div class="container flex">
-      <div class="text">
-        <h2 class="editable">
-          Opportunities at UMA
-        </h2>
-        <p class="editable">
-          We employ a vast and diverse set of skills here at UMA. We have
-          members of all levels of experience and from a wide variety of majors.
-          Our subteams include AI, Electrical, Hulls and Systems, Drone and Business.
-          The AI team develops all things software for our team, which entails
-          developing path planning algorithms, computer vision, and simulation.
-          Our Electrical team does all things electrical such as working with
-          our computer hardware onboard and sensors. Hulls and Systems designs and develops
-          our carbon fiber hull. Meanwhile, the Drone team takes a multidisciplinary
-          approach to building a drone from the ground up. Lastly, the Business team
-          manages our team sponsorships and budget.
-      </div>
-      <div class="image">
-        <img class="editable" src="./images/rourke1.jpg" alt="Screenshot" />
-      </div>
-    </div>
-  </section> -->
-
-  <section class="info">
-    <div class="container flex">
-      <div class="text">
-        <h2 class="editable">
-          Brief History
-        </h2>
-        <p class="editable">
-          In 2018, we made a huge step toward returning to success. We finished
-          7th overall and 3rd among American Universities. We achieved
-          1st place in static judging in the 2019 competition and 2nd place in our
-          team video submission for the 2020 competition. <br />
-          <a href="/history">=> Learn more about the team history</a>
-        </p>
-      </div>
-      <div class="image" data-aos="zoom-in">
-        <img class="editable" src="./images/rourke1.jpg" alt="Putting boat in water" />
-      </div>
+    <div class="spec-boat-img">
+      <iframe class="widescreen-video" width="560" height="315" src="https://www.youtube.com/embed/ZxFV9WLaQ88"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
   </section>
+</div>
 
-  <section class="info">
-    <div class="container flex">
-      <div class="text">
-        <h2 class="editable">
-          Now and the Future
-        </h2>
-        <p class="editable">
-          This year looked towards allowing members to learn with remote opportunities and
-          training. Our focus was to prepare our new members with knowledge for the upcoming
-          year through various projects. For the next year, we are excited to have our new members get hands-on
-          experience. <br />
-          <a href="/projects">=> Learn more about our team projects</a>
-        </p>
-      </div>
-      <div class="image" data-aos="zoom-in">
-        <img class="editable" src="./images/water.jpg" alt="Top view of boat in water" />
-      </div>
+
+<section class="join-section" id="competition-img" style="--pos: 50% 51%">
+  <img class="img"
+    srcset="{% include relative-src.html src='/images/competition-small.webp' %} 1920w, {% include relative-src.html src='/images/competition.webp' %} 3840w"
+    sizes="100vw" src="{% include relative-src.html src='/images/competition.webp' %}" />
+  <a href="{% include relative-src.html src='/roboboat/' %}" class="cta editable">
+    The Competition
+  </a>
+</section>
+<div class="join-section-divider" style="background-color: #FFCB05;"></div>
+<div class="join-section-divider content">
+  <div class="container flex">
+    <div class="text">
+      <p>
+        The RoboBoat competition is an international competition where students design, build, and compete with
+        self-driving robotic boats, in a series of tests aimed at challenging teams through a variety autonomous
+        (self-driving) tasks. In 2023, we were joined by 22 other teams from 4 continents. UM::Autonomy placed 6th
+        overall, and 3rd among American Universities.
+      </p>
     </div>
-  </section>
-
-  <section class="info" id="learn-more">
-    <div class="container flex">
-      <div class="text">
-        <h2 class="editable">
-          Will you join us?
-        </h2>
-        <p class="editable">
-          <!-- so just show up to our Sunday
-          meetings at 1012 FXB from 1-3 to get started with us -->
-          Each year we look for motivated, talented individuals looking to make
-          a splash in the world of autonomous vehicles. UMA has no selection
-          process or time commitment requirements. Next year, we will develop
-          bite-sized projects for new members to onboard more smoothly and get a
-          glimpse on the type of work we do. If our team and our opportunities
-          float your boat, <a href="https://forms.gle/vgb45XKFGRH731Q8A" target="_blank">sign up for our mailing
-            list</a>,
-          and we'll provide you with more information about our meetings! If you have any more
-          questions, don't be afraid to reach out to us at
-          <a href="mailto:umautonomy@umich.edu" target="_blank">umautonomy@umich.edu</a>!
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info">
-    <div class="container flex">
-      <div class="text">
-        <h2>Boat Specs</h2>
-        <div class="row">
-          <div class="col-12 col-md-6 mb-5 spec-boat-img">
-            <img src="/images/boat22-transparent.png" alt="Boat" />
-          </div>
-          <div class="col-12 col-md-6">
-            <div id="boat-accordion">
-              <div class="card">
-                <div class="card-header" id="boat-headingOne">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#boat-collapseOne"
-                      aria-expanded="true" aria-controls="boat-collapseOne">
-                      <b>General</b>
-                    </button>
-                  </h5>
-                </div>
-
-                <div id="boat-collapseOne" class="collapse show" aria-labelledby="boat-headingOne"
-                  data-parent="#boat-accordion">
-                  <div class="card-body">
-                    <p>
-                      Name: Sea Serpent<br />
-                      Length: 48 in<br />
-                      Width: 32 in<br />
-                      <!-- TODO: Change info -->
-                      Depth: 10 in (25.4 cm)<br />
-                      Draft: 4.5 in (11.4 cm)<br />
-                      Displacement: 62.55 lbm (28.37 kg)<br />
-                      Maximum thrust: 44.4 lbf (197.5 N)<br />
-                      <!-- TODO: Change info -->
-                      Hulls material: Fiberglass
-                      Cowl material: Carbon fiber
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="boat-headingTwo">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#boat-collapseTwo"
-                      aria-expanded="false" aria-controls="boat-collapseTwo">
-                      <b>Electrical Components</b>
-                    </button>
-                  </h5>
-                </div>
-                <div id="boat-collapseTwo" class="collapse" aria-labelledby="boat-headingTwo"
-                  data-parent="#boat-accordion">
-                  <div class="card-body">
-                    <p>
-                      - Intel Core i7-8700K<br />
-                      - Nvidia Titan RTX<br />
-                      - 16000mAh 22.2V LiPo Batteries<br />
-                      - T200 Thrusters<br />
-                      - Velodyne LiDAR<br />
-                      - ZED Stereo Cameras<br />
-                      - GNSS Smart Antenna GPS<br />
-                      - Pelican Electrical Case<br />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="boat-headingThree">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#boat-collapseThree"
-                      aria-expanded="false" aria-controls="boat-collapseThree">
-                      <b>Software</b>
-                    </button>
-                  </h5>
-                </div>
-                <div id="boat-collapseThree" class="collapse" aria-labelledby="boat-headingThree"
-                  data-parent="#boat-accordion">
-                  <div class="card-body">
-                    <p>
-                      - Teams: Controls | Navigation | Perception | Reasoning<br />
-                      - Environment: Docker-based<br />
-                      - Version Control: Git<br />
-                      - Architecture: ROS Kinetic<br />
-                      - Languages: C++/Python<br />
-                      - <a href="https://drive.google.com/file/d/1Sjx7R9XU6ViXyxgQkPAuKZrMXwj6djuk/view?usp=sharing"
-                        target="_blank">Architecture Diagram</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="calendar" id="calendar">
-    <iframe src="https://calendar.google.com/calendar/embed?src=michiganuma%40gmail.com&ctz=America%2FNew_York"
-      style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
   </div>
 </div>
+<div class="join-section-divider" style="background-color: #FFCB05;"></div>
+<section class="join-section" id="boat23-water" style="--pos: 30% 75%">
+  <img class="img"
+    srcset="{% include relative-src.html src='/images/boat23-water-small.webp' %} 1920w, {% include relative-src.html src='/images/boat23-water.webp' %} 3840w"
+    sizes="100vw" src="{% include relative-src.html src='/images/boat23-water.webp' %}" />
+  {% capture boat_url %}/history/{{ site.boats | map: "year" | first }}{% endcapture %}
+  <a href="{% include relative-src.html src=boat_url %}" class="cta editable">
+    The Boat
+  </a>
+</section>
+<div class="join-section-divider" style="background-color: #00274C;"></div>
+<div class="join-section-divider content">
+  <div class="container flex">
+    <div class="text">
+      <p>
+        Rising from the ashes of defeat and disorder following the pandemic, UM::Autonomy's 2023 boat, the Phoenix,
+        soared to competition with
+        renewed pride, a greater sense of togetherness, and a singular focus: to compete hard while having fun.
+        Made entirely out of carbon fiber to reduce weight, the boat features two
+        large thrusters for speed and a Ryzen 5600X CPU to make autonomous decisions.
+      </p>
+      <p>
+        After a hard-fought competition the previous year, the team chose to focus on four principles for this year:
+        decoupling,
+        reliability, maintainability, and performance. Not only was the AI pipeline decoupled and tested separately, but
+        nearly
+        all major components of the boat could be separated, making it extremely modular and maintainable. It was the
+        first year
+        that the team tested in the Marine Hydrodynamics Laboratory, and did so for over 100 hours. In addition, it was
+        the
+        first year that the boat was made out of carbon fiber from scratch—from the painstaking mold making,
+        preparation, and
+        vacuum resin infusion—in order to produce a boat that weighed less than 60 pounds while still delivering
+        impeccable
+        results.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="join-section-divider" style="background-color: #00274C;"></div>
+<section class="join-section">
+  <img class="img" src="{% include relative-src.html src='/images/team_photo2023.webp' %}"
+    style="object-position: 40% 35%;" />
+  <a href="{% include relative-src.html src='/team/' %}" class="cta editable">
+    The Team
+  </a>
+</section>
+<div class="join-section-divider" style="background-color: #FFCB05;"></div>
+<div class="join-section-divider content pb-0">
+  <div class="container flex">
+    <div class="text">
+      <p>
+        UM::Autonomy has around 60 members across many different majors, including Computer Science, Electrical
+        Engineering, Robotics, Naval Architecture, Art & Design, and Business. We are organized into several teams:
+        Artificial Intelligence, Electrical, Mechanical, Advanced Capabilities, and Business. The Artificial
+        Intelligence team is broken up into distinct subteams, which are Navigation & Controls, Task Planning, and
+        Computer Vision.
+      </p>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <section class="info pt-0">
+    <div class="container flex join-cta">
+      <div class="text">
+        <h2>
+          Interested in joining?
+        </h2>
+        <p>Each year we look for motivated, talented individuals looking to make
+          a splash in the world of autonomous vehicles. UMA has no selection
+          process or time commitment requirements. This year, we have
+          bite-sized projects for new members to onboard more smoothly and get a
+          glimpse on the type of work we do. If our team and our opportunities
+          float your boat, sign up for our mailing list, and we'll provide you
+          with more information about our meetings! If you have any more questions,
+          don't be afraid to reach out to us at <a href="mailto:umautonomy@umich.edu"
+            target="_blank">umautonomy@umich.edu</a>!
+        </p>
+        <p>
+          <a class="button btn btn-primary w-full" href="https://forms.gle/vgb45XKFGRH731Q8A" target="_blank"
+            rel="noopener"> Join Our Mailing List to Learn More
+          </a>
+        </p>
+        <br>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="calendar" id="calendar">
+  <iframe src="https://calendar.google.com/calendar/embed?src=michiganuma%40gmail.com&ctz=America%2FNew_York"
+    style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<style>
+  #competition-img {
+    background-image: url('{% include image-previews/competition.url %}');
+  }
+  #boat23-water {
+    background-image: url('{% include image-previews/boat23-water.url %}');
+  }
+</style>
