@@ -27,38 +27,42 @@ image: /images/old.jpg
 
 <div class="content container" id="learn-more" style="font-size: 12pt; padding: 0 8%;">
   {% for boat in site.boats %}
-    {% if boat.year != 2023 %}
-      <section class="info" id="{{boat.name}}">
-        <div class="row" >
-          <div class="image col-12 col-lg-5" data-aos="fade-right">
-            <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
+    <section class="info" id="{{boat.name}}">
+      <div class="row" >
+        <div class="image col-12 col-lg-5" data-aos="fade-right">
+          <img class="editable" style="width: 100%" src={{boat.image_path}} alt={{boat.name}} />
+        </div>
+        <div class="container col-12 col-lg-7">
+          <div class="text">
+            <h3 class="editable">{{boat.year}}: {{boat.name}}</h3>
+            <h5>{{boat.subtitle}}</h5>
+            <p class="editable">
+              {{boat.description1}}
+            </p>
+            <p>{{boat.description2}}</p>
+            <p>{{boat.description3}}</p>
           </div>
-          <div class="container col-12 col-lg-7">
-            <div class="text">
-              <h3 class="editable">{{boat.year}}: {{boat.name}}</h3>
-              <h5>{{boat.subtitle}}</h5>
-              <p class="editable">
-                {{boat.description1}}
-              </p>
-              <p>{{boat.description2}}</p>
-              <p>{{boat.description3}}</p>
+          <div>
+            {% if boat.page %}
+            <div class="button" style="margin-bottom: 1rem">
+              {% capture boat_url %}/history/{{ boat.year }}{% endcapture %}
+              <a href="{% include relative-src.html src=boat_url %}">Learn More</a>
             </div>
-            <div>
-              {% if boat.tdr_path %}
-              <div class="button" style="margin-bottom: 1rem">
-                <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
-              </div>
-              {% endif %}
-              {% if boat.video_path %}
-              <div class="button">
-                <a href={{boat.video_path}} target="_blank">Video</a>
-              </div>
-              {% endif %}
+            {% endif %}
+            {% if boat.tdr_path %}
+            <div class="button" style="margin-bottom: 1rem">
+              <a href={{boat.tdr_path}} target="_blank">Technical Design Report</a>
             </div>
+            {% endif %}
+            {% if boat.video_path %}
+            <div class="button">
+              <a href={{boat.video_path}} target="_blank">Video</a>
+            </div>
+            {% endif %}
           </div>
         </div>
-        <hr />
-      </section>
-    {% endif %}
+      </div>
+      <hr />
+    </section>
  {% endfor %}
 </div>

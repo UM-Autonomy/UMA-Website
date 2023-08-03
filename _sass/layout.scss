@@ -35,10 +35,14 @@ header {
   border-color: #fff;
   border-width: 2px;
   padding: 15px 0;
+  padding: calc(env(safe-area-inset-top, 0) + 15px) env(safe-area-inset-right, 0)
+           15px                                     env(safe-area-inset-left,  0);
   position: fixed;
   width: 100%;
   z-index: 9999;
   line-height: 0;
+  top: 0;
+  left: 0;
 
   .container {
     line-height: 0;
@@ -96,7 +100,7 @@ header {
 
     img, svg {
       height: 30px;
-      width: auto;
+      width: calc(30px * 192 / 74);
     }
   }
 }
@@ -122,10 +126,6 @@ header {
 
 .subtext {
   margin-top: 10px;
-}
-
-.cta {
-  margin: 25px 0 0 0;
 }
 
 .page h2 {
@@ -248,4 +248,16 @@ blockquote:before {
   .sponsor-img {
     max-width: 50%;
   }
+}
+
+.w-full {
+  width: 100%;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
 }

@@ -37,7 +37,6 @@
   display: none;
 
   position: fixed;
-  display: block;
   max-width: 20%;
   min-width: 20%;
   z-index: 10000;
@@ -46,7 +45,7 @@
   
   @media #{$desktop} {
     position: fixed;
-    display: block;
+    // display: block;
     max-width: 20%;
     min-width: 20%;
     z-index: 10000;

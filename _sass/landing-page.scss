@@ -7,6 +7,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  position: relative;
+
+  margin-left: calc(-1 * env(safe-area-inset-left, 0px));
+  width: calc(100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 
   &:before {
     content: "";
@@ -38,6 +44,7 @@
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
+    backdrop-filter: blur(3px);
   }
 }
 

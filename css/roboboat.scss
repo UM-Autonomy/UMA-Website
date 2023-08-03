@@ -1,0 +1,295 @@
+---
+---
+
+.header-padding {
+  height: 60px;
+}
+
+$padding-size: 2em;
+$small-canvas-size: 50vh;
+.outer {
+  grid-template-columns: 1fr 1fr;
+  column-gap: $padding-size;
+  margin-left: $padding-size;
+  margin-right: $padding-size;
+  font-family: "Open Sans", "Lato", sans-serif;
+  font-weight: 300;
+  h2 {
+    font-weight: 300;
+    font-size: 2.25em;
+    margin: 0 0 30px 0;
+    line-height: 1.2em;
+  }
+  @media (min-width: 620px) {
+    h2 {
+      font-size: 3em;
+    }
+  }
+  h3 {
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 20px 0 10px 0;
+  }
+  @media (min-width: 620px) {
+    h3 {
+      font-size: 2em;
+    }
+  }
+  hr {
+    width: 100%;
+  }
+  dt {
+    font-weight: bold;
+    &::after {
+      content: ":";
+    }
+  }
+  dd {
+    p {
+      font-size: inherit;
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: 620px) {
+    dl {
+      display: grid;
+      grid-template-columns: min-content auto;
+      row-gap: 1em;
+    }
+    dt {
+      text-align: right;
+    }
+    dd {
+      margin-left: 1em;
+    }
+  }
+
+  img, .img {
+    width: 100%;
+  }
+  .render {
+    display: none;
+  }
+}
+.outer.loaded {
+  .render {
+    display: block;
+  }
+  .can {
+    height: min-content;
+    img, .img {
+      display: none;
+    }
+  }
+}
+.row {
+  min-height: 100vh;
+  padding-bottom: $small-canvas-size;
+  display: block;
+  margin: 0;
+  img {
+    height: auto;
+  }
+}
+.can {
+  position: relative;
+  margin-left: -$padding-size;
+  margin-left: calc(#{-$padding-size} - env(safe-area-inset-left, 0px));
+  width: 100%;
+  width: calc(100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+  img {
+    backdrop-filter: blur(10px);
+  }
+  img, .img {
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  img.skinny, .img.skinny {
+    object-fit: contain;
+    background-size: contain;
+  }
+}
+.outer .can > * {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% + #{$padding-size * 2});
+  max-width: unset;
+  height: $small-canvas-size;
+}
+.nowrap {
+  white-space: nowrap;
+}
+@media (min-width: 928px) {
+  .row {
+    padding-bottom: 0vh;
+  }
+  .outer {
+    display: grid;
+    grid-auto-flow: row dense;
+    margin-left: 0;
+    width: calc(100% - #{$padding-size});
+    height: 100%;
+  }
+  .can img, .img.skinny {
+    object-fit: cover;
+  }
+  .outer .can > * {
+    position: initial;
+    height: 100%;
+    width: 100%;
+    img {
+      height: 100%;
+    }
+  }
+  .outer > * {
+    grid-column: 2 / 2;
+  }
+  .can {
+    grid-column: 1 / 1;
+    grid-row: span 2;
+  }
+  .outer.loaded .can {
+    position: sticky;
+    top: 0;
+    grid-row: 1 / -1;
+    margin: 0;
+    .render {
+      height: 100vh;
+    }
+  }
+}
+.park-info {
+  text-align: center;
+  h2 {
+    font-size: 4em;
+    margin-bottom: 0;
+  }
+  h3 {
+    margin: 0;
+  }
+  h3 + p {
+    margin-top: 0;
+    font-size: 1.35em;
+  }
+}
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  touch-action: manipulation !important;
+}
+
+#fps {
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  top: 15px;
+  right: 10px;
+  width: 60px;
+  height: 20px;
+}
+
+$roboboat-height: 50vh;
+$roboboat-divider-height: 1.5rem;
+$roboboat-clip: calc(#{$roboboat-height} / 6);
+.competition-results {
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+  .info {
+    text-align: center;
+  }
+}
+.roboboat-section {
+  grid-template-columns: 1fr 1fr;
+  .img, .img {
+    padding: 1%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+  }
+  &:nth-child(2n) > div {
+    grid-row: 1 / 1;
+  }
+}
+@media (min-width: 928px) {
+  .roboboat-section {
+    height: $roboboat-height;
+    display: grid;
+    .img, .img {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      &::before {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+      }
+    }
+    > div {
+      padding: 2em;
+      margin-bottom: calc(#{$roboboat-clip} / 2);
+    }
+  }
+  .roboboat-section ~ .roboboat-section {
+    height: calc(#{$roboboat-height} + #{$roboboat-clip});
+    margin-top: calc(-1 * #{$roboboat-clip});
+    clip-path: polygon(0 $roboboat-clip, 100% 0, 100% 100%, 0 100%);
+    > div {
+      margin-bottom: 0;
+    }
+  }
+}
+.text-maize {
+  color: #ffcb05;
+  &,
+  p {
+    font-weight: 500;
+  }
+  a {
+    text-decoration: underline;
+    &::after {
+      content: " 🡭";
+    }
+  }
+  b {
+    background-color: #ffcb05;
+    color: #00274c;
+  }
+}
+.text-blue {
+  color: #00274c;
+  &,
+  p {
+    font-weight: 500;
+  }
+}
+.bg-maize {
+  background: #ffcb05;
+}
+.bg-blue {
+  background: #00274c;
+}
