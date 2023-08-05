@@ -2,7 +2,7 @@
 name: Sim Yi Lin
 position: Vice President
 category: former
-image_path: /images/headshots/AI/SimYiLin.jpg
+image_path: /images/headshots/AI/SimYiLin.webp
 contact: https://www.linkedin.com/in/yi-lin-sim-85a576179/
 contact_type: linkedIn
 g_year: Winter 2022
