@@ -125,55 +125,21 @@ function setupView(scene: Scene) {
 		console.log('switch to', active);
 		const camera = scene.activeCamera as ArcRotateCamera;
 		let animations: Animation[] = [];
-		if (active.id === 'Introduction') {
-			animations.push(createMoveAnim(camera, new Vector3(266, 3, -510)));
-			animations.push(createRadAnim(camera, 200));
-			animations.push(createBetaAnim(camera, 0.966));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.3;
-		} else if (active.id === 'Static') {
-			animations.push(createMoveAnim(camera, new Vector3(302, 0, -385)));
-			animations.push(createRadAnim(camera, 30));
-			animations.push(createBetaAnim(camera, 1.2));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.2;
-		} else if (active.id === 'Navigation') {
-			animations.push(createMoveAnim(camera, new Vector3(307.7, 0, -375.6)));
-			animations.push(createRadAnim(camera, 15));
-			animations.push(createAlphaAnim(camera, Math.PI));
-			animations.push(createBetaAnim(camera, 0.938));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
-		} else if (active.id === 'Obstacle') {
-			animations.push(createMoveAnim(camera, new Vector3(319.3, 0, -381.9)));
-			animations.push(createRadAnim(camera, 25));
-			animations.push(createBetaAnim(camera, 0.938));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
-		} else if (active.id === 'Speed') {
-			animations.push(createMoveAnim(camera, new Vector3(311.08, 0, -387.039)));
-			animations.push(createRadAnim(camera, 15));
-			animations.push(createBetaAnim(camera, 0.938));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
-		} else if (active.id === 'Docking') {
-			animations.push(createMoveAnim(camera, new Vector3(313.619, 0, -398.136)));
-			animations.push(createRadAnim(camera, 12));
-			animations.push(createBetaAnim(camera, 0.938));
-			animations.push(createAlphaAnim(camera, Math.PI * 0.5));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0;
-		} else if (active.id === 'Skeeball') {
-			animations.push(createMoveAnim(camera, new Vector3(304.417, 0, -385.015)));
-			animations.push(createRadAnim(camera, 12));
-			animations.push(createBetaAnim(camera, 0.938));
-			animations.push(createAlphaAnim(camera, Math.PI));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
-		} else if (active.id === 'Waterblast') {
-			animations.push(createMoveAnim(camera, new Vector3(303.513, 0, -390.266)));
-			animations.push(createRadAnim(camera, 12));
-			animations.push(createBetaAnim(camera, 0.938));
-			animations.push(createAlphaAnim(camera, Math.PI));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
-		} else if (active.id === 'Cleanup') {
-			animations.push(createMoveAnim(camera, new Vector3(301.393, 0, -395.65)));
-			animations.push(createRadAnim(camera, 12));
-			animations.push(createBetaAnim(camera, 0.938));
-			camera.autoRotationBehavior!.idleRotationSpeed = 0.1;
+		let val;
+		if ((val = active.getAttribute('data-location'))) {
+			animations.push(createMoveAnim(camera, new Vector3(...JSON.parse(`[${val}]`))));
+		}
+		if ((val = active.getAttribute('data-radius'))) {
+			animations.push(createRadAnim(camera, Number.parseFloat(val)));
+		}
+		if ((val = active.getAttribute('data-alpha'))) {
+			animations.push(createAlphaAnim(camera, Number.parseFloat(val)));
+		}
+		if ((val = active.getAttribute('data-beta'))) {
+			animations.push(createBetaAnim(camera, Number.parseFloat(val)));
+		}
+		if ((val = active.getAttribute('data-speed'))) {
+			camera.autoRotationBehavior!.idleRotationSpeed = Number.parseFloat(val);
 		}
 		const ease = new CubicEase();
 		ease.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);

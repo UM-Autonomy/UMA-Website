@@ -13,7 +13,13 @@
 </script>
 
 <div class="outer" class:loaded={false} bind:this={container}>
-	<section id="Introduction" class="row">
+	<section
+		class="row"
+		data-location="266, 3, -510"
+		data-radius="200"
+		data-beta="0.966"
+		data-speed="0.3"
+	>
 		<div class="park-info">
 			<h2>RoboBoat 2023: Ocean Exploration</h2>
 			<h3>Nathan Benderson Park</h3>
@@ -55,7 +61,13 @@
 	</div>
 	<div />
 
-	<section id="Static" class="row">
+	<section
+		class="row"
+		data-location="302, 0, -385"
+		data-radius="30"
+		data-beta="1.2"
+		data-speed="0.2"
+	>
 		<h3>Static Judging Criteria</h3>
 		<p>
 			Besides a team's performance autonomously, we are judged on aspects of both our team and the
@@ -111,7 +123,14 @@
 		<h4>High Priority Challenges</h4>
 	</div>
 
-	<section id="Navigation" class="row">
+	<section
+		class="row"
+		data-location="307.7, 0, -375.6"
+		data-radius="15"
+		data-alpha="3.14"
+		data-beta="0.938"
+		data-speed="0.1"
+	>
 		<h3>Navigate the Panama Canal</h3>
 		<img src="/images/roboboat/challenges/navigationChannel.png" alt="Panama Canal Diagram" />
 		<dl>
@@ -144,7 +163,13 @@
 
 	<hr />
 
-	<section id="Obstacle" class="row">
+	<section
+		class="row"
+		data-location="319.3, 0, -381.9"
+		data-radius="25"
+		data-beta="0.938"
+		data-speed="0.1"
+	>
 		<h3>Magellan's Route / Count the Manatees &amp; Jellyfish</h3>
 		<img src="/images/roboboat/challenges/magellans_route.png" alt="Magellan's Route Diagram" />
 		<dl>
@@ -178,7 +203,13 @@
 	</div>
 	<hr />
 
-	<section id="Speed" class="row">
+	<section
+		class="row"
+		data-location="311.08, 0, -387.039"
+		data-radius="15"
+		data-beta="0.938"
+		data-speed="0.1"
+	>
 		<h3>Northern Passage Challenge</h3>
 		<img src="/images/roboboat/challenges/snackRun.png" alt="Northern Passage Diagram" />
 		<dl>
@@ -219,7 +250,14 @@
 		<h4>Medium Priority Challenges</h4>
 	</div>
 
-	<section id="Docking" class="row">
+	<section
+		class="row"
+		data-location="313.619, 0, -398.136"
+		data-radius="12"
+		data-beta="0.938"
+		data-alpha="1.57"
+		data-speed="0"
+	>
 		<h3>Beaching &amp; Inspecting Turtle Nests</h3>
 		<img
 			style="width:80%"
@@ -255,7 +293,14 @@
 	</div>
 	<hr />
 
-	<section id="Skeeball" class="row">
+	<section
+		class="row"
+		data-location="304.417, 0, -385.015"
+		data-radius="12"
+		data-beta="0.938"
+		data-alpha="3.14"
+		data-speed="0.1"
+	>
 		<h3>Feed the Fish</h3>
 		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="Feed the Fish Diagram" />
 		<dl>
@@ -290,7 +335,14 @@
 	</div>
 	<hr />
 
-	<section id="Waterblast" class="row">
+	<section
+		class="row"
+		data-location="303.513, 0, -390.266"
+		data-radius="12"
+		data-beta="0.938"
+		data-alpha="3.14"
+		data-speed="0.1"
+	>
 		<h3>Ponce de Leon / Fountain of Youth</h3>
 		<img src="/images/roboboat/challenges/ponce_de_fountain.png" alt="Ponce de Leon Diagram" />
 		<dl>
@@ -336,7 +388,13 @@
 		<h4>Low Priority Challenges</h4>
 	</div>
 
-	<section id="Cleanup" class="row">
+	<section
+		class="row"
+		data-location="301.393, 0, -395.65"
+		data-radius="12"
+		data-beta="0.938"
+		data-speed="0.1"
+	>
 		<h3>Ocean Cleanup</h3>
 		<img src="/images/roboboat/challenges/OceanCleanup.png" alt="Ocean Cleanup Diagram" />
 		<dl>
