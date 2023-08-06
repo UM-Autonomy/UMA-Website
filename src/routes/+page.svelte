@@ -1,14 +1,15 @@
 <script lang="ts">
-	import start from '../core';
 	import { onMount } from 'svelte';
+	import start from '../core';
+	import '../fixUrls';
 	import Results from '../results.svelte';
 
 	let canvas: HTMLCanvasElement;
-	let fps: HTMLElement;
+	// let fps: HTMLElement;
 	let container: HTMLElement;
 
 	onMount(() => {
-		return start(container, canvas, fps);
+		return start('model2.glb', container, canvas /* , fps */);
 	});
 </script>
 
@@ -17,6 +18,7 @@
 		class="row"
 		data-location="266, 3, -510"
 		data-radius="200"
+		data-alpha="-1.15"
 		data-beta="0.966"
 		data-speed="0.3"
 	>
@@ -55,9 +57,9 @@
 	<div class="can">
 		<div class="render">
 			<canvas id="renderCanvas" aria-hidden="true" bind:this={canvas} />
-			<div id="fps" bind:this={fps}>0</div>
+			<!-- <div id="fps" bind:this={fps}>0</div> -->
 		</div>
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img src="/images/roboboat/challenges/intro.png" alt="" />
 	</div>
 	<div />
 
@@ -75,9 +77,11 @@
 		</p>
 		<h4>Design Documentation</h4>
 		<p>
-			The team must prepare a website, <a>a technical design report</a>, and <a>a video</a> for judges
-			to score. These are evaluated based on how well they introduce the team and its structure as well
-			as design considerations of the boat.
+			The team must prepare a website, <a>a technical design report</a>, and
+			<a href="https://www.youtube.com/watch?v=ZxFV9WLaQ88" target="_blank" rel="noopener"
+				>a video</a
+			> for judges to score. These are evaluated based on how well they introduce the team and its structure
+			as well as design considerations of the boat.
 		</p>
 		<h4>Presentation</h4>
 		<p>
@@ -116,7 +120,12 @@
 		</p>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 	<div>
 		<h3>Prioritization of Challenges</h3>
@@ -158,7 +167,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 
 	<hr />
@@ -199,7 +213,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 	<hr />
 
@@ -242,7 +261,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 	<div>
 		<hr />
@@ -289,7 +313,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 	<hr />
 
@@ -331,7 +360,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 	<hr />
 
@@ -380,7 +414,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 
 	<div>
@@ -422,7 +461,12 @@
 		</dl>
 	</section>
 	<div class="can">
-		<img src="/images/roboboat/challenges/feed_the_fish.png" alt="" />
+		<img
+			loading="lazy"
+			decoding="async"
+			src="/images/roboboat/challenges/feed_the_fish.png"
+			alt=""
+		/>
 	</div>
 
 	<section>

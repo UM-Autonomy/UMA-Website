@@ -28,7 +28,6 @@ import '@babylonjs/core/Meshes';
 import '@babylonjs/core/Misc';
 import '@babylonjs/core/Rendering';
 import '@babylonjs/core/States';
-import './fixUrls';
 
 import '@babylonjs/loaders/glTF/2.0';
 import { SkyMaterial } from '@babylonjs/materials/sky';
@@ -36,7 +35,7 @@ import { MeshBuilder } from '@babylonjs/core/Meshes';
 import { NodeMaterial } from '@babylonjs/core/Materials';
 
 let canvas: HTMLCanvasElement;
-let fps: HTMLElement | undefined;
+let fps: Element | undefined | null;
 let container: HTMLElement;
 
 function startRenderLoop(engine: Engine, canvas: HTMLCanvasElement) {
@@ -48,11 +47,15 @@ function startRenderLoop(engine: Engine, canvas: HTMLCanvasElement) {
 	});
 }
 function setupView(scene: Scene) {
-	document.querySelector('.outer')?.classList.add('loaded');
+	scene.executeWhenReady(() => container.classList.add('loaded'));
+	
 
 	let onScreen: Pick<IntersectionObserverEntry, 'target' | 'boundingClientRect'>[] = [];
 	const observer = new IntersectionObserver(
 		(obs) => {
+			onScreen = onScreen.filter(
+				(e) => !obs.some((o) => o.target === e.target && !o.isIntersecting)
+			);
 			for (let i = 0; i < onScreen.length; i++) {
 				onScreen[i] = {
 					target: onScreen[i].target,
@@ -60,9 +63,6 @@ function setupView(scene: Scene) {
 				};
 			}
 			onScreen.push(...obs.filter((o) => o.isIntersecting));
-			onScreen = onScreen.filter(
-				(e) => !obs.some((o) => o.target === e.target && !o.isIntersecting)
-			);
 			onScreen.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 			ev();
 		},
@@ -73,7 +73,7 @@ function setupView(scene: Scene) {
 	}
 
 	const bigMode = window.matchMedia('(min-width: 928px)');
-	let active = container.querySelector('#Introduction')!;
+	let active: Element | undefined = undefined;
 	function ev() {
 		if (!onScreen.length) return;
 		let middle = window.visualViewport!.height / 2;
@@ -120,7 +120,7 @@ function setupView(scene: Scene) {
 	function createBetaAnim(camera: ArcRotateCamera, value: number) {
 		return quickAnim('beta', Animation.ANIMATIONTYPE_FLOAT, camera.beta, value);
 	}
-	function changeFocus(old: Element, active: Element) {
+	function changeFocus(old: Element | undefined, active: Element) {
 		active.nextElementSibling?.appendChild(canvas.parentElement!);
 		console.log('switch to', active);
 		const camera = scene.activeCamera as ArcRotateCamera;
@@ -148,7 +148,7 @@ function setupView(scene: Scene) {
 		}
 
 		scene.stopAnimation(camera);
-		scene.beginDirectAnimation(camera, animations, 0, 100, false, bigMode.matches ? 1 : Infinity);
+		scene.beginDirectAnimation(camera, animations, 0, 100, false, (bigMode.matches && old) ? 1 : Infinity);
 	}
 
 	window.addEventListener('scroll', ev);
@@ -165,11 +165,10 @@ const createDefaultEngine = function () {
 	return new Engine(canvas, false, {
 		disableWebGL2Support: false,
 		adaptToDeviceRatio: true,
-		alpha: false,
 		doNotHandleContextLost: true
 	});
 };
-const delayCreateScene = function (engine: Engine) {
+const delayCreateScene = function (engine: Engine, model: string) {
 	// Create a scene.
 	const scene = new Scene(engine);
 	// const reflector = new BABYLON.Reflector(scene, "67.194.202.239", 1234);
@@ -184,7 +183,7 @@ const delayCreateScene = function (engine: Engine) {
 	// currentSkybox.material = skyMaterial
 	// Append glTF model to scene.
 	SceneLoader.ShowLoadingScreen = false;
-	SceneLoader.Append('./', 'model2.glb', scene, (s) => {
+	SceneLoader.Append(model, undefined, scene, (s) => {
 		try {
 			onSuccess(s);
 		} catch (e) {
@@ -198,7 +197,7 @@ const delayCreateScene = function (engine: Engine) {
 		const camera = new ArcRotateCamera('Camera', -32, 0.966, 200, new Vector3(266, 3, -510), scene);
 		camera.attachControl();
 		camera.useAutoRotationBehavior = true;
-		camera.autoRotationBehavior!.idleRotationSpeed = 0.3;
+		camera.autoRotationBehavior!.idleRotationSpeed = 0;
 		camera.upperBetaLimit = 1.5;
 		camera.lowerRadiusLimit = 5;
 		camera.upperRadiusLimit = 500;
@@ -295,7 +294,7 @@ const delayCreateScene = function (engine: Engine) {
 
 	return scene;
 };
-async function initFunction() {
+async function initFunction(model: string) {
 	const asyncEngineCreation = async function () {
 		try {
 			return createDefaultEngine();
@@ -312,10 +311,10 @@ async function initFunction() {
 	destroyFuncs.push(() => engine?.dispose());
 	canvas.addEventListener('webglcontextlost', () => {
 		engine?.dispose();
-		document.querySelector('.outer')?.classList.remove('loaded');
+		container.classList.remove('loaded');
 	});
 	startRenderLoop(engine, canvas);
-	scene = delayCreateScene(engine);
+	scene = delayCreateScene(engine, model);
 	sceneToRender = scene;
 	(window as unknown as any).scene = scene;
 }
@@ -324,11 +323,11 @@ function resize() {
 	engine?.resize();
 }
 
-export default function (container_: HTMLElement, canvas_: HTMLCanvasElement, fps_?: HTMLElement) {
+export default function (model: string, container_: HTMLElement, canvas_: HTMLCanvasElement, fps_?: Element | null) {
 	container = container_;
 	canvas = canvas_;
 	fps = fps_;
-	initFunction();
+	initFunction(model);
 	window.addEventListener('resize', resize);
 	return () => {
 		window.removeEventListener('resize', resize);

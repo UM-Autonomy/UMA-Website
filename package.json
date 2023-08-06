@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build-lib": "vite build --config vite.config-script.ts",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -29,5 +30,11 @@
 		"typescript": "^5.1.6",
 		"vite": "^4.4.7"
 	},
-	"type": "module"
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/bruh.d.ts",
+			"svelte": "./dist/bruh.js"
+		}
+	}
 }
