@@ -165,7 +165,8 @@ const createDefaultEngine = function () {
 	return new Engine(canvas, false, {
 		disableWebGL2Support: false,
 		adaptToDeviceRatio: true,
-		doNotHandleContextLost: true
+		doNotHandleContextLost: true,
+		failIfMajorPerformanceCaveat: true
 	});
 };
 const delayCreateScene = function (engine: Engine, model: string) {
