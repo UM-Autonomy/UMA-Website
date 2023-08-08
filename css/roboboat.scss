@@ -66,11 +66,18 @@ $small-canvas-size: 50vh;
     }
   }
 
-  img, .img {
+  img,
+  .img {
     width: 100%;
   }
   .render {
     display: none;
+  }
+  .escape-margin {
+    margin-left: -$padding-size;
+    margin-left: calc(#{-$padding-size} - env(safe-area-inset-left,  0));
+    margin-right: -$padding-size;
+    width: calc(100% + #{$padding-size * 2} + env(safe-area-inset-left,  0));
   }
 }
 .outer.loaded {
@@ -79,7 +86,8 @@ $small-canvas-size: 50vh;
   }
   .can {
     height: min-content;
-    img, .img {
+    img,
+    .img {
       display: none;
     }
   }
@@ -98,18 +106,22 @@ $small-canvas-size: 50vh;
   margin-left: -$padding-size;
   margin-left: calc(#{-$padding-size} - env(safe-area-inset-left, 0px));
   width: 100%;
-  width: calc(100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+  width: calc(
+    100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px)
+  );
   img {
     backdrop-filter: blur(10px);
   }
-  img, .img {
+  img,
+  .img {
     height: 100%;
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
   }
-  img.skinny, .img.skinny {
+  img.skinny,
+  .img.skinny {
     object-fit: contain;
     background-size: contain;
   }
@@ -135,7 +147,8 @@ $small-canvas-size: 50vh;
     width: calc(100% - #{$padding-size});
     height: 100%;
   }
-  .can img, .img.skinny {
+  .can img,
+  .img.skinny {
     object-fit: cover;
   }
   .outer .can > * {
@@ -217,7 +230,8 @@ $roboboat-clip: calc(#{$roboboat-height} / 6);
 }
 .roboboat-section {
   grid-template-columns: 1fr 1fr;
-  .img, .img {
+  .img,
+  .img {
     padding: 1%;
     object-fit: cover;
     overflow: hidden;
@@ -238,7 +252,8 @@ $roboboat-clip: calc(#{$roboboat-height} / 6);
   .roboboat-section {
     height: $roboboat-height;
     display: grid;
-    .img, .img {
+    .img,
+    .img {
       width: 100%;
       height: 100%;
       padding: 0;
