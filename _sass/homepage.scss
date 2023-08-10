@@ -121,6 +121,9 @@ $join-clip: calc(#{$join-height} / 6);
 .photo-grid {
   margin-top: 60px;
   height: 80vh;
+  min-height: 550px;
+  margin-left: calc(-1 * env(safe-area-inset-left, 0px));
+  width: calc(100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
   display: flex;
   flex-direction: column;
   position: relative;
@@ -155,16 +158,21 @@ $join-clip: calc(#{$join-height} / 6);
   .overlay {
     width: 100%;
     height: 100%;
-    min-height: 550px;
     position: absolute;
-    background: #33333333;
+    background: #00274c55;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em max(2em, 10vw);
+    padding: 2em max(1em, 5vw);
     svg:first-child {
-      opacity: 0.5;
+      opacity: 0.67;
       filter: saturate(80%) brightness(75%);
     }
+    @media (max-aspect-ratio: 22 / 27) {
+      background: linear-gradient(180deg, #00274c55 0%, #00274c55 72.76%, #00274c00 74%, #00274c00 100%);
+    }
+  }
+  & +.content .info {
+    padding-top: 20px;
   }
 }
