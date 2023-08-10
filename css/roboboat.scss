@@ -75,9 +75,9 @@ $small-canvas-size: 50vh;
   }
   .escape-margin {
     margin-left: -$padding-size;
-    margin-left: calc(#{-$padding-size} - env(safe-area-inset-left,  0));
+    margin-left: calc(#{-$padding-size} - env(safe-area-inset-left, 0));
     margin-right: -$padding-size;
-    width: calc(100% + #{$padding-size * 2} + env(safe-area-inset-left,  0));
+    width: calc(100% + #{$padding-size * 2} + env(safe-area-inset-left, 0));
   }
 }
 .outer.loaded {
@@ -307,4 +307,12 @@ $roboboat-clip: calc(#{$roboboat-height} / 6);
 }
 .bg-blue {
   background: #00274c;
+}
+.img-blur {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  img {
+    backdrop-filter: blur(10px);
+  }
 }

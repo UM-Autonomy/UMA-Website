@@ -29,6 +29,10 @@ image: /images/history/phoenix.jpg
 	<section class="info" id="learn-more">
 		<h2>The Phoenix</h2>
 		<p>
+			<a href='/{{ site.boats | where: "year", 2023 | map: "tdr_path" | first }}'
+				class="button btn btn-primary w-full">Detailed Technical Report &downarrow;</a>
+		</p>
+		<p>
 			{{ site.boats | where: "year", 2023 | map: "description1" | first }}
 		</p>
 
