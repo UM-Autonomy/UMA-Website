@@ -1,7 +1,8 @@
 ---
 name: Frank Sun
-category: ai
-position: Navigation Member
+roles:
+  2023:
+    ai: Navigation Member
 image_path: /images/headshots/AI/Frank.webp
 contact: mailto:franksun@umich.edu
 contact_type: Email

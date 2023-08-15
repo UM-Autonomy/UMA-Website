@@ -1,7 +1,8 @@
 ---
 name: Elaina Mann
-category: business
-position: Member
+roles:
+  2023:
+    business: Member
 image_path: /images/headshots/Business/Elaina.webp
 contact: 
 contact_type: 

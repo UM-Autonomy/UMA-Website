@@ -1,7 +1,8 @@
 ---
 name: Cameron Muzall
-category: hulls-and-systems
-position: Member
+roles:
+  2023:
+    hulls-and-systems: Member
 image_path: /images/headshots/Hulls-and-Systems/Cameron.webp
 contact: mailto:muzzallc@umich.edu
 contact_type: Email

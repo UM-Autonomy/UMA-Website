@@ -1,7 +1,8 @@
 ---
 name: Saheth Edupuganti
-category: leadership
-position: President
+roles:
+  2023:
+    leadership: President
 image_path: /images/headshots/Leadership/Saheth.webp
 contact: http://linkedin.com/in/saheth
 contact_type: linkedIn

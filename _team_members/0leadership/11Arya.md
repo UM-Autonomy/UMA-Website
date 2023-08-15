@@ -1,7 +1,9 @@
 ---
 name: Arya Patil
-category: leadership
-position: Navigation Co-Lead
+roles:
+  2023:
+    leadership: Navigation Co-Lead
+    ai: Navigation Co-Lead
 image_path: /images/headshots/AI/Arya.webp
 contact: http://www.linkedin.com/in/aryapat
 contact_type: linkedIn

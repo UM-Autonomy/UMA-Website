@@ -1,7 +1,9 @@
 ---
 name: Dimitrios Dikos
-category: leadership
-position: Business Lead
+roles:
+  2023:
+    leadership: Business Lead
+    business: Business Lead
 image_path: /images/headshots/Leadership/Dimitrios.webp
 contact: https://www.linkedin.com/in/dimitrios-dikos-10543b192
 contact_type: linkedIn

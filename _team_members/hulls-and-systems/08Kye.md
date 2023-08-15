@@ -1,7 +1,8 @@
 ---
 name: Kye Dembinski
-category: hulls-and-systems
-position: Member
+roles:
+  2023:
+    hulls-and-systems: Member
 image_path: /images/headshots/Hulls-and-Systems/Kye.webp
 contact: mailto:dkye@umich.edu
 contact_type: Email

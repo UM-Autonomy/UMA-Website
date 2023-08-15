@@ -1,7 +1,8 @@
 ---
 name: Ben Bruick
-category: act
-position: Advanced Capabilities Hardware Lead
+roles:
+  2023:
+    act: Advanced Capabilities Hardware Lead
 image_path: /images/headshots/ACT/BenBruick.webp
 contact: https://www.linkedin.com/in/bruick/
 contact_type: LinkedIn

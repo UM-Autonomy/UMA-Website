@@ -1,7 +1,8 @@
 ---
 name: Isabella Minkin
-category: business
-position: Member
+roles:
+  2023:
+    business: Member
 image_path: /images/headshots/Business/Isabella.webp
 contact: https://www.linkedin.com/in/zeazad/
 contact_type: linkedIn

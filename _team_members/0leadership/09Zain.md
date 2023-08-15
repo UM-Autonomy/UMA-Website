@@ -1,7 +1,9 @@
 ---
 name: Zain Eazad
-category: business
-position: Web Dev Team Lead
+roles:
+  2023:
+    leadership: Task Planning Co-Lead
+    business: Web Dev Team Lead
 image_path: /images/headshots/AI/Zain.webp
 contact: https://www.linkedin.com/in/zeazad/
 contact_type: linkedIn

@@ -1,7 +1,8 @@
 ---
 name: Broderick Riopelle
-category: act
-position: Member
+roles:
+  2023:
+    act: Member
 image_path: /images/headshots/ACT/Broderick.webp
 contact: www.linkedin.com/in/broderick-riopelle
 contact_type: linkedIn

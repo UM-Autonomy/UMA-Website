@@ -1,7 +1,9 @@
 ---
 name: Vanessa Lulla
-category: leadership
-position: Controls Lead
+roles:
+  2023:
+    leadership: Controls Lead
+    ai: Controls Lead
 image_path: /images/headshots/Leadership/Vanessa.webp
 contact: mailto:vlulla@umich.edu
 contact_type: 

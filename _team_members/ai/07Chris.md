@@ -1,7 +1,8 @@
 ---
 name: Christopher Briggs
-category: ai
-position: Navigation Member
+roles:
+  2023:
+    ai: Navigation Member
 image_path: /images/headshots/AI/Christopher.webp
 contact: https://www.linkedin.com/in/topher-briggs/
 contact_type: linkedIn

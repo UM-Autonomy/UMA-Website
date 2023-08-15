@@ -1,7 +1,8 @@
 ---
 name: Zamir North
-category: electrical
-position: Member
+roles:
+  2023:
+    electrical: Member
 image_path: /images/headshots/Electrical/Zamir.webp
 contact: mailto:northzamir4@gmail.com
 contact_type: Email
