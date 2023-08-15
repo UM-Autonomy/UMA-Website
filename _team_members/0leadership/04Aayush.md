@@ -8,5 +8,5 @@ roles:
     electrical: Electrical Lead
 image_path: /images/headshots/Electrical/Aayush.webp
 contact_type: 
-g_year: Winter 2024
+g_year: Winter 2025
 ---
