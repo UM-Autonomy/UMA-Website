@@ -36,7 +36,7 @@ image: /images/team_photo2023.webp
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].leadership }}</div>
 				{% if person.roles[2024].leadership %}
-				<div class="position position-highlight">In 2023-2024: {{ person.roles[2024].leadership }}</div>
+				<div class="position position-highlight">{{ person.roles[2024].leadership }} in 2023-2024</div>
 				{% endif %}
 				<div class="link">
 					<a href="{{ person.contact }}" target="_blank">
