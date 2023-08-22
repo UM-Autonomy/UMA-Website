@@ -1,7 +1,6 @@
 ---
 title: Social Engagement
-description: Last year, the Business Team was able to organize more social engagement events with the funding opportunities provided by the Central Student Government (CSG) for student organizations. We organized a virtual Burger Night in Fall 2020 and reimbursed members who participated for the cooking ingredients. We also purchased Minecraft licenses for team use and a Realms subscription, pathing the way to Minecraft game nights in Winter 2021.
+description: We hope to expand our social events even further than the previous year. In 2022-2023, we brought team members to a board game night, go-karting and arcade, and many team dinners after even work sessions. We also started a Minecraft server for members to play over the summer. However, we aim to have more frequent events, such as movie nights every other week.
 image: /images/projects/minecraft.png
-members: Sim Yi Lin, Dora Guo, Rimaz Khan, Ryan Do, Ryan Draves
 category: business
 ---

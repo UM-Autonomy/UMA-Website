@@ -1,7 +1,7 @@
 ---
 title: UMA Website
-description: This year, we decided to focus on improving our previous year's website by updating the site with up-to-date information, and creating new pages (Projects and Blog pages) and sections to provide more information about the team. This current website is created using Jekyll. We have also created Figma design layouts and started some work in creating a new website using GatsbyJS. We chose static site generators with the intention of Search Engine Optimization (SEO). The new GatsbyJS website would also provide more control compared to the templated Jekyll site we currently have.
+description: With an effort to boost recruitment in 2023, several pages of the website have been redesigned to be more informative and appealing. Redesigns of several more pages are planned, and more content will be produced to further recruitment efforts, increase appeal to sponsors, and score more points in the RoboBoat website judging.
 image: /images/projects/website.png
-members: Sim Yi Lin, Dora Guo, Rimaz Khan
+members: Ben Schattinger
 category: business
 ---

@@ -1,6 +1,6 @@
 ---
-title: Trimaran Hull Design
-description: This year, we made some innovative changes to our original monohull design. We changed our hull design to a trimaran design to increase boat stability. Specifically, it reduced downward pitch when going forward, which was caused by the additional weight due to sensors and mounts at the front of our boat.
+title: Hull Design Decisions
+description: In recent years, the team has used a trimaran hull design which offers incredible stability. However, turning performance is limited due to the resistance offered by the hulls. The team will evaluate whether to keep or change the design in 2023.
 image: /images/projects/trimaran.png
 members:
 category: hulls
