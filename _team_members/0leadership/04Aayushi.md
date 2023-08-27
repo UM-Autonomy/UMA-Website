@@ -6,6 +6,6 @@ roles:
     electrical: Electrical Co-Lead
 image_path: /images/headshots/Leadership/Aayushi.webp
 contact: mailto:anakum@umich.edu
-contact_type: 
+contact_type: Email
 g_year: Winter 2023
 ---
