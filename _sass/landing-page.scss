@@ -108,8 +108,14 @@ p {
   padding-bottom: 20px;
 }
 
+.small-calendar {
+  display: none;
+}
 @media screen and (max-width: 800px) {
   .calendar {
     display: none !important;
+  }
+  .small-calendar {
+    display: block;
   }
 }
