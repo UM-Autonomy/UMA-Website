@@ -29,10 +29,7 @@ image: /images/team_photo2023.webp
 			{% for person in site.team_members %}
 			{% if person.roles[2023].leadership or person.roles[2024].leadership %}
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-					</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].leadership }}</div>
 				{% if person.roles[2024].leadership %}
@@ -61,10 +58,7 @@ image: /images/team_photo2023.webp
 			{% if person.roles[2023].ai %}
 			
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-				</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].ai }}</div>
 				<div class="link">
@@ -90,10 +84,7 @@ image: /images/team_photo2023.webp
 			{% if person.roles[2023].act %}
 			
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-				</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].act }}</div>
 				<div class="link">
@@ -118,10 +109,7 @@ image: /images/team_photo2023.webp
 			{% for person in site.team_members %}
 			{% if person.roles[2023].business %}
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-				</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].business }}</div>
 				<div class="link">
@@ -146,10 +134,7 @@ image: /images/team_photo2023.webp
 			{% for person in site.team_members %}
 			{% if person.roles[2023].electrical %}
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-				</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].electrical }}</div>
 				<div class="link">
@@ -174,10 +159,7 @@ image: /images/team_photo2023.webp
 			{% for person in site.team_members %}
 			{% if person.roles[2023]["hulls-and-systems"] %}
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-				</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023]["hulls-and-systems"] }}</div>
 				<div class="link">
@@ -202,10 +184,7 @@ image: /images/team_photo2023.webp
 			{% for person in site.team_members %}
 			{% if person.roles[2023].systems %}
 			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-					</div>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2023].systems }}</div>
 				<div class="link">
