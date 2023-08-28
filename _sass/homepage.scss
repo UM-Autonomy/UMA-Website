@@ -103,14 +103,24 @@ $join-clip: calc(#{$join-height} / 6);
   display: none;
 }
 
-#join:target,
-#join:target ~ * {
+// Uncomment for "only show join highlight with hash"
+$join-selector: "#join";
+// Uncomment for "show join highlight always"
+// $join-selector: "#join:target";
+
+#{$join-selector},
+#{$join-selector} ~ * {
   .join-cta {
     border-radius: 15px;
     background-color: #ffcb05;
     &,
     p {
       font-weight: initial;
+    }
+    a:not(:hover):not(.btn) {
+      color: mix(#00a4ca, #00274c, 80%);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
     }
   }
   .join-only {

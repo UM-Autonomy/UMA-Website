@@ -3,35 +3,31 @@ title: Contact
 description: Michigan's Autonomous Boat Team Contact Information
 image: /images/fall.jpg
 ---
+<style>
+  .btn {
+    background-color: #1449bb;
+    border: 1px solid #1449bb;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
 
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
-  <style>
-    .btn {
-      background-color: #1449bb;
-      border: 1px solid #1449bb;
-      border-radius: 5px;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-    }
+  .btn a {
+    color: rgb(255, 255, 255) !important;
+    text-decoration: none !important;
+  }
 
-    .btn a {
-      color: rgb(255, 255, 255) !important;
-      text-decoration: none !important;
-    }
-
-    .btn:hover {
-      background-color: #02045f;
-      color: rgb(255, 255, 255) !important;
-      text-decoration: none !important;
-      cursor: pointer;
-    }
-  </style>
-</head>
+  .btn:hover {
+    background-color: #02045f;
+    color: rgb(255, 255, 255) !important;
+    text-decoration: none !important;
+    cursor: pointer;
+  }
+</style>
 
 <section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
   <div class="inner-hero text-container">
@@ -68,9 +64,8 @@ image: /images/fall.jpg
           Feel free to send us an email or contact any officer for more
           information.
         </p>
-        <a class="button btn btn-primary w-full" href="https://forms.gle/vgb45XKFGRH731Q8A" target="_blank" rel="noopener">
-          Join Our Mailing List
-        </a>
+        <h2>Looking to Join UM::Autonomy?</h2>
+        {% include meeting-location.html %}
       </div>
     </div>
   </section>

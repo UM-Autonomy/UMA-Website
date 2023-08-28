@@ -3,9 +3,6 @@ title: Home
 description: Michigan's Autonomous Boat Team
 ---
 
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
-</head>
 
 <!-- hidden element, used in CSS to show join message with specific URL -->
 <div id="join"></div>
@@ -47,10 +44,7 @@ description: Michigan's Autonomous Boat Team
       <section class="container flex join-cta">
         <div class="text">
           <h2>Looking to Join UM::Autonomy?</h2>
-          <p>Keep posted for our Fall mass meeting schedule! Until then, feel free to
-            <a class="font-bold" href="https://forms.gle/vgb45XKFGRH731Q8A" target="_blank" rel="noopener">
-              join our mailing list
-            </a> to receive information about our team and next meeting.</p>
+          {% include meeting-location.html %}
         </div>
       </section>
     </div>
@@ -184,11 +178,7 @@ description: Michigan's Autonomous Boat Team
           don't be afraid to reach out to us at <a href="mailto:umautonomy@umich.edu"
             target="_blank">umautonomy@umich.edu</a>!
         </p>
-        <p>
-          <a class="button btn btn-primary w-full" href="https://forms.gle/vgb45XKFGRH731Q8A" target="_blank"
-            rel="noopener"> Join Our Mailing List to Learn More
-          </a>
-        </p>
+        {% include meeting-location.html %}
         <br>
       </div>
     </div>
