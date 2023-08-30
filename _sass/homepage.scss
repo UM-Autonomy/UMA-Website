@@ -92,6 +92,9 @@ $join-clip: calc(#{$join-height} / 6);
     font-weight: initial;
   }
 }
+.bg-blue {
+  background: #00274c;
+}
 .widescreen-video {
   aspect-ratio: 16 / 9;
   width: 100%;
