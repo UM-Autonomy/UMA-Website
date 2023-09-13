@@ -107,9 +107,9 @@ $join-clip: calc(#{$join-height} / 6);
 }
 
 // Uncomment for "only show join highlight with hash"
-$join-selector: "#join";
+// $join-selector: "#join";
 // Uncomment for "show join highlight always"
-// $join-selector: "#join:target";
+$join-selector: "#join:target";
 
 #{$join-selector},
 #{$join-selector} ~ * {
