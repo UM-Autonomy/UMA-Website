@@ -4,6 +4,6 @@ name: Emma Shedden
 position: Advanced Capabilities Lead
 image_path: /images/headshots/Drone/EmmaShedden.webp
 contact: https://www.linkedin.com/in/emma-shedden-835563204/
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2024
 ---

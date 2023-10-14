@@ -8,6 +8,6 @@ roles:
     business: Business Lead
 image_path: /images/headshots/Business/Isabella.webp
 contact: https://www.linkedin.com/in/zeazad/
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2023
 ---

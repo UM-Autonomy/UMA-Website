@@ -6,6 +6,6 @@ roles:
     ai: AI Co-Lead / CV Lead
 image_path: /images/headshots/Leadership/Chad.webp
 contact: https://www.linkedin.com/in/chadrakoczy/
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2023
 ---

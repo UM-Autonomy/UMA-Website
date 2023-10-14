@@ -3,6 +3,6 @@ name: Wenzhao Qiu
 #category: ai
 image_path: /images/headshots/AI/Wenzhao.webp
 contact: https://www.linkedin.com/in/wenzhao-qiu/
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2023
 ---

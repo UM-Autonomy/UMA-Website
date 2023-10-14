@@ -8,6 +8,6 @@ roles:
     ai: Computer Vision Lead
 image_path: /images/headshots/AI/Hevwar.webp
 contact: https://www.linkedin.com/in/hevwar-shahab/
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2024
 ---

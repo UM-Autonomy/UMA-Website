@@ -6,6 +6,6 @@ roles:
     business: Business Lead
 image_path: /images/headshots/Leadership/Dimitrios.webp
 contact: https://www.linkedin.com/in/dimitrios-dikos-10543b192
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2023
 ---

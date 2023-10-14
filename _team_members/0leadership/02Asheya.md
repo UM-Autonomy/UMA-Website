@@ -8,6 +8,6 @@ roles:
     leadership: President
 image_path: /images/headshots/Leadership/Asheya.webp
 contact: https://www.linkedin.com/in/naikasheya27
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2024
 ---

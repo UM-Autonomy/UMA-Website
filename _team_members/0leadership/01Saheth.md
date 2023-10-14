@@ -5,6 +5,6 @@ roles:
     leadership: President
 image_path: /images/headshots/Leadership/Saheth.webp
 contact: http://linkedin.com/in/saheth
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2023
 ---

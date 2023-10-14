@@ -6,6 +6,6 @@ roles:
     business: Member
 image_path: /images/headshots/Business/Chelsea.webp
 contact: https://www.linkedin.com/in/chelseasun
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Winter 2025
 ---

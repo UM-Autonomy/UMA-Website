@@ -5,6 +5,6 @@ roles:
     ai: CV Member
 image_path: /images/headshots/AI/Amirali.webp
 contact: https://www.linkedin.com/in/amirali-danai-89977a217/
-contact_type: linkedIn
+contact_type: LinkedIn
 g_year: Fall 2026
 ---
