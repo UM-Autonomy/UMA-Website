@@ -32,8 +32,6 @@ section {
 header {
   color: #fff;
   background-color: #333;
-  border-color: #fff;
-  border-width: 2px;
   padding: 15px 0;
   padding: calc(env(safe-area-inset-top, 0) + 15px) env(safe-area-inset-right, 0)
            15px                                     env(safe-area-inset-left,  0);
