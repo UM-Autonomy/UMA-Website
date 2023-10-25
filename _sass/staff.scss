@@ -6,6 +6,7 @@
 	flex-flow: wrap;
 	text-align: center;
 	justify-content: center;
+	font-weight: 400;
 	li {
 		padding: 30px 20px;
 		box-sizing: border-box;
@@ -18,7 +19,12 @@
 		@media #{$desktop} {
 			flex-basis: 33%;
 		}
-
+		a {
+			text-decoration: underline;
+			&[href]:not([href=""])::after {
+			  content: " 🡭";
+			}
+		}
 	}
 
 	.name {
@@ -26,7 +32,7 @@
 	}
 
 	.position {
-		color: #666;
+		opacity: .8;
 		font-size: .8em;
 	}
 

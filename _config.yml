@@ -41,6 +41,7 @@ collections:
   team_members:
     _hide_content: true
     _icon: account_circle
+  teams:
   sponsors:
   boats:
   projects:
