@@ -36,6 +36,9 @@ header {
   padding: calc(env(safe-area-inset-top, 0) + 15px) env(safe-area-inset-right, 0)
            15px                                     env(safe-area-inset-left,  0);
   position: fixed;
+  @media print {
+    position: initial;
+  }
   width: 100%;
   z-index: 9999;
   line-height: 0;

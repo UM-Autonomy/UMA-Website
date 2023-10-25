@@ -15,20 +15,19 @@ image: /images/team_photo2023.webp
 </section>
 
 {% for team in site.teams %}
-<section class="pad flex items-start px-16 {% if forloop.index == 2 or forloop.index == 4 or forloop.index == 6 %} bg-blue text-maize{% else %} text-blue{% endif %}">
-	<div class="sticky w-[35%] top-[75px] flex-shrink-0 teams-content">
+{% assign modidx = forloop.index | modulo: 2 %}
+<section class="pad lg:flex items-start px-8 xl:px-16 print:p-0 {% if modidx == 1 %} text-blue{% else %} bg-blue text-maize{% endif %}">
+	<div class="lg:sticky lg:w-[35%] top-[75px] flex-shrink-0 break-inside-avoid teams-content">
 		{{team.content}}
 	</div>
-	<div class="container ml-0">
+	<div class="flex-grow">
 		<ul class="staff">
 			{% for person in site.team_members %}
 			{% if person.roles[2024][team.name] %}
 			
-			<li>
-				<div {% if person.rotate %} class="rotate-image square-image" {% endif %}
-						class="square-image team-image"
-						style="background-image: url({% include relative-src.html src=person.image_path %})">
-				</div>
+			<li class="break-inside-avoid">
+				<img class="square-image team-image p-1 {% if modidx == 1 %}bg-blue{% else %}bg-maize{% endif %}" src="{% include relative-src.html src=person.image_path %}"
+					alt="{{ person.name }}">
 				<div class="name">{{ person.name }}</div>
 				<div class="position">{{ person.roles[2024][team.name] }}</div>
 				<div class="link">
@@ -48,7 +47,7 @@ image: /images/team_photo2023.webp
 
 <style type="text/tailwindcss">
 	.teams-content h2 {
-		@apply text-5xl font-black uppercase text-right mb-4;
+		@apply text-5xl font-black uppercase lg:text-right mb-4;
 		font-family: "Inter", "Open Sans", "Lato", sans-serif;
 	}
 	.teams-content h3 {
@@ -56,6 +55,6 @@ image: /images/team_photo2023.webp
 		font-family: "Inter", "Open Sans", "Lato", sans-serif;
 	}
 	.teams-content p {
-		@apply mb-3;
+		@apply mb-3 md:text-justify;
 	}
 </style>

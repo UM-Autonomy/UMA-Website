@@ -19,6 +19,10 @@
 		@media #{$desktop} {
 			flex-basis: 33%;
 		}
+
+		@media (min-width: 1920px) {
+			flex-basis: 25%;
+		}
 		a {
 			text-decoration: underline;
 			&[href]:not([href=""])::after {
