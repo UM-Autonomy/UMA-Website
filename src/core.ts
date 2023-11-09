@@ -166,7 +166,8 @@ const createDefaultEngine = function () {
 		disableWebGL2Support: false,
 		adaptToDeviceRatio: true,
 		doNotHandleContextLost: true,
-		failIfMajorPerformanceCaveat: true
+		failIfMajorPerformanceCaveat: true,
+		autoEnableWebVR: false
 	});
 };
 const delayCreateScene = function (engine: Engine, model: string) {
@@ -310,6 +311,7 @@ async function initFunction(model: string) {
 	engine = await asyncEngineCreation();
 	if (!engine) throw 'engine should not be null.';
 	destroyFuncs.push(() => engine?.dispose());
+	engine.renderEvenInBackground = false;
 	canvas.addEventListener('webglcontextlost', () => {
 		engine?.dispose();
 		container.classList.remove('loaded');
