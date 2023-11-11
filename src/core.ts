@@ -1,3 +1,5 @@
+/// <reference lib="webworker" />
+
 // gltfpack -i model.glb -o model2.glb -cc -tc -mi -vp 16 -vpf
 import { SceneLoader } from '@babylonjs/core/Loading/sceneLoader';
 import { Engine } from '@babylonjs/core/Engines/engine';
@@ -37,6 +39,7 @@ import { NodeMaterial } from '@babylonjs/core/Materials';
 let canvas: HTMLCanvasElement;
 let fps: Element | undefined | null;
 let container: HTMLElement;
+let sendMessage: MessagePort['postMessage'];
 
 function startRenderLoop(engine: Engine, canvas: HTMLCanvasElement) {
 	engine.runRenderLoop(function () {
@@ -48,7 +51,6 @@ function startRenderLoop(engine: Engine, canvas: HTMLCanvasElement) {
 }
 function setupView(scene: Scene) {
 	scene.executeWhenReady(() => container.classList.add('loaded'));
-	
 
 	let onScreen: Pick<IntersectionObserverEntry, 'target' | 'boundingClientRect'>[] = [];
 	const observer = new IntersectionObserver(
@@ -148,7 +150,14 @@ function setupView(scene: Scene) {
 		}
 
 		scene.stopAnimation(camera);
-		scene.beginDirectAnimation(camera, animations, 0, 100, false, (bigMode.matches && old) ? 1 : Infinity);
+		scene.beginDirectAnimation(
+			camera,
+			animations,
+			0,
+			100,
+			false,
+			bigMode.matches && old ? 1 : Infinity
+		);
 	}
 
 	window.addEventListener('scroll', ev);
@@ -326,10 +335,20 @@ function resize() {
 	engine?.resize();
 }
 
-export default function (model: string, container_: HTMLElement, canvas_: HTMLCanvasElement, fps_?: Element | null) {
+function handleMessage(msg: MessageEvent) {}
+
+export default function init(
+	port: MessagePort,
+	model: string,
+	container_: HTMLElement,
+	canvas_: HTMLCanvasElement,
+	fps_?: Element | null
+) {
 	container = container_;
 	canvas = canvas_;
 	fps = fps_;
+	sendMessage = port.postMessage;
+	port.onmessage = handleMessage;
 	initFunction(model);
 	window.addEventListener('resize', resize);
 	return () => {
@@ -338,4 +357,12 @@ export default function (model: string, container_: HTMLElement, canvas_: HTMLCa
 			f();
 		}
 	};
+}
+
+if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
+	self.onmessage = (args) => {
+		// @ts-ignore
+		init(self, ...args.data);
+	};
+	console.log('core load WORKER');
 }

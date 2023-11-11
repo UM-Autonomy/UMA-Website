@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import start from '../core';
+	import start from '../loader';
 	import '../fixUrls';
 	import Results from '../results.svelte';
 
