@@ -12,6 +12,7 @@ import { CascadedShadowGenerator } from '@babylonjs/core/Lights/Shadows/cascaded
 import type { DirectionalLight } from '@babylonjs/core/Lights/directionalLight';
 import '@babylonjs/core/Actions';
 import { Animation, CubicEase, EasingFunction } from '@babylonjs/core/Animations';
+import { Tools } from '@babylonjs/core/Misc/tools';
 import '@babylonjs/core/BakedVertexAnimation';
 import '@babylonjs/core/Behaviors';
 import '@babylonjs/core/Buffers';
@@ -36,60 +37,57 @@ import { SkyMaterial } from '@babylonjs/materials/sky';
 import { MeshBuilder } from '@babylonjs/core/Meshes';
 import { NodeMaterial } from '@babylonjs/core/Materials';
 
-let canvas: HTMLCanvasElement;
-let fps: Element | undefined | null;
-let container: HTMLElement;
-let sendMessage: MessagePort['postMessage'];
+const isWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 
-function startRenderLoop(engine: Engine, canvas: HTMLCanvasElement) {
+let canvas: HTMLCanvasElement | OffscreenCanvas;
+let sendMessage: (msg: HostMessage) => void;
+
+export interface FpsMsg {
+	type: 'fps';
+	fps: number;
+}
+export interface SubscribeMsg {
+	type: 'subscribe';
+	name: string;
+	useCapture?: boolean;
+}
+export type HostMessage = FpsMsg | SubscribeMsg | { type: 'loaded' } | { type: 'unloaded' };
+export interface ResizeMsg {
+	type: 'resize';
+	rect: DOMRect;
+	devicePixelRatio: number;
+}
+export interface ChangeFocusMsg {
+	type: 'changeFocus';
+	attributes: Record<string, string>;
+	bigMode: boolean;
+}
+export interface EventMsg {
+	type: 'event';
+	name: string;
+	details: any;
+}
+export type WorkerMessage =
+	| ResizeMsg
+	| ChangeFocusMsg
+	| EventMsg
+	| { type: 'blur' }
+	| { type: 'focus' };
+
+function startRenderLoop(engine: Engine) {
 	engine.runRenderLoop(function () {
 		if (sceneToRender && sceneToRender.activeCamera) {
-			if (fps) fps.innerHTML = engine.getFps().toFixed() + ' fps';
+			sendMessage({ type: 'fps', fps: engine.getFps() });
 			sceneToRender.render();
 		}
 	});
 }
+let changeFocus = (m: ChangeFocusMsg) => {};
 function setupView(scene: Scene) {
-	scene.executeWhenReady(() => container.classList.add('loaded'));
-
-	let onScreen: Pick<IntersectionObserverEntry, 'target' | 'boundingClientRect'>[] = [];
-	const observer = new IntersectionObserver(
-		(obs) => {
-			onScreen = onScreen.filter(
-				(e) => !obs.some((o) => o.target === e.target && !o.isIntersecting)
-			);
-			for (let i = 0; i < onScreen.length; i++) {
-				onScreen[i] = {
-					target: onScreen[i].target,
-					boundingClientRect: onScreen[i].target.getBoundingClientRect()
-				};
-			}
-			onScreen.push(...obs.filter((o) => o.isIntersecting));
-			onScreen.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-			ev();
-		},
-		{ threshold: [0] }
-	);
-	for (const ele of container.getElementsByClassName('row')) {
-		observer.observe(ele);
-	}
-
-	const bigMode = window.matchMedia('(min-width: 928px)');
-	let active: Element | undefined = undefined;
-	function ev() {
-		if (!onScreen.length) return;
-		let middle = window.visualViewport!.height / 2;
-		if (!bigMode.matches) middle = 0;
-		const heights = onScreen.map(({ target }) => target.getBoundingClientRect().top);
-		let selected = 0;
-		for (let i = 1; i < heights.length; i++) {
-			if (heights[i] < middle) selected = i;
-		}
-		if (onScreen[selected].target !== active) {
-			changeFocus(active, onScreen[selected].target);
-			active = onScreen[selected].target;
-		}
-	}
+	console.log('setupView');
+	scene.executeWhenReady(() => {
+		sendMessage({ type: 'loaded' });
+	});
 
 	function quickAnim<T>(prop: string, type: number, initial: T, final: T) {
 		const moveAnim = new Animation(prop, prop, 100, type);
@@ -122,25 +120,24 @@ function setupView(scene: Scene) {
 	function createBetaAnim(camera: ArcRotateCamera, value: number) {
 		return quickAnim('beta', Animation.ANIMATIONTYPE_FLOAT, camera.beta, value);
 	}
-	function changeFocus(old: Element | undefined, active: Element) {
-		active.nextElementSibling?.appendChild(canvas.parentElement!);
-		console.log('switch to', active);
+	let firstTime = true;
+	changeFocus = (msg: ChangeFocusMsg) => {
 		const camera = scene.activeCamera as ArcRotateCamera;
 		let animations: Animation[] = [];
 		let val;
-		if ((val = active.getAttribute('data-location'))) {
+		if ((val = msg.attributes['data-location'])) {
 			animations.push(createMoveAnim(camera, new Vector3(...JSON.parse(`[${val}]`))));
 		}
-		if ((val = active.getAttribute('data-radius'))) {
+		if ((val = msg.attributes['data-radius'])) {
 			animations.push(createRadAnim(camera, Number.parseFloat(val)));
 		}
-		if ((val = active.getAttribute('data-alpha'))) {
+		if ((val = msg.attributes['data-alpha'])) {
 			animations.push(createAlphaAnim(camera, Number.parseFloat(val)));
 		}
-		if ((val = active.getAttribute('data-beta'))) {
+		if ((val = msg.attributes['data-beta'])) {
 			animations.push(createBetaAnim(camera, Number.parseFloat(val)));
 		}
-		if ((val = active.getAttribute('data-speed'))) {
+		if ((val = msg.attributes['data-speed'])) {
 			camera.autoRotationBehavior!.idleRotationSpeed = Number.parseFloat(val);
 		}
 		const ease = new CubicEase();
@@ -156,20 +153,27 @@ function setupView(scene: Scene) {
 			0,
 			100,
 			false,
-			bigMode.matches && old ? 1 : Infinity
+			msg.bigMode && !firstTime ? 1 : Infinity
 		);
-	}
-
-	window.addEventListener('scroll', ev);
-	destroyFuncs.push(() => {
-		window.removeEventListener('scroll', ev);
-		observer.disconnect();
-	});
+		firstTime = false;
+	};
 }
 const destroyFuncs: (() => void)[] = [];
 let engine: Engine | null = null;
 let scene: Scene | null = null;
 let sceneToRender: Scene | null = null;
+let rect: Partial<DOMRect> = {
+	x: 0,
+	y: 0,
+	bottom: 0,
+	height: 0,
+	left: 0,
+	right: 0,
+	top: 0,
+	width: 0
+};
+let blurCb: (() => void)[] = [];
+let focusCb: (() => void)[] = [];
 const createDefaultEngine = function () {
 	return new Engine(canvas, false, {
 		disableWebGL2Support: false,
@@ -323,46 +327,108 @@ async function initFunction(model: string) {
 	engine.renderEvenInBackground = false;
 	canvas.addEventListener('webglcontextlost', () => {
 		engine?.dispose();
-		container.classList.remove('loaded');
+		sendMessage({ type: 'unloaded' });
 	});
-	startRenderLoop(engine, canvas);
+	startRenderLoop(engine);
 	scene = delayCreateScene(engine, model);
 	sceneToRender = scene;
-	(window as unknown as any).scene = scene;
+	if (!isWorker) {
+		(window as unknown as any).scene = scene;
+	} else {
+		(self as unknown as any).scene = scene;
+	}
 }
 
-function resize() {
-	engine?.resize();
-}
+let evtHandlers: Record<string, (e: any) => void> = {};
 
-function handleMessage(msg: MessageEvent) {}
+function handleMessage({ data }: { data: WorkerMessage }) {
+	if (data.type === 'resize') {
+		console.log('resize!');
+		rect = data.rect;
+		window.devicePixelRatio = data.devicePixelRatio;
+		engine?.resize();
+	} else if (data.type === 'changeFocus') {
+		changeFocus(data);
+	} else if (data.type === 'event') {
+		data.details.preventDefault = () => {};
+		evtHandlers[data.name]?.(data.details);
+	} else if (data.type === 'blur') {
+		for (const cb of blurCb) {
+			cb();
+		}
+	} else if (data.type === 'focus') {
+		for (const cb of focusCb) {
+			cb();
+		}
+	}
+}
 
 export default function init(
-	port: MessagePort,
+	port: MessagePort | DedicatedWorkerGlobalScope,
 	model: string,
-	container_: HTMLElement,
-	canvas_: HTMLCanvasElement,
-	fps_?: Element | null
+	canvas_: HTMLCanvasElement | OffscreenCanvas
 ) {
-	container = container_;
 	canvas = canvas_;
-	fps = fps_;
-	sendMessage = port.postMessage;
+	sendMessage = port.postMessage.bind(port);
 	port.onmessage = handleMessage;
 	initFunction(model);
-	window.addEventListener('resize', resize);
-	return () => {
-		window.removeEventListener('resize', resize);
-		for (const f of destroyFuncs) {
-			f();
-		}
-	};
 }
 
-if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
+if (isWorker) {
+	try {
+		new Function('import("")');
+		Tools.LoadScript = (
+			scriptUrl: string,
+			onSuccess: () => void,
+			onError?: (message?: string, exception?: any) => void
+		) => {
+			import(/* @vite-ignore */ scriptUrl).then(onSuccess).catch((e) => {
+				console.error('Error loading script', e);
+				onError?.(e.toString(), e);
+			});
+		};
+	} catch (e) {
+		// If we're not running in Module mode, no need to do anything
+	}
 	self.onmessage = (args) => {
+		const model: string = args.data[0];
+		const canvas: OffscreenCanvas = args.data[1];
+		const realAddListener = canvas.addEventListener;
+		self.document = {
+			// @ts-ignore
+			elementFromPoint(x, y) {
+				return canvas;
+			},
+			addEventListener(name: string, handler: (e: Event) => any, useCapture?: boolean) {
+			},
+			// @ts-ignore
+			createElement(name: string) {
+				return { onwheel: {} };
+			}
+		};
+		self.window = {
+			// @ts-ignore
+			addEventListener(name: string, handler: () => any, useCapture?: boolean) {
+				if (name === 'blur') blurCb.push(handler);
+				if (name === 'focus') focusCb.push(handler);
+			},
+			PointerEvent: {}
+		};
 		// @ts-ignore
-		init(self, ...args.data);
+		canvas.getBoundingClientRect = () => rect;
+		// @ts-ignore
+		canvas.style = {};
+		// @ts-ignore
+		canvas.focus = () => {};
+		canvas.addEventListener = (name: string, handler: (e: Event) => any, useCapture?: boolean) => {
+			if (name === 'webglcontextlost') {
+				realAddListener(name, handler, useCapture);
+			} else {
+				evtHandlers[name] = handler;
+				sendMessage({ type: 'subscribe', name, useCapture });
+			}
+		};
+		init(self as DedicatedWorkerGlobalScope, model, canvas);
 	};
 	console.log('core load WORKER');
 }

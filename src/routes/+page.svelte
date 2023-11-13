@@ -9,7 +9,7 @@
 	let container: HTMLElement;
 
 	onMount(() => {
-		return start('model2.glb', container, canvas /* , fps */);
+		return start('/model2.glb', container, canvas /* , fps */);
 	});
 </script>
 
@@ -550,7 +550,7 @@
 			display: initial;
 		}
 		.can {
-			pointer-events: none;
+			// pointer-events: none;
 			&:has(canvas) {
 				pointer-events: all;
 			}
@@ -605,7 +605,7 @@
 			top: 0;
 			grid-row: 1 / -1;
 			margin: 0;
-			height: 100vh;
+			height: min-content;
 		}
 	}
 	.park-info {
