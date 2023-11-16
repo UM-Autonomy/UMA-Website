@@ -5,6 +5,4 @@ name: hulls-and-systems
 Mechanical
 ----------
 
-The Mechanical team at UM::Autonomy focuses on designing and constructing a competitive vessel, striving for a balance in accessibility, stability, power-to-weight ratio, and portable design. Learning from previous iterations plays a key role in their approach to each annual competition.
-
-The careful planning of their vessel design ensures that necessary equipment and sensors are effectively integrated, contributing to the overall performance and operational stability. Carefully selected propulsion systems enhance efficiency and responsiveness, while also prioritizing transportability and minimizing the risk of malfunctions.
+The Mechanical subteam focuses on designing and fabricating a competitive vessel each year, striving for a balance between hull stability, system accessibility, modularity in design, and a strategic thrust-to-weight ratio to achieve the team's goals for autonomy at every competition. They not only fabricate the waterproof, hydrodynamic carbon fiber hullforms that house necessary equipment and sensors onboard, but they also carefully plan their vessel design to ensure the effective integration and mounting of these sensors, and any robotic mechanisms necessary for advanced capabilities.
