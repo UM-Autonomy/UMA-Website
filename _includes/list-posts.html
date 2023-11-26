@@ -1,11 +1,12 @@
 {% for post in site.posts %}
 <li class="blog-post">
     <h2><a href="{% include relative-src.html src=post.url %}">{{ post.title }}</a></h2>
+    <br>
+    <h5><a href="{% include relative-src.html src=post.url %}">{{post.description}}</a></h5>
     {% include post-title.html post=post %}
     <div class="post-content">
-        <!-- {{ post.excerpt }} -->
         {% if post.cover_img %}
-        <img src={{post.cover_img}} alt="{{post.cover_img_alt}}" />
+        <a href="{% include relative-src.html src=post.url %}"><img src={{post.cover_img}} alt="{{post.cover_img_alt}}" /></a>
         {% endif %}
         <div class="button"><a href="{% include relative-src.html src=post.url %}">Read More</a></div>
     </div>

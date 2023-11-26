@@ -130,6 +130,10 @@ header {
   text-align: center;
 }
 
+.header-padding {
+  height: 60px;
+}
+
 blockquote {
   padding: 18px 25px;
   margin: 0;
@@ -159,11 +163,16 @@ blockquote:before {
 .square-image {
   width: 200px;
   height: 200px;
-  border-radius: 200px;
+  border-radius: 100%;
   background-size: cover;
   object-fit: cover;
   background-repeat: no-repeat;
   margin: 0 auto;
+}
+
+.square-image-small {
+  width: 100px;
+  height: 100px;
 }
 
 .rotate-image {
