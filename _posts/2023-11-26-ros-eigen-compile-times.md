@@ -49,6 +49,9 @@ target_precompile_headers(some_target_name
     <eigen3/Eigen/Core>
 )
 ```
+
+Note that this may use significant disk space. Expect 300MB with GCC 9 (the default on Ubuntu 20.04), and around 60MB with Clang 12.
+
 ### Building multiple nodes in a package?
 
 Save some time by sharing precompiled headers! Instead of writing
@@ -87,7 +90,7 @@ target_precompile_headers(node_1
 target_precompile_headers(node_2 REUSE_FROM node_1)
 ```
 
-This will reduce the work needed to precompile headers (since it only needs to happen once) in addition to disk space. Unfortunately, **reusing headers may not work** if you want to include more headers in only one target—some compilers support this, but CMake doesn't. This will also not work if one target is an executable and one is a library. 
+This will reduce the work needed to precompile headers (since it only needs to happen once) in addition to disk space. Unfortunately, **reusing headers may not work** if you want to include more headers in only one target—some compilers support this, but CMake doesn't. This will also not work if one target is an executable and one is a library.
 
 ## But how do I know what headers to precompile?
 
