@@ -1,49 +1,81 @@
 .staff {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	display: flex;
-	flex-flow: wrap;
-	text-align: center;
-	justify-content: center;
-	font-weight: 400;
-	li {
-		padding: 30px 20px;
-		box-sizing: border-box;
-		width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: wrap;
+  text-align: center;
+  justify-content: center;
+  font-weight: 400;
+  li {
+    padding: 30px 20px;
+    box-sizing: border-box;
+    width: 100%;
 
-		@media #{$tablet} {
-			flex-basis: 50%;
-		}
+    @media #{$tablet} {
+      flex-basis: 50%;
+    }
 
-		@media #{$desktop} {
-			flex-basis: 33%;
-		}
+    @media #{$desktop} {
+      flex-basis: 33%;
+    }
 
-		@media (min-width: 1920px) {
-			flex-basis: 25%;
-		}
-		a {
-			text-decoration: underline;
-			&[href]:not([href=""])::after {
-			  content: " 🡭";
-			}
-		}
-	}
+    @media (min-width: 1920px) {
+      flex-basis: 25%;
+    }
+    a {
+      text-decoration: underline;
+	  color: inherit;
+      &[href]:not([href=""])::after {
+        content: " 🡭";
+      }
+    }
+  }
 
-	.name {
-		margin-top: 20px;
-	}
+  .name {
+    margin-top: 20px;
+  }
 
-	.position {
-		opacity: .8;
-		font-size: .8em;
-	}
+  .position {
+    opacity: 0.8;
+    font-size: 0.8em;
+  }
 
-	.position-highlight {
-		background-color: #ffcb05;
-		color: black;
-		font-weight: normal;
-		font-size: .8em;
-	}
+  .position-highlight {
+    background-color: #ffcb05;
+    color: black;
+    font-weight: normal;
+    font-size: 0.8em;
+  }
+}
+.teams-content h2 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+@media (min-width: 1024px) {
+  .teams-content h2 {
+    text-align: right;
+  }
+}
+.teams-content h2 {
+  font-family: "Inter", "Open Sans", "Lato", sans-serif;
+}
+.teams-content h3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  font-family: "Inter", "Open Sans", "Lato", sans-serif;
+}
+.teams-content p {
+  margin-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+  .teams-content p {
+    text-align: justify;
+  }
 }

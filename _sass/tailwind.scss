@@ -1,0 +1,44 @@
+.top-\[75px\] {
+  top: 75px;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.break-inside-avoid {
+  break-inside: avoid;
+}
+.items-start {
+  align-items: flex-start;
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media print {
+  .print\:p-0 {
+    padding: 0px;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:sticky {
+    position: sticky;
+  }
+  .lg\:flex {
+    display: flex;
+  }
+  .lg\:w-\[35\%\] {
+    width: 35%;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
