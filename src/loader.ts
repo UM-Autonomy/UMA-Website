@@ -142,7 +142,9 @@ function setupView(
 		},
 		{ threshold: [0] }
 	);
+	const elements: Element[] = [];
 	for (const ele of container.getElementsByClassName('row')) {
+		elements.push(ele);
 		observer.observe(ele);
 	}
 
@@ -157,16 +159,24 @@ function setupView(
 		for (let i = 1; i < heights.length; i++) {
 			if (heights[i] < middle) selected = i;
 		}
-		if (onScreen[selected].target !== active) {
+		if (animation || onScreen[selected].target !== active) {
 			active = onScreen[selected].target;
-			console.log('switch to', active);
+			// console.log('switch to', active);
 			if (!animation) active.nextElementSibling?.appendChild(canvas.parentElement!);
+			const index = elements.indexOf(active);
 
 			postMessage({
 				type: 'changeFocus',
 				attributes: Object.fromEntries(
 					[...active.attributes].map((attr) => [attr.name, attr.value])
 				),
+				nextAttributes: Object.fromEntries(
+					[...(elements[index + 1]?.attributes || [])].map((attr) => [attr.name, attr.value])
+				),
+				prevAttributes: Object.fromEntries(
+					[...(elements[index - 1]?.attributes || [])].map((attr) => [attr.name, attr.value])
+				),
+				progress: 0,
 				bigMode: bigMode.matches
 			});
 		}

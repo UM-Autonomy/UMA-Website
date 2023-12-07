@@ -11,7 +11,13 @@ import { ReflectionProbe } from '@babylonjs/core/Probes/reflectionProbe';
 import { CascadedShadowGenerator } from '@babylonjs/core/Lights/Shadows/cascadedShadowGenerator';
 import type { DirectionalLight } from '@babylonjs/core/Lights/directionalLight';
 import '@babylonjs/core/Actions';
-import { Animation, CubicEase, EasingFunction } from '@babylonjs/core/Animations';
+import {
+	Animation,
+	CubicEase,
+	EasingFunction,
+	Animatable,
+	SineEase
+} from '@babylonjs/core/Animations';
 import { Tools } from '@babylonjs/core/Misc/tools';
 import '@babylonjs/core/BakedVertexAnimation';
 import '@babylonjs/core/Behaviors';
@@ -62,6 +68,9 @@ export interface ResizeMsg {
 export interface ChangeFocusMsg {
 	type: 'changeFocus';
 	attributes: Record<string, string>;
+	nextAttributes?: Record<string, string>;
+	prevAttributes?: Record<string, string>;
+	progress: number;
 	bigMode: boolean;
 }
 export interface EventMsg {
@@ -97,20 +106,46 @@ function setupView(scene: Scene) {
 	}
 }
 function setupFollowBakedAnimation() {
-	let currFrame = 0;
+	let lastAnim: Animatable | null = null;
+	const group = scene!.animationGroups[0];
+	const animatableObject = {
+		set a(v: number) {
+			console.log(v);
+			group.goToFrame(v);
+		}
+	};
 	changeFocus = (msg: ChangeFocusMsg) => {
 		const sec = +msg.attributes['data-seconds'];
-		console.log(sec);
-		const group = scene!.animationGroups[0];
-		let start = currFrame;
-		if (group.animatables[0]) start = group.animatables[0].masterFrame;
 		const end = sec * 60;
-		group.stop();
-		group.start(false, 1, start, end);
-		group.onAnimationEndObservable.addOnce(() => {
-			console.log('end', end);
-			currFrame = end;
-		});
+		let start = 0;
+		if (lastAnim) {
+			start = lastAnim.masterFrame || lastAnim.fromFrame;
+			if (lastAnim.getAnimations()[0].currentValue)
+				start = lastAnim.getAnimations()[0].currentValue;
+		}
+		console.log(start, 'to', end);
+		if (start === end) return;
+		// if (group.animatables[0]) start = group.animatables[0].masterFrame;
+		// group.stop();
+		// group.start(false, 1, start, end);
+		// group.onAnimationEndObservable.addOnce(() => {
+		// 	console.log('end', end);
+		// 	currFrame = end;
+		// });
+		const moveAnim = new Animation('bruh', 'a', 100, Animation.ANIMATIONTYPE_FLOAT);
+		const keys = [
+			{ frame: start, value: start },
+			{ frame: end, value: end }
+		];
+		keys.sort((a, b) => a.frame - b.frame);
+		moveAnim.setKeys(keys);
+		const ease = new SineEase();
+		ease.setEasingMode(EasingFunction.EASINGMODE_EASEOUT);
+		moveAnim.setEasingFunction(ease);
+		scene!.stopAnimation(animatableObject);
+		lastAnim = scene!.beginDirectAnimation(animatableObject, [moveAnim], start, end, false, 1, () =>
+			console.log(lastAnim)
+		);
 	};
 }
 function setupArcCameraAnimations() {
@@ -359,7 +394,7 @@ async function initFunction(model: string) {
 	engine = await asyncEngineCreation();
 	if (!engine) throw 'engine should not be null.';
 	destroyFuncs.push(() => engine?.dispose());
-	engine.renderEvenInBackground = false;
+	engine.renderEvenInBackground = animation;
 	canvas.addEventListener('webglcontextlost', () => {
 		engine?.dispose();
 		sendMessage({ type: 'unloaded' });

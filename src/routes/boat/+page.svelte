@@ -13,7 +13,7 @@
 	});
 </script>
 
-<div class="relative" class:loaded={false} bind:this={container}>
+<div class="relative text-white" class:loaded={false} bind:this={container}>
 	<div class="sticky inset-0 -z-10 h-screen">
 		<div class="w-full h-full">
 			<canvas class="w-full h-full" aria-hidden="true" bind:this={canvas} />
@@ -23,7 +23,7 @@
 	</div>
 	<div
 		class="row"
-        data-seconds="0"
+        data-seconds="1.666"
 	>
 		<div class="my-4">
 			<h3>Front frame</h3>
