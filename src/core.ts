@@ -42,7 +42,8 @@ import '@babylonjs/loaders/glTF/2.0';
 import { SkyMaterial } from '@babylonjs/materials/sky';
 import { MeshBuilder } from '@babylonjs/core/Meshes';
 import { CubeTexture, NodeMaterial } from '@babylonjs/core/Materials';
-import { Color4 } from '@babylonjs/core/Maths/math.color';
+import { Color3, Color4 } from '@babylonjs/core/Maths/math.color';
+import { HighlightLayer } from '@babylonjs/core/Layers';
 
 const isWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 
@@ -107,6 +108,7 @@ function setupView(scene: Scene) {
 }
 function setupFollowBakedAnimation() {
 	let lastAnim: Animatable | null = null;
+	let lastTime = 0;
 	const group = scene!.animationGroups[0];
 	const animatableObject = {
 		set a(v: number) {
@@ -118,20 +120,21 @@ function setupFollowBakedAnimation() {
 		const sec = +msg.attributes['data-seconds'];
 		const end = sec * 60;
 		let start = 0;
+		lastTime = Math.max(scene!._animationTimeLast, lastTime);
 		if (lastAnim) {
-			start = lastAnim.masterFrame || lastAnim.fromFrame;
-			if (lastAnim.getAnimations()[0].currentValue)
+			const target =
+				Math.sign(lastAnim.toFrame - lastAnim.fromFrame) * 100 * (Date.now() - lastTime) * 0.001 +
+					lastAnim.masterFrame || lastAnim.fromFrame;
+			lastAnim.goToFrame(target);
+			if (lastAnim.getAnimations()[0].currentValue) {
 				start = lastAnim.getAnimations()[0].currentValue;
+			} else {
+				start = lastAnim.masterFrame || lastAnim.fromFrame;
+			}
 		}
+		lastTime = Date.now();
 		console.log(start, 'to', end);
 		if (start === end) return;
-		// if (group.animatables[0]) start = group.animatables[0].masterFrame;
-		// group.stop();
-		// group.start(false, 1, start, end);
-		// group.onAnimationEndObservable.addOnce(() => {
-		// 	console.log('end', end);
-		// 	currFrame = end;
-		// });
 		const moveAnim = new Animation('bruh', 'a', 100, Animation.ANIMATIONTYPE_FLOAT);
 		const keys = [
 			{ frame: start, value: start },
@@ -240,15 +243,13 @@ const createDefaultEngine = function () {
 		adaptToDeviceRatio: true,
 		doNotHandleContextLost: true,
 		failIfMajorPerformanceCaveat: true,
-		autoEnableWebVR: false
+		autoEnableWebVR: false,
+		stencil: true
 	});
 };
 const delayCreateScene = function (engine: Engine, model: string) {
 	// Create a scene.
 	const scene = new Scene(engine);
-	scene.clearColor = Color4.FromHexString('#00274C');
-	const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
-	scene.environmentTexture = hdrTexture;
 	// const reflector = new BABYLON.Reflector(scene, "67.194.202.239", 1234);
 	// scene.performancePriority = ScenePerformancePriority.Intermediate;
 
@@ -272,9 +273,11 @@ const delayCreateScene = function (engine: Engine, model: string) {
 		if (!animation) {
 			setupSystem();
 		} else {
+			scene.clearColor = Color4.FromHexString('#00274C');
+			const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
+			scene.environmentTexture = hdrTexture;
 			scene.activeCamera = scene.cameras[0];
 			scene.animationGroups[0].pause();
-			window.scene = scene;
 		}
 
 		// scene.clearCachedVertexData();
@@ -402,11 +405,15 @@ async function initFunction(model: string) {
 	startRenderLoop(engine);
 	scene = delayCreateScene(engine, model);
 	sceneToRender = scene;
+	let global;
 	if (!isWorker) {
-		(window as unknown as any).scene = scene;
+		global = window as unknown as any;
 	} else {
-		(self as unknown as any).scene = scene;
+		global = self as unknown as any;
 	}
+	global.scene = scene;
+	global.Color3 = Color3;
+	global.HighlightLayer = HighlightLayer;
 }
 
 let evtHandlers: Record<string, (e: any) => void> = {};
@@ -504,3 +511,11 @@ if (isWorker) {
 	};
 	console.log('core load WORKER');
 }
+
+/*
+c=Color3.FromHexString('#FFCB05')
+hl = new HighlightLayer("hl1", scene);
+m=scene.getNodeByName('VN300_Rugged').getChildMeshes().forEach(m=>m.isAnInstance || hl.addMesh(m,c))
+hl.innerGlow=false
+hl.blurVerticalSize=hl.blurHorizontalSize=5
+*/

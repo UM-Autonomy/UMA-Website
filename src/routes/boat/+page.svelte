@@ -26,7 +26,15 @@
         data-seconds="1.666"
 	>
 		<div class="my-4">
-			<h3>Front frame</h3>
+			<h3>Camera</h3>
+		</div>
+	</div>
+	<div
+		class="row"
+        data-seconds="2"
+	>
+		<div class="my-4">
+			<h3>Lidar</h3>
 		</div>
 	</div>
 	<div
@@ -34,7 +42,48 @@
         data-seconds="3"
 	>
 		<div class="my-4">
-			<h3>Lidar</h3>
+			<h3>GPS</h3>
+		</div>
+	</div>
+	<div
+		class="row"
+        data-seconds="4"
+	>
+		<div class="my-4">
+			<h3>Ubiquiti Rocket</h3>
+		</div>
+	</div>
+	<div
+		class="row"
+        data-seconds="4.7"
+	>
+		<div class="my-4">
+			<h3>T500 Thrusters</h3>
+		</div>
+	</div>
+	<div
+		class="row"
+        data-seconds="7"
+	>
+		<div class="my-4">
+			<h3>200Wh Battery</h3>
+		</div>
+	</div>
+	<div
+		class="row"
+        data-seconds="8.5"
+		data-highlight="VN300_Rugged"
+	>
+		<div class="my-4">
+			<h3>VN-300 GPS and IMU</h3>
+		</div>
+	</div>
+	<div
+		class="row"
+        data-seconds="12"
+	>
+		<div class="my-4">
+			<h3>Beelink SEi12</h3>
 		</div>
 	</div>
     <div class="h-screen"></div>
