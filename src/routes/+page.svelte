@@ -9,7 +9,7 @@
 	let container: HTMLElement;
 
 	onMount(() => {
-		return start('/model2.glb', container, canvas /* , fps */);
+		return start('/model2.glb', false, container, canvas /* , fps */);
 	});
 </script>
 

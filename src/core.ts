@@ -35,12 +35,14 @@ import '@babylonjs/core/States';
 import '@babylonjs/loaders/glTF/2.0';
 import { SkyMaterial } from '@babylonjs/materials/sky';
 import { MeshBuilder } from '@babylonjs/core/Meshes';
-import { NodeMaterial } from '@babylonjs/core/Materials';
+import { CubeTexture, NodeMaterial } from '@babylonjs/core/Materials';
+import { Color4 } from '@babylonjs/core/Maths/math.color';
 
 const isWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 
 let canvas: HTMLCanvasElement | OffscreenCanvas;
 let sendMessage: (msg: HostMessage) => void;
+let animation = false;
 
 export interface FpsMsg {
 	type: 'fps';
@@ -88,7 +90,30 @@ function setupView(scene: Scene) {
 	scene.executeWhenReady(() => {
 		sendMessage({ type: 'loaded' });
 	});
-
+	if (animation) {
+		setupFollowBakedAnimation();
+	} else {
+		setupArcCameraAnimations();
+	}
+}
+function setupFollowBakedAnimation() {
+	let currFrame = 0;
+	changeFocus = (msg: ChangeFocusMsg) => {
+		const sec = +msg.attributes['data-seconds'];
+		console.log(sec);
+		const group = scene!.animationGroups[0];
+		let start = currFrame;
+		if (group.animatables[0]) start = group.animatables[0].masterFrame;
+		const end = sec * 60;
+		group.stop();
+		group.start(false, 1, start, end);
+		group.onAnimationEndObservable.addOnce(() => {
+			console.log('end', end);
+			currFrame = end;
+		});
+	};
+}
+function setupArcCameraAnimations() {
 	function quickAnim<T>(prop: string, type: number, initial: T, final: T) {
 		const moveAnim = new Animation(prop, prop, 100, type);
 		moveAnim.setKeys([
@@ -186,8 +211,11 @@ const createDefaultEngine = function () {
 const delayCreateScene = function (engine: Engine, model: string) {
 	// Create a scene.
 	const scene = new Scene(engine);
+	scene.clearColor = Color4.FromHexString('#00274C');
+	const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
+	scene.environmentTexture = hdrTexture;
 	// const reflector = new BABYLON.Reflector(scene, "67.194.202.239", 1234);
-	scene.performancePriority = ScenePerformancePriority.Intermediate;
+	// scene.performancePriority = ScenePerformancePriority.Intermediate;
 
 	// Create a default skybox with an environment.
 	// const hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("environment.dds", scene);
@@ -206,8 +234,20 @@ const delayCreateScene = function (engine: Engine, model: string) {
 		}
 	});
 	function onSuccess(scene: Scene) {
-		// Create a default arc rotate camera and light.
-		// scene.createDefaultCamera(true, true, true);
+		if (!animation) {
+			setupSystem();
+		} else {
+			scene.activeCamera = scene.cameras[0];
+			scene.animationGroups[0].pause();
+			window.scene = scene;
+		}
+
+		// scene.clearCachedVertexData();
+		scene.cleanCachedTextureBuffer();
+
+		setupView(scene);
+	}
+	function setupSystem() {
 		engine.setSize(200, 100);
 		const camera = new ArcRotateCamera('Camera', -32, 0.966, 200, new Vector3(266, 3, -510), scene);
 		camera.attachControl();
@@ -300,11 +340,6 @@ const delayCreateScene = function (engine: Engine, model: string) {
 			color.value.g = 51 / 255;
 			color.value.b = 100 / 255;
 		});
-
-		scene.clearCachedVertexData();
-		scene.cleanCachedTextureBuffer();
-
-		setupView(scene);
 	}
 
 	return scene;
@@ -366,9 +401,11 @@ function handleMessage({ data }: { data: WorkerMessage }) {
 export default function init(
 	port: MessagePort | DedicatedWorkerGlobalScope,
 	model: string,
+	animation_: boolean,
 	canvas_: HTMLCanvasElement | OffscreenCanvas
 ) {
 	canvas = canvas_;
+	animation = animation_;
 	sendMessage = port.postMessage.bind(port);
 	port.onmessage = handleMessage;
 	initFunction(model);
@@ -392,15 +429,15 @@ if (isWorker) {
 	}
 	self.onmessage = (args) => {
 		const model: string = args.data[0];
-		const canvas: OffscreenCanvas = args.data[1];
+		const animation: boolean = args.data[1];
+		const canvas: OffscreenCanvas = args.data[2];
 		const realAddListener = canvas.addEventListener;
 		self.document = {
 			// @ts-ignore
 			elementFromPoint(x, y) {
 				return canvas;
 			},
-			addEventListener(name: string, handler: (e: Event) => any, useCapture?: boolean) {
-			},
+			addEventListener(name: string, handler: (e: Event) => any, useCapture?: boolean) {},
 			// @ts-ignore
 			createElement(name: string) {
 				return { onwheel: {} };
@@ -428,7 +465,7 @@ if (isWorker) {
 				sendMessage({ type: 'subscribe', name, useCapture });
 			}
 		};
-		init(self as DedicatedWorkerGlobalScope, model, canvas);
+		init(self as DedicatedWorkerGlobalScope, model, animation, canvas);
 	};
 	console.log('core load WORKER');
 }

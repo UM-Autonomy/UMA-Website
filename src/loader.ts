@@ -5,6 +5,7 @@ type PostMessage = (msg: WorkerMessage) => void;
 
 export default function init(
 	model: string,
+	animation: boolean,
 	container: HTMLElement,
 	canvas: HTMLCanvasElement,
 	fps?: Element | null
@@ -35,7 +36,7 @@ export default function init(
 			if (!document.hasFocus()) {
 				postMessage({ type: 'blur' });
 			}
-			destroyFuncs.push(setupView(container, canvas, postMessage));
+			destroyFuncs.push(setupView(animation, container, canvas, postMessage));
 		} else if (data.type === 'unloaded') {
 			container.classList.remove('loaded');
 			destroy();
@@ -89,7 +90,7 @@ export default function init(
 	canvas.height = canvas.clientHeight;
 	if (useWorker) {
 		const off = canvas.transferControlToOffscreen();
-		port.postMessage([model, off], [off]);
+		port.postMessage([model, animation, off], [off]);
 		const blur = () => postMessage({ type: 'blur' });
 		const focus = () => postMessage({ type: 'focus' });
 		window.addEventListener('blur', blur);
@@ -97,7 +98,7 @@ export default function init(
 		destroyFuncs.push(() => window.removeEventListener('blur', blur));
 		destroyFuncs.push(() => window.removeEventListener('focus', focus));
 	} else {
-		start(channel!.port1, model, canvas);
+		start(channel!.port1, model, animation, canvas);
 	}
 	function resize() {
 		postMessage({
@@ -117,7 +118,12 @@ export default function init(
 	return destroy;
 }
 
-function setupView(container: HTMLElement, canvas: HTMLCanvasElement, postMessage: PostMessage) {
+function setupView(
+	animation: boolean,
+	container: HTMLElement,
+	canvas: HTMLCanvasElement,
+	postMessage: PostMessage
+) {
 	let onScreen: Pick<IntersectionObserverEntry, 'target' | 'boundingClientRect'>[] = [];
 	const observer = new IntersectionObserver(
 		(obs) => {
@@ -154,7 +160,7 @@ function setupView(container: HTMLElement, canvas: HTMLCanvasElement, postMessag
 		if (onScreen[selected].target !== active) {
 			active = onScreen[selected].target;
 			console.log('switch to', active);
-			active.nextElementSibling?.appendChild(canvas.parentElement!);
+			if (!animation) active.nextElementSibling?.appendChild(canvas.parentElement!);
 
 			postMessage({
 				type: 'changeFocus',
