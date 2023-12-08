@@ -160,6 +160,10 @@ function setupView(
 			if (heights[i] < middle) selected = i;
 		}
 		if (animation || onScreen[selected].target !== active) {
+			if(onScreen[selected].target !== active) {
+				active?.classList.remove('active');
+				onScreen[selected].target.classList.add('active');
+			}
 			active = onScreen[selected].target;
 			// console.log('switch to', active);
 			if (!animation) active.nextElementSibling?.appendChild(canvas.parentElement!);
