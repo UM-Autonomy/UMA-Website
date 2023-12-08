@@ -116,7 +116,23 @@ function setupFollowBakedAnimation() {
 			group.goToFrame(v);
 		}
 	};
+	const c = Color3.FromHexString('#FFCB05');
+	const hl = new HighlightLayer('hl1', scene!, {
+		blurHorizontalSize: 1.5,
+		blurVerticalSize: 1.5,
+		isStroke: true
+	});
+	self.hl = hl;
+	hl.innerGlow = false;
 	changeFocus = (msg: ChangeFocusMsg) => {
+		hl.removeAllMeshes();
+		(msg.attributes['data-highlight']?.split(',') || [])
+			.flatMap((name) => {
+				const node = scene!.getNodeByName(name);
+				if (!node) return [];
+				return [node, ...node.getChildMeshes()];
+			})
+			.forEach((m) => m instanceof Mesh && hl.addMesh(m, c));
 		const sec = +msg.attributes['data-seconds'];
 		const end = sec * 60;
 		let start = 0;

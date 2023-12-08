@@ -13,7 +13,7 @@
 	});
 </script>
 
-<div class="relative text-white" class:loaded={false} bind:this={container}>
+<div class="relative text-white boat-description" class:loaded={false} bind:this={container}>
 	<div class="sticky inset-0 -z-10 h-screen">
 		<div class="w-full h-full">
 			<canvas class="w-full h-full" aria-hidden="true" bind:this={canvas} />
@@ -24,6 +24,7 @@
 	<div
 		class="row"
         data-seconds="1.666"
+		data-highlight="Camera"
 	>
 		<div class="my-4">
 			<h3>Camera</h3>
@@ -32,6 +33,7 @@
 	<div
 		class="row"
         data-seconds="2"
+		data-highlight="TrimSrf.032"
 	>
 		<div class="my-4">
 			<h3>Lidar</h3>
@@ -40,6 +42,7 @@
 	<div
 		class="row"
         data-seconds="3"
+		data-highlight="Brep.017,Brep.018"
 	>
 		<div class="my-4">
 			<h3>GPS</h3>
@@ -48,14 +51,7 @@
 	<div
 		class="row"
         data-seconds="4"
-	>
-		<div class="my-4">
-			<h3>Ubiquiti Rocket</h3>
-		</div>
-	</div>
-	<div
-		class="row"
-        data-seconds="4.7"
+		data-highlight="Thruster Left,Thruster Right"
 	>
 		<div class="my-4">
 			<h3>T500 Thrusters</h3>
@@ -63,7 +59,17 @@
 	</div>
 	<div
 		class="row"
+        data-seconds="4.7"
+		data-highlight="Brep.022"
+	>
+		<div class="my-4">
+			<h3>Ubiquiti Rocket</h3>
+		</div>
+	</div>
+	<div
+		class="row"
         data-seconds="7"
+		data-highlight="Battery"
 	>
 		<div class="my-4">
 			<h3>200Wh Battery</h3>
@@ -81,6 +87,7 @@
 	<div
 		class="row"
         data-seconds="12"
+		data-highlight="mini computer"
 	>
 		<div class="my-4">
 			<h3>Beelink SEi12</h3>
@@ -90,10 +97,7 @@
 </div>
 
 <style lang="scss">
-    .outer {
-        position: relative;
-    }
-    .render {
-
-    }
+    .boat-description .row {
+		margin-bottom: 5em;
+	}
 </style>
