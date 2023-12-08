@@ -109,7 +109,8 @@ function setupView(scene: Scene) {
 function setupFollowBakedAnimation() {
 	let lastAnim: Animatable | null = null;
 	let lastTime = 0;
-	const group = scene!.animationGroups[0];
+	const group = scene!.animationGroups.find(({name})=>name.toLowerCase().startsWith('anim'))!;
+	console.log(group.name);
 	const animatableObject = {
 		set a(v: number) {
 			console.log(v);
@@ -293,7 +294,9 @@ const delayCreateScene = function (engine: Engine, model: string) {
 			const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
 			scene.environmentTexture = hdrTexture;
 			scene.activeCamera = scene.cameras[0];
-			scene.animationGroups[0].pause();
+			const anim = scene.animationGroups.find(({name})=>name.toLowerCase().startsWith('anim'));
+			anim?.start(false);
+			anim?.pause();
 		}
 
 		// scene.clearCachedVertexData();
