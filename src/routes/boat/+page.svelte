@@ -26,7 +26,7 @@
 			<h3>Camera</h3>
 			<p>
 				The Phoenix's camera provides the main input to the boat's autonomous capabilities. Using
-				the YOLOv8 computer vision software, all competition elements are detected.
+				the YOLOv8 computer vision algorithm, all competition elements are detected.
 			</p>
 		</div>
 		<div class="row" data-seconds="2" data-highlight="TrimSrf.032">
@@ -63,22 +63,17 @@
 		</div>
 		<div class="row" data-seconds="7" data-highlight="Battery">
 			<h3>6-cell Lithium Battery</h3>
-            <p>
-                A 22.2 Volt, 222 Watt-hour battery provides the boat with a powerful electricity source.
-            </p>
+			<p>
+				A 22.2 Volt, 222 Watt-hour battery provides the boat with a powerful electricity source.
+			</p>
 		</div>
 		<div class="row" data-seconds="8.5" data-highlight="VN300_Rugged">
 			<h3>VN-300 GPS and IMU</h3>
 			<p>
-				The VN-300 is a robust component of the vessel, characterized by its dual antenna design.
-				This High-Performance GNSS-Aided Inertial Navigation System integrates
-				microelectromechanical systems (MEMS) inertial sensors, dual high-sensitivity GNSS
-				receivers, and sophisticated Kalman filtering algorithms. This elegant combination delivers
-				optimal estimates of the vessel's position, velocity, and attitude. What sets the VN-300
-				apart is its GNSS-Compass capability. This feature empowers the system to yield accurate
-				heading measurements independently of the vehicle dynamics or magnetic sensors. It ensures
-				unmatched performance under both static and dynamic conditions, providing high precision
-				direction data for the vessel's navigation tasks.
+				The VN-300 provides inertial sensors, dual GPS receivers, and sophisticated Kalman filtering
+				algorithms. This combination provides extremely accurate estimates of the vessel's position,
+				velocity, and attitude. It ensures unmatched performance under both static and dynamic
+				conditions, providing high precision direction data for the vessel's navigation tasks.
 			</p>
 		</div>
 		<div class="row" data-seconds="12" data-highlight="mini computer">
@@ -88,7 +83,7 @@
 				similar-sized alternatives. Despite its superior performance, it maintains impressive
 				efficiency with an idle power draw of just 5 Watts. The processor's integrated graphics
 				enhance computer vision tasks, delivering outstanding results. The computer is outfitted
-				with a 1 Terabyte drive to store raw data during competition runs.
+				with a 1 Terabyte drive to store data from competition runs.
 			</p>
 		</div>
 		<div class="h-screen" />
@@ -100,15 +95,17 @@
 		backdrop-filter: blur(5px);
 		background-color: #00274c77;
 		max-width: 30em;
-		padding-right: 2em;
+		padding-right: 2rem;
+		padding-left: 1rem;
 		.row {
 			margin-bottom: 5em;
 			text-align: justify;
-
 			h3 {
 				font-size: 3rem;
 				text-align: left;
 				text-wrap: balance;
+				line-height: 1;
+				margin-bottom: 1rem;
 			}
 		}
 	}
