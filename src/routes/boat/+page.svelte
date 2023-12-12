@@ -23,6 +23,22 @@
 	</div>
 	<div class="boat-description">
 		<div class="row" class:active={false} data-seconds="1.666" data-highlight="Camera">
+			<h3>Trimaran Design</h3>
+			<p>
+				The Phoenix takes advantage of a trimaran design to maximize stability and minimize water
+				plane area. This design significantly reduces water resistance and enhances speed and
+				maneuverability. At the 2023 RoboBoat competition, Phoenix demonstrated the exceptional
+				strength of this design by successfully navigating high winds - a challenge that other teams
+				were unable to meet.
+			</p>
+			<p>
+				Constructed from carbon fiber, Phoenix's hull combines robustness and reduced weight thanks
+				to this material's superior strength-to-weight ratio. The carbon fiber ensures increased
+				durability of the hull and contributes to the lighter overall design, boosting the vessel's
+				performance in various conditions.
+			</p>
+		</div>
+		<div class="row" class:active={false} data-seconds="1.666" data-highlight="Camera">
 			<h3>Camera</h3>
 			<p>
 				The Phoenix's camera provides the main input to the boat's autonomous capabilities. Using
@@ -50,15 +66,15 @@
 		<div class="row" data-seconds="4" data-highlight="Thruster Left,Thruster Right">
 			<h3>T500 Thrusters</h3>
 			<p>
-				Two Blue Robotics T500 Thrusters provide the Phoenix with powerfulthrust. By placing the
+				Two Blue Robotics T500 Thrusters provide the Phoenix with powerful thrust. By placing the
 				thrusters below the hulls to allow clean water flow at the inlets, ventilation is avoided.
 			</p>
 		</div>
 		<div class="row" data-seconds="4.7" data-highlight="Brep.022">
 			<h3>Ubiquiti Rocket</h3>
 			<p>
-				A high-performance, high-range WiFi system allows near-Gigabit communication between the
-				boat and shore.
+				A high-performance, high-range WiFi system allows high speed (around 500Mbps) communication
+				between the boat and shore.
 			</p>
 		</div>
 		<div class="row" data-seconds="7" data-highlight="Battery">
