@@ -44,13 +44,12 @@
   padding: 10px;
   
   @media #{$desktop} {
-    position: fixed;
-    // display: block;
-    max-width: 20%;
-    min-width: 20%;
+    display: block;
+    width: 20%;
     z-index: 10000;
     right: 0;
     padding: 10px;
+    margin-top: -5px !important;
   }
 
   #search-input {
@@ -59,6 +58,13 @@
 
   li {
     list-style-type: none;
+    padding-bottom: 0.3em;
+  }
+
+  a {
+    color: #333;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   #results-container {
