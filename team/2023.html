@@ -1,0 +1,196 @@
+---
+title: The Team
+description: Get to know the UMA team members!
+image: /images/team_photo2023.webp
+---
+
+
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
+	<div class="inner-hero text-container">
+		<div class="hero-text-container">
+			<h1 class="editable">The Team</h1>
+			<p class="subtext editable">Get to know our talented members from 2022-23!</p>
+		</div>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Leadership</h1>
+	</div>
+
+	<div class="container">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2023].leadership or person.roles[2024].leadership %}
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023].leadership }}</div>
+				{% if person.roles[2024].leadership %}
+				<div class="position position-highlight">{{ person.roles[2024].leadership }} in 2023-2024</div>
+				{% endif %}
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Artificial Intelligence</h1>
+	</div>
+	<div class="container">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2023].ai %}
+			
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023].ai }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Advanced Capabilities</h1>
+	</div>
+	<div class="container">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2023].act %}
+			
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023].act }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Business</h1>
+	</div>
+	<div class="container">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2023].business %}
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023].business }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Electrical</h1>
+	</div>
+	<div class="container">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2023].electrical %}
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023].electrical }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Mechanical</h1>
+	</div>
+	<div class="container">
+		<ul class="staff" id="hulls-and-systems">
+			{% for person in site.team_members %}
+			{% if person.roles[2023]["hulls-and-systems"] %}
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023]["hulls-and-systems"] }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+<section class="pad">
+	<div class="container">
+		<h2 class="editable">Systems Engineering</h1>
+	</div>
+	<div class="container">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2023].systems %}
+			<li>
+				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2023].systems }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }}</div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>

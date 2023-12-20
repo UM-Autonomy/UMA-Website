@@ -9,53 +9,27 @@ image: /images/team_photo2023.webp
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
 			<h1 class="editable">The Team</h1>
-			<p class="subtext editable">Get to know our talented members from 2022-23!</p>
+			<p class="subtext editable">Get to know our talented members from 2023-24!</p>
 		</div>
 	</div>
 </section>
 
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Leadership</h1>
+{% for team in site.teams %}
+{% assign modidx = forloop.index | modulo: 2 %}
+<section class="pad lg:flex items-start px-8 xl:px-16 print:p-0 {% if modidx == 1 %} text-blue{% else %} bg-blue text-maize{% endif %}">
+	<div class="lg:sticky lg:w-[35%] top-[75px] flex-shrink-0 break-inside-avoid teams-content">
+		{{team.content}}
 	</div>
-
-	<div class="container">
+	<div class="flex-grow">
 		<ul class="staff">
 			{% for person in site.team_members %}
-			{% if person.roles[2023].leadership or person.roles[2024].leadership %}
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
-				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023].leadership }}</div>
-				{% if person.roles[2024].leadership %}
-				<div class="position position-highlight">{{ person.roles[2024].leadership }} in 2023-2024</div>
-				{% endif %}
-				<div class="link">
-					<a href="{{ person.contact }}" target="_blank">
-						{{ person.contact_type }}
-					</a>
-				</div>
-				<div class="g_year">Graduating {{ person.g_year }} </div>
-			</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
-
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Artificial Intelligence</h1>
-	</div>
-	<div class="container">
-		<ul class="staff">
-			{% for person in site.team_members %}
-			{% if person.roles[2023].ai %}
+			{% if person.roles[2024][team.name] %}
 			
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
+			<li class="break-inside-avoid">
+				<img class="square-image team-image p-1 {% if modidx == 1 %}bg-blue{% else %}bg-maize{% endif %}" src="{% include relative-src.html src=person.image_path %}"
+					alt="{{ person.name }}">
 				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023].ai }}</div>
+				<div class="position">{{ person.roles[2024][team.name] }}</div>
 				<div class="link">
 					<a href="{{ person.contact }}" target="_blank">
 						{{ person.contact_type }}
@@ -68,129 +42,19 @@ image: /images/team_photo2023.webp
 		</ul>
 	</div>
 </section>
+{% endfor %}
 
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Advanced Capabilities</h1>
-	</div>
-	<div class="container">
-		<ul class="staff">
-			{% for person in site.team_members %}
-			{% if person.roles[2023].act %}
-			
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
-				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023].act }}</div>
-				<div class="link">
-					<a href="{{ person.contact }}" target="_blank">
-						{{ person.contact_type }}
-					</a>
-				</div>
-				<div class="g_year">Graduating {{ person.g_year }} </div>
-			</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
 
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Business</h1>
-	</div>
-	<div class="container">
-		<ul class="staff">
-			{% for person in site.team_members %}
-			{% if person.roles[2023].business %}
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
-				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023].business }}</div>
-				<div class="link">
-					<a href="{{ person.contact }}" target="_blank">
-						{{ person.contact_type }}
-					</a>
-				</div>
-				<div class="g_year">Graduating {{ person.g_year }} </div>
-			</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
-
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Electrical</h1>
-	</div>
-	<div class="container">
-		<ul class="staff">
-			{% for person in site.team_members %}
-			{% if person.roles[2023].electrical %}
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
-				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023].electrical }}</div>
-				<div class="link">
-					<a href="{{ person.contact }}" target="_blank">
-						{{ person.contact_type }}
-					</a>
-				</div>
-				<div class="g_year">Graduating {{ person.g_year }} </div>
-			</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
-
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Mechanical</h1>
-	</div>
-	<div class="container">
-		<ul class="staff" id="hulls-and-systems">
-			{% for person in site.team_members %}
-			{% if person.roles[2023]["hulls-and-systems"] %}
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
-				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023]["hulls-and-systems"] }}</div>
-				<div class="link">
-					<a href="{{ person.contact }}" target="_blank">
-						{{ person.contact_type }}
-					</a>
-				</div>
-				<div class="g_year">Graduating {{ person.g_year }} </div>
-			</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
-
-<section class="pad">
-	<div class="container">
-		<h2 class="editable">Systems Engineering</h1>
-	</div>
-	<div class="container">
-		<ul class="staff">
-			{% for person in site.team_members %}
-			{% if person.roles[2023].systems %}
-			<li>
-				<img class="square-image team-image" src="{% include relative-src.html src=person.image_path %}" alt="Picture of {{ person.name }}">
-				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2023].systems }}</div>
-				<div class="link">
-					<a href="{{ person.contact }}" target="_blank">
-						{{ person.contact_type }}
-					</a>
-				</div>
-				<div class="g_year">Graduating {{ person.g_year }}</div>
-			</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
+<style type="text/tailwindcss">
+	.teams-content h2 {
+		@apply text-5xl font-black uppercase lg:text-right mb-4;
+		font-family: "Inter", "Open Sans", "Lato", sans-serif;
+	}
+	.teams-content h3 {
+		@apply text-2xl font-semibold mt-3 mb-1;
+		font-family: "Inter", "Open Sans", "Lato", sans-serif;
+	}
+	.teams-content p {
+		@apply mb-3 md:text-justify;
+	}
+</style>
