@@ -1,12 +1,12 @@
 ---
-title: RoboBoat 2023
+title: RoboBoat 2024
 description: Competition strategy and team progress
 image: /images/roboboat/main.jpg
 ---
 
 <script src="{% include relative-src.html src='/js/3d/benderson3d.iife.js' %}" async data-container="#container"
   data-canvas="#renderCanvas" data-resources="{% include relative-src.html src='/js/3d/' %}" data-fps="#fps"
-  data-model="{% include relative-src.html src='/js/3d/model2.glb' %}"></script>
+  data-model="{% include relative-src.html src='/js/3d/2024.glb' %}"></script>
 <link href="{% include relative-src.html src='/css/roboboat.css' %}" rel="stylesheet" />
 <link href="{% include relative-src.html src='/js/3d/model2.glb' %}" rel="preload" as="fetch" crossorigin />
 <link href="{% include relative-src.html src='/js/3d/meshopt_decoder.js' %}" rel="preload" as="script" />
@@ -20,29 +20,28 @@ image: /images/roboboat/main.jpg
       <div id="allteams" class="escape-margin img-blur">
         <img width="4756" height="1263" src="{% include relative-src.html src='/images/roboboat/2023/allteams.webp' %}">
       </div>
-      <h2>RoboBoat 2023: Ocean Exploration</h2>
+      <small>Photo from RoboBoat 2023: Ocean Exploration</small>
+
+      <h2>RoboBoat 2024: Ducks Overboard</h2>
       <h3>Nathan Benderson Park</h3>
       <p>Sarasota, Florida</p>
       <p>
         RoboBoat is an international competition where students design, build, and compete with
         self-driving robotic boats, in a series of tests aimed at challenging teams through a
-        variety autonomous (self-driving) tasks. In 2023, we were joined by 22 other teams from 4
-        continents.
-      </p>
-      <p><b>UM::Autonomy placed 6th overall, and 3rd among American Universities.</b></p>
-      <p>
-        <a href="#results" class="button btn btn-primary w-full">Jump to Competition Results &downarrow;</a>
+        variety autonomous (self-driving) tasks. We will be joined by 18 teams from 3 continents.
       </p>
     </div>
     <h2>Competition Strategy</h2>
     <div class="my-4">
       <p>
-        For this competition season, we tested with the 2022 hull (itself a refurbished 2017 hull)
-        for most of the year, since it was already built. <a
-          href="{% include relative-src.html src='/history/2023/' %}">A new hull made of carbon fiber</a> was
-        being built concurrently by the mechanical team. At the last minute, days before departure for
-        the competition, it was ready. The team spent the weekend preparing the new boat for the competition,
-        and thanks to simulator testing, this process went smoothly and few code changes were needed.
+        Due to the short build cycle this year—just 5 months from competition details to competition—we decided to reuse
+        our <a href="{% include relative-src.html src='/history/2024/' %}">2023 hull, <i>The Phoenix</i>, albeit with
+          major structural improvements</a>. We focused on simplicity in design
+        and workflow in order to further ensure a reliable, maintainable, and modular system. Understanding the tighter
+        time constraints of this season, we put a greater emphasis was placed on design validation and in-water
+        testing, which was facilitated by maintaining an operable vessel and reducing design complexity from last year.
+        We moved to testing strategy that relocated the team permanently into its testing environment, made testing a
+        weekly process from the start of the season, and allowed for multiple modes of testing to guarantee success.
       </p>
     </div>
   </section>
@@ -57,7 +56,7 @@ image: /images/roboboat/main.jpg
   </div>
   <div></div>
 
-  <section class="row" data-location="302, 0, -385" data-radius="30" data-beta="1.2" data-speed="0.2">
+  <section class="row" data-location="302, 0, -385" data-radius="137.56" data-beta="1.46" data-speed="0.2">
     <h3>Static Judging Criteria</h3>
     <p>
       Besides a team's performance autonomously, we are judged on aspects of both our team and the
@@ -66,9 +65,10 @@ image: /images/roboboat/main.jpg
     <h4>Design Documentation</h4>
     <p>
       The team must prepare a website, <a
-        href="{% include relative-src.html src='/technical_design_report/phoenix.pdf' %}" target="_blank">a technical
+        href="{% include relative-src.html src='/technical_design_report/phoenix-returns.pdf' %}" target="_blank">a
+        technical
         design report</a>, and
-      <a href="https://www.youtube.com/watch?v=ZxFV9WLaQ88" target="_blank" rel="noopener">a video</a> for judges to
+      <a href="https://www.youtube.com/watch?v=JUyOKSSXyII" target="_blank" rel="noopener">a video</a> for judges to
       score. These are evaluated based on how well they introduce the team and its structure
       as well as design considerations of the boat.
     </p>
@@ -97,16 +97,53 @@ image: /images/roboboat/main.jpg
       </li>
     </ul>
     <p>
-      UM::Autonomy is proud to have been one of the first three teams to pass the safety inspection
-      at the 2023 competition.
+      UM::Autonomy is proud to have been one of the first three teams to pass the safety inspection at the 2023
+      competition. We have continued this spirit throughout the 2023-2024 year: safety is considered highly
+      in all situations, from battery and testing site training to ensuring the vessel is safe at all times.
     </p>
     <h4>Boat Thrust-to-Weight Ratio</h4>
     <p>
       The competition rewards fast and light craft. Therefore, a sliding scale is used where points
       are lost faster the heavier it gets. The boat is weighed and its thrust is measured every day
-      it is entered in the water. In 2023, UM::Autonomy's boat weighed 55 pounds, the lightest weight
+      it is entered in the water. <i>The Phoenix</i> weighs 40 pounds, the lightest weight
       class.
     </p>
+  </section>
+  <div class="can">
+    <div class="img" id="render-overview">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/render-overview.webp' %}" alt="" />
+    </div>
+  </div>
+
+  <section class="row" data-location="302, 0, -385" data-radius="30" data-beta="1.2" data-speed="0.2">
+    <h3>Autonomy Challenge</h3>
+    <p>
+      The main part of the challenge is the tasks that the vessel must perform autonomously. However, we must first
+      qualify before we perform autonomous operation on the full course.
+    </p>
+    <h4>Qualification</h4>
+    <p>Teams will be given opportunities to practice, display their capabilities, and earn their spot in the final
+      round. They will have access to three duplicate courses, each containing the eight tasks. Throughout this time,
+      teams can choose to test strategies, gather data, or qualify for tasks. A certain level of completion—"minimum
+      performance criteria"—is required to complete a task. Once a team has qualified for enough tasks, they enter the
+      Semi-Final rounds.</p>
+
+    <h4>Semi-Finals</h4>
+    <p>Teams must score some number of points in Semi-Finals rounds to progress to Finals.
+    </p>
+
+    <h4>Finals</h4>
+    <p>
+      Teams who have successfully qualified will have access to the finals courses. Importantly, each vessel must
+      operate autonomously for the entire duration of the run; remote-controlled survey runs are not allowed. This means
+      teams cannot manually control their vessels to gather data or assess the field before or during their time slot,
+      emphasizing the critical importance of pre-run preparation and programming accuracy. They will be required to
+      navigate through initial gates, attempt a series of tasks in their chosen sequence, and finally return to the home
+      base to conclude the run. All teams making it to the final round will secure a higher final ranking over those who
+      do not reach this stage of the competition.
+    </p>
+
   </section>
   <div class="can">
     <div class="img" id="render-overview">
@@ -120,10 +157,10 @@ image: /images/roboboat/main.jpg
 
   <section class="row" data-location="307.7, 0, -375.6" data-radius="15" data-alpha="3.14" data-beta="0.938"
     data-speed="0.1">
-    <h3>Navigate the Panama Canal</h3>
+    <h3>Navigation Channel</h3>
     <img width="789" height="560"
       src="{% include relative-src.html src='/images/roboboat/challenges/navigationChannel.png' %}"
-      alt="Panama Canal Diagram" />
+      alt="Navigation Channel Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
@@ -136,16 +173,14 @@ image: /images/roboboat/main.jpg
       <dd>
         As it is mandatory, this challenge is of high importance. In 2019, the boat could only
         successfully pass the navigation channel once out of four qualification runs as a result of
-        a major electrical failure onboard.
-      </dd>
-      <dt>Goal</dt>
-      <dd>14 out of 15 successful runs</dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        As one of the simplest tasks, this was completed with high success. However, additional
+        a major electrical failure onboard. In 2023, it was completed with high success due to our extensive testing in
+        water and in simulation.
+        However, additional
         tuning was needed upon arrival to the competition site as the boat's computer vision system
         would occasionally fail to detect a buoy.
       </dd>
+      <dt>Goal</dt>
+      <dd>14 out of 15 successful runs</dd>
     </dl>
   </section>
   <div class="can">
@@ -158,34 +193,34 @@ image: /images/roboboat/main.jpg
   <hr />
 
   <section class="row" data-location="319.3, 0, -381.9" data-radius="25" data-beta="0.938" data-speed="0.1">
-    <h3>Magellan's Route / Count the Manatees &amp; Jellyfish</h3>
+    <h3>Follow the Path</h3>
     <img width="657" height="314"
       src="{% include relative-src.html src='/images/roboboat/challenges/magellans_route.png' %}"
-      alt="Magellan's Route Diagram" />
+      alt="Follow the Path Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
         The ASV passes through between multiple sets of gates (pairs of red and green buoys) The ASV
-        also avoids intermittent yellow buoys (jelly fish) and black buoys (manatees) of various
+        also avoids intermittent yellow and black buoys of various
         sizes and counts them.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
         The challenge requires minimal external hardware or software development and mainly just
-        involves careful navigational operability and fine motor control. This challenge could be
+        involves careful navigational operability and fine motor control. This challenge should be
         tested and fine-tuned early in the development process.
+
+        <p>
+          In 2023, we found that this challenge revealed some disadvantages of our indoors testing area. Specifically,
+          our
+          obstacle-avoidance system decided that the best way to avoid hitting buoys was to go outside
+          of the red-green channel! While technically following our instructions, it didn't score many
+          points. We have since revised our navigation algorithm to take this restriction into account.
+        </p>
       </dd>
       <dt>Goal</dt>
       <dd>9 out of 10 successful runs</dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        This challenge revealed some disadvantages of our indoors testing area. Specifically, our
-        obstacle-avoidance system decided that the best way to avoid hitting buoys was to go outside
-        of the red-green channel! While technically following our instructions, it didn't score many
-        points. Although we didn't have time to fix that during the competition, the boat did go
-        through several red-green pairs on some runs scoring us important points.
-      </dd>
     </dl>
   </section>
   <div class="can">
@@ -197,37 +232,35 @@ image: /images/roboboat/main.jpg
   <hr />
 
   <section class="row" data-location="311.08, 0, -387.039" data-radius="15" data-beta="0.938" data-speed="0.1">
-    <h3>Northern Passage Challenge</h3>
-    <img width="999" height="717" src="{% include relative-src.html src='/images/roboboat/challenges/snackRun.png' %}"
-      alt="Northern Passage Diagram" />
+    <h3>Speed Challenge</h3>
+    <img width="999" height="717" src="{% include relative-src.html src='/images/roboboat/challenges/speed.png' %}"
+      alt="Speed Challenge Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        The ASV enters the gate buoys, maneuvers around the mark buoy, and exits thought the same
+        The ASV enters the gate buoys, maneuvers around the yellow marker buoy, and exits thought the same
         gate buoys, as quickly as possible. The timer starts when the bow (front) crosses the gate
         buoys and stops when the stern (back) crosses the gate buoys.
-
-        <p>The team colloquially refers to this as the "Speed Challenge".</p>
       </dd>
 
       <dt>Analysis</dt>
       <dd>
-        Based on the 2019 score-sheet, a time between 25-45s is needed to remain competitive in the
-        Northern Passage challenge, with the fastest 2019 run coming in at 27 seconds.
+        Based on the 2023 score sheet, teams that completed this challenge did so in 50, 75, and 100 seconds. This is
+        significantly higher than the 2019 score
+        sheet which revealed that a time between 25-45s is needed to remain competitive, with the fastest 2019 run
+        coming in at 27 seconds. Nevertheless, we plan to beat the 2023 times and remain competitive with those that
+        competed in 2019.
+
+        <p>This year introduces an obstacle buoy. We do not expect a challenge with this because our navigation
+          algorithm is already very familiar with avoiding buoys, and we do not expect to even need any code changes.
+        </p>
       </dd>
       <dt>Goal</dt>
       <dd>
-        9 out of 10 successful runs. We hope for a baseline of 35 seconds, and a goal of 26 seconds.
-      </dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        Another disadvantage of indoors testing was highlighted here: buoy interference.
-        Specifically, our computer vision system had a hard time distinguising the blue buoy
-        (marking where to turn around) from the black buoys (marking an obstacle to avoid in the
-        previous challenge, Magellan's Route). When we tested indoors, we only tested one or two
-        challenges at a time, and with different lighting.
+        9 out of 10 successful runs. We hope for a baseline of 45 seconds, and a goal of 35 seconds.
       </dd>
     </dl>
+    <hr />
   </section>
   <div class="can">
     <div class="img" id="render-speed">
@@ -235,40 +268,28 @@ image: /images/roboboat/main.jpg
         src="{% include relative-src.html src='/images/roboboat/challenges/render-speed.webp' %}" alt="" />
     </div>
   </div>
-  <div>
-    <hr />
 
-    <h4>Medium Priority Challenges</h4>
-  </div>
-
-  <section class="row" data-location="313.619, 0, -398.136" data-radius="12" data-beta="0.938" data-alpha="1.57"
+  <section class="row" data-location="313.619, 0, -398.136" data-radius="12" data-beta="1.32" data-alpha="1.38"
     data-speed="0">
-    <h3>Beaching &amp; Inspecting Turtle Nests</h3>
-    <img width="660" height="381"
-      src="{% include relative-src.html src='/images/roboboat/challenges/beaching_and_turtles.png' %}"
-      alt="Beaching & Inspecting Turtle Nests Diagram" />
+    <h3>Docking</h3>
+    <img width="660" height="381" src="{% include relative-src.html src='/images/roboboat/challenges/docking.png' %}"
+      alt="Docking Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
         Before the time slot starts, teams are assigned a color and must dock at the bay with the
-        matching color. Once the ASV detects and enters the docking bay, it must report the number
-        of "eggs" (number of circles) in the nest.
-
-        <p>The team colloquially refers to this challenge as "Docking."</p>
+        matching color. To dock, contact must simply be made with the dock.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
         This challenge is a bit more involved in terms of computer and color/shape recognition but
-        does not require external hardware development.
+        does not require external hardware development. We plan to train our computer vision model on color only, as it
+        was all but guaranteed that each poster will be a unique color. We had success with this strategy in 2023, and
+        plan to do it again.
       </dd>
       <dt>Goal</dt>
       <dd>9 out of 10 successful runs</dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        This task turned out easier than expected. Matching on color rather than number of dots on
-        the board turned out rather easy. Scoring involved simply hitting the docks.
-      </dd>
     </dl>
   </section>
   <div class="can">
@@ -277,86 +298,40 @@ image: /images/roboboat/main.jpg
         src="{% include relative-src.html src='/images/roboboat/challenges/render-docking.webp' %}" alt="" />
     </div>
   </div>
-  <hr />
+  <div>
+    <hr />
 
-  <section class="row" data-location="304.417, 0, -385.015" data-radius="12" data-beta="0.938" data-alpha="3.14"
-    data-speed="0.1">
-    <h3>Feed the Fish</h3>
-    <img width="530" height="313"
-      src="{% include relative-src.html src='/images/roboboat/challenges/feed_the_fish.png' %}"
-      alt="Feed the Fish Diagram" />
-    <dl>
-      <dt>Description</dt>
-      <dd>
-        The ASV detects the "feeding table" (purple frame), then lines up and shoot three "pellets"
-        (racquetballs) through the frame into any of the three holes. Points are awarded if the ball
-        is fired into any of the holes but fewer points are awarded for just landing the ball on the
-        deck.
+    <h4>Medium Priority Challenges</h4>
+  </div>
 
-        <p>
-          The team colloquially refers to this challenge as "Skeeball," the classic arcade game.
-        </p>
-      </dd>
-
-      <dt>Analysis</dt>
-      <dd>
-        As both the Ponce de Leon (<em>see next</em>) and Feeding the Fish are new challenges,
-        UM::Autonomy chose to only focus on completing the Ponce de Leon challenge this year, though
-        work was done throughout the year to complete the Skeeball task in the future.
-      </dd>
-      <dt>Goal</dt>
-      <dd>N/A</dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        <em>See next task</em>
-      </dd>
-    </dl>
-  </section>
   <div class="can">
     <div class="img" id="render-skeeball">
       <img loading="lazy" decoding="async"
         src="{% include relative-src.html src='/images/roboboat/challenges/render-skeeball.webp' %}" alt="" />
     </div>
   </div>
-  <hr />
 
-  <section class="row" data-location="303.513, 0, -390.266" data-radius="12" data-beta="0.938" data-alpha="3.14"
-    data-speed="0.1">
-    <h3>Ponce de Leon / Fountain of Youth</h3>
-    <img width="591" height="348"
-      src="{% include relative-src.html src='/images/roboboat/challenges/ponce_de_fountain.png' %}"
-      alt="Ponce de Leon Diagram" />
+  <section class="row" data-location="312.9, 0, -401" data-radius="7" data-beta="1.38" data-alpha="2.59" data-speed="0">
+    <h3>Duck Wash</h3>
+    <img width="591" height="348" src="{% include relative-src.html src='/images/roboboat/challenges/duck_wash.png' %}"
+      alt="Duck Wash Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        The ASV detects the target face (blue/white striped) and shoots enough water through the
-        target to raise the ball above the green line in the pipe. The ASV may pump the water from
+        The ASV detects the target duck poster and shoots water on it for 5 seconds continuously. The ASV may pump the
+        water from
         the environment or store it on board.
-
-        <p>The team colloquially refers to this challenge as "Water Blast."</p>
       </dd>
 
       <dt>Analysis</dt>
       <dd>
-        This is the first season with this challenge and hardware and software development of
-        external mechanisms pushed back actual testing. Therefore, we knew that immediate mastery of
-        this task would be difficult and time consuming, and should only be attempted after other
-        challenges.
+        This task follows a similar task from last year, also involving water blasts. However, the task is simplified
+        this year as the target area is far bigger. We think that it will not be difficult to achieve this task,
+        although we may run into issues with spacing: we had hoped to simply push into the dock to keep us in place, but
+        that may interfere with our water blast depending on its mounting position.
       </dd>
       <dt>Goal</dt>
       <dd>3 out of 5 successful runs</dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        Although we had planned to focus on shooting water rather than balls, it turned out that
-        water leakage was a big worry: if the pump failed and dumped water in the boat's
-        electronics, we wouldn't be able to compete anymore. As such, we re-focued our effort on
-        Feed the Fish. We finally had a working ball-shooting system while at the competition site,
-        but lack of testing time meant that it couldn't be integrated in time.
-
-        <p>
-          Both tasks only had three teams that could shoot anything. No teams landed balls in the
-          buckets.
-        </p>
       </dd>
     </dl>
   </section>
@@ -372,33 +347,61 @@ image: /images/roboboat/main.jpg
     <h4>Low Priority Challenges</h4>
   </div>
 
-  <section class="row" data-location="301.393, 0, -395.65" data-radius="12" data-beta="0.938" data-speed="0.1">
-    <h3>Ocean Cleanup</h3>
-    <img width="529" height="231"
-      src="{% include relative-src.html src='/images/roboboat/challenges/OceanCleanup.png' %}"
-      alt="Ocean Cleanup Diagram" />
+  <section class="row" data-location="303.6, 0, -388.7" data-radius="9" data-beta="0.938" data-alpha="3.14"
+    data-speed="0.1">
+    <h3>Delivery Octagon</h3>
+    <img width="530" height="313"
+      src="{% include relative-src.html src='/images/roboboat/challenges/delivery_octagon.png' %}"
+      alt="Delivery Octagon Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        The ASV detects an underwater pinger which designates the area to collect "debris"
-        (raquetballs) from. The ASV may then use the collected balls as extra balls in the Feed the
-        Fish challenge.
+        The ASV detects the different posters around the center and delivers ducks and "beavers" (racquetballs) to
+        various areas. A set number of racquetballs are provided as preload so that the ASV may complete this challenge
+        without collecting additional objects.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
-        As this task is a new challenge, UM::Autonomy chose to focus on completing the Ponce de Leon
-        challenge and Feeding the Fish challenge for this year, though work was done throughout the
-        year to complete the Ocean Cleanup task in the future.
+        We expect this challenge to be somewhat difficult, although we still plan to complete it. We are designing a
+        simple mechanism to deliver the preloaded balls to this challenge. We expect a challenge in detecting the
+        specific areas to deliver balls to.
+      </dd>
+      <dt>Goal</dt>
+      <dd>2/5 successful deliveries</dd>
+    </dl>
+  </section>
+  <div class="can">
+    <div class="img" id="render-ocean">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/render-ocean.webp' %}" alt="" />
+    </div>
+  </div>
+  <div>
+    <hr />
+    <h4>Not Attempted Challenges</h4>
+  </div>
+
+  <section class="row" data-location="303.6, 0, -394" data-radius="9" data-beta="0.938" data-speed="0.1">
+    <h3>Collection Octagon</h3>
+    <img width="529" height="231"
+      src="{% include relative-src.html src='/images/roboboat/challenges/collection_octagon.png' %}"
+      alt="Collection Octagon Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        The ASV detects the triangular posters which designates the area to collect raquetballs and ducks from. The ASV
+        may then use them as extra objects to deliver to the Delivery Octagon.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        UM::Autonomy decided that the mechanisms to grab and retrieve objects will be extremely difficult to produce. As
+        such, we decided to put this challenge off. After the competition, we may work on this challenge more in case it
+        appears again in 2025.
       </dd>
       <dt>Goal</dt>
       <dd>N/A</dd>
-      <dt><span class="nowrap">Post-competition Remarks</span></dt>
-      <dd>
-        This was one of the hardest challenges this year. Only a couple teams even had the hardware
-        to participate, and none scored points. We will need to evaluate again whether this task is
-        worth pursuing next year.
-      </dd>
     </dl>
   </section>
   <div class="can">
@@ -414,56 +417,6 @@ image: /images/roboboat/main.jpg
       Foundation for the 3D model of Nathan Benderson Park and Gdańsk University of Technology's
       SimLE: SeaSentinel team for creating 3D models of various competition elements.
     </em>
-  </section>
-</div>
-
-<div id="results" class="content competition-results">
-  <section class="info">
-    <div class="container flex">
-      <div class="text">
-        <h1>Competition Results</h1>
-        <p>UM::Autonomy placed <b>6th</b> overall, and <b>3rd</b> among American Universities.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="roboboat-section text-maize bg-blue">
-    <img decoding="async" loading="lazy" class="img" src="/images/roboboat/2023/3rdplace.webp"
-      style="object-position: 59% 50%"
-      alt="UM::Autonomy members pose on-stage with a judge holding a banner reading &quot;2023 3rd place design documentation&quot;" />
-    <div>
-      <h2>Static Judging</h2>
-      <p>
-        UM::Autonomy placed <b>1st</b> in <a
-          href="{% include relative-src.html src='/technical_design_report/phoenix.pdf' %}" target="_blank">the
-          technical report</a>, <b>2nd</b> in
-        <a href="https://www.youtube.com/watch?v=ZxFV9WLaQ88" target="_blank" rel="noopener">the video</a>, and
-        <b>1st</b> in the presentation for an overall <b>3rd</b> place in design
-        documentation.
-      </p>
-    </div>
-  </section>
-
-  <section class="roboboat-section text-blue bg-maize">
-    <img decoding="async" loading="lazy" class="img" src="/images/roboboat/2023/inwater.webp"
-      alt="The UM::Autonomy 2023 boat in the water" />
-    <div>
-      <h2>Autonomous Challenge</h2>
-      <p>UM::Autonomy placed 9th. 13 teams scored no points in the autonomous challenge.</p>
-    </div>
-  </section>
-
-  <section class="roboboat-section text-maize bg-blue">
-    <img decoding="async" loading="lazy" class="img" src="/images/roboboat/2023/teamfun.webp"
-      style="object-position: 46% 50%" alt="The UM::Autonomy members in a fun pose surrounding the boat" />
-    <div>
-      <h2>The Team</h2>
-      <p>
-        The team feels very confident for the 2024 season. Many new members attended competition for
-        the first time, creating an exciting environment where many members are familiar with
-        competition practices allowing us to achieve further success in future years.
-      </p>
-    </div>
   </section>
 </div>
 

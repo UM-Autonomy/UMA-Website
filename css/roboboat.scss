@@ -94,6 +94,8 @@ $small-canvas-size: 50vh;
   margin: 0;
   img {
     height: auto;
+    max-height: 50vh;
+    object-fit: contain;
   }
 }
 .can {

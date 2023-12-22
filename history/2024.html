@@ -1,0 +1,68 @@
+---
+title: "The Phoenix: 2023 Boat"
+description: Competition strategy and team progress
+image: /images/history/phoenix.jpg
+---
+
+
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %}); max-width: 100vw">
+	<div class="inner-hero text-container">
+		<div class="hero-text-container">
+			<h1 class="editable">
+				2023: The Phoenix
+			</h1>
+			<p class="subtext editable">
+				Competition strategy and team progress
+			</p>
+		</div>
+	</div>
+	<div class="learn-more">
+		<a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
+	</div>
+</section>
+
+<div class="content container" style="font-size: 12pt; padding: 0 8%;">
+	<section class="info" id="learn-more">
+		<h2>The Phoenix</h2>
+		<p>
+			<a href='/{{ site.boats | where: "year", 2023 | map: "tdr_path" | first }}'
+				class="button btn btn-primary w-full">Detailed Technical Report &downarrow;</a>
+		</p>
+		<p>
+			{{ site.boats | where: "year", 2023 | map: "description1" | first }}
+		</p>
+
+		<p>
+			{{ site.boats | where: "year", 2023 | map: "description2" | first }}
+		</p>
+
+		<h3>Mechanical Details</h3>
+
+		<p>
+			The Phoenix weighs 55 pounds, has a length of 56”, a beam (<em>width</em>) of 30”, and has an overall height
+			of 26”. It can generate thrusts of more than 25 pounds. A hull and superstructure made of carbon fiber
+			allows for weight reduction which has the benefits of an increased thrust to weight ratio and ease of
+			transportability.
+		</p>
+
+		<h3>Electrical Details</h3>
+
+		<p>
+			An AMD Ryzen 5 5600X on a ASUS ROG Strix X570-I motherboard with 32 GB RAM provides the main logic of the
+			boat. A Ubiquiti Rocket point-to-point transceiver allows for a reliable, fast data connection to land
+			control. An Arduino Mega is used for computer control of the two Blue Robotics T500 thrusters. A Velodyne
+			Puck LiDAR paired with a Logitech webcam is used for the boat's sensing.
+		</p>
+
+		<h3>Software Details</h3>
+
+		<p>
+			A Docker-based software environment configured with ROS 1 Noetic ensures that the exact same software is
+			present when testing on a computer and on the boat—allowing team members to use their choice of Linux,
+			Windows, or macOS on their personal computers without differences. The team uses Git as our version control
+			system. Most of the team's code is written in C++, with several Python scripts for small tasks. Computer
+			Vision is done with the YOLOv4 object detection system, and an upgrade to YOLOv8 is planned for the
+			2023-2024 year. The team plans to migrate to ROS 2 as well this year.
+		</p>
+	</section>
+</div>
