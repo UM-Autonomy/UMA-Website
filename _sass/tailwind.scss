@@ -20,6 +20,30 @@
   padding-left: 2rem;
   padding-right: 2rem;
 }
+.-z-10 {
+  z-index: -10;
+}
+.inset-0 {
+  inset: 0px;
+}
+.sticky {
+  position: sticky;
+}
+.h-screen {
+  height: 100vh;
+}
+.h-full {
+  height: 100%;
+}
+.relative {
+  position: relative;
+}
+.pointer-none {
+  pointer-events: none;
+}
+.mh-\[50vh\] {
+  min-height: 50vh;
+}
 @media print {
   .print\:p-0 {
     padding: 0px;

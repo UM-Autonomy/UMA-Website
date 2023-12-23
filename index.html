@@ -31,7 +31,8 @@ description: Michigan's Autonomous Boat Team
     <img id="img-IMG_7626" width="450" height="600" class="tall" src="/images/header_gallery/IMG_7626.webp">
     <img id="img-IMG_7023" width="800" height="600" class="wide" src="/images/header_gallery/IMG_7023.webp">
   </div>
-  <img id="allteams" width="4756" height="1263" class="competition-highlight" src="/images/roboboat/2023/allteams.webp" style="object-position: 100% 50%; background-position: 100% 50%;">
+  <img id="allteams" width="4756" height="1263" class="competition-highlight" src="/images/roboboat/2023/allteams.webp"
+    style="object-position: 100% 50%; background-position: 100% 50%;">
   <div class="overlay">
     {% include logo.svg %}
     {% include logotype.svg %}
@@ -92,8 +93,7 @@ description: Michigan's Autonomous Boat Team
       <p>
         The RoboBoat competition is an international competition where students design, build, and compete with
         self-driving robotic boats, in a series of tests aimed at challenging teams through a variety autonomous
-        (self-driving) tasks. In 2023, we were joined by 22 other teams from 4 continents. UM::Autonomy placed 6th
-        overall, and 3rd among American Universities.
+        (self-driving) tasks. We will be joined by 18 teams from 3 continents for the RoboBoat 2024 challenge.
       </p>
     </div>
   </div>
@@ -113,26 +113,14 @@ description: Michigan's Autonomous Boat Team
   <div class="container flex">
     <div class="text">
       <p>
-        Rising from the ashes of defeat and disorder following the pandemic, UM::Autonomy's 2024 boat, the Phoenix,
-        soared to competition with
+        Rising from the ashes of defeat and disorder following the pandemic, UM::Autonomy's 2024 boat, The Phoenix,
+        will soar to competition with
         renewed pride, a greater sense of togetherness, and a singular focus: to compete hard while having fun.
         Made entirely out of carbon fiber to reduce weight, the boat features two
         large thrusters for speed and an Intel i5-12450H CPU to make autonomous decisions.
       </p>
       <p>
-        After a hard-fought competition the previous year, the team chose to focus on four principles for this year:
-        decoupling,
-        reliability, maintainability, and performance. Not only was the AI pipeline decoupled and tested separately, but
-        nearly
-        all major components of the boat could be separated, making it extremely modular and maintainable. It was the
-        first year
-        that the team tested in the Marine Hydrodynamics Laboratory, and did so for over 100 hours. In addition, it was
-        the
-        first year that the boat was made out of carbon fiber from scratch—from the painstaking mold making,
-        preparation, and
-        vacuum resin infusion—in order to produce a boat that weighed less than 60 pounds while still delivering
-        impeccable
-        results.
+        {{ site.boats | where: "year", 2024 | map: "description2" | first }}
       </p>
     </div>
   </div>
@@ -186,12 +174,14 @@ description: Michigan's Autonomous Boat Team
 </div>
 
 <div class="calendar" id="calendar">
-  <iframe loading="lazy" src="https://calendar.google.com/calendar/embed?src=michiganuma%40gmail.com&ctz=America%2FNew_York"
+  <iframe loading="lazy"
+    src="https://calendar.google.com/calendar/embed?src=michiganuma%40gmail.com&ctz=America%2FNew_York"
     style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 </div>
 <div class="small-calendar">
-  <iframe loading="lazy" src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=800&wkst=1&bgcolor=%23db694f&src=michiganuma%40gmail.com&color=%23B1440E&ctz=America%2FLos_Angeles" style="border-width:0" width="100%"
-    height="600" frameborder="0" scrolling="no"></iframe>
+  <iframe loading="lazy"
+    src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=800&wkst=1&bgcolor=%23db694f&src=michiganuma%40gmail.com&color=%23B1440E&ctz=America%2FLos_Angeles"
+    style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 </div>
 
 <style>

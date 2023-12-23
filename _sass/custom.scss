@@ -42,7 +42,7 @@
   z-index: 10000;
   right: 0;
   padding: 10px;
-  
+
   @media #{$desktop} {
     display: block;
     width: 20%;
@@ -76,4 +76,71 @@
 
 .inter {
   font-family: "Inter", "Open Sans", "Lato", sans-serif;
+}
+
+.boat-description {
+  color: white;
+  background-color: #00274c77;
+  backdrop-filter: blur(5px);
+  max-width: 30em;
+  margin-top: -100vh;
+  padding-top: 60px;
+  .row {
+    padding-bottom: 5em;
+    text-align: justify;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 2rem;
+    h3 {
+      font-family: "Inter", "Open Sans", "Lato", sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-wrap: balance;
+      font-size: 3rem;
+      text-align: left;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    &:last-child {
+      padding-bottom: 50vh;
+    }
+    &:first-child {
+      min-height: 50vh;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    max-width: none;
+    background: none;
+    -webkit-backdrop-filter: unset;
+    backdrop-filter: unset;
+    padding-top: 0;
+    padding-bottom: 100vh;
+    .row {
+      padding-top: 5em;
+      background-color: #00274c77;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      margin-bottom: 50vh;
+      &:last-child {
+        padding-bottom: 5em;
+      }
+    }
+  }
+}
+.boat-description-outer {
+  background: #00274c;
+  canvas {
+    margin-top: 60px;
+    height: calc(100% - 60px);
+  }
+  &.loaded {
+    .row {
+      opacity: 0.7;
+    }
+    .row.active {
+      opacity: 1;
+    }
+  }
 }

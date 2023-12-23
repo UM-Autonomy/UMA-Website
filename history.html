@@ -50,8 +50,18 @@ image: /images/old.jpg
             </div>
             {% endif %}
             {% if boat.video_path %}
-            <div class="button">
+            <div class="button" style="margin-bottom: 1rem">
               <a href={{boat.video_path}} target="_blank">Video</a>
+            </div>
+            {% endif %}
+            {% if boat.competition_path %}
+            <div class="button" style="margin-bottom: 1rem">
+              <a href={{boat.competition_path}} target="_blank">Competition Details</a>
+            </div>
+            {% endif %}
+            {% if boat.team_path %}
+            <div class="button" style="margin-bottom: 1rem">
+              <a href={{boat.team_path}} target="_blank">The {{boat.year}} Team</a>
             </div>
             {% endif %}
           </div>
