@@ -109,7 +109,7 @@ function setupView(scene: Scene) {
 function setupFollowBakedAnimation() {
 	let lastAnim: Animatable | null = null;
 	let lastTime = 0;
-	const group = scene!.animationGroups.find(({name})=>name.toLowerCase().startsWith('anim'))!;
+	const group = scene!.animationGroups.find(({ name }) => name.toLowerCase().startsWith('anim'))!;
 	console.log(group.name);
 	const animatableObject = {
 		set a(v: number) {
@@ -123,7 +123,6 @@ function setupFollowBakedAnimation() {
 		blurVerticalSize: 1.5,
 		isStroke: true
 	});
-	self.hl = hl;
 	hl.innerGlow = false;
 	changeFocus = (msg: ChangeFocusMsg) => {
 		hl.removeAllMeshes();
@@ -163,6 +162,9 @@ function setupFollowBakedAnimation() {
 		ease.setEasingMode(EasingFunction.EASINGMODE_EASEOUT);
 		moveAnim.setEasingFunction(ease);
 		scene!.stopAnimation(animatableObject);
+		if (Math.abs(end - start) > 120) {
+			start = end - 120 * Math.sign(end - start);
+		}
 		lastAnim = scene!.beginDirectAnimation(animatableObject, [moveAnim], start, end, false, 1, () =>
 			console.log(lastAnim)
 		);
@@ -202,7 +204,7 @@ function setupArcCameraAnimations() {
 	}
 	let firstTime = true;
 	changeFocus = (msg: ChangeFocusMsg) => {
-		const camera = scene.activeCamera as ArcRotateCamera;
+		const camera = scene!.activeCamera as ArcRotateCamera;
 		let animations: Animation[] = [];
 		let val;
 		if ((val = msg.attributes['data-location'])) {
@@ -226,8 +228,8 @@ function setupArcCameraAnimations() {
 			anim.setEasingFunction(ease);
 		}
 
-		scene.stopAnimation(camera);
-		scene.beginDirectAnimation(
+		scene!.stopAnimation(camera);
+		scene!.beginDirectAnimation(
 			camera,
 			animations,
 			0,
@@ -293,8 +295,9 @@ const delayCreateScene = function (engine: Engine, model: string) {
 			scene.clearColor = Color4.FromHexString('#00274C');
 			const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
 			scene.environmentTexture = hdrTexture;
+			scene.environmentIntensity = 1.3;
 			scene.activeCamera = scene.cameras[0];
-			const anim = scene.animationGroups.find(({name})=>name.toLowerCase().startsWith('anim'));
+			const anim = scene.animationGroups.find(({ name }) => name.toLowerCase().startsWith('anim'));
 			anim?.start(false);
 			anim?.pause();
 		}
@@ -360,13 +363,18 @@ const delayCreateScene = function (engine: Engine, model: string) {
 		skybox.infiniteDistance = true;
 		skybox.material = skyMaterial;
 
-		const rp = new ReflectionProbe('ref', 512, scene);
-		rp.refreshRate = 60;
-		rp.renderList!.push(skybox);
+		// const rp = new ReflectionProbe('ref', 512, scene);
+		// rp.refreshRate = 60;
+		// rp.renderList!.push(skybox);
 
-		scene.customRenderTargets.push(rp.cubeTexture);
+		// scene.customRenderTargets.push(rp.cubeTexture);
 
-		scene.environmentTexture = rp.cubeTexture;
+		// scene.environmentTexture = rp.cubeTexture;
+
+		const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
+		hdrTexture.rotationY = -1.46;
+		scene.environmentTexture = hdrTexture;
+		scene.environmentIntensity = 1.25;
 
 		NodeMaterial.ParseFromSnippetAsync('#N8UNHX#81', scene).then((node) => {
 			const waterMat = scene.materials.find((mat) => mat.name === 'Water');
@@ -416,7 +424,7 @@ async function initFunction(model: string) {
 	engine = await asyncEngineCreation();
 	if (!engine) throw 'engine should not be null.';
 	destroyFuncs.push(() => engine?.dispose());
-	engine.renderEvenInBackground = animation;
+	// engine.renderEvenInBackground = animation;
 	canvas.addEventListener('webglcontextlost', () => {
 		engine?.dispose();
 		sendMessage({ type: 'unloaded' });
@@ -492,6 +500,7 @@ if (isWorker) {
 		const model: string = args.data[0];
 		const animation: boolean = args.data[1];
 		const canvas: OffscreenCanvas = args.data[2];
+		const devicePixelRatio = args.data[3];
 		const realAddListener = canvas.addEventListener;
 		self.document = {
 			// @ts-ignore
@@ -510,7 +519,8 @@ if (isWorker) {
 				if (name === 'blur') blurCb.push(handler);
 				if (name === 'focus') focusCb.push(handler);
 			},
-			PointerEvent: {}
+			PointerEvent: {},
+			devicePixelRatio
 		};
 		// @ts-ignore
 		canvas.getBoundingClientRect = () => rect;

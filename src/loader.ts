@@ -90,7 +90,8 @@ export default function init(
 	canvas.height = canvas.clientHeight;
 	if (useWorker) {
 		const off = canvas.transferControlToOffscreen();
-		port.postMessage([model, animation, off], [off]);
+		port.postMessage([model, animation, off, window.devicePixelRatio], [off]);
+		resize();
 		const blur = () => postMessage({ type: 'blur' });
 		const focus = () => postMessage({ type: 'focus' });
 		window.addEventListener('blur', blur);
