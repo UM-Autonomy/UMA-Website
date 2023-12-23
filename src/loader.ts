@@ -3,22 +3,46 @@ import type { HostMessage, WorkerMessage } from './core';
 
 type PostMessage = (msg: WorkerMessage) => void;
 
+function isAtLeastIos(v: number) {
+	let iOSVersion = '';
+	const match = navigator.userAgent.match(/iPhone OS ([0-9_]*)/);
+	if (match && match[1]) {
+		iOSVersion = match[1].replace(/_/g, '.');
+	}
+
+	if (iOSVersion) {
+		try {
+			const majorVersion = parseInt(iOSVersion.split('.').shift() || '0', 10);
+			return majorVersion >= v;
+		} catch (e) {
+			return false;
+		}
+	} else {
+		return true;
+	}
+}
+
 export default function init(
+	workerConstructor: (() => Worker) | null,
+	urls: string[],
 	model: string,
+	environment: string,
 	animation: boolean,
 	container: HTMLElement,
 	canvas: HTMLCanvasElement,
 	fps?: Element | null
 ) {
 	const useWorker =
-		/* false &&  */ 'OffscreenCanvas' in window && 'transferControlToOffscreen' in canvas;
+		/* false &&  */ isAtLeastIos(17) &&
+		workerConstructor &&
+		'OffscreenCanvas' in window &&
+		'transferControlToOffscreen' in canvas;
+	console.log(`${useWorker ? '' : 'not '}using worker`);
 	let port;
 	let channel;
 	const destroyFuncs: (() => void | undefined)[] = [];
 	if (useWorker) {
-		const worker = new Worker(new URL('./core.ts', import.meta.url), {
-			type: 'module'
-		});
+		const worker = workerConstructor();
 		console.log(worker);
 		port = worker;
 		destroyFuncs.push(() => worker.terminate());
@@ -90,7 +114,7 @@ export default function init(
 	canvas.height = canvas.clientHeight;
 	if (useWorker) {
 		const off = canvas.transferControlToOffscreen();
-		port.postMessage([model, animation, off, window.devicePixelRatio], [off]);
+		port.postMessage([urls, model, environment, animation, off, window.devicePixelRatio], [off]);
 		resize();
 		const blur = () => postMessage({ type: 'blur' });
 		const focus = () => postMessage({ type: 'focus' });
@@ -99,7 +123,7 @@ export default function init(
 		destroyFuncs.push(() => window.removeEventListener('blur', blur));
 		destroyFuncs.push(() => window.removeEventListener('focus', focus));
 	} else {
-		start(channel!.port1, model, animation, canvas);
+		start(channel!.port1, urls, model, environment, animation, canvas);
 	}
 	function resize() {
 		postMessage({
@@ -161,7 +185,7 @@ function setupView(
 			if (heights[i] < middle) selected = i;
 		}
 		if (animation || onScreen[selected].target !== active) {
-			if(onScreen[selected].target !== active) {
+			if (onScreen[selected].target !== active) {
 				active?.classList.remove('active');
 				onScreen[selected].target.classList.add('active');
 			}

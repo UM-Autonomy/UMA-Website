@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import start from '../loader';
-	import '../fixUrls';
+	import urls from '../fixUrls';
 	import Results from '../results.svelte';
 
 	let canvas: HTMLCanvasElement;
@@ -9,7 +9,18 @@
 	let container: HTMLElement;
 
 	onMount(() => {
-		return start('/model2.glb', false, container, canvas /* , fps */);
+		return start(
+			() =>
+				new Worker(new URL('../core.ts', import.meta.url), {
+					type: 'module'
+				}),
+			urls,
+			'/model2.glb',
+			'/textures/environment.env',
+			false,
+			container,
+			canvas /* , fps */
+		);
 	});
 </script>
 

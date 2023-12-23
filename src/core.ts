@@ -7,9 +7,10 @@ import { Scene, ScenePerformancePriority } from '@babylonjs/core/scene';
 import { Vector3 } from '@babylonjs/core/Maths/math.vector';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
-import { ReflectionProbe } from '@babylonjs/core/Probes/reflectionProbe';
 import { CascadedShadowGenerator } from '@babylonjs/core/Lights/Shadows/cascadedShadowGenerator';
 import type { DirectionalLight } from '@babylonjs/core/Lights/directionalLight';
+import { KhronosTextureContainer2 } from '@babylonjs/core/Misc/khronosTextureContainer2';
+import { MeshoptCompression } from '@babylonjs/core/Meshes/Compression/meshoptCompression';
 import '@babylonjs/core/Actions';
 import {
 	Animation,
@@ -86,10 +87,15 @@ export type WorkerMessage =
 	| { type: 'blur' }
 	| { type: 'focus' };
 
+let resizeNextRender = false;
 function startRenderLoop(engine: Engine) {
 	engine.runRenderLoop(function () {
 		if (sceneToRender && sceneToRender.activeCamera) {
 			sendMessage({ type: 'fps', fps: engine.getFps() });
+			if (resizeNextRender) {
+				engine.resize();
+				resizeNextRender = false;
+			}
 			sceneToRender.render();
 		}
 	});
@@ -262,11 +268,12 @@ const createDefaultEngine = function () {
 		adaptToDeviceRatio: true,
 		doNotHandleContextLost: true,
 		failIfMajorPerformanceCaveat: true,
+		// @ts-ignore
 		autoEnableWebVR: false,
 		stencil: true
 	});
 };
-const delayCreateScene = function (engine: Engine, model: string) {
+const delayCreateScene = function (engine: Engine, model: string, environment: string) {
 	// Create a scene.
 	const scene = new Scene(engine);
 	// const reflector = new BABYLON.Reflector(scene, "67.194.202.239", 1234);
@@ -288,12 +295,12 @@ const delayCreateScene = function (engine: Engine, model: string) {
 			console.error(e);
 		}
 	});
+	const hdrTexture = CubeTexture.CreateFromPrefilteredData(environment, scene);
 	function onSuccess(scene: Scene) {
 		if (!animation) {
 			setupSystem();
 		} else {
 			scene.clearColor = Color4.FromHexString('#00274C');
-			const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
 			scene.environmentTexture = hdrTexture;
 			scene.environmentIntensity = 1.3;
 			scene.activeCamera = scene.cameras[0];
@@ -308,7 +315,12 @@ const delayCreateScene = function (engine: Engine, model: string) {
 		setupView(scene);
 	}
 	function setupSystem() {
-		engine.setSize(200, 100);
+		const fullMode = false && !engine.getGlInfo().vendor.includes('Apple');
+
+		scene.clearColor = Color4.FromHexString('#cae9f6');
+		if (fullMode) {
+			engine.setSize(200, 100);
+		}
 		const camera = new ArcRotateCamera('Camera', -32, 0.966, 200, new Vector3(266, 3, -510), scene);
 		camera.attachControl();
 		camera.useAutoRotationBehavior = true;
@@ -345,33 +357,26 @@ const delayCreateScene = function (engine: Engine, model: string) {
 		csmShadowGenerator.bias = 0.0015;
 		csmShadowGenerator.cascadeBlendPercentage = 0;
 
-		const skyMaterial = new SkyMaterial('skyMaterial', scene);
-		// skyMaterial.backFaceCulling = false;
-		// skyMaterial.ignoreCameraMaxZ = true;
-		skyMaterial.inclination = 0;
-		skyMaterial.rayleigh = 0.8;
-		skyMaterial.turbidity = 15;
-		skyMaterial.luminance = 0.3;
-		// window.skyMaterial = skyMaterial;
+		if (fullMode) {
+			const skyMaterial = new SkyMaterial('skyMaterial', scene);
+			// skyMaterial.backFaceCulling = false;
+			// skyMaterial.ignoreCameraMaxZ = true;
+			skyMaterial.inclination = 0;
+			skyMaterial.rayleigh = 0.8;
+			skyMaterial.turbidity = 15;
+			skyMaterial.luminance = 0.3;
+			// window.skyMaterial = skyMaterial;
 
-		scene.onAfterRenderObservable.add(() => {
-			skyMaterial.useSunPosition = true; // Do not set sun position from azimuth and inclination
-			skyMaterial.sunPosition = light.getAbsolutePosition();
-			engine.resize();
-		});
-		const skybox = Mesh.CreateBox('skyBox', 2000, scene, false, Mesh.BACKSIDE);
-		skybox.infiniteDistance = true;
-		skybox.material = skyMaterial;
+			scene.onAfterRenderObservable.add(() => {
+				skyMaterial.useSunPosition = true; // Do not set sun position from azimuth and inclination
+				skyMaterial.sunPosition = light.getAbsolutePosition();
+				engine.resize();
+			});
+			const skybox = Mesh.CreateBox('skyBox', 2000, scene, false, Mesh.BACKSIDE);
+			skybox.infiniteDistance = true;
+			skybox.material = skyMaterial;
+		}
 
-		// const rp = new ReflectionProbe('ref', 512, scene);
-		// rp.refreshRate = 60;
-		// rp.renderList!.push(skybox);
-
-		// scene.customRenderTargets.push(rp.cubeTexture);
-
-		// scene.environmentTexture = rp.cubeTexture;
-
-		const hdrTexture = CubeTexture.CreateFromPrefilteredData('/textures/environment.env', scene);
 		hdrTexture.rotationY = -1.46;
 		scene.environmentTexture = hdrTexture;
 		scene.environmentIntensity = 1.25;
@@ -409,7 +414,7 @@ const delayCreateScene = function (engine: Engine, model: string) {
 
 	return scene;
 };
-async function initFunction(model: string) {
+async function initFunction(model: string, environment: string) {
 	const asyncEngineCreation = async function () {
 		try {
 			return createDefaultEngine();
@@ -430,7 +435,7 @@ async function initFunction(model: string) {
 		sendMessage({ type: 'unloaded' });
 	});
 	startRenderLoop(engine);
-	scene = delayCreateScene(engine, model);
+	scene = delayCreateScene(engine, model, environment);
 	sceneToRender = scene;
 	let global;
 	if (!isWorker) {
@@ -450,9 +455,10 @@ function handleMessage({ data }: { data: WorkerMessage }) {
 		console.log('resize!');
 		rect = data.rect;
 		window.devicePixelRatio = data.devicePixelRatio;
-		engine?.resize();
+		resizeNextRender = true;
 	} else if (data.type === 'changeFocus') {
 		changeFocus(data);
+		scene?.render();
 	} else if (data.type === 'event') {
 		data.details.preventDefault = () => {};
 		evtHandlers[data.name]?.(data.details);
@@ -467,17 +473,27 @@ function handleMessage({ data }: { data: WorkerMessage }) {
 	}
 }
 
+function updateUrls(urls: string[] = []) {
+	if (urls[0]) KhronosTextureContainer2.URLConfig.jsDecoderModule = urls[0];
+	if (urls[1]) KhronosTextureContainer2.URLConfig.jsMSCTranscoder = urls[1];
+	if (urls[2]) KhronosTextureContainer2.URLConfig.wasmMSCTranscoder = urls[2];
+	if (urls[3]) MeshoptCompression.Configuration.decoder.url = urls[3];
+}
+
 export default function init(
 	port: MessagePort | DedicatedWorkerGlobalScope,
+	urls: string[],
 	model: string,
+	environment: string,
 	animation_: boolean,
 	canvas_: HTMLCanvasElement | OffscreenCanvas
 ) {
+	updateUrls(urls);
 	canvas = canvas_;
 	animation = animation_;
 	sendMessage = port.postMessage.bind(port);
 	port.onmessage = handleMessage;
-	initFunction(model);
+	initFunction(model, environment);
 }
 
 if (isWorker) {
@@ -497,10 +513,12 @@ if (isWorker) {
 		// If we're not running in Module mode, no need to do anything
 	}
 	self.onmessage = (args) => {
-		const model: string = args.data[0];
-		const animation: boolean = args.data[1];
-		const canvas: OffscreenCanvas = args.data[2];
-		const devicePixelRatio = args.data[3];
+		const urls: string[] = args.data[0];
+		const model: string = args.data[1];
+		const environment: string = args.data[2];
+		const animation: boolean = args.data[3];
+		const canvas: OffscreenCanvas = args.data[4];
+		const devicePixelRatio = args.data[5];
 		const realAddListener = canvas.addEventListener;
 		self.document = {
 			// @ts-ignore
@@ -536,15 +554,7 @@ if (isWorker) {
 				sendMessage({ type: 'subscribe', name, useCapture });
 			}
 		};
-		init(self as DedicatedWorkerGlobalScope, model, animation, canvas);
+		init(self as DedicatedWorkerGlobalScope, urls, model, environment, animation, canvas);
 	};
 	console.log('core load WORKER');
 }
-
-/*
-c=Color3.FromHexString('#FFCB05')
-hl = new HighlightLayer("hl1", scene);
-m=scene.getNodeByName('VN300_Rugged').getChildMeshes().forEach(m=>m.isAnInstance || hl.addMesh(m,c))
-hl.innerGlow=false
-hl.blurVerticalSize=hl.blurHorizontalSize=5
-*/
