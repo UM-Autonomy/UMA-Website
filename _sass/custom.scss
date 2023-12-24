@@ -91,6 +91,8 @@
     width: 100%;
     padding-right: 1rem;
     padding-left: 1rem;
+    padding-left: calc(1rem + env(safe-area-inset-left, 0px));
+    padding-right: calc(1rem + env(safe-area-inset-right, 0px));
     margin-left: 0;
     margin-right: 0;
     h3 {
@@ -134,6 +136,10 @@
 }
 .boat-description-outer {
   background: #00274c;
+  margin-left: calc(-1 * env(safe-area-inset-left, 0px));
+  width: calc(
+    100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px)
+  );
   canvas {
     margin-top: 60px;
     height: calc(100% - 60px);
