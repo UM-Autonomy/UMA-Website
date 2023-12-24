@@ -8,6 +8,12 @@
 		padding: 50px 0;
 	}
 
+	img {
+		max-height: 50vh;
+		width: 100%;
+		object-fit: contain;
+	}
+
 	.blog-post {
 		padding: 18px 0;
 
@@ -146,6 +152,9 @@
 		width: 50%;
 		float: left;
 		margin: 1em 0;
+		&:only-child {
+			width: 100%;
+		}
 	}
 
 	.next {
