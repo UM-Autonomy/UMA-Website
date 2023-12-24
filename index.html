@@ -55,7 +55,7 @@ description: Michigan's Autonomous Boat Team
           UM::Autonomy is an award-winning student project team
           from the University of Michigan. Each year we build an autonomous boat
           to participate in the
-          <a href="https://robonation.org/programs/roboboat/" target="_blank">RoboNation RoboBoat competition</a>.
+          <a href="{% include relative-src.html src='/roboboat/' %}">RoboNation RoboBoat competition</a>.
           The boat is
           completely designed and programmed by students and must complete a
           wide range of challenges that are designed to test its autonomous
@@ -182,6 +182,79 @@ description: Michigan's Autonomous Boat Team
   <iframe loading="lazy"
     src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=800&wkst=1&bgcolor=%23db694f&src=michiganuma%40gmail.com&color=%23B1440E&ctz=America%2FLos_Angeles"
     style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+
+
+<div class="content"style="font-size: 12pt;">
+
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+        <h1>Sponsors</h1>
+        <p>Thank you to our wonderful sponsors for your contributions!</p>
+				<h2 class="editable" style="text-align: center;">
+					Platinum
+				</h2>
+			</div>
+	</section>
+
+	<section class="info">
+		<div class="container">
+			<ul class="staff" id="leadership">
+				{% for sponsor in site.sponsors %}
+				{% if sponsor.level == "Platinum" %}
+				<li>
+					<div class="image">
+						<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
+					</div>
+				</li>
+			
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+	
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<h2 class="editable" id="Gold" style="text-align: center;	">
+					Gold
+				</h2>
+			</div>
+	</section>
+
+	<section class="info">
+		<div class="container">
+			<ul class="staff" id="leadership">
+				{% for sponsor in site.sponsors %}
+				{% if sponsor.level == "Gold" %}
+				<li>
+					<div class="image">
+						<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
+					</div>
+				</li>
+			
+				{% endif %}
+				{% endfor %}
+			</ul>
+			
+		</div>
+	</section>
+
+
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<p>
+					Lastly, thank you to our alumni and friends for your donations during Giving Blue Day!
+				</p>
+				<p>If you are interested in sponsoring UM::Autonomy, please email our <a href="{% include relative-src.html src='/contact/' %}">2023-24 administration team</a> for more
+					information.
+				</p>
+			</div>
+		</div>
+	</section>
 </div>
 
 <style>
