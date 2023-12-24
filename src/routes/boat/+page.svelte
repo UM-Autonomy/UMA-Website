@@ -24,15 +24,13 @@
 	});
 </script>
 
-<div class="relative text-white boat-description-outer" class:loaded={false} bind:this={container}>
+<div class="relative boat-description-outer" class:loaded={false} bind:this={container}>
 	<div class="sticky inset-0 -z-10 h-screen">
 		<div class="w-full h-full">
 			<canvas class="w-full h-full" aria-hidden="true" bind:this={canvas} />
-			<!-- <div id="fps" bind:this={fps}>0</div> -->
 		</div>
-		<!-- <img src="/images/roboboat/challenges/intro.png" alt="" /> -->
 	</div>
-	<div class="boat-description -mt-[100vh] pt-[50vh]">
+	<div class="boat-description">
 		<div class="row" class:active={false} data-seconds="0.001">
 			<h3>Trimaran Design</h3>
 			<p>
@@ -50,7 +48,7 @@
 				performance in various conditions.
 			</p>
 		</div>
-		<div class="row" class:active={false} data-seconds="0.001" data-highlight="Camera">
+		<div class="row" data-seconds="0.001" data-highlight="Camera">
 			<h3>Camera</h3>
 			<p>
 				The Phoenix's camera provides the main input to the boat's autonomous capabilities. Using
@@ -136,9 +134,12 @@
 
 <style lang="scss">
 	.boat-description {
+		color: white;
 		background-color: #00274c77;
 		backdrop-filter: blur(5px);
 		max-width: 30em;
+		margin-top: -100vh;
+		padding-top: 50vh;
 		.row {
 			padding-bottom: 5em;
 			text-align: justify;
@@ -152,18 +153,8 @@
 				margin-bottom: 1rem;
 			}
 		}
-	}
-	.boat-description-outer.loaded {
-		.row {
-			opacity: 0.7;
-		}
-		.row.active {
-			opacity: 1;
-		}
-	}
 
-	@media (max-width: 1000px) {
-		.boat-description {
+		@media (max-width: 1000px) {
 			width: 100%;
 			max-width: none;
 			background: none;
@@ -175,6 +166,14 @@
 				backdrop-filter: blur(5px);
 				margin-bottom: 50vh;
 			}
+		}
+	}
+	.boat-description-outer.loaded {
+		.row {
+			opacity: 0.7;
+		}
+		.row.active {
+			opacity: 1;
 		}
 	}
 </style>

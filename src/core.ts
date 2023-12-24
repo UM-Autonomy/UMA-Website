@@ -315,7 +315,7 @@ const delayCreateScene = function (engine: Engine, model: string, environment: s
 		setupView(scene);
 	}
 	function setupSystem() {
-		const fullMode = false && !engine.getGlInfo().vendor.includes('Apple');
+		const fullMode = !engine.getGlInfo().vendor.includes('Apple');
 
 		scene.clearColor = Color4.FromHexString('#cae9f6');
 		if (fullMode) {
