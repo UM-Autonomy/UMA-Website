@@ -2,7 +2,7 @@
 year: 2024
 name: The Phoenix Returns
 page: true
-image_path: ../images/history/phoenix-returns.webp
+image_path: ../images/boat23-water.webp
 tdr_path: ../technical_design_report/phoenix-returns.pdf
 video_path: https://www.youtube.com/watch?v=JUyOKSSXyII
 description1: "At the 2024 RoboBoat Competition, The
