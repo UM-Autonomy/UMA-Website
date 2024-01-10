@@ -253,7 +253,10 @@ blockquote:before {
   overflow: hidden;
 }
 
-
+.sponsor-img {
+  text-align: center;
+  display: inline;
+}
 
 @media #{$desktop} {
   .sponsor-img {
