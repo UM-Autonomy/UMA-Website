@@ -14,3 +14,4 @@ end
 
 gem "webrick"
 gem "kramdown-parser-gfm"
+gem "json"
