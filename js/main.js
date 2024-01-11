@@ -22,10 +22,12 @@ function init() {
 	changeHeader();
 
 	SimpleJekyllSearch({
-		searchInput: document.getElementById('search-input'),
-		resultsContainer: document.getElementById('results-container'),
-		json: '/search.json'
-	});
+    searchInput: document.getElementById("search-input"),
+    resultsContainer: document.getElementById("results-container"),
+    json: "/search.json",
+    searchResultTemplate:
+      `<li><a href="{url}" onclick="document.getElementById('search-input').value=''; document.getElementById('results-container').innerHTML=''">{title}</a></li>`,
+  });
 	AOS.init();
 }
 var loaded = false;
