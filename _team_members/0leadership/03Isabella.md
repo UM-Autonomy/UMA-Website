@@ -6,7 +6,7 @@ roles:
   2024:
     leadership: Business Lead
     business: Business Lead
-image_path: /images/headshots/Business/Isabella.webp
+image_path: /images/headshots/Isabella.webp
 contact: https://www.linkedin.com/in/zeazad/
 contact_type: LinkedIn
 g_year: Winter 2023

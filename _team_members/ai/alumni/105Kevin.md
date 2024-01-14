@@ -1,6 +1,6 @@
 ---
 name: Kevin Yan
 #category: ai
-image_path: /images/headshots/AI/KevinYan.webp
+image_path: /images/headshots/KevinYan.webp
 contact: mailto:yankevn@umich.edu
 ---
