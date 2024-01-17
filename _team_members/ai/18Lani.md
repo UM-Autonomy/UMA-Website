@@ -6,5 +6,5 @@ roles:
 image_path: /images/headshots/LaniQuach.webp
 contact: mailto:laniq@umich.edu
 contact_type: Email
-g_year: Winter 2027
+g_year: Winter 2026
 ---
