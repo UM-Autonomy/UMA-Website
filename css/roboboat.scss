@@ -307,3 +307,8 @@ $roboboat-clip: calc(#{$roboboat-height} / 6);
     backdrop-filter: blur(10px);
   }
 }
+@media (max-height: 1080px) {
+  .only-tall-screens {
+    display: none;
+  }
+}

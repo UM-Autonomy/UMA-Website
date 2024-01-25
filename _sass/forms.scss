@@ -14,6 +14,20 @@
 	cursor: pointer;
 }
 
+.button.inverted a, a.button.inverted {
+	background: $brand-color;
+	color: #fff;
+	&.right-chevron:hover::after {
+		filter: invert(1);
+	}
+}
+
+.button.inverted a:hover, a.button.inverted:hover {
+	background: #fff;
+	color: $brand-color;
+	cursor: pointer;
+}
+
 .button.alt a {
 	background: rgba(255,255,255,0);
 	border: 2px solid rgba(255, 255, 255, 1);
