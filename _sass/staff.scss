@@ -28,6 +28,7 @@
 	  color: inherit;
       &[href]:not([href=""])::after {
         content: " 🡭";
+        font-family: sans-serif, 'Noto Sans Symbols 2';
       }
     }
   }

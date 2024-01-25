@@ -285,6 +285,7 @@ $roboboat-clip: calc(#{$roboboat-height} / 6);
     text-decoration: underline;
     &::after {
       content: " 🡭";
+      font-family: sans-serif, 'Noto Sans Symbols 2';
     }
   }
   b {
