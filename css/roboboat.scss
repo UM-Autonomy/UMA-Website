@@ -107,6 +107,7 @@ $small-canvas-size: 50vh;
     100% + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px)
   );
   img {
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
   img,
@@ -305,6 +306,7 @@ $roboboat-clip: calc(#{$roboboat-height} / 6);
   background-size: cover;
   background-position: center;
   img {
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
 }
