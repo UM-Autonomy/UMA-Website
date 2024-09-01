@@ -7,6 +7,9 @@ roles:
   2024:
     leadership: Navigation & Controls Co-Lead
     ai: Navigation & Controls Co-Lead
+  2025:
+    leadership: AI Lead
+    ai: AI Lead
 image_path: /images/headshots/Georgia.webp
 contact: mailto:zender@umich.edu
 contact_type: Email

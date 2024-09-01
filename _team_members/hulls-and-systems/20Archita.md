@@ -4,6 +4,9 @@ roles:
   2024:
     hulls-and-systems: Mechanical Member
     act: Advanced Capabilities Member
+  2025:
+    leadership: Advanced Capabilities Lead
+    act: Advanced Capabilities Lead
 image_path: /images/headshots/Archita.webp
 contact: mailto:architas@umich.edu
 contact_type: Email

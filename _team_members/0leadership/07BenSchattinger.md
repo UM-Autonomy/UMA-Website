@@ -7,6 +7,9 @@ roles:
   2024:
     leadership: AI Lead
     ai: AI Lead
+  2025:
+    leadership: AI Lead
+    ai: AI Lead
 image_path: /images/headshots/Ben.webp
 contact: https://www.linkedin.com/in/ben-schattinger/
 contact_type: LinkedIn
