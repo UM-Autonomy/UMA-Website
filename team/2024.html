@@ -9,7 +9,7 @@ image: /images/teampic24.webp
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
 			<h1 class="editable">The Team</h1>
-			<p class="subtext editable">Get to know our talented members from 2024-25!</p>
+			<p class="subtext editable">Get to know our talented members from 2023-24!</p>
 		</div>
 	</div>
 </section>
@@ -23,13 +23,16 @@ image: /images/teampic24.webp
 	<div class="flex-grow">
 		<ul class="staff">
 			{% for person in site.team_members %}
-			{% if person.roles[2025][team.name] %}
+			{% if person.roles[2024][team.name] %}
 			
 			<li class="break-inside-avoid">
 				<img class="square-image team-image p-1 {% if modidx == 1 %}bg-blue{% else %}bg-maize{% endif %}" src="{% include relative-src.html src=person.image_path %}"
 					alt="{{ person.name }}">
 				<div class="name">{{ person.name }}</div>
-				<div class="position">{{ person.roles[2025][team.name] }}</div>
+				<div class="position">{{ person.roles[2024][team.name] }}</div>
+				{% if person.roles[2025].leadership %}
+				<div class="position position-highlight">{{ person.roles[2025].leadership }} in 2024-2025</div>
+				{% endif %}
 				<div class="link">
 					<a href="{{ person.contact }}" target="_blank">
 						{{ person.contact_type }}
@@ -37,6 +40,27 @@ image: /images/teampic24.webp
 				</div>
 				<div class="g_year">Graduating {{ person.g_year }} </div>
 			</li>
+			{% endif %}
+			{% endfor %}
+			{% for person in site.team_members %}
+			{% if person.roles[2025][team.name] %}
+			{% unless person.roles[2024][team.name] %}
+			<li class="break-inside-avoid">
+				<img class="square-image team-image p-1 {% if modidx == 1 %}bg-blue{% else %}bg-maize{% endif %}" src="{% include relative-src.html src=person.image_path %}"
+					alt="{{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2024][team.name] }}</div>
+				{% if person.roles[2025].leadership %}
+				<div class="position position-highlight">{{ person.roles[2025].leadership }} in 2024-2025</div>
+				{% endif %}
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+			</li>
+			{% endunless %}
 			{% endif %}
 			{% endfor %}
 		</ul>
