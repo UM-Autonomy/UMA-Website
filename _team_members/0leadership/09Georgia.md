@@ -13,5 +13,5 @@ roles:
 image_path: /images/headshots/Georgia.webp
 contact: mailto:zender@umich.edu
 contact_type: Email
-g_year: Winter 2024
+g_year: Winter 2025
 ---
