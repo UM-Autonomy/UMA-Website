@@ -35,7 +35,9 @@ image: /images/teampic24.webp
 						{{ person.contact_type }}
 					</a>
 				</div>
+				{% if person.g_year %}
 				<div class="g_year">Graduating {{ person.g_year }} </div>
+				{% endif %}
 			</li>
 			{% endif %}
 			{% endfor %}
