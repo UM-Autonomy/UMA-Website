@@ -1,0 +1,167 @@
+---
+title: "The Phoenix: 2024 Boat"
+description: Boat Design and Techical Information
+image: /images/boat23-water.webp
+---
+
+<script src="{% include relative-src.html src='/js/3d/benderson3d.iife.js' %}" async data-container="#container"
+	data-canvas="#renderCanvas" data-resources="{% include relative-src.html src='/js/3d/' %}" data-fps="#fps"
+	data-animation="true" data-model="{% include relative-src.html src='/js/3d/boatanim.glb' %}"
+	data-environment="{% include relative-src.html src='/js/3d/environment.env' %}"></script>
+
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %}); max-width: 100vw">
+	<div class="inner-hero text-container">
+		<div class="hero-text-container">
+			<h1 class="editable">
+				2024: The Phoenix Returns
+			</h1>
+			<p class="subtext editable">
+				Boat Design and Techical Information
+			</p>
+		</div>
+	</div>
+	<div class="learn-more">
+		<a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a>
+	</div>
+</section>
+
+<div class="content container" style="font-size: 12pt; padding: 0 8%;">
+	<p>
+		<a href="{% include relative-src.html src='/history/' %}"
+			class="button font-bold btn btn-primary w-full right-chevron inverted after-ml" style="margin-top: 1em;">
+			Learn about past seasons
+		</a>
+	</p>
+	<section class="info" id="learn-more">
+		<h2>The Phoenix Returns</h2>
+		<p>
+			<a href='/{{ site.boats | where: "year", 2024 | map: "tdr_path" | first }}'
+				class="button btn btn-primary w-full">Detailed Technical Report &downarrow;</a>
+		</p>
+		<p>
+			{{ site.boats | where: "year", 2024 | map: "description1" | first }}
+		</p>
+
+		<p>
+			{{ site.boats | where: "year", 2024 | map: "description2" | first }}
+		</p>
+	</section>
+</div>
+
+
+<div class="relative boat-description-outer" id="container">
+	<div class="sticky inset-0 pointer-none h-screen">
+		<div class="w-full h-full">
+			<canvas class="w-full h-full" aria-hidden="true" id="renderCanvas" />
+		</div>
+	</div>
+	<div class="boat-description">
+		<div class="row" data-seconds="0.001">
+			<h3>Trimaran Design</h3>
+			<p>
+				The Phoenix takes advantage of a trimaran design to maximize stability and minimize water
+				plane area. This design significantly reduces water resistance and enhances speed and
+				maneuverability. At the 2023 RoboBoat competition, Phoenix demonstrated the exceptional
+				strength of this design by successfully navigating high winds - a challenge that other teams
+				were unable to meet. The Phoenix weighs 40 pounds, has a length of 56”, a beam (<i>width</i>) of 30”,
+				and has
+				an overall height of 26”. It can generate thrusts of more than 30 pounds.
+			</p>
+			<br />
+			<p>
+				Constructed from carbon fiber, Phoenix's hull combines robustness and reduced weight thanks
+				to this material's superior strength-to-weight ratio. The carbon fiber ensures increased
+				durability of the hull and contributes to the lighter overall design, boosting the vessel's
+				performance in various conditions.
+			</p>
+		</div>
+		<div class="row" data-seconds="0.001" data-highlight="Camera">
+			<h3>Camera</h3>
+			<p>
+				The Phoenix's camera provides the main input to the boat's autonomous capabilities. Using
+				the YOLOv8 computer vision algorithm, all competition elements are detected.
+			</p>
+		</div>
+		<div class="row" data-seconds="0.333" data-highlight="Velodyne">
+			<h3>LiDAR</h3>
+			<p>
+				The Velodyne Puck (previously known as VLP-16) provides the boat with a 3D map of its
+				surroundings. Using detection data from the camera, the LiDAR provides supplemental depth
+				data to determine objects' distance.
+			</p>
+		</div>
+		<div class="row" data-seconds="1.333" data-highlight="Brep.017,Brep.018">
+			<h3>GPS Antennas</h3>
+			<p>
+				Dual antennas enable the boat to ascertain its heading with remarkable sub-degree accuracy.
+				This precision reduces reliance on magnetic sensors, thereby mitigating any potential
+				inaccuracies or inconsistencies due to magnetic disturbances or anomalies in the
+				environment. This positions the vessel for superior navigation performance under a variety
+				of conditions.
+			</p>
+		</div>
+		<div class="row" data-seconds="2.333" data-highlight="Thruster Left,Thruster Right">
+			<h3>T500 Thrusters</h3>
+			<p>
+				Two Blue Robotics T500 Thrusters provide the Phoenix with powerful thrust. By placing the
+				thrusters below the hulls to allow clean water flow at the inlets, ventilation is avoided.
+			</p>
+		</div>
+		<div class="row" data-seconds="2.5" data-highlight="Brep.022">
+			<h3>Ubiquiti Rocket</h3>
+			<p>
+				A high-performance, high-range WiFi system allows high speed (around 500Mbps) communication
+				between the boat and shore.
+			</p>
+		</div>
+		<div class="row" data-seconds="4.833">
+			<h3>Electrical Box</h3>
+			<p>
+				Our vessel's electrical parts are housed in the electrical box. It is easily removable to
+				allow servicing outside the hull.
+			</p>
+		</div>
+		<div class="row" data-seconds="5.75" data-highlight="Battery">
+			<h3>6-cell Lithium Battery</h3>
+			<p>
+				A 22.2 Volt, 222 Watt-hour battery provides the boat with a powerful electricity source.
+			</p>
+		</div>
+		<div class="row" data-seconds="6.54" data-highlight="PCB">
+			<h3>Custom Printed Circuit Board</h3>
+			<p>
+				Motor control is provided by the team's custom PCB. This board is responsible for receiving
+				motor control signals from the computer and remote controller. It also acts as the remote
+				emergency stop by cutting power to motors if remote control signal is lost. To ensure safety
+				and reliability, its firmware is written in Rust, a low-level but memory safe language.
+			</p>
+		</div>
+		<div class="row" data-seconds="7.458" data-highlight="VN300_Rugged">
+			<h3>VN-300 GPS and IMU</h3>
+			<p>
+				The VN-300 provides inertial sensors, dual GPS receivers, and sophisticated Kalman filtering
+				algorithms. This combination provides extremely accurate estimates of the vessel's position,
+				velocity, and attitude. It ensures unmatched performance under both static and dynamic
+				conditions, providing high precision direction data for the vessel's navigation tasks.
+			</p>
+		</div>
+		<div class="row" data-seconds="8.2" data-highlight="mini computer">
+			<h3>Beelink SEi12</h3>
+			<p>
+				Featuring an Intel i5-12450H processor and 16GB RAM, this compact computer outperforms many
+				similar-sized alternatives. Despite its superior performance, it maintains impressive
+				efficiency with an idle power draw of just 5 Watts. The processor's integrated graphics
+				enhance computer vision tasks, delivering outstanding results. The computer is outfitted
+				with a 1 Terabyte drive to store data from competition runs.
+			</p>
+			<br>
+			<p>
+				A Docker-based software environment configured with ROS 1 Noetic ensures that the exact same software is
+				present when testing on a computer and on the boat—allowing team members to use their choice of Linux,
+				Windows, or macOS on their personal computers without differences. The team uses Git as our version
+				control
+				system. Most of the team's code is written in C++, with several Python scripts for small tasks.
+			</p>
+		</div>
+	</div>
+</div>
