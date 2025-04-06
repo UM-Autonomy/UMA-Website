@@ -6,6 +6,9 @@ roles:
   2025:
     leadership: Computer Vision Lead
     ai: Computer Vision Lead
+  2026:
+    leadership: Co-President
+    ai: Computer Vision Member
 image_path: /images/headshots/Sparsh_Bahadur.webp
 contact: mailto:sparshb@umich.edu
 contact_type: Email

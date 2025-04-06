@@ -5,6 +5,9 @@ roles:
     electrical: Electrical Member
   2025:
     electrical: Electrical Member
+  2026:
+    leadership: Electrical Lead
+    electrical: Electrical Lead
 image_path: /images/headshots/Colin.webp
 contact: mailto:ccrespo@umich.edu
 contact_type: Email

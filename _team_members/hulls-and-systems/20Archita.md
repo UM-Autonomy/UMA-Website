@@ -7,6 +7,9 @@ roles:
   2025:
     leadership: Mechanical Lead
     act: Mechanical Lead
+  2026:
+    leadership: Mechanical Lead
+    hulls-and-systems: Mechanical Lead
 image_path: /images/headshots/Archita.webp
 contact: mailto:architas@umich.edu
 contact_type: Email
