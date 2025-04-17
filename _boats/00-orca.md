@@ -2,12 +2,12 @@
 year: 2025
 name: Orca
 page: true
-image_path: ../images/boat23-water.webp
+image_path: ../images/placeholdercroppedorca2025.webp
 tdr_path: ../technical_design_report/orca.pdf
-competition_path: ../roboboat/
-team_path: ../team/
+competition_path: ../roboboat/2025
+team_path: ../team/2025
 video_path: https://www.youtube.com/watch?v=0z6G2oO8Qlk
-description1: "At the 2024 RoboBoat Competition, The
+description1: "FIX At the 2024 RoboBoat Competition, The
 Phoenix sets sail once more—emerging stronger
 from the trials and tribulations of its past,
 UM::Autonomy’s 2024 vessel focuses on
