@@ -79,6 +79,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bigdecimal
   jekyll
   jekyll-archives (= 2.1.1)
   jekyll-feed
