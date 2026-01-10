@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: AI Lead
     ai: AI Lead
-image_path: /images/headshots/Jack_Bacarra_TP.webp
+image_path: /images/headshots/JackBacerra.webp
 g_year: Winter 2027
 ---

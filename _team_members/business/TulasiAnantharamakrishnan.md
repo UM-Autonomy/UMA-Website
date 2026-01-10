@@ -7,6 +7,6 @@ roles:
   2026:
     leadership: Business Lead
     business: Business Lead
-image_path: /images/headshots/Tulasi_Anantharamakrishnan_B.webp
+image_path: /images/headshots/TulasiAnantharamakrishnan.webp
 g_year: Winter 2027
 ---

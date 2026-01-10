@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: Advanced Capabilities Lead
     act: Advanced Capabilities Lead
-image_path: /images/headshots/Arianna_Ponce_ME.webp
+image_path: /images/headshots/AriannaPonce.webp
 g_year: Winter 2028
 ---

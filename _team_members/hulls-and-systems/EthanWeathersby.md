@@ -5,6 +5,6 @@ roles:
     hulls-and-systems: Member
   2026:
     hulls-and-systems: Member
-image_path: /images/headshots/Ethan_Weathersby_ME.webp
+image_path: /images/headshots/EthanWeathersby.webp
 g_year: Winter 2027
 ---

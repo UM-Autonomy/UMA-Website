@@ -7,6 +7,6 @@ roles:
   2026:
     leadership: Co-President
     hulls-and-systems: Mechanical Member
-image_path: /images/headshots/Alice_Ivanitskiy_ME.webp
+image_path: /images/headshots/AliceIvanitskiy.webp
 g_year: Winter 2026
 ---

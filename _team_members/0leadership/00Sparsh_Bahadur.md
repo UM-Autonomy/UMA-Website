@@ -9,7 +9,7 @@ roles:
   2026:
     leadership: Co-President
     ai: Computer Vision Member
-image_path: /images/headshots/Sparsh_Bahadur.webp
+image_path: /images/headshots/SparshBahadur.webp
 contact: mailto:sparshb@umich.edu
 contact_type: Email
 g_year: Winter 2026
