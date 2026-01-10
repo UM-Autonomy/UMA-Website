@@ -4,7 +4,8 @@ roles:
   2025:
     hulls-and-systems: Member
   2026:
-    hulls-and-systems: Member
+    leadership: Chief Naval Architect
+    hulls-and-systems: Chief Naval Architect
 image_path: /images/headshots/NatalieMiesak.webp
 g_year: Winter 2027
 ---
