@@ -32,7 +32,7 @@ At the 2026 RoboBoat Competition, The Orca sets sail once more, emerging stronge
 # to guarantee success."
 
 description2: "
-Building on 2025’s mechanical foundation, the 2026 strategy targets optimization and intelligent autonomy. Through custom PCBs and generative AI, the team has shifted from prototyping to refinement, relying on a matured simulation workflow to rigorously validate complex behaviors before physical deployment. "
+Building on 2025’s mechanical foundation, the 2026 strategy targets optimization and intelligent autonomy. Through custom PCBs and AI-driven perception and autonomy, the team has shifted from prototyping to refinement, relying on a matured simulation workflow to rigorously validate complex behaviors before physical deployment. "
 
 
 ---

@@ -24,7 +24,7 @@ image: /images/roboboat/main.jpg
       <small>Photo from <a href="{% include relative-src.html src='/roboboat/2023/' %}">RoboBoat 2023: Ocean
           Exploration</a></small>
 
-      <h2>RoboBoat 2025: Guardians of the Waters</h2>
+      <h2>RoboBoat 2026: Storm Response</h2>
       <h3>Nathan Benderson Park</h3>
       <p>Sarasota, Florida</p>
       <p>
@@ -102,15 +102,15 @@ image: /images/roboboat/main.jpg
       </li>
     </ul>
     <p>
-      UM::Autonomy is proud to have been one of the first three teams to pass the safety inspection at the 2023
-      competition. We have continued this spirit throughout the 2023-2024 year: safety is considered highly
+      UM::Autonomy is proud to have been one of the first three teams to pass the safety inspection at the 2025
+      competition. We have continued this spirit throughout the 2025-2026 year: safety is considered highly
       in all situations, from battery and testing site training to ensuring the vessel is safe at all times.
     </p>
     <h4>Boat Thrust-to-Weight Ratio</h4>
     <p>
       The competition rewards fast and light craft. Therefore, a sliding scale is used where points
       are lost faster the heavier it gets. The boat is weighed and its thrust is measured every day
-      it is entered in the water. <i>The Phoenix</i> weighs 40 pounds, the lightest weight
+      it is entered in the water. The Orca 2.0 weighs 40 pounds, the lightest weight
       class.
     </p>
   </section>
@@ -163,10 +163,10 @@ image: /images/roboboat/main.jpg
 
   <section class="row" data-location="307.7, 0, -375.6" data-radius="15" data-alpha="3.14" data-beta="0.938"
     data-speed="0.1">
-    <h3 id="navigation-channel">Navigation Channel</h3>
+    <h3 id="navigation-channel">Evacuation Route & Return</h3>
     <img width="789" height="560"
-      src="{% include relative-src.html src='/images/roboboat/challenges/navigationChannel.png' %}"
-      alt="Navigation Channel Diagram" />
+      src="{% include relative-src.html src='/images/roboboat/2025/challenges/entryexitgates.png' %}"
+      alt="Entry & Exit Gates Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
@@ -179,11 +179,10 @@ image: /images/roboboat/main.jpg
       <dd>
         As it is mandatory, this challenge is of high importance. In 2019, the boat could only
         successfully pass the navigation channel once out of four qualification runs as a result of
-        a major electrical failure onboard. In 2023, it was completed with high success due to our extensive testing in
+        a major electrical failure onboard. In 2025, it was completed with high success due to our extensive testing in
         water and in simulation.
-        However, additional
-        tuning was needed upon arrival to the competition site as the boat's computer vision system
-        would occasionally fail to detect a buoy.
+        However, additional tuning was needed upon arrival to the competition site as the boat's computer vision system
+        would occasionally fail to detect a buoy and the gps calibration sometimes failed.
       </dd>
       <dt>Goal</dt>
       <dd>14 out of 15 successful runs</dd>
@@ -199,30 +198,25 @@ image: /images/roboboat/main.jpg
   <hr />
 
   <section class="row" data-location="319.3, 0, -381.9" data-radius="25" data-beta="0.938" data-speed="0.1">
-    <h3 id="follow-the-path">Follow the Path</h3>
+    <h3 id="follow-the-path">Debris Clearance</h3>
     <img width="657" height="314"
-      src="{% include relative-src.html src='/images/roboboat/challenges/magellans_route.png' %}"
-      alt="Follow the Path Diagram" />
+      src="{% include relative-src.html src='/images/roboboat/2025/challenges/navchallenge.png' %}"
+      alt="Navigation Channel Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        The ASV passes through between multiple sets of gates (pairs of red and green buoys) The ASV
-        also avoids intermittent yellow and black buoys of various
-        sizes and counts them.
+        The ASV must sense and maneuver through the channel, staying within the defined pathway, and avoiding contact with obstacles along the way. 
+        The ASV enters the debris field and scans for floating debris hazards.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
-        The challenge requires minimal external hardware or software development and mainly just
-        involves careful navigational operability and fine motor control. This challenge should be
-        tested and fine-tuned early in the development process.
-
-        <p>
-          In 2023, we found that this challenge revealed some disadvantages of our indoors testing area. Specifically,
-          our
-          obstacle-avoidance system decided that the best way to avoid hitting buoys was to go outside
-          of the red-green channel! While technically following our instructions, it didn't score many
-          points. We have since revised our navigation algorithm to take this restriction into account.
+        To complete the Navigation Channel task, Task Planning identifies red and green buoys in the path. 
+        These are then used to create a spline interpolation of the path, which builds a curve of the path layout based on points on the curve denoted by red and green buoys. 
+        This spline algorithm then creates waypoints in a curve, and remembers these for the end of the task. 
+        Each waypoint is then sent to Navigation, which uses an A* algorithm to generate an optimal path from the vessel's current location. 
+        This algorithm accounts for the vessel's dynamics and places high-cost zones on either side of the gates to ensure it travels between the buoys. 
+        As a result, the vessel receives reliable, accurate routes to follow.
         </p>
       </dd>
       <dt>Goal</dt>
@@ -238,8 +232,8 @@ image: /images/roboboat/main.jpg
   <hr />
 
   <section class="row" data-location="311.08, 0, -387.039" data-radius="15" data-beta="0.938" data-speed="0.1">
-    <h3 id="speed-challenge">Speed Challenge</h3>
-    <img width="999" height="717" src="{% include relative-src.html src='/images/roboboat/challenges/speed.png' %}"
+    <h3 id="speed-challenge">Emergency Response Sprint</h3>
+    <img width="999" height="717" src="{% include relative-src.html src='/images/roboboat/2025/challenges/speedchallenge.png' %}"
       alt="Speed Challenge Diagram" />
     <dl>
       <dt>Description</dt>
@@ -251,15 +245,9 @@ image: /images/roboboat/main.jpg
 
       <dt>Analysis</dt>
       <dd>
-        Based on the 2023 score sheet, teams that completed this challenge did so in 50, 75, and 100 seconds. This is
-        significantly higher than the 2019 score
-        sheet which revealed that a time between 25-45s is needed to remain competitive, with the fastest 2019 run
-        coming in at 27 seconds. Nevertheless, we plan to beat the 2023 times and remain competitive with those that
-        competed in 2019.
-
-        <p>This year introduces an obstacle buoy. We do not expect a challenge with this because our navigation
-          algorithm is already very familiar with avoiding buoys, and we do not expect to even need any code changes.
-        </p>
+        The vessel notes in other tasks the location of the speed light buoy or the starting red and green buoys, and uses these to get to the beginning of this task. 
+        The vessel will then move forward until it sees the location and color of the light buoy, and then preempts the forward movement and either uses waypoints to 
+        circle left if it sees a green light beacon, or right if it sees a red light beacon. The vessel uses the navigation and controls algorithm to avoid any black buoy debris.
       </dd>
       <dt>Goal</dt>
       <dd>
@@ -278,22 +266,22 @@ image: /images/roboboat/main.jpg
 
   <section class="row" data-location="313.619, 0, -398.136" data-radius="12" data-beta="1.32" data-alpha="1.38"
     data-speed="0">
-    <h3 id="docking">Docking</h3>
-    <img width="660" height="381" src="{% include relative-src.html src='/images/roboboat/challenges/docking.png' %}"
+    <h3 id="docking">Navigate the Marina</h3>
+    <img width="660" height="381" src="{% include relative-src.html src='/images/roboboat/2025/challenges/docking.png' %}"
       alt="Docking Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        Before the time slot starts, teams are assigned a color and must dock at the bay with the
-        matching color. To dock, contact must simply be made with the dock.
+        The ASV must enter the marina and dock in an available slip (indicated by green color indicator). 
+        Each dock slip has a number sign: 1-3. 
+        The ASV must dock in the most desirable open dock, indicated by the lowest number available.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
         This challenge is a bit more involved in terms of computer and color/shape recognition but
-        does not require external hardware development. We plan to train our computer vision model on color only, as it
-        was all but guaranteed that each poster will be a unique color. We had success with this strategy in 2023, and
-        plan to do it again.
+        does not require external hardware development. We plan to train our computer vision model to detect the right numbers and colors, 
+        as well as take other boats into account. We had success with this strategy in 2025, and plan to do it again.
       </dd>
       <dt>Goal</dt>
       <dd>9 out of 10 successful runs</dd>
@@ -313,23 +301,28 @@ image: /images/roboboat/main.jpg
 
 
   <section class="row" data-location="312.9, 0, -401" data-radius="7" data-beta="1.38" data-alpha="2.59" data-speed="0">
-    <h3 id="duck-wash">Duck Wash</h3>
-    <img width="591" height="348" src="{% include relative-src.html src='/images/roboboat/challenges/duck_wash.png' %}"
-      alt="Duck Wash Diagram" />
+    <h3 id="duck-wash">Harbor Alert</h3>
+    <img width="591" height="348" src="{% include relative-src.html src='/images/roboboat/2025/challenges/hornblast.png' %}"
+      alt="Harbor Alert Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        The ASV detects the target duck poster and shoots water on it for 5 seconds continuously. The ASV may pump the
-        water from
-        the environment or store it on board.
+        The Harbor Alert task simulates an emergency maritime command-and-control, testing the ability of autonomous systems to detect, 
+        interpret and act on real-time dynamic cues that override other mission objectives, mirroring emergency maritime operations. 
+        The ASV detects an audible signal and immediately abandons current task.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
-        This task follows a similar task from last year, also involving water blasts. However, the task is simplified
-        this year as the target area is far bigger. We think that it will not be difficult to achieve this task,
-        although we may run into issues with spacing: we had hoped to simply push into the dock to keep us in place, but
-        that may interfere with our water blast depending on its mounting position.
+        The vessel will constantly listen for the harbor sound and will abandon the task it is on, saving state such as location and current progress. 
+        To process the audio signal, we first apply the Hanning window to the audio stream. 
+        This prepares the data to get passed through the Discrete Fourier Transform, after which we have a spectrum of frequencies and their magnitude. 
+        We check whether the designated frequency of 600, 800, or 1000 Hz is in this spectrum and at a large enough magnitude. 
+        If so, we start tracking the length of time that this frequency persists for. 
+        If this matches either of the signal patterns, this gets sent to Task Planning. 
+        Task Planning will proceed to stop the current task, making note of location and task progress at this point, 
+        and set course towards the location corresponding to the signal pattern. 
+
       </dd>
       <dt>Goal</dt>
       <dd>3 out of 5 successful runs</dd>
@@ -350,65 +343,36 @@ image: /images/roboboat/main.jpg
 
   <section class="row" data-location="303.6, 0, -388.7" data-radius="9" data-beta="0.938" data-alpha="3.14"
     data-speed="0.1">
-    <h3 id="delivery-octagon">Delivery Octagon</h3>
+    <h3 id="delivery-octagon">Supply Drop</h3>
     <img width="530" height="313"
-      src="{% include relative-src.html src='/images/roboboat/challenges/delivery_octagon.png' %}"
-      alt="Delivery Octagon Diagram" />
+      src="{% include relative-src.html src='/images/roboboat/2025/challenges/objectdelivery.avif' %}"
+      alt="Object Delivery Diagram" />
     <dl>
       <dt>Description</dt>
       <dd>
-        The ASV detects the different posters around the center and delivers ducks and "beavers" (racquetballs) to
-        various areas. A set number of racquetballs are provided as preload so that the ASV may complete this challenge
-        without collecting additional objects.
+        The ASV detects up to three (3) yellow boats that are anchored throughout the course with a black triangle shape fixed to both sides of the boat. 
+        The ASV locates the boats and delivers/shoots water at the black triangle shape. 
+        The ASV should strike (with a steady and visible stream of water) the black triangle shape for at least 3 seconds. 
+        <br>
+        The ASV detects up to three (3) black boats that are anchored throughout the course, with a black plus-shape fixed to both sides of the boat.  
+        The ASV locates the black vessels and delivers a racquetball to the vessel, either striking the plus sign or inside of the vessel hull; 
+        or simply dropping the ball into the hull of the vessel is acceptable.
       </dd>
 
       <dt>Analysis</dt>
       <dd>
         We expect this challenge to be somewhat difficult, although we still plan to complete it. We are designing a
-        simple mechanism to deliver the preloaded balls to this challenge. We expect a challenge in detecting the
-        specific areas to deliver balls to.
+        simple mechanism to deliver the preloaded balls and water to this challenge throughout the course and during tasks. 
+        We expect a challenge in detecting the specific areas to deliver balls to.
       </dd>
       <dt>Goal</dt>
-      <dd>2/5 successful deliveries</dd>
+      <dd>2/6 successful deliveries</dd>
     </dl>
   </section>
   <div class="can">
     <div class="img" id="render-delivery-octagon">
       <img loading="lazy" decoding="async"
         src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-delivery-octagon.webp' %}" alt="" />
-    </div>
-  </div>
-  <div>
-    <hr />
-    <h2>Not Attempted Challenges</h2>
-  </div>
-
-  <section class="row" data-location="303.6, 0, -394" data-radius="9" data-beta="0.938" data-speed="0.1">
-    <h3 id="collection-octagon">Collection Octagon</h3>
-    <img width="529" height="231"
-      src="{% include relative-src.html src='/images/roboboat/challenges/collection_octagon.png' %}"
-      alt="Collection Octagon Diagram" />
-    <dl>
-      <dt>Description</dt>
-      <dd>
-        The ASV detects the triangular posters which designates the area to collect raquetballs and ducks from. The ASV
-        may then use them as extra objects to deliver to the Delivery Octagon.
-      </dd>
-
-      <dt>Analysis</dt>
-      <dd>
-        UM::Autonomy decided that the mechanisms to grab and retrieve objects will be extremely difficult to produce. As
-        such, we decided to put this challenge off. After the competition, we may work on this challenge more in case it
-        appears again in 2025.
-      </dd>
-      <dt>Goal</dt>
-      <dd>N/A</dd>
-    </dl>
-  </section>
-  <div class="can">
-    <div class="img" id="render-collection-octagon">
-      <img loading="lazy" decoding="async"
-        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-collection-octagon.webp' %}" alt="" />
     </div>
   </div>
 
@@ -426,7 +390,7 @@ image: /images/roboboat/main.jpg
     <div class="container flex">
       <div class="text">
         <h1>Competition Results</h1>
-        <p>UM::Autonomy placed <b>4th</b> in Autonomy, and <b>1st</b> among American Universities.</p>
+        <p>UM::Autonomy placed 4th in Autonomy, and 1st among American Universities.</p>
       </div>
     </div>
   </section>
@@ -438,11 +402,7 @@ image: /images/roboboat/main.jpg
     <div>
       <h2>Static Judging</h2>
       <p>
-        UM::Autonomy placed <b>1st</b> in <a
-          href="{% include relative-src.html src='/technical_design_report/orca.pdf' %}" target="_blank">the
-          technical report</a>, <b>5th</b> in
-        <a href="https://www.youtube.com/watch?v=0z6G2oO8Qlk" target="_blank" rel="noopener">the video</a>, and
-        <b>1st</b> in the presentation for an overall <b>1st</b> place in design
+        UM::Autonomy placed overall 2nd place in design
         documentation.
       </p>
     </div>
@@ -463,7 +423,7 @@ image: /images/roboboat/main.jpg
     <div>
       <h2>The Team</h2>
       <p>
-        The team feels very confident for the 2025 season. Many new members attended competition for
+        The team feels very confident for the 2026 season. Many new members attended competition for
         the first time, creating an exciting environment where many members are familiar with
         competition practices allowing us to achieve further success in future years.
       </p>
