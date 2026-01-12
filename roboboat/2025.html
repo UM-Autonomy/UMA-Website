@@ -31,21 +31,30 @@ image: /images/roboboat/main.jpg
         <a href="https://robonation.org/programs/roboboat/" target="_blank">RoboNation RoboBoat</a> is an international
         competition
         where students design, build, and compete with
-        self-driving robotic boats, in a series of tests aimed at challenging teams through a
-        variety autonomous (self-driving) tasks. We will be joined by 27 other teams from 4 continents.
+        autonomous surface vessels, in a series of tests aimed at challenging teams through a
+        variety of autonomous (self-driving) tasks. We will be joined by 27 other teams from 4 continents.
       </p>
     </div>
     <h3 id="competition-strategy">Competition Strategy</h3>
     <div class="my-4">
-      <p>
-        Due to the short build cycle this year—just 5 months from competition details to competition—we decided to reuse
+        <!-- Due to the short build cycle this year—just 5 months from competition details to competition—we decided to reuse
         our <a href="{% include relative-src.html src='/history/2024/' %}">2023 hull, <i>The Phoenix</i>, albeit with
           major structural improvements</a>. We focused on simplicity in design
         and workflow in order to further ensure a reliable, maintainable, and modular system. Understanding the tighter
         time constraints of this season, we put a greater emphasis was placed on design validation and in-water
         testing, which was facilitated by maintaining an operable vessel and reducing design complexity from last year.
         We moved to testing strategy that relocated the team permanently into its testing environment, made testing a
-        weekly process from the start of the season, and allowed for multiple modes of testing to guarantee success.
+        weekly process from the start of the season, and allowed for multiple modes of testing to guarantee success. -->
+      <p>
+        Following the success of our previous 2-year design cycle with the Phoenix, we continued this strategy with the
+        <a href="{% include relative-src.html src='/history/2025/' %}">Orca hull</a>. This year marks the second iteration of
+        the Orca, incorporating targeted improvements to enhance stability, increase internal capacity, and improve propulsion
+        efficiency based on competition data and performance analysis from last year.
+      </p>
+      <p>
+        Building upon a proven hull geometry allowed our mechanical team to implement refinements with greater confidence, while our AI team advanced software capabilities and system reliability in parallel. We improved our computer vision pipeline, developed smarter onboard memory systems to address last year's navigation challenges, and upgraded our path planning algorithms for smoother, more efficient paths. The electrical team streamlined our systems with custom PCB designs to reduce complexity and improve maintainability.
+      <p>
+        Understanding that competition success comes from tested and reliable systems, we emphasized thorough validation from the start. Our simulator with realistic wave dynamics allowed continuous parallel development, while monthly in-water testing sessions ensured our improvements worked in real conditions. This measured, iterative approach reflects our commitment to building consistently reliable and competitive vessels.
       </p>
     </div>
     <p class="center-text only-tall-screens" style="margin-top: 5vh;">Scroll down for more details &downarrow;</p>
@@ -110,7 +119,7 @@ image: /images/roboboat/main.jpg
     <p>
       The competition rewards fast and light craft. Therefore, a sliding scale is used where points
       are lost faster the heavier it gets. The boat is weighed and its thrust is measured every day
-      it is entered in the water. The Orca 2.0 weighs 40 pounds, the lightest weight
+      it is entered in the water. The Orca 2.0 weighs 50 pounds, the lightest weight
       class.
     </p>
   </section>
@@ -281,7 +290,7 @@ image: /images/roboboat/main.jpg
       <dd>
         This challenge is a bit more involved in terms of computer and color/shape recognition but
         does not require external hardware development. We plan to train our computer vision model to detect the right numbers and colors, 
-        as well as take other boats into account. We had success with this strategy in 2025, and plan to do it again.
+        as well as take other boats into account.
       </dd>
       <dt>Goal</dt>
       <dd>9 out of 10 successful runs</dd>
