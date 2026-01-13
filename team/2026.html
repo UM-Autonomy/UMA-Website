@@ -1,0 +1,62 @@
+---
+title: The Team
+description: Get to know the UMA team members!
+image: /images/teampic24.webp
+---
+
+
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
+	<div class="inner-hero text-container">
+		<div class="hero-text-container">
+			<h1 class="editable">The Team</h1>
+			<p class="subtext editable">Get to know our talented members from 2025-26!</p>
+		</div>
+	</div>
+</section>
+
+{% for team in site.teams %}
+{% assign modidx = forloop.index | modulo: 2 %}
+<section class="pad lg:flex items-start px-8 xl:px-16 print:p-0 {% if modidx == 1 %} text-blue{% else %} bg-blue text-maize{% endif %}">
+	<div class="lg:sticky lg:w-[35%] top-[75px] flex-shrink-0 break-inside-avoid teams-content">
+		{{team.content}}
+	</div>
+	<div class="flex-grow">
+		<ul class="staff">
+			{% for person in site.team_members %}
+			{% if person.roles[2026][team.name] %}
+			
+			<li class="break-inside-avoid">
+				<img class="square-image team-image p-1 {% if modidx == 1 %}bg-blue{% else %}bg-maize{% endif %}" src="{% include relative-src.html src=person.image_path %}"
+					alt="{{ person.name }}">
+				<div class="name">{{ person.name }}</div>
+				<div class="position">{{ person.roles[2026][team.name] }}</div>
+				<div class="link">
+					<a href="{{ person.contact }}" target="_blank">
+						{{ person.contact_type }}
+					</a>
+				</div>
+				{% if person.g_year %}
+				<div class="g_year">Graduating {{ person.g_year }} </div>
+				{% endif %}
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+{% endfor %}
+
+
+<style type="text/tailwindcss">
+	.teams-content h2 {
+		@apply text-5xl font-black uppercase lg:text-right mb-4;
+		font-family: "Inter", "Open Sans", "Lato", sans-serif;
+	}
+	.teams-content h3 {
+		@apply text-2xl font-semibold mt-3 mb-1;
+		font-family: "Inter", "Open Sans", "Lato", sans-serif;
+	}
+	.teams-content p {
+		@apply mb-3 md:text-justify;
+	}
+</style>

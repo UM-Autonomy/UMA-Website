@@ -1,11 +1,11 @@
 ---
-year: 2025
+year: 2026
 name: Orca
 page: true
 image_path: ../images/placeholdercroppedorca2025.webp
 tdr_path: ../technical_design_report/orca.pdf
-competition_path: ../roboboat/2025
-team_path: ../team/2025
+competition_path: ../roboboat/2026
+team_path: ../team/2026
 video_path: https://www.youtube.com/watch?v=0z6G2oO8Qlk
 # 
 # description1: "FIX At the 2024 RoboBoat Competition, The
@@ -36,5 +36,4 @@ Building on 2025’s mechanical foundation, the 2026 strategy targets optimizati
 
 
 ---
-
 

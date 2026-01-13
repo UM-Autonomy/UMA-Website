@@ -1,0 +1,479 @@
+---
+title: RoboBoat 2026
+description: Competition strategy and team progress
+image: /images/roboboat/main.jpg
+---
+
+<script src="{% include relative-src.html src='/js/3d/benderson3d.iife.js' %}" async data-container="#container"
+  data-canvas="#renderCanvas" data-resources="{% include relative-src.html src='/js/3d/' %}" data-fps="#fps"
+  data-model="{% include relative-src.html src='/js/3d/2024.glb' %}"
+  data-environment="{% include relative-src.html src='/js/3d/environment.env' %}"></script>
+<link href="{% include relative-src.html src='/css/roboboat.css' %}" rel="stylesheet" />
+<!-- <link href="{% include relative-src.html src='/js/3d/2024.glb' %}" rel="preload" as="fetch" crossorigin /> -->
+<!-- <link href="{% include relative-src.html src='/js/3d/meshopt_decoder.js' %}" rel="preload" as="script" /> -->
+
+<div class="header-padding"></div>
+
+<div class="outer" id="container">
+  <section class="row" data-location="266, 3, -510" data-radius="200" data-alpha="-1.15" data-beta="0.966"
+    data-speed="0.3">
+    <div class="park-info">
+      <div id="allteams" class="escape-margin img-blur">
+        <img width="4756" height="1263" src="{% include relative-src.html src='/images/roboboat/2023/allteams.webp' %}">
+      </div>
+      <small>Photo from <a href="{% include relative-src.html src='/roboboat/2023/' %}">RoboBoat 2023: Ocean
+          Exploration</a></small>
+
+      <h2>RoboBoat 2026: Storm Response</h2>
+      <h3>Nathan Benderson Park</h3>
+      <p>Sarasota, Florida</p>
+      <p>
+        <a href="https://robonation.org/programs/roboboat/" target="_blank">RoboNation RoboBoat</a> is an international
+        competition
+        where students design, build, and compete with
+        autonomous surface vessels, in a series of tests aimed at challenging teams through a
+        variety of autonomous (self-driving) tasks. We will be joined by 27 other teams from 4 continents.
+      </p>
+    </div>
+    <h3 id="competition-strategy">Competition Strategy</h3>
+    <div class="my-4">
+        <!-- Due to the short build cycle this year—just 5 months from competition details to competition—we decided to reuse
+        our <a href="{% include relative-src.html src='/history/2024/' %}">2023 hull, <i>The Phoenix</i>, albeit with
+          major structural improvements</a>. We focused on simplicity in design
+        and workflow in order to further ensure a reliable, maintainable, and modular system. Understanding the tighter
+        time constraints of this season, we put a greater emphasis was placed on design validation and in-water
+        testing, which was facilitated by maintaining an operable vessel and reducing design complexity from last year.
+        We moved to testing strategy that relocated the team permanently into its testing environment, made testing a
+        weekly process from the start of the season, and allowed for multiple modes of testing to guarantee success. -->
+      <p>
+        Following the success of our previous 2-year design cycle with the Phoenix, we continued this strategy with the
+        <a href="{% include relative-src.html src='/history/2025/' %}">Orca hull</a>. This year marks the second iteration of
+        the Orca, incorporating targeted improvements to enhance stability, increase internal capacity, and improve propulsion
+        efficiency based on competition data and performance analysis from last year.
+      </p>
+      <p>
+        Building upon a proven hull geometry allowed our mechanical team to implement refinements with greater confidence, while our AI team advanced software capabilities and system reliability in parallel. We improved our computer vision pipeline, developed smarter onboard memory systems to address last year's navigation challenges, and upgraded our path planning algorithms for smoother, more efficient paths. The electrical team streamlined our systems with custom PCB designs to reduce complexity and improve maintainability.
+      <p>
+        Understanding that competition success comes from tested and reliable systems, we emphasized thorough validation from the start. Our simulator with realistic wave dynamics allowed continuous parallel development, while monthly in-water testing sessions ensured our improvements worked in real conditions. This measured, iterative approach reflects our commitment to building consistently reliable and competitive vessels.
+      </p>
+    </div>
+    <p class="center-text only-tall-screens" style="margin-top: 5vh;">Scroll down for more details &downarrow;</p>
+  </section>
+  <div class="can">
+    <div class="render">
+      <canvas id="renderCanvas" aria-hidden="true" />
+      <!-- <div id="fps" bind:this={fps}>0</div> -->
+    </div>
+    <div class="img" id="render-competition-strategy">
+      <img src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-competition-strategy.webp' %}" alt="" />
+    </div>
+  </div>
+  <div></div>
+
+  <section class="row" data-location="302, 0, -385" data-radius="137.56" data-beta="1.46" data-speed="0.2">
+    <h3 id="static-judging-criteria">Static Judging Criteria</h3>
+    <p>
+      Besides a team's performance autonomously, we are judged on aspects of both our team and the
+      boat.
+    </p>
+    <h4>Design Documentation</h4>
+    <p>
+      The team must prepare a website, <a
+        href="{% include relative-src.html src='/technical_design_report/orca.pdf' %}" target="_blank">a
+        technical
+        design report</a>, and
+      <a href="https://www.youtube.com/watch?v=0z6G2oO8Qlk" target="_blank" rel="noopener">a video</a> for judges to
+      score. These are evaluated based on how well they introduce the team and its structure
+      as well as design considerations of the boat.
+    </p>
+    <h4>Presentation</h4>
+    <p>
+      The team must present to the judges live their decisions leading to the design of the boat.
+    </p>
+    <h3>Other Judging Criteria</h3>
+    <p>
+      Before the boat can participate in an autonomous challenge, several prerequisite activites
+      must be completed.
+    </p>
+    <h4>Static Safety Inspection</h4>
+    <p>
+      As the boats are very high powered, a runaway boat could damage itself and hurt others.
+      Therefore, competition staff ensure that the boat follows several safety rules:
+    </p>
+    <ul>
+      <li>The boat stops when a physical red button is pressed on the boat</li>
+      <li>
+        The boat stops when a remote switch is flipped, or the remote switch loses power or
+        connection
+      </li>
+      <li>
+        The boat does not have any sharp edges so that people in the water can touch the boat safely
+      </li>
+    </ul>
+    <p>
+      UM::Autonomy is proud to have been one of the first three teams to pass the safety inspection at the 2025
+      competition. We have continued this spirit throughout the 2025-2026 year: safety is considered highly
+      in all situations, from battery and testing site training to ensuring the vessel is safe at all times.
+    </p>
+    <h4>Boat Thrust-to-Weight Ratio</h4>
+    <p>
+      The competition rewards fast and light craft. Therefore, a sliding scale is used where points
+      are lost faster the heavier it gets. The boat is weighed and its thrust is measured every day
+      it is entered in the water. The Orca 2.0 weighs 50 pounds, the lightest weight
+      class.
+    </p>
+  </section>
+  <div class="can">
+    <div class="img" id="render-static-judging-criteria">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-static-judging-criteria.webp' %}" alt="" />
+    </div>
+  </div>
+  <div></div>
+
+  <section class="row" data-location="302, 0, -385" data-radius="30" data-beta="1.2" data-speed="0.2">
+    <h3 id="autonomy-challenge">Autonomy Challenge</h3>
+    <p>
+      The main part of the challenge is the tasks that the vessel must perform autonomously. However, we must first
+      qualify before we perform autonomous operation on the full course.
+    </p>
+    <h4>Qualification</h4>
+    <p>Teams will be given opportunities to practice, display their capabilities, and earn their spot in the final
+      round. They will have access to three duplicate courses, each containing the eight tasks. Throughout this time,
+      teams can choose to test strategies, gather data, or qualify for tasks. A certain level of completion—"minimum
+      performance criteria"—is required to complete a task. Once a team has qualified for enough tasks, they enter the
+      Semi-Final rounds.</p>
+
+    <h4>Semi-Finals</h4>
+    <p>Teams must score some number of points in Semi-Finals rounds to progress to Finals.
+    </p>
+
+    <h4>Finals</h4>
+    <p>
+      Teams who have successfully qualified will have access to the finals courses. Importantly, each vessel must
+      operate autonomously for the entire duration of the run; remote-controlled survey runs are not allowed. This means
+      teams cannot manually control their vessels to gather data or assess the field before or during their time slot,
+      emphasizing the critical importance of pre-run preparation and programming accuracy. They will be required to
+      navigate through initial gates, attempt a series of tasks in their chosen sequence, and finally return to the home
+      base to conclude the run. All teams making it to the final round will secure a higher final ranking over those who
+      do not reach this stage of the competition.
+    </p>
+
+  </section>
+  <div class="can">
+    <div class="img" id="render-autonomy-challenge">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-autonomy-challenge.webp' %}" alt="" />
+    </div>
+  </div>
+  <div>
+    <h2>High Priority Challenges</h2>
+  </div>
+
+  <section class="row" data-location="307.7, 0, -375.6" data-radius="15" data-alpha="3.14" data-beta="0.938"
+    data-speed="0.1">
+    <h3 id="navigation-channel">Evacuation Route & Return</h3>
+    <img width="789" height="560"
+      src="{% include relative-src.html src='/images/roboboat/2025/challenges/entryexitgates.png' %}"
+      alt="Entry & Exit Gates Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        This challenge is mandatory before attempting other tasks. The ASV needs to pass through two
+        sets of gates (a pair of red and green buoys) and starts autonomous navigation at a minimum
+        of 6 ft before the set of gates.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        As it is mandatory, this challenge is of high importance. In 2019, the boat could only
+        successfully pass the navigation channel once out of four qualification runs as a result of
+        a major electrical failure onboard. In 2025, it was completed with high success due to our extensive testing in
+        water and in simulation.
+        However, additional tuning was needed upon arrival to the competition site as the boat's computer vision system
+        would occasionally fail to detect a buoy and the gps calibration sometimes failed.
+      </dd>
+      <dt>Goal</dt>
+      <dd>14 out of 15 successful runs</dd>
+    </dl>
+  </section>
+  <div class="can">
+    <div class="img" id="render-navigation-channel">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-navigation-channel.webp' %}" alt="" />
+    </div>
+  </div>
+
+  <hr />
+
+  <section class="row" data-location="319.3, 0, -381.9" data-radius="25" data-beta="0.938" data-speed="0.1">
+    <h3 id="follow-the-path">Debris Clearance</h3>
+    <img width="657" height="314"
+      src="{% include relative-src.html src='/images/roboboat/2025/challenges/navchallenge.png' %}"
+      alt="Navigation Channel Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        The ASV must sense and maneuver through the channel, staying within the defined pathway, and avoiding contact with obstacles along the way. 
+        The ASV enters the debris field and scans for floating debris hazards.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        To complete the Navigation Channel task, Task Planning identifies red and green buoys in the path. 
+        These are then used to create a spline interpolation of the path, which builds a curve of the path layout based on points on the curve denoted by red and green buoys. 
+        This spline algorithm then creates waypoints in a curve, and remembers these for the end of the task. 
+        Each waypoint is then sent to Navigation, which uses an A* algorithm to generate an optimal path from the vessel's current location. 
+        This algorithm accounts for the vessel's dynamics and places high-cost zones on either side of the gates to ensure it travels between the buoys. 
+        As a result, the vessel receives reliable, accurate routes to follow.
+        </p>
+      </dd>
+      <dt>Goal</dt>
+      <dd>9 out of 10 successful runs</dd>
+    </dl>
+  </section>
+  <div class="can">
+    <div class="img" id="render-follow-the-path">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-follow-the-path.webp' %}" alt="" />
+    </div>
+  </div>
+  <hr />
+
+  <section class="row" data-location="311.08, 0, -387.039" data-radius="15" data-beta="0.938" data-speed="0.1">
+    <h3 id="speed-challenge">Emergency Response Sprint</h3>
+    <img width="999" height="717" src="{% include relative-src.html src='/images/roboboat/2025/challenges/speedchallenge.png' %}"
+      alt="Speed Challenge Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        The ASV enters the gate buoys, maneuvers around the yellow marker buoy, and exits thought the same
+        gate buoys, as quickly as possible. The timer starts when the bow (front) crosses the gate
+        buoys and stops when the stern (back) crosses the gate buoys.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        The vessel notes in other tasks the location of the speed light buoy or the starting red and green buoys, and uses these to get to the beginning of this task. 
+        The vessel will then move forward until it sees the location and color of the light buoy, and then preempts the forward movement and either uses waypoints to 
+        circle left if it sees a green light beacon, or right if it sees a red light beacon. The vessel uses the navigation and controls algorithm to avoid any black buoy debris.
+      </dd>
+      <dt>Goal</dt>
+      <dd>
+        9 out of 10 successful runs. We hope for a baseline of 45 seconds, and a goal of 35 seconds.
+      </dd>
+    </dl>
+    <hr />
+  </section>
+  <div class="can">
+    <div class="img" id="render-speed-challenge">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-speed-challenge.webp' %}" alt="" />
+    </div>
+  </div>
+  <div></div>
+
+  <section class="row" data-location="313.619, 0, -398.136" data-radius="12" data-beta="1.32" data-alpha="1.38"
+    data-speed="0">
+    <h3 id="docking">Navigate the Marina</h3>
+    <img width="660" height="381" src="{% include relative-src.html src='/images/roboboat/2025/challenges/docking.png' %}"
+      alt="Docking Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        The ASV must enter the marina and dock in an available slip (indicated by green color indicator). 
+        Each dock slip has a number sign: 1-3. 
+        The ASV must dock in the most desirable open dock, indicated by the lowest number available.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        This challenge is a bit more involved in terms of computer and color/shape recognition but
+        does not require external hardware development. We plan to train our computer vision model to detect the right numbers and colors, 
+        as well as take other boats into account.
+      </dd>
+      <dt>Goal</dt>
+      <dd>9 out of 10 successful runs</dd>
+    </dl>
+  </section>
+  <div class="can">
+    <div class="img" id="render-docking">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-docking.webp' %}" alt="" />
+    </div>
+  </div>
+  <div>
+    <hr />
+
+    <h2>Medium Priority Challenges</h2>
+  </div>
+
+
+  <section class="row" data-location="312.9, 0, -401" data-radius="7" data-beta="1.38" data-alpha="2.59" data-speed="0">
+    <h3 id="duck-wash">Harbor Alert</h3>
+    <img width="591" height="348" src="{% include relative-src.html src='/images/roboboat/2025/challenges/hornblast.png' %}"
+      alt="Harbor Alert Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        The Harbor Alert task simulates an emergency maritime command-and-control, testing the ability of autonomous systems to detect, 
+        interpret and act on real-time dynamic cues that override other mission objectives, mirroring emergency maritime operations. 
+        The ASV detects an audible signal and immediately abandons current task.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        The vessel will constantly listen for the harbor sound and will abandon the task it is on, saving state such as location and current progress. 
+        To process the audio signal, we first apply the Hanning window to the audio stream. 
+        This prepares the data to get passed through the Discrete Fourier Transform, after which we have a spectrum of frequencies and their magnitude. 
+        We check whether the designated frequency of 600, 800, or 1000 Hz is in this spectrum and at a large enough magnitude. 
+        If so, we start tracking the length of time that this frequency persists for. 
+        If this matches either of the signal patterns, this gets sent to Task Planning. 
+        Task Planning will proceed to stop the current task, making note of location and task progress at this point, 
+        and set course towards the location corresponding to the signal pattern. 
+
+      </dd>
+      <dt>Goal</dt>
+      <dd>3 out of 5 successful runs</dd>
+      </dd>
+    </dl>
+  </section>
+  <div class="can">
+    <div class="img" id="render-duck-wash">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-duck-wash.webp' %}" alt="" />
+    </div>
+  </div>
+
+  <div>
+    <hr />
+    <h2>Lower Priority Challenges</h2>
+  </div>
+
+  <section class="row" data-location="303.6, 0, -388.7" data-radius="9" data-beta="0.938" data-alpha="3.14"
+    data-speed="0.1">
+    <h3 id="delivery-octagon">Supply Drop</h3>
+    <img width="530" height="313"
+      src="{% include relative-src.html src='/images/roboboat/2025/challenges/objectdelivery.avif' %}"
+      alt="Object Delivery Diagram" />
+    <dl>
+      <dt>Description</dt>
+      <dd>
+        The ASV detects up to three (3) yellow boats that are anchored throughout the course with a black triangle shape fixed to both sides of the boat. 
+        The ASV locates the boats and delivers/shoots water at the black triangle shape. 
+        The ASV should strike (with a steady and visible stream of water) the black triangle shape for at least 3 seconds. 
+        <br>
+        The ASV detects up to three (3) black boats that are anchored throughout the course, with a black plus-shape fixed to both sides of the boat.  
+        The ASV locates the black vessels and delivers a racquetball to the vessel, either striking the plus sign or inside of the vessel hull; 
+        or simply dropping the ball into the hull of the vessel is acceptable.
+      </dd>
+
+      <dt>Analysis</dt>
+      <dd>
+        We expect this challenge to be somewhat difficult, although we still plan to complete it. We are designing a
+        simple mechanism to deliver the preloaded balls and water to this challenge throughout the course and during tasks. 
+        We expect a challenge in detecting the specific areas to deliver balls to.
+      </dd>
+      <dt>Goal</dt>
+      <dd>2/6 successful deliveries</dd>
+    </dl>
+  </section>
+  <div class="can">
+    <div class="img" id="render-delivery-octagon">
+      <img loading="lazy" decoding="async"
+        src="{% include relative-src.html src='/images/roboboat/challenges/2024/render-delivery-octagon.webp' %}" alt="" />
+    </div>
+  </div>
+
+  <section>
+    <em>
+      UM::Autonomy extends a special thanks to Cole Biesemeyer from the Open Source Robotics
+      Foundation for the 3D model of Nathan Benderson Park and Gdańsk University of Technology's
+      SimLE: SeaSentinel team for creating 3D models of various competition elements.
+    </em>
+  </section>
+</div>
+
+<div id="results" class="content competition-results">
+  <section class="info">
+    <div class="container flex">
+      <div class="text">
+        <h1>Competition Results</h1>
+        <p>UM::Autonomy placed 4th in Autonomy, and 1st among American Universities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="roboboat-section text-maize bg-blue">
+    <img decoding="async" loading="lazy" class="img" src="/images/comp_judging.jpg"
+      style="object-position: 59% 50%"
+      alt="UM::Autonomy members pose on-stage with a judge holding a banner reading &quot;2023 3rd place design documentation&quot;" />
+    <div>
+      <h2>Static Judging</h2>
+      <p>
+        UM::Autonomy placed overall 2nd place in design
+        documentation.
+      </p>
+    </div>
+  </section>
+
+  <section class="roboboat-section text-blue bg-maize">
+    <img decoding="async" loading="lazy" class="img" src="/images/roboboat/2023/inwater.webp"
+      alt="The UM::Autonomy 2023 boat in the water" />
+    <div>
+      <h2>Autonomous Challenge</h2>
+      <p>UM::Autonomy placed 4th, beating all other American universities.</p>
+    </div>
+  </section>
+
+  <section class="roboboat-section text-maize bg-blue">
+    <img decoding="async" loading="lazy" class="img" src="/images/roboboat/2024/teamfun.webp"
+      style="object-position: 46% 50%" alt="The UM::Autonomy members in a fun pose surrounding the boat" />
+    <div>
+      <h2>The Team</h2>
+      <p>
+        The team feels very confident for the 2026 season. Many new members attended competition for
+        the first time, creating an exciting environment where many members are familiar with
+        competition practices allowing us to achieve further success in future years.
+      </p>
+    </div>
+  </section>
+</div>
+
+<style>
+  #allteams {
+    background-image: url('{% include image-previews/allteams.url %}');
+  }
+
+
+#render-competition-strategy {
+  background-image: url('{% include image-previews/rb-2024/render-competition-strategy.url %}');
+}
+#render-static-judging-criteria {
+  background-image: url('{% include image-previews/rb-2024/render-static-judging-criteria.url %}');
+}
+#render-autonomy-challenge {
+  background-image: url('{% include image-previews/rb-2024/render-autonomy-challenge.url %}');
+}
+#render-navigation-channel {
+  background-image: url('{% include image-previews/rb-2024/render-navigation-channel.url %}');
+}
+#render-follow-the-path {
+  background-image: url('{% include image-previews/rb-2024/render-follow-the-path.url %}');
+}
+#render-speed-challenge {
+  background-image: url('{% include image-previews/rb-2024/render-speed-challenge.url %}');
+}
+#render-docking {
+  background-image: url('{% include image-previews/rb-2024/render-docking.url %}');
+}
+#render-duck-wash {
+  background-image: url('{% include image-previews/rb-2024/render-duck-wash.url %}');
+}
+#render-delivery-octagon {
+  background-image: url('{% include image-previews/rb-2024/render-delivery-octagon.url %}');
+}
+#render-collection-octagon {
+  background-image: url('{% include image-previews/rb-2024/render-collection-octagon.url %}');
+}
+</style>
