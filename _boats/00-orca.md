@@ -1,11 +1,11 @@
 ---
-year: 2026
+year: 2025
 name: Orca
 page: true
 image_path: ../images/placeholdercroppedorca2025.webp
 tdr_path: ../technical_design_report/orca.pdf
-competition_path: ../roboboat/2026
-team_path: ../team/2026
+competition_path: ../roboboat/2025
+team_path: ../team/2025
 video_path: https://www.youtube.com/watch?v=0z6G2oO8Qlk
 # 
 # description1: "FIX At the 2024 RoboBoat Competition, The
@@ -16,7 +16,8 @@ video_path: https://www.youtube.com/watch?v=0z6G2oO8Qlk
 # further ensure a reliable, maintainable, and
 # modular system."
 description1: "
-At the 2026 RoboBoat Competition, The Orca sets sail once more, emerging stronger through the all-new X-Bow hull design. UM::Autonomy's 2026 vessel focuses on pushing the limits of every aspect while being more impressive than ever before. "
+At the 2025 RoboBoat Competition, The Orca makes its debut as UM::Autonomy’s redesigned autonomous vessel, built from the lessons of two seasons with The Phoenix. Centered around an all-new X-Bow monohull, Orca delivers improved seakeeping and maneuverability to meet the competition’s demands for precise navigation and reliable docking."
+
 
 # description2: "
 # Understanding the tighter time constraints of the 2024
@@ -32,7 +33,8 @@ At the 2026 RoboBoat Competition, The Orca sets sail once more, emerging stronge
 # to guarantee success."
 
 description2: "
-Building on 2025’s mechanical foundation, the 2026 strategy targets optimization and intelligent autonomy. Through custom PCBs and AI-driven perception and autonomy, the team has shifted from prototyping to refinement, relying on a matured simulation workflow to rigorously validate complex behaviors before physical deployment. "
+To match this new platform, the team consolidated and standardized its electrical systems for resilience and faster iteration, introducing deeper monitoring over CAN and simplifying power distribution and diagnostics. On the software side, we transitioned to ROS 2 and added wind compensation backed by a matured simulation workflow and rigorous weekly in-water testing, creating a robust, modular foundation for repeatable success across core tasks."
+
 
 
 ---
