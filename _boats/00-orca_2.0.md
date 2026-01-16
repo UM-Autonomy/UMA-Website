@@ -1,6 +1,6 @@
 ---
 year: 2026
-name: Orca
+name: Orca 2.0
 page: true
 image_path: ../images/orca_boss_pic.jpeg
 tdr_path: ../technical_design_report/orca.pdf
