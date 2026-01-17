@@ -6,7 +6,7 @@ image: /images/roboboat/main.jpg
 
 <script src="{% include relative-src.html src='/js/3d/benderson3d.iife.js' %}" async data-container="#container"
   data-canvas="#renderCanvas" data-resources="{% include relative-src.html src='/js/3d/' %}" data-fps="#fps"
-  data-model="{% include relative-src.html src='/js/3d/sim2526temp.glb' %}"
+  data-model="{% include relative-src.html src='/js/3d/sim2526.glb' %}"
   data-environment="{% include relative-src.html src='/js/3d/environment.env' %}"></script>
 <link href="{% include relative-src.html src='/css/roboboat.css' %}" rel="stylesheet" />
 <!-- <link href="{% include relative-src.html src='/js/3d/2024.glb' %}" rel="preload" as="fetch" crossorigin /> -->
@@ -240,7 +240,7 @@ image: /images/roboboat/main.jpg
   </div>
   <hr />
 
-  <section class="row" data-location="318.08, 0, -389.4" data-radius="15" data-beta="0.938" data-speed="0.1">
+  <section class="row" data-location="318.08, 0, -389.4" data-radius="18" data-beta="0.938" data-speed="0.1">
     <h3 id="speed-challenge">Emergency Response Sprint</h3>
     <img width="999" height="717" src="{% include relative-src.html src='/images/roboboat/2025/challenges/speedchallenge.png' %}"
       alt="Speed Challenge Diagram" />
@@ -273,8 +273,8 @@ image: /images/roboboat/main.jpg
   </div>
   <div></div>
 
-  <section class="row" data-location="305, 0, -388.3" data-radius="12" data-beta="1.32" data-alpha="1.38"
-    data-speed="0">
+  <section class="row" data-location="305, 0, -388.3" data-radius="15" data-beta="1.32" data-alpha="1.38"
+    data-speed="0.1">
     <h3 id="docking">Navigate the Marina</h3>
     <img width="660" height="381" src="{% include relative-src.html src='/images/roboboat/2025/challenges/docking.png' %}"
       alt="Docking Diagram" />
