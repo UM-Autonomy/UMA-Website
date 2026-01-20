@@ -3,7 +3,7 @@ year: 2026
 name: Orca 2.0
 page: true
 image_path: ../images/orca_boss_pic.jpeg
-tdr_path: ../technical_design_report/orca.pdf
+tdr_path: ../technical_design_report/orca2.pdf
 competition_path: ../roboboat/2026
 team_path: ../team/2026
 video_path: https://www.youtube.com/watch?v=1G3xWOlMEYA
@@ -36,4 +36,3 @@ Building on 2025’s mechanical foundation, the 2026 strategy targets optimizati
 
 
 ---
-
