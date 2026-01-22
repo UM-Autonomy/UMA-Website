@@ -4,6 +4,6 @@ roles:
   2026:
     leadership: Navigation & Controls Lead
     ai: Navigation & Controls Lead
-image_path: /images/headshots/AarushGota.jpg
+image_path: /images/headshots/AarushGota26.webp
 g_year: Winter 2028
 ---

@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: Task Planning Lead
     ai: Task Planning Lead
-image_path: /images/headshots/AyaanAttassery.jpg
+image_path: /images/headshots/AyaanAttassery26.webp
 g_year: Winter 2028
 ---

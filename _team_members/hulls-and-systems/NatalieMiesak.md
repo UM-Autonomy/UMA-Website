@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: Chief Naval Architect
     hulls-and-systems: Chief Naval Architect
-image_path: /images/headshots/NatalieMiesak.jpg
+image_path: /images/headshots/NatalieMiesak26.webp
 g_year: Winter 2027
 ---

@@ -10,7 +10,7 @@ roles:
   2026:
     leadership: Mechanical Lead
     hulls-and-systems: Mechanical Lead
-image_path: /images/headshots/ArchitaSaraiya.jpg
+image_path: /images/headshots/ArchitaSaraiya26.webp
 contact: mailto:architas@umich.edu
 contact_type: Email
 g_year: Winter 2027
