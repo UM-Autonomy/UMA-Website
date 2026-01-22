@@ -10,7 +10,7 @@ roles:
   2025:
     leadership: AI Lead
     ai: AI Lead
-image_path: /images/headshots/Ben.webp
+image_path: /images/headshots/BenSchattinger.jpg
 contact: https://www.linkedin.com/in/ben-schattinger/
 contact_type: LinkedIn
 g_year: Winter 2026

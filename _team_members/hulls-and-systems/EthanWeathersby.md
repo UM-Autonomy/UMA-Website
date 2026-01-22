@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: Safety Lead
     hulls-and-systems: Safety Lead
-image_path: /images/headshots/EthanWeathersby.webp
+image_path: /images/headshots/EthanWeathersby.jpg
 g_year: Winter 2027
 ---
