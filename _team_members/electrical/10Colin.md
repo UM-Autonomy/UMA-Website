@@ -8,7 +8,7 @@ roles:
   2026:
     leadership: Electrical Lead
     electrical: Electrical Lead
-image_path: /images/headshots/ColinCrespo.jpg
+image_path: /images/headshots/ColinCrespo26.webp
 contact: mailto:ccrespo@umich.edu
 contact_type: Email
 g_year: Winter 2027

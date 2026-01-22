@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: AI Lead
     ai: AI Lead
-image_path: /images/headshots/jonah.jpg
+image_path: /images/headshots/jonah26.webp
 g_year: Winter 2026
 ---
