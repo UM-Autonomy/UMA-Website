@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: AI Lead
     ai: AI Lead
-image_path: /images/headshots/Jonah_Cohen_Nav.webp
+image_path: /images/headshots/jonah.jpg
 g_year: Winter 2026
 ---

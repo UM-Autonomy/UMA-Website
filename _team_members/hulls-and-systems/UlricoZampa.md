@@ -6,6 +6,6 @@ roles:
   2026:
     leadership: Chief Naval Architect
     hulls-and-systems: Chief Naval Architect
-image_path: /images/headshots/Ulrico_Zampa_ME.webp
+image_path: /images/headshots/rico.jpg
 g_year: Winter 2028
 ---
