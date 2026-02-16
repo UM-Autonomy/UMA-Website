@@ -230,11 +230,11 @@ description: Michigan's Autonomous Boat Team
 			</div>
 	</section>
 
-	<section class="info">
-		<div class="container">
-			<ul class="staff" id="leadership">
-				{% for sponsor in site.sponsors %}
-				{% if sponsor.level == "Gold" %}
+		<section class="info">
+			<div class="container">
+				<ul class="staff" id="leadership">
+					{% for sponsor in site.sponsors %}
+					{% if sponsor.level == "Gold" %}
 				<li>
 					<div class="image">
 						<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
@@ -243,15 +243,42 @@ description: Michigan's Autonomous Boat Team
 			
 				{% endif %}
 				{% endfor %}
-			</ul>
-			
-		</div>
-	</section>
+				</ul>
+				
+			</div>
+		</section>
+
+		<section class="info">
+			<div class="container flex">
+				<div class="text">
+					<h2 class="editable" id="Silver" style="text-align: center;	">
+						Silver
+					</h2>
+				</div>
+		</section>
+
+		<section class="info">
+			<div class="container">
+				<ul class="staff" id="leadership">
+					{% for sponsor in site.sponsors %}
+					{% if sponsor.level == "Silver" %}
+					<li>
+						<div class="image">
+							<img class="editable sponsor-img" src={{sponsor.image_path}} alt={{sponsor.title}} />
+						</div>
+					</li>
+				
+					{% endif %}
+					{% endfor %}
+				</ul>
+				
+			</div>
+		</section>
 
 
-	<section class="info">
-		<div class="container flex">
-			<div class="text">
+		<section class="info">
+			<div class="container flex">
+				<div class="text">
 				<p>
 					Lastly, thank you to our alumni and friends for your donations during Giving Blue Day!
 				</p>
