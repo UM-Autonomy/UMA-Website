@@ -103,8 +103,9 @@ description: Michigan's Autonomous Boat Team
   <img class="img"
     srcset="{% include relative-src.html src='/images/placeholdercroppedorca2025.webp' %} 1920w, {% include relative-src.html src='/images/placeholdercroppedorca2025.webp' %} 3840w"
     sizes="100vw" src="{% include relative-src.html src='/images/placeholdercroppedorca2025.webp' %}" />
-  {% capture boat_url %}/history/{{ site.boats | map: "year" | first }}{% endcapture %}
-  <a href="{% include relative-src.html src=boat_url %}" class="cta editable">
+  <!-- {% capture boat_url %}/history/{{ site.boats | map: "year" | first }}{% endcapture %} -->
+  <!-- <a href="{% include relative-src.html src=boat_url %}" class="cta editable"> -->
+  <a href="{% include relative-src.html src='/history/2026' %}" class="cta editable">
     The Boat
   </a>
 </section>
