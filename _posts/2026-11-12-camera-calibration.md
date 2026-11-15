@@ -8,7 +8,7 @@ cover_img: /images/blog/11-12-26-jja/aarush.jpg
 cover_img_alt: AI Lead receiving a wonderful gift
 ---
 
-Get a sample of our weekly AI Lead meetups in the Wilson Center, our manufacting location! We receieved and hooked up our new beefy base station antenna which reduces reception to 120 degrees, which sohould help to focus data towards the boat's direction. We also recalibrated our camera, since we went through some sensor switching and wanted to make sure we didn't mess with any settings.
+Get a sample of our weekly AI Lead meetups in the Wilson Center, our manufacturing location! We received and hooked up our new beefy base station antenna which reduces reception to 120 degrees, which should help to focus data towards the boat's direction. We also recalibrated our camera, since we went through some sensor switching and wanted to make sure we didn't mess with any settings.
 
 ![boat video](/images/blog/11-12-26-jja/grid.jpg)
 
